@@ -5,7 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Examples/ModuleTest" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/PackageTest" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.8 (tf-nightly)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.8 (ca)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
