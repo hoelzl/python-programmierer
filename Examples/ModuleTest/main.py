@@ -5,7 +5,7 @@ print('Loading main.py')
 print(f"__name__ is {__name__}")
 
 
-def zähle_worte(text: str) -> dict:
+def count_words(text: str) -> dict:
     words = text.lower().split()
     result = {}
     for word in words:
@@ -19,5 +19,5 @@ if __name__ == '__main__':
 
     printer.print_greeting(names.get_name())
 
-    zähle_worte("It was the best of times it was the worst of times")
+    print(count_words("It was the best of times it was the worst of times"))
 
