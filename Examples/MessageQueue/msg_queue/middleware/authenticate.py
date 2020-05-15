@@ -1,4 +1,5 @@
 def authenticate(msg: dict) -> dict:
+    print(f"-> Authenticating message {msg.get('id', '<no id>')}")
     if msg.get('auth') == 'secret!':
         return msg
     else:

@@ -1,21 +1,17 @@
-import json
-from .utils.msg_utils import generate_id
-
-
-def parse_message(json_msg: str) -> dict:
-    msg = json.loads(json_msg)
-    if not msg.get('id'):
-        msg.id = generate_id()
-    return msg
-
-
-def process_message(msg: dict, middleware: list = []) -> None:
+def process_message(msg: dict, middleware: list = []) -> dict:
     result = msg
     for m in middleware:
         result = m(result)
-    print(result)
+    return result
 
 
-def process_json(json_msg: str, middleware: list = []) -> None:
-    msg = parse_message(json_msg)
-    process_message(msg, middleware)
+def process_messages(msgs: list, middleware: list) -> None:
+    processed_msgs = [process_message(msg, middleware)
+                      for msg in msgs]
+    print(f"""
+==================================
+Result of processing all messages:
+==================================
+""")
+    for msg in processed_msgs:
+        print(msg)
