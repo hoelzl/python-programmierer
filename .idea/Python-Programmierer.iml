@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Examples/MessageQueue" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/ModuleTest" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/NameGenerator" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/HttpServer" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (ca)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -20,17 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4f5ce46-d294-487b-ac69-2c54246c89c0" name="Default Changelist" comment="Improve message queue example">
-      <change afterPath="$PROJECT_DIR$/.idea/Python-Programmierer.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/$CACHE_FILE$" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Python-Oppenheim.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Examples/HttpServer/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Examples/HttpServer/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Examples/HttpServer/my-blog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Examples/HttpServer/my_http_server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Examples/HttpServer/pyhttp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Python-Programmierer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Python-Programmierer.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/markdown-navigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/050-Module und Packages.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/050-Module und Packages.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +43,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -52,13 +51,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="8f06943d-bcab-4c03-b8bf-43265f8c382d" />
   <component name="ProjectId" id="1bwxavqwwilFMuKNPn09JK4s6hO" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -92,6 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589557023676</updated>
       <workItem from="1589557027380" duration="4457000" />
+      <workItem from="1589572826681" duration="4139000" />
     </task>
     <task id="LOCAL-00001" summary="Improve message queue example">
       <created>1589571850423</created>
@@ -116,6 +120,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Improve message queue example" />
@@ -138,5 +143,9 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="873" y="454" key="Vcs.Push.Dialog.v2/-3840.0.2560.1440/3840.0.2560.1440/0.0.2560.1440@0.0.2560.1440" timestamp="1589571854847" />
+    <state x="943" y="330" key="search.everywhere.popup" timestamp="1589574554273">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="943" y="330" key="search.everywhere.popup/-3840.0.2560.1440/3840.0.2560.1440/0.0.2560.1440@0.0.2560.1440" timestamp="1589574554273" />
   </component>
 </project>
