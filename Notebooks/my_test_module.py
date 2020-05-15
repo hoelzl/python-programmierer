@@ -15,4 +15,3 @@ def perform_complex_computation(n):
 
 print("File my_test_module.py is executing!")
 print(f"Module name is '{__name__}'")
-

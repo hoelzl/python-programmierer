@@ -1,6 +1,4 @@
-def process_message(msg: dict, middleware: list) -> dict:
-    if middleware is None:
-        middleware = []
+def process_message(msg: dict, middleware: list = []) -> dict:
     result = msg
     for m in middleware:
         result = m(result)
