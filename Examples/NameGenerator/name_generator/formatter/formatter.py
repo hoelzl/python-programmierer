@@ -2,7 +2,7 @@
 
 from abc import ABC, abstractmethod
 
-# from packagetest.names.core import Name
+# from name_generator.names.core import Name
 
 
 class Formatter(ABC):

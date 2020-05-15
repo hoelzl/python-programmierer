@@ -1,5 +1,5 @@
-from packagetest.formatter.formatter import Formatter
-from packagetest.names.core import Name
+from name_generator.formatter.formatter import Formatter
+from name_generator.names.core import Name
 
 
 class AbbreviatedFormatter(Formatter):
