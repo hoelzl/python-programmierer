@@ -1,4 +1,6 @@
+import pickle
 from typing import List
+
 from todos.todo_item import TodoItem
 
 
@@ -9,7 +11,7 @@ class TodoList:
     def add(self, title, priority=1, is_completed=False):
         self.items.append(TodoItem(title, priority, is_completed))
 
-    def mark_done(self, title):
+    def mark_completed(self, title):
         for item in self.items:
             if item.title == title and not item.is_completed:
                 item.is_completed = True
@@ -33,6 +35,16 @@ class TodoList:
                 indices_to_delete.append(index)
         import numpy as np
         self.items = np.delete(self.items, indices_to_delete).tolist()
+
+    def save_to_file(self, file):
+        pickle.dump(self, file)
+
+    @staticmethod
+    def load_from_file(file):
+        try:
+            return pickle.load(file)
+        except (pickle.UnpicklingError, EOFError):
+            return TodoList([])
 
     def __str__(self):
         from io import StringIO

@@ -10,3 +10,11 @@ class TodoItem:
 
     def __repr__(self):
         return f"TodoItem({self.title!r}, {self.priority!r}, {self.is_completed!r})"
+
+    def __eq__(self, other):
+        if isinstance(other, TodoItem):
+            return self.title == other.title \
+                   and self.priority == other.priority \
+                   and self.is_completed == other.is_completed
+        else:
+            return False
