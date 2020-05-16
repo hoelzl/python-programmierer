@@ -7,6 +7,9 @@
       <sourceFolder url="file://$MODULE_DIR$/Examples/NameGenerator" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/HttpServer" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/MessageQueueDist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/ShoppingCart" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/TodoList" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/TriviaGame" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (ca)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
