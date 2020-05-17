@@ -1,4 +1,4 @@
-from name_generator.formatter.formatter import Formatter
+from namegenerator.formatter.formatter import Formatter
 
 
 class LastNameFirstFormatter(Formatter):

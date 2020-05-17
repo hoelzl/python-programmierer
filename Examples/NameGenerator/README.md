@@ -1,7 +1,6 @@
-# Message Queue
+# Name Generator
 
-An example program that simulates a very simple message queue to
-demonstrate Python packages and the distribution of Python programs.
+An example program that generates random names.
 
 Build source and binary distributions with the command
 
@@ -15,6 +14,6 @@ with pip:
 
 ```shell script
 cd dist
-pip install .\msgqueue-0.1-py3-none-any.whl
+pip install .\namegenerator-0.1-py3-none-any.whl
 cd ..
 ```

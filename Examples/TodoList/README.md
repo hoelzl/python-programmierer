@@ -1,7 +1,6 @@
-# Message Queue
+# TODO-List
 
-An example program that simulates a very simple message queue to
-demonstrate Python packages and the distribution of Python programs.
+A simple program to manage TODO lists.
 
 Build source and binary distributions with the command
 
@@ -15,6 +14,6 @@ with pip:
 
 ```shell script
 cd dist
-pip install .\msgqueue-0.1-py3-none-any.whl
+pip install .\todos-0.1-py3-none-any.whl
 cd ..
 ```

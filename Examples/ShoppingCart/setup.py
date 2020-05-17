@@ -4,15 +4,15 @@ with open('README.md', 'r') as file:
     long_description = file.read()
 
 setup(
-    name='msgqueue',
+    name='shoppingcart',
     version='0.1',
     packages=find_packages(),
     entry_points={'console_scripts': [
-        'msgqueue = msgqueue.main:main'
+        'shoppingcart = shoppingcart.main:main'
     ]},
     author='Matthias Hölzl',
     author_email='tc@xantira.com',
-    description='Example project for packaging',
+    description='A simple shopping cart',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://gitlab.com/mhoelzl/python-programmierer',

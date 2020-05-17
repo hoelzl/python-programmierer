@@ -1,7 +1,7 @@
 import random
 import string
 
-from name_generator.names.core import Name
+from namegenerator.names.core import Name
 
 _male_first_names = [
     "James",

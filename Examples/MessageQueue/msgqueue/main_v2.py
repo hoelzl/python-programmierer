@@ -1,7 +1,8 @@
 import argparse
 import json
+import os
 
-from msg_queue_mhoelzl.utils.main_utils import configure_middleware
+from msgqueue.utils.main_utils import configure_middleware
 from .core import process_messages
 
 
@@ -9,7 +10,6 @@ def get_args():
     parser = argparse.ArgumentParser(
         description="Process messages in json format.")
     parser.add_argument('messages',
-                        type=argparse.FileType('r'),
                         help="a file with messages in json format")
     parser.add_argument('--log', action='store_true',
                         help="enable logging")
@@ -20,10 +20,20 @@ def get_args():
     return parser.parse_args()
 
 
+def compute_input_file_name(args):
+    if os.path.isabs(args.messages):
+        return args.messages
+    else:
+        return os.path.join(os.getcwd(), args.messages)
+
+
 def main():
     args = get_args()
     middleware = configure_middleware(args)
-    msgs = json.load(args.messages)
+    input_file_name = compute_input_file_name(args)
+
+    with open(input_file_name, 'r') as input_file:
+        msgs = json.load(input_file)
 
     process_messages(msgs, middleware)
 

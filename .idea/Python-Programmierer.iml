@@ -10,6 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Examples/ShoppingCart" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/TodoList" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/TriviaGame" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/SimpleExamples" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (ca)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

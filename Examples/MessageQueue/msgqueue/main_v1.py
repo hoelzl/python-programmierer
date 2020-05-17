@@ -1,9 +1,9 @@
 import json
 import os
-from msg_queue.core import process_messages
-from msg_queue.middleware.log import log
-from msg_queue.middleware.authenticate import authenticate
-from msg_queue.middleware.timestamp import timestamp
+from msgqueue.core import process_messages
+from msgqueue.middleware.log import log
+from msgqueue.middleware.authenticate import authenticate
+from msgqueue.middleware.timestamp import timestamp
 
 full_middleware = [log, authenticate, timestamp]
 no_auth_middleware = [log, timestamp]

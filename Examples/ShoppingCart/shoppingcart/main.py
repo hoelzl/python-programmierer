@@ -1,6 +1,6 @@
 import argparse
 
-from .shopping_cart import ShoppingCart
+from shoppingcart.shopping_cart import ShoppingCart
 
 
 def get_args() -> argparse.Namespace:
@@ -10,6 +10,7 @@ def get_args() -> argparse.Namespace:
     opts = parser.add_mutually_exclusive_group(required=True)
     opts.add_argument('--create', action='store_true')
     opts.add_argument('--csv-file',
+                      dest='csv_file',
                       type=argparse.FileType('r'),
                       help="a CSV file containing one shopping cart entry "
                            "per line")
@@ -29,7 +30,7 @@ def main():
     save_cart = True
     if args.create:
         with open(args.file, 'wb'):
-            save_cart = False
+            pass
     else:
         if csv_file := args.csv_file:
             shopping_cart = ShoppingCart.from_csv(csv_file)
@@ -54,8 +55,6 @@ def main():
             })
         elif args.list:
             print(shopping_cart)
-        else:
-            print('Unknown argument.')
 
         if save_cart:
             with open(args.file, 'wb') as file:

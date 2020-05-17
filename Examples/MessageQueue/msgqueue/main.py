@@ -1,8 +1,10 @@
+# The final version of the main file.
+# Look at main_v1.py and main_v2.py first.
+
 import argparse
 import json
-import os
 
-from msg_queue.utils.main_utils import configure_middleware
+from msgqueue.utils.main_utils import configure_middleware
 from .core import process_messages
 
 

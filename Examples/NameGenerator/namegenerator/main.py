@@ -1,10 +1,10 @@
 import argparse
 
-from name_generator.formatter.formatter import Formatter
-from name_generator.formatter.abbreviated_formatter import AbbreviatedFormatter
-from name_generator.formatter.last_name_first_formatter import \
+from namegenerator.formatter.formatter import Formatter
+from namegenerator.formatter.abbreviated_formatter import AbbreviatedFormatter
+from namegenerator.formatter.last_name_first_formatter import \
     LastNameFirstFormatter
-from name_generator.names.generator import generate_name
+from namegenerator.names.generator import generate_name
 
 parser = argparse.ArgumentParser("Generate Names")
 parser.add_argument('n',
@@ -29,7 +29,8 @@ parser.add_argument('--last-name-first',
                     dest='last_name_first', default=False, action='store_true',
                     help='print last names first')
 
-if __name__ == '__main__':
+
+def main():
     args = vars(parser.parse_args())
     if args['abbrev']:
         Formatter.formatter_type = AbbreviatedFormatter
@@ -38,3 +39,7 @@ if __name__ == '__main__':
     for _ in range(args['n']):
         print(generate_name(female_name=args['female'],
                             add_middle_initial=args['middle_initial']))
+
+
+if __name__ == '__main__':
+    main()

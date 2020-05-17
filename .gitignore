@@ -133,3 +133,7 @@ dmypy.json
 
 # PyCharm files
 .idea/workspace.xml
+
+# Pickle files
+*.pickle
+

@@ -1,7 +1,7 @@
 from io import StringIO, BytesIO
 
-from shopping_cart.shopping_cart import ShoppingCart
-from shopping_cart.shopping_cart_entry import ShoppingCartEntry
+from shoppingcart.shopping_cart import ShoppingCart
+from shoppingcart.shopping_cart_entry import ShoppingCartEntry
 
 
 def create_breakfast_shopping_cart():

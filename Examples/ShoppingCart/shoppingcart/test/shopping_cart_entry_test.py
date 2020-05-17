@@ -1,6 +1,6 @@
 import pytest
 
-from shopping_cart.shopping_cart_entry import ShoppingCartEntry
+from shoppingcart.shopping_cart_entry import ShoppingCartEntry
 
 
 def test_negative_number_of_items_not_allowed():
