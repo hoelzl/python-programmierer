@@ -7,7 +7,7 @@ def get_args():
     parser = argparse.ArgumentParser('Manage a TODO list.')
 
     # Cannot use a file type, since the required mode will only be known later
-    parser.add_argument('file', type=str)
+    parser.add_argument('file')
     opts = parser.add_mutually_exclusive_group(required=True)
     opts.add_argument('--create', action='store_true')
     opts.add_argument('--add', nargs=2, metavar=('title', 'priority'))
