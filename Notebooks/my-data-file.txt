@@ -1,0 +1,6 @@
+Another line.
+Yet another line.
+Let's overwrite a part of the file, yes?
+Another line.
+And another.Another line.
+And another.
