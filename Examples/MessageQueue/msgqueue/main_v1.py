@@ -9,7 +9,7 @@ full_middleware = [log, authenticate, timestamp]
 no_auth_middleware = [log, timestamp]
 no_middleware = []
 
-middleware = full_middleware
+middleware = no_auth_middleware
 
 if __name__ == '__main__':
     input_file_name = os.path.join(os.getcwd(), 'messages.json')

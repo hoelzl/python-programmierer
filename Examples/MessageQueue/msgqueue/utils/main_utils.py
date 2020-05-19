@@ -1,8 +1,8 @@
 import argparse
 
-from msgqueue.middleware.authenticate import authenticate
-from msgqueue.middleware.log import log
-from msgqueue.middleware.timestamp import timestamp
+from ..middleware.authenticate import authenticate
+from ..middleware.log import log
+from ..middleware.timestamp import timestamp
 
 
 def configure_middleware(args: argparse.Namespace) -> list:
