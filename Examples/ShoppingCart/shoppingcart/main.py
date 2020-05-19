@@ -3,62 +3,100 @@ import argparse
 from shoppingcart.shopping_cart import ShoppingCart
 
 
-def get_args() -> argparse.Namespace:
+def get_args() -> (
+        argparse.Namespace, argparse.ArgumentParser):
     parser = argparse.ArgumentParser(description="Manage a shopping cart")
 
-    parser.add_argument('file')
-    opts = parser.add_mutually_exclusive_group(required=True)
-    opts.add_argument('--create', action='store_true')
-    opts.add_argument('--csv-file',
-                      dest='csv_file',
-                      type=argparse.FileType('r'),
-                      help="a CSV file containing one shopping cart entry "
-                           "per line")
-    opts.add_argument('--add', nargs=4,
-                      metavar=('id', 'name', 'price', 'num'),
-                      help="add a new item to the shopping cart")
-    opts.add_argument('--delete', nargs=4,
-                      metavar=('id', 'name', 'price', 'num'),
-                      help="delete the first matching item")
-    opts.add_argument('--list', action='store_true')
+    subparsers = parser.add_subparsers(title='subcommands',
+                                       help='help for sub-commands')
 
-    return parser.parse_args()
+    create_parser = subparsers.add_parser('create',
+                                          help='Create a new shopping cart')
+    create_parser.add_argument('file',
+                               type=argparse.FileType('wb'),
+                               help='the file to create')
+    create_parser.set_defaults(command='create')
+
+    csv_parser = subparsers.add_parser('csv', help='Load a CSV file')
+    csv_parser.add_argument('file',
+                            type=argparse.FileType('wb'),
+                            help='the file to create')
+    csv_parser.add_argument('csv-file',
+                            type=argparse.FileType('r'),
+                            help="a CSV file containing one shopping cart "
+                                 "entry per line")
+    csv_parser.set_defaults(command='csv')
+
+    add_parser = subparsers.add_parser('add', help='add a new item')
+    add_parser.add_argument('file',
+                            type=argparse.FileType('r+b'),
+                            help='the file to add the item to')
+    add_parser.add_argument('id', help='the item ID')
+    add_parser.add_argument('name', help='the item Name')
+    add_parser.add_argument('price', help='the price per item', type=float)
+    add_parser.add_argument('--number-of-items',
+                            dest='number_of_items',
+                            type=int,
+                            default=1)
+    add_parser.set_defaults(command='add')
+
+    delete_parser = subparsers.add_parser('delete', help='delete an item')
+    delete_parser.add_argument('file',
+                               type=argparse.FileType('r+b'),
+                               help='the file to delete the item from')
+    delete_parser.add_argument('id', help='the item ID')
+    delete_parser.add_argument('name', help='the item Name')
+    delete_parser.add_argument('price', help='the price per item',
+                               type=float)
+    delete_parser.add_argument('--number-of-items',
+                               dest='number_of_items',
+                               type=int,
+                               default=1)
+    delete_parser.set_defaults(command='delete')
+
+    list_parser = subparsers.add_parser('list', help='list the shopping cart')
+    list_parser.add_argument('file',
+                             type=argparse.FileType('rb'),
+                             help='the file to list')
+    list_parser.set_defaults(command='list')
+
+    return parser.parse_args(), parser
 
 
 def main():
-    args = get_args()
+    args, parser = get_args()
     save_cart = True
-    if args.create:
-        with open(args.file, 'wb'):
+    try:
+        if args.command == 'create':
             pass
-    else:
-        if csv_file := args.csv_file:
-            shopping_cart = ShoppingCart.from_csv(csv_file)
         else:
-            with open(args.file, 'rb') as file:
-                shopping_cart = ShoppingCart.load_from_file(file)
-        if args.add:
-            art_num, art_name, price_per_item, number_of_items = args.add
-            shopping_cart.add({
-                'article_number': art_num,
-                'article_name': art_name,
-                'price_per_item': float(price_per_item),
-                'number_of_items': int(number_of_items)
-            })
-        elif args.delete:
-            art_num, art_name, price_per_item, number_of_items = args.delete
-            shopping_cart.delete({
-                'article_number': art_num,
-                'article_name': art_name,
-                'price_per_item': float(price_per_item),
-                'number_of_items': int(number_of_items)
-            })
-        elif args.list:
-            print(shopping_cart)
+            if args.command == 'csv':
+                shopping_cart = ShoppingCart.from_csv(args.csv_file)
+            else:
+                shopping_cart = ShoppingCart.load_from_file(args.file)
+            if args.command == 'add':
+                shopping_cart.add({
+                    'article_number': args.id,
+                    'article_name': args.name,
+                    'price_per_item': args.price,
+                    'number_of_items': args.number_of_items
+                })
+            elif args.command == 'delete':
+                shopping_cart.delete({
+                    'article_number': args.id,
+                    'article_name': args.name,
+                    'price_per_item': args.price,
+                    'number_of_items': args.number_of_items
+                })
+            elif args.command == 'list':
+                print(shopping_cart)
+                save_cart = False
 
-        if save_cart:
-            with open(args.file, 'wb') as file:
-                shopping_cart.save_to_file(file)
+            if save_cart:
+                args.file.seek(0)
+                shopping_cart.save_to_file(args.file)
+    except AttributeError:
+        parser.print_help()
 
 
 if __name__ == '__main__':
