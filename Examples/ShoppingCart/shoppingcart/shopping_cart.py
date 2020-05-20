@@ -1,5 +1,6 @@
 import csv
 import pickle
+from collections import Mapping
 from io import StringIO
 
 from .shopping_cart_entry import ShoppingCartEntry
@@ -14,9 +15,12 @@ class ShoppingCart:
         - article_name
         - price_per_item
         - number_of_items
+        or a sequence with these four entries in the given order.
         All fields are required
         """
-        self.entries = [ShoppingCartEntry(**entry_spec)
+        self.entries = [(ShoppingCartEntry(**entry_spec)
+                         if isinstance(entry_spec, Mapping)
+                         else ShoppingCartEntry(*entry_spec))
                         for entry_spec in entry_specs]
 
     @staticmethod
@@ -33,12 +37,14 @@ class ShoppingCart:
         Returns a shopping cart containing these entries
         """
         reader = csv.reader(file)
-        entries = [{'article_number': art_nr,
-                    'article_name': name,
-                    'price_per_item': float(ppi),
-                    'number_of_items': int(num)}
-                   for art_nr, name, ppi, num in reader]
-        return ShoppingCart(entries)
+        return ShoppingCart(iter(reader))
+        # Alternative:
+        # entries = [{'article_number': art_nr,
+        #             'article_name': name,
+        #             'price_per_item': float(ppi),
+        #             'number_of_items': int(num)}
+        #            for art_nr, name, ppi, num in reader]
+        # return ShoppingCart(entries)
 
     @property
     def total_price(self):

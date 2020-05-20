@@ -3,8 +3,8 @@ class ShoppingCartEntry:
                  number_of_items):
         self.article_number = article_number
         self.article_name = article_name
-        self.price_per_item = price_per_item
-        self.number_of_items = number_of_items
+        self.price_per_item = float(price_per_item)
+        self.number_of_items = int(number_of_items)
 
     @property
     def number_of_items(self):

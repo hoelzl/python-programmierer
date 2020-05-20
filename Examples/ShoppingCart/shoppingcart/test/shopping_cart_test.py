@@ -17,8 +17,15 @@ def create_breakfast_shopping_cart():
     ])
 
 
-def test_construction_from_specs():
+def test_construction_from_dict_specs():
     unit = create_breakfast_shopping_cart()
+    assert unit.entries == [ShoppingCartEntry('123', 'Black Tea', 1.29, 3),
+                            ShoppingCartEntry('010', 'Oatmeal', '2.19', '1')]
+
+
+def test_construction_from_tuple_specs():
+    unit = ShoppingCart([('123', 'Black Tea', 1.29, 3),
+                         ('010', 'Oatmeal', '2.19', '1')])
     assert unit.entries == [ShoppingCartEntry('123', 'Black Tea', 1.29, 3),
                             ShoppingCartEntry('010', 'Oatmeal', 2.19, 1)]
 
@@ -69,7 +76,6 @@ def test_delete_when_no_matching_item():
                  'number_of_items': 2})
     assert unit.entries == [ShoppingCartEntry('123', 'Black Tea', 1.29, 3),
                             ShoppingCartEntry('010', 'Oatmeal', 2.19, 1)]
-
 
 
 def test_save_to_and_load_from_file():

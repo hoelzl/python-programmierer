@@ -8,6 +8,17 @@ def test_negative_number_of_items_not_allowed():
         ShoppingCartEntry('123', 'Black Tea', 1.29, -1)
 
 
+def test_number_of_items():
+    unit = ShoppingCartEntry('123', 'Black Tea', 1.0, 1)
+    assert unit.number_of_items == 1
+
+
+def test_number_of_items_setter():
+    unit = ShoppingCartEntry('123', 'Black Tea', 1.0, 1)
+    unit.number_of_items = 5
+    assert unit.number_of_items == 5
+
+
 def test_total_price():
     unit = ShoppingCartEntry('123', 'Black Tea', 1.0, 3)
     assert unit.total_price == 3 * 1.0

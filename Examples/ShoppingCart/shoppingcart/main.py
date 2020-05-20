@@ -21,7 +21,7 @@ def get_args() -> (
     csv_parser.add_argument('file',
                             type=argparse.FileType('wb'),
                             help='the file to create')
-    csv_parser.add_argument('csv-file',
+    csv_parser.add_argument('csv_file',
                             type=argparse.FileType('r'),
                             help="a CSV file containing one shopping cart "
                                  "entry per line")
@@ -34,10 +34,11 @@ def get_args() -> (
     add_parser.add_argument('id', help='the item ID')
     add_parser.add_argument('name', help='the item Name')
     add_parser.add_argument('price', help='the price per item', type=float)
-    add_parser.add_argument('--number-of-items',
+    add_parser.add_argument('--num',
                             dest='number_of_items',
                             type=int,
-                            default=1)
+                            default=1,
+                            help='the number of items to add')
     add_parser.set_defaults(command='add')
 
     delete_parser = subparsers.add_parser('delete', help='delete an item')
@@ -48,10 +49,11 @@ def get_args() -> (
     delete_parser.add_argument('name', help='the item Name')
     delete_parser.add_argument('price', help='the price per item',
                                type=float)
-    delete_parser.add_argument('--number-of-items',
+    delete_parser.add_argument('--num',
                                dest='number_of_items',
                                type=int,
-                               default=1)
+                               default=1,
+                               help='the number of items')
     delete_parser.set_defaults(command='delete')
 
     list_parser = subparsers.add_parser('list', help='list the shopping cart')
