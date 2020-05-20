@@ -76,6 +76,7 @@ def main():
                 shopping_cart = ShoppingCart.from_csv(args.csv_file)
             else:
                 shopping_cart = ShoppingCart.load_from_file(args.file)
+
             if args.command == 'add':
                 shopping_cart.add({
                     'article_number': args.id,

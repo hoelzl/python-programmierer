@@ -24,10 +24,12 @@ class ShoppingCartEntry:
 
     def __eq__(self, other):
         if isinstance(other, ShoppingCartEntry):
-            return self.article_number == other.article_number \
-                   and self.article_name == other.article_name \
-                   and self.price_per_item == other.price_per_item \
-                   and self.number_of_items == other.number_of_items
+            return (self.article_number == other.article_number
+                    and self.article_name == other.article_name
+                    and self.price_per_item == other.price_per_item
+                    and self.number_of_items == other.number_of_items)
+        else:
+            return False
 
     def __str__(self):
         return (f"{self.number_of_items} x "

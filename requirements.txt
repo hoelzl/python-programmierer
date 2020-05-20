@@ -1,4 +1,0 @@
-todos~=0.1
-setuptools~=46.4.0
-msgqueue~=0.1
-pytest~=5.4.2

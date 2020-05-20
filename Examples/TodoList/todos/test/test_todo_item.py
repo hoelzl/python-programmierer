@@ -14,7 +14,7 @@ def test_provided_args():
 
     assert unit.title == 'Quux'
     assert unit.priority == 2
-    assert unit.is_completed == True
+    assert unit.is_completed is True
 
 
 def test_str_for_non_completed_item():
