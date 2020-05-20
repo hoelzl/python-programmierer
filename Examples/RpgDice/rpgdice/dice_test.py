@@ -3,7 +3,7 @@ from collections import Counter
 import pytest
 import random
 
-from rpgdice.dice import Dice, ConstantDice, FairDice, SumDice, SimpleDie, \
+from rpgdice.dice import ConstantDice, FairDice, SumDice, SimpleDie, \
     MultipleRollDice, parse_single_die_configuration, parse_configuration, \
     dice_from_specs, create_dice
 
