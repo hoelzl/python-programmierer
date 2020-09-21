@@ -2,7 +2,7 @@ import argparse
 import json
 import os
 
-from msgqueue.utils.main_utils import configure_middleware
+from simple_msgqueue.utils.main_utils import configure_middleware_v1
 from .core import process_messages
 
 
@@ -29,7 +29,7 @@ def compute_input_file_name(args):
 
 def main():
     args = get_args()
-    middleware = configure_middleware(args)
+    middleware = configure_middleware_v1(args)
     input_file_name = compute_input_file_name(args)
 
     with open(input_file_name, 'r') as input_file:

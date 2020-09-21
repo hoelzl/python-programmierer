@@ -13,7 +13,7 @@ def get_args():
                         help="a file with messages in json format")
     parser.add_argument('--log', action='store_true',
                         help="enable logging")
-    parser.add_argument("--auth", action='store_true',
+    parser.add_argument("--auth", type=str,
                         help="require authentication in messages")
     parser.add_argument('--timestamp', action='store_true',
                         help="add a timestamp to the messages")
