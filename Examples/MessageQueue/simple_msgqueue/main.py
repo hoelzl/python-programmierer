@@ -8,6 +8,7 @@ from simple_msgqueue.utils.main_utils import configure_middleware_v2
 from .core import process_messages
 
 
+
 def get_args():
     parser = argparse.ArgumentParser(
         description="Process messages in json format.")

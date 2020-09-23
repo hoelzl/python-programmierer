@@ -1,3 +1,6 @@
 # Code a HTTP Server here...
+from http.server import HTTPServer, SimpleHTTPRequestHandler
 
-print("Hello, world!")
+httpd = HTTPServer(('', 8000), SimpleHTTPRequestHandler)
+httpd.serve_forever()
+
