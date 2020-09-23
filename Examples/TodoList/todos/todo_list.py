@@ -56,3 +56,7 @@ class TodoList:
 
     def __repr__(self):
         return f"TodoList({self.items!r})"
+
+    def __iter__(self):
+        # return iter(self.items)
+        return (i for i in self.items)

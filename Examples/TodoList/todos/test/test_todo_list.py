@@ -107,3 +107,13 @@ def test_str():
 def test_repr():
     unit = TodoList([{'title': 'Foo'}])
     assert repr(unit) == "TodoList([TodoItem('Foo', 1, False)])"
+
+
+def test_iter():
+    item_specs = [{'title': 'Foo'}, {'title': 'Bar', 'is_completed': True},
+                  {'title': 'Baz'}, {'title': 'Bar', 'priority': 2},
+                  {'title': 'Quux', 'is_completed': True}]
+    unit = TodoList(item_specs)
+
+    for index, item in enumerate(unit):
+        assert TodoItem(**item_specs[index]) == item
