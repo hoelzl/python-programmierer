@@ -19,4 +19,4 @@ def test_log_writes_output():
         sys.stdout = old_stdout
 
     output = string_buffer.getvalue()
-    assert output == "log: processing message 1234\n"
+    assert output == "-> logging message 1234\n"

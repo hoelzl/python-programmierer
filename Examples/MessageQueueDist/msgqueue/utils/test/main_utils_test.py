@@ -1,7 +1,7 @@
 from argparse import Namespace
 
 from ..main_utils import configure_middleware
-from ...middleware.authenticate import authenticate
+from ...middleware.authenticate import Authenticator
 from ...middleware.log import log
 from ...middleware.timestamp import timestamp
 
@@ -20,7 +20,7 @@ def test_configure_middleware_without_args():
     assert middleware == []
 
 
-def test_configure_middleware_with_all_args():
-    n = create_namespace(log=True, auth=True, timestamp=True)
+def test_configure_middleware_with_log_and_timestamp():
+    n = create_namespace(log=True, timestamp=True)
     middleware = configure_middleware(n)
-    assert middleware == [log, authenticate, timestamp]
+    assert middleware == [log, timestamp]
