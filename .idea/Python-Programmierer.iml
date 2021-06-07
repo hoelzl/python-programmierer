@@ -19,7 +19,7 @@
       <excludeFolder url="file://$MODULE_DIR$/Examples/ShoppingCart/dist" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/ShoppingCart/shoppingcart.egg-info" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.8 (anaconda)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.8 (cam) (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
