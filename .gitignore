@@ -137,3 +137,7 @@ dmypy.json
 # Pickle files
 *.pickle
 
+# Various files
+notes.md
+
+
