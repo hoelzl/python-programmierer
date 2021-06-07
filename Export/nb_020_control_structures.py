@@ -122,14 +122,6 @@ klassifiziere_zahl(12, 12)
 
 # %% [markdown]
 #
-# ## Mini-Workshop
-#
-# - Notebook `020x-Workshop Kontrollstrukturen`
-# - Abschnitt "Positiv/Negativ"
-#
-
-# %% [markdown]
-#
 # ## Struktur einer `if`-Anweisung (vollständig):
 #
 # ```python
@@ -146,11 +138,21 @@ klassifiziere_zahl(12, 12)
 
 # %% [markdown]
 #
+# ## Mini-Workshop
+#
+# - Notebook `020x-Workshop Kontrollstrukturen`
+# - Abschnitt "Positiv/Negativ"
+#
+
+# %% [markdown]
+#
 # ### Bessere Klassifizierung
 #
-# Wir wollem dem Spieler etwas mehr Information geben, wie nahe er an der richtigen Lösung ist:
+# Wir wollem dem Spieler etwas mehr Information geben, wie nahe er an der
+# richtigen Lösung ist:
 #
-# - Die geratene Zahl ist viel zu klein/zu groß wenn der Unterschied größer als 10 ist
+# - Die geratene Zahl ist viel zu klein/zu groß wenn der Unterschied größer als
+#   10 ist
 
 # %%
 def klassifiziere_zahl_2(geratene_zahl, lösung):
