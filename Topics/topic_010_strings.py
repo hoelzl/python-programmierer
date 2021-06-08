@@ -1,6 +1,7 @@
 # %% [markdown]
 #
-# # Vergleich von Strings
+# # Strings
+# ## Vergleich von Strings
 
 # %%
 "a" == "a"
@@ -64,10 +65,16 @@ print("😠🙃🙄")
 print("a\tbc\td\n123\t4\t5")
 
 # %%
-print('"Let\'s go crazy", she said')
+print('"Let\'s go crazy", she said.')
 
 # %%
 print("C:\\Users\\John")
+
+# %%
+print(r"C:\Users\John")
+
+# %%
+r"C:\Users\John" == "C:\\Users\\John"
 
 # %%
 print("\u0394 \u03b1 \t\U000003b2 \U000003b3")
@@ -89,7 +96,12 @@ das über mehrere
 Zeilen geht."""
 
 # %%
-print("""Mit Backslash am Ende der Zeile kann der Zeilenvorschub unterdrückt werden.""")
+print(
+    """Mit Backslash am Ende der Zeile kann der Zeilenvorschub \
+unterdrückt werden. \
+Allerdings muss der Backslash wirklich das letzte \ 
+Zeichen in der Zeile sein."""
+)
 
 # %% [markdown]
 #
@@ -107,6 +119,31 @@ print("""Mit Backslash am Ende der Zeile kann der Zeilenvorschub unterdrückt we
 # - Notebook `015x-Workshop Mehr zu Strings`
 # - Abschnitt "Begrüßung 1"
 
+
+# %% [markdown]
+#
+# ## Umwandeln eines Strings in Klein-/Großbuchstaben
+
+# %%
+text = "Das ist ein Text"
+print(text.lower())
+print(text)
+
+# %%
+"Das ist ein Text".upper()
+
+# %%
+"Das ist ein Text".title()
+
+# %% [markdown]
+#
+# ## Mini-Workshop
+#
+# - Notebook `020x-Workshop Kontrollstrukturen`
+# - Abschnitt "Shout"
+#
+
+
 # %% [markdown]
 #
 # # String Interpolation: F-Strings
@@ -119,18 +156,31 @@ zahl = 12
 f"Hallo, {name}, die Zahl ist {zahl + 1}"
 
 # %%
+f"Hallo, {name}" == "Hallo, Hans"
+
+# %%
 spieler_name = "Hans"
 anzahl_spiele = 10
 anzahl_gewinne = 2
 
-ausgabe = f"Hallo {spieler_name}!\nSie haben {anzahl_spiele}-mal gespielt und dabei {anzahl_gewinne}-mal gewonnen."
-print(ausgabe)
+# %% [markdown]
+#
+# Auch bei F-Strings können Zeilenvorschübe durch eine Backslash am Ende der
+# Zeile unterdrückt werden:
 
 # %%
 ausgabe = f"""Hallo {spieler_name}!
 Sie haben {anzahl_spiele}-mal gespielt \
 und dabei {anzahl_gewinne}-mal gewonnen.\
 """
+print(ausgabe)
+
+# %%
+ausgabe = (
+    f"Hallo {spieler_name}!\n"
+    f"Sie haben {anzahl_spiele}-mal gespielt "
+    f"und dabei {anzahl_gewinne}-mal gewonnen."
+)
 print(ausgabe)
 
 # %% [markdown]
@@ -142,16 +192,14 @@ print(ausgabe)
 
 # %% [markdown]
 #
-# ## Mini-Workshop
+# ## Extra Mini-Workshop
 #
 # - Notebook `015x-Workshop Mehr zu Strings`
 # - Abschnitt "Piraten 4"
 
-# %%
-
 # %% [markdown]
 #
-# # Umwandlung in Strings
+# ## Umwandlung in Strings
 #
 # Python bietet zwei Funktionen an, mit denen beliebige Werte in Strings
 # umgewandelt werden können:
@@ -173,5 +221,61 @@ print(repr("Hallo!"))
 # %%
 print(str(["a", "b", "c"]))
 print(repr(["a", "b", "c"]))
+
+# %% [markdown]
+#
+# ## Mehr zu F-Strings
+#
+# Ob Werte in F-Strings mit `str()` oder `repr()` umgewandelt werden lässt sich
+# mit den Typkonvertierungen `!s` (der Default) oder `!r` steuern:
+
+# %%
+hallo = "Hallo!"
+print(f"{hallo}")
+print(f"{hallo!s}")
+print(f"{hallo!r}")
+
+# %% [markdown]
+#
+# Es gibt auch `!a` (`ascii()`, wie `repr()` mit escapes für nicht-ASCII-Character):
+
+# %%
+mood = "Größenwahn 😠"
+print(ascii(mood))
+print(f"{mood!a}")
+print(f"{mood!r}")
+print(f"{mood!s}")
+
+
+# %% [markdown]
+#
+# Mit `:n` kann man eine Mindestbreite für ein Element angeben. Mit `:<n` und
+# `:>n` und `:^n` kann man festlegen, wie der Text ausgerichtet werden soll:
+print(f"|{hallo:20}|")
+print(f"|{hallo:<20}|")
+print(f"|{hallo:^20}|")
+print(f"|{hallo:>20}|")
+
+# %%
+width = 15
+print(f"|{hallo:^{width}}|")
+print(f"|{hallo:>{width + len(hallo)}}|")
+
+# %% [markdown]
+#
+# Wenn sowohl Typkonvertierung als auch Format-Spezifikation angegeben werden,
+# dann muss die Typkonvertierung zuerst angegeben werden:
+
+# %%
+print(f"|{hallo!r:20}|")
+
+# %% [markdown]
+#
+# Für manche Datentypen gibt es spezielle Formatanweisungen:
+
+# %%
+print(f"{2 ** 0.5}")
+print(f"{2 ** 0.5:.2f}")
+print(f"{2 ** 0.5:>10.2f}")
 
 # %%

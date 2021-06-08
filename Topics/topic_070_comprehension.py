@@ -1,7 +1,7 @@
 
 # %% [markdown]
 #
-# ## Eleganter: Listen-Komprehension
+# # Eleganter: Listen-Komprehension
 
 # %%
 result = []

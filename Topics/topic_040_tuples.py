@@ -64,10 +64,3 @@ print(x, y)
 (1, 2, 3, 1, 2, 1, 2).count(1)
 
 # %%
-[
-    f"Item {item} in {tuple_1}"
-    for tuple_1 in ((1, 2), ("a", "b", "c"))
-    for item in tuple_1
-]
-
-# %%

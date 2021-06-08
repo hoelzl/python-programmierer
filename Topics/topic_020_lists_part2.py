@@ -137,9 +137,6 @@ stringliste.extend(["E", "F"])
 stringliste
 
 # %%
-stringliste
-
-# %%
 stringliste.insert(1, "Y")
 
 # %%
@@ -244,7 +241,8 @@ stringliste[:]
 #
 # ## Erzeugen von Listen
 #
-# Durch den Multiplikationsoperator `*` können die Elemente einer Liste wiederholt werden:
+# Durch den Multiplikationsoperator `*` können die Elemente einer Liste
+# wiederholt werden:
 
 # %%
 [1, 2] * 3
@@ -279,36 +277,5 @@ liste
 # %%
 liste[:] = [11, 22, 33]
 liste
-
-# %% [markdown]
-#
-# ## Identität von Objekten
-
-# %%
-a = [1, 2, 3]
-b = [1, 2, 3]
-c = b
-
-# %%
-print(f"a = {a}, b = {b}, c = {c}")
-
-# %%
-a[0] = 10
-
-# %%
-print(f"a = {a}, b = {b}, c = {c}")
-
-# %%
-b[0] = 20
-
-# %%
-c[1] = 30
-
-# %%
-print(f"a = {a}, b = {b}, c = {c}")
-
-# %% [markdown]
-#
-# <img src="img/identity.svg" style="display:block;width:70%;margin:auto;"/>
 
 # %%

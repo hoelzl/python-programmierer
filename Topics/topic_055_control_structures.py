@@ -1,4 +1,3 @@
-
 # %% [markdown]
 #
 # # `if`-Anweisung
@@ -17,18 +16,19 @@ def ist_glückszahl(zahl):
 
 # %% [markdown]
 #
-# ## Mini-Workshop
+# ## Extra Mini-Workshop
 #
 # - Notebook `020x-Workshop Kontrollstrukturen`
 # - Abschnitt "Gerade Zahl"
-#
 
 # %% [markdown]
 #
 # ## Mehrere Zweige
 #
-# - Wir wollen ein Spiel schreiben, in dem der Spieler eine Zahl zwischen 1 und 100 erraten muss.
-# - Nachdem er geraten hat, bekommt er die Information, ob seine Zahl zu hoch, zu niedrig oder richtig war angezeigt.
+# - Wir wollen ein Spiel schreiben, in dem der Spieler eine Zahl zwischen 1 und
+#   100 erraten muss.
+# - Nachdem er geraten hat, bekommt er die Information, ob seine Zahl zu hoch,
+#   zu niedrig oder richtig war angezeigt.
 # - Später wollen wir dem Spieler mehrere Versuche erlauben.
 
 # %%
@@ -68,7 +68,7 @@ klassifiziere_zahl(12, 12)
 
 # %% [markdown]
 #
-# ## Mini-Workshop
+# ## Extra Mini-Workshop
 #
 # - Notebook `020x-Workshop Kontrollstrukturen`
 # - Abschnitt "Positiv/Negativ"
@@ -141,7 +141,8 @@ klassifiziere_zahl_3(100, 12)
 #
 # ## Return aus einem `if`-Statement
 #
-# Die Zweige eines `if`-Statements können `return` Anweisungen enthalten um einen Wert aus einer Funktion zurückzugeben:
+# Die Zweige eines `if`-Statements können `return` Anweisungen enthalten um
+# einen Wert aus einer Funktion zurückzugeben:
 
 # %%
 def ist_große_zahl(zahl):
@@ -150,35 +151,6 @@ def ist_große_zahl(zahl):
     else:
         return False
 
-
-# %% [markdown]
-#
-# Es können auch mehrere Werte aus einem `if`-Statement zurückgegeben werden:
-
-# %%
-def klassifiziere_zahl_4(geratene_zahl, lösung):
-    if geratene_zahl < lösung:
-        return False, "Die geratene Zahl ist zu klein!"
-    elif geratene_zahl > lösung:
-        return False, "Die geratene Zahl ist zu groß!"
-    else:
-        return True, "Sie haben gewonnen!"
-
-
-# %%
-gewonnen, text = klassifiziere_zahl_4(1, 10)
-print(gewonnen)
-print(text)
-
-# %%
-gewonnen, text = klassifiziere_zahl_4(15, 10)
-print(gewonnen)
-print(text)
-
-# %%
-gewonnen, text = klassifiziere_zahl_4(10, 10)
-print(gewonnen)
-print(text)
 
 # %% [markdown]
 #
@@ -212,7 +184,8 @@ def query_name():
 #
 # ## Beispiel: Konvertierung von Temperaturen
 #
-# Wir wollen eine Anwendung schreiben, die den Benutzer nach einer Temperatur in Fahrenheit fragt und die entsprechende Temperatur in Grad Celsius zurückgibt.
+# Wir wollen eine Anwendung schreiben, die den Benutzer nach einer Temperatur in
+# Fahrenheit fragt und die entsprechende Temperatur in Grad Celsius zurückgibt.
 
 # %%
 def konvertiere_fahrenheit_nach_celsius(fahrenheit):
@@ -238,12 +211,17 @@ float("1.23")
 # %%
 # temperaturkonverter_1()
 
+# %% [markdown]
+#
+# Wir können eine Meldung ausgeben, wenn der Benutzer nichts eingibt (und die
+# Ausgabe etwas schöner gestalten):
+
 # %%
 def temperaturkonverter_2():
     fahrenheit = input("Bitte geben Sie die Temperatur in Fahrenheit ein: ")
     if fahrenheit != "":
         celsius = konvertiere_fahrenheit_nach_celsius(float(fahrenheit))
-        print(f"{fahrenheit}F sind {celsius}°C")
+        print(f"{float(fahrenheit):.1f}F sind {celsius:.1f}°C")
     else:
         print("Bitte geben Sie eine gültige Temperatur ein.")
 
@@ -264,7 +242,7 @@ def temperaturkonverter_3():
     fahrenheit = input("Bitte geben Sie die Temperatur in Fahrenheit ein: ")
     if fahrenheit:
         celsius = konvertiere_fahrenheit_nach_celsius(float(fahrenheit))
-        print(f"{fahrenheit}F sind {celsius}°C")
+        print(f"{float(fahrenheit):.1f}F sind {celsius:.1f}°C")
     else:
         print("Bitte geben Sie eine gültige Temperatur ein.")
 
@@ -322,30 +300,10 @@ else:
 
 # %% [markdown]
 #
-# ## Mini-Workshop
+# ## Extra Mini-Workshop
 #
 # - Notebook `020x-Workshop Kontrollstrukturen`
 # - Abschnitt "Kino-Preis"
-#
-
-# %% [markdown]
-#
-# ## Hinweis: Umwandeln eines Strings in Kleinbuchstaben
-
-# %%
-text = "Das ist ein Text"
-print(text.lower())
-print(text)
-
-# %%
-"Das ist ein Text".upper()
-
-# %% [markdown]
-#
-# ## Mini-Workshop
-#
-# - Notebook `020x-Workshop Kontrollstrukturen`
-# - Abschnitt "Shout"
 #
 
 # %% [markdown]

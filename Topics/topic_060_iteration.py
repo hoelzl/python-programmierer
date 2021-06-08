@@ -3,7 +3,8 @@
 #
 # # Iteration über Listen
 #
-# Zur Iteration über Listen (und andere Datenstrukturen) bietet Python die bereits besprochene`for`-Schleife:
+# Zur Iteration über Listen (und andere Datenstrukturen) bietet Python die
+# bereits besprochene`for`-Schleife:
 
 # %%
 my_list = [1, 2, 3, 4]
@@ -30,15 +31,15 @@ print(b)
 my_list = [[1, 2], [3, 4], [5, 6]]
 
 # %%
+for m, n in my_list:
+    print(f"Items {m} and {n}")
+
+# %%
 index = 0
 while index < len(my_list):
     m, n = my_list[index]
     print(f"Items {m} and {n}")
     index += 1
-
-# %%
-for m, n in my_list:
-    print(f"Items {m} and {n}")
 
 # %% [markdown]
 #
@@ -62,10 +63,6 @@ list(enumerate(my_list))
 # %%
 for index, element in enumerate(my_list):
     print(f"index = {index}, element = {element}")
-
-# %%
-for index, element, other in [[1, 2, 3], ["a", "b", "c"]]:
-    print(index, element, other)
 
 # %%
 def find(element, a_list):
@@ -131,7 +128,6 @@ summe([1, 2, 3])
 #
 # - Notebook `030x-Workshop Listen und For-Schleifen`
 # - Abschnitt "Mittelwert einer Liste"
-#
 
 # %% [markdown]
 #
