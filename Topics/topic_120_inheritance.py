@@ -1,5 +1,12 @@
 
-# # Vererbung
+# %% [markdown]
+#
+# # Objektorientierung Teil 2
+#
+# - Wir haben im vorherigen Kapitel Klassen kennengelernt, einen der grundlegenden Baustein der objektorientierten Programmierung
+# - In diesem Kapitel werden wir Vererbung betrachten.
+#
+# ## Vererbung
 
 # %%
 import random
@@ -72,10 +79,47 @@ cp
 
 # %% [markdown]
 #
-# # Objektorientierung Teil 2
+# ## Abstrakte Klassen
 #
-# - Wir haben im vorherigen Kapitel Klassen kennengelernt, einen der grundlegenden Baustein der objektorientierten Programmierung
-# - In diesem Kapitel werden wir Vererbung betrachten.
+# - Die Klasse `abc.ABC` als Basisklasse
+# - (Eigentlich ist eine Metaklasse verantwortlich)
+# - `@abstractmethod` Dekorator
+
+# %%
+from abc import ABC, abstractmethod
+
+
+class MyBase(ABC):
+    @abstractmethod
+    def my_method(self):
+        print("HI!")
+
+
+# %%
+class MyClass(MyBase):
+    pass
+
+
+# mc = MyClass()
+
+# %%
+class YourClass(MyBase):
+    def my_method(self):
+        super().my_method()
+        print("Hello!")
+
+
+yc = YourClass()
+yc.my_method()
+
+# %% [markdown]
+#
+# # Workshop
+#
+# Siehe `070x-Workshop RPG-Würfel` bis `Factory für RPG-Würfel`.
+
+
+# %% [markdown]
 #
 # ## Attribute von Klassen
 
@@ -170,7 +214,7 @@ LoggingAdder.__dict__
 
 # %% [markdown]
 #
-# # Zugriff auf Attribute
+# ## Zugriff auf Attribute
 #
 # Python ermöglicht es uns als Programmierer, an mehreren Stellen in den Zugriff auf Attribute einzugreifen und das Verhalten zu modifizieren.
 
@@ -335,46 +379,5 @@ d.f()
 
 # %%
 d.g()
-
-# %% [markdown]
-#
-# ## Abstrakte Klassen
-#
-# - Die Klasse `abc.ABC` als Basisklasse
-# - (Eigentlich ist eine Metaklasse verantwortlich)
-# - `@abstractmethod` Dekorator
-
-# %%
-from abc import ABC, abstractmethod
-
-
-class MyBase(ABC):
-    @abstractmethod
-    def my_method(self):
-        print("HI!")
-
-
-# %%
-class MyClass(MyBase):
-    pass
-
-
-# mc = MyClass()
-
-# %%
-class YourClass(MyBase):
-    def my_method(self):
-        super().my_method()
-        print("Hello!")
-
-
-yc = YourClass()
-yc.my_method()
-
-# %% [markdown]
-#
-# # Workshop
-#
-# Siehe `070x-Workshop RPG-Würfel` bis `Factory für RPG-Würfel`.
 
 # %%
