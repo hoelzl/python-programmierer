@@ -1,8 +1,8 @@
 import argparse
 import json
 
-from msgqueue.utils.main_utils import configure_middleware
-from msgqueue.core import process_messages
+from .utils.main_utils import configure_middleware
+from .core import process_messages
 
 
 def get_args():

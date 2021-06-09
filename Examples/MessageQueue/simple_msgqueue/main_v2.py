@@ -2,7 +2,7 @@ import argparse
 import json
 import os
 
-from simple_msgqueue.utils.main_utils import configure_middleware_v1
+from .utils.main_utils import configure_middleware_v1
 from .core import process_messages
 
 
