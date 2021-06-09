@@ -1,7 +1,7 @@
 import pickle
 from typing import List
 
-from todos.todo_item import TodoItem
+from .todo_item import TodoItem
 
 
 class TodoList:

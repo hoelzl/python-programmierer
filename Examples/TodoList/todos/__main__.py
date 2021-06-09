@@ -1,6 +1,6 @@
 import argparse
 
-from todos.todo_list import TodoList
+from .todo_list import TodoList
 
 
 def get_args():
