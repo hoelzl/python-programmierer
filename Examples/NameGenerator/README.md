@@ -14,6 +14,6 @@ with pip:
 
 ```shell script
 cd dist
-pip install .\triviagame-0.1-py3-none-any.whl
+pip install .\namegenerator-0.1-py3-none-any.whl
 cd ..
 ```

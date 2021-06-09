@@ -74,6 +74,7 @@ class ShoppingCart:
         try:
             return pickle.load(file)
         except (pickle.UnpicklingError, EOFError):
+            print("Could not load {file}.")
             return ShoppingCart([])
 
     def __str__(self):

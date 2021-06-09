@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from abc import ABC, abstractmethod
 
 
@@ -26,7 +24,7 @@ class NameChecker(ABC):
                and self.check_middle_initial(middle_initial)
 
     @staticmethod
-    def get_instance() -> NameChecker:
+    def get_instance() -> "NameChecker":
         if not NameChecker._instance:
             NameChecker._instance = NameChecker.instance_type()
         return NameChecker._instance

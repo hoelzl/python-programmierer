@@ -4,11 +4,11 @@
 import argparse
 import json
 
-from simple_msgqueue.utils.main_utils import configure_middleware_v2
+from .utils.main_utils import configure_middleware_v2
 from .core import process_messages
 
 
-
+# noinspection DuplicatedCode
 def get_args():
     parser = argparse.ArgumentParser(
         description="Process messages in json format.")

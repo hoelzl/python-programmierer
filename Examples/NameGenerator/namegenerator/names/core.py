@@ -1,6 +1,7 @@
 from .checker import NameChecker
 from ..formatter.formatter import Formatter
 
+
 class Name:
     def __init__(self, first_name, last_name, middle_initial=''):
         name_checker = NameChecker.get_instance()
