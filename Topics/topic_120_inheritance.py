@@ -1,11 +1,11 @@
-
 # %% [markdown]
 #
 # # Objektorientierung Teil 2
 #
 # - Wir haben im vorherigen Kapitel Klassen kennengelernt, einen der grundlegenden Baustein der objektorientierten Programmierung
 # - In diesem Kapitel werden wir Vererbung betrachten.
-#
+
+# %% [markdown]
 # ## Vererbung
 
 # %%

@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 # %% [markdown]
 #
 # <img src="img/python-logo-notext.svg"
@@ -11,9 +8,6 @@
 # <br/>
 # <div style="text-align:center;">Dr. Matthias Hölzl</div>
 # <div style="text-align:center;">Allaithy Raed</div>
-
-# %%
-from IPython import get_ipython
 
 # %% [markdown]
 #

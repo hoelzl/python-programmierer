@@ -19,8 +19,11 @@
       <excludeFolder url="file://$MODULE_DIR$/Examples/ShoppingCart/dist" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/ShoppingCart/shoppingcart.egg-info" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/Examples/MessageQueueDist/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Examples/MessageQueueDist/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/Examples/MessageQueueDist/.pytest_cache" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.8 (cam) (2)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.8 (cam)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
