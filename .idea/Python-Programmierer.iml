@@ -23,7 +23,7 @@
       <excludeFolder url="file://$MODULE_DIR$/Examples/MessageQueueDist/dist" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/MessageQueueDist/.pytest_cache" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.8 (cam)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.9 (cam)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
