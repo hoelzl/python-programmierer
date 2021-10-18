@@ -113,7 +113,7 @@ kann der Zeilenvorschub unterdrückt werden.''')
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `015x-Workshop Mehr zu Strings`
+# - Notebook `lecture_015x_Workshop_Mehr zu Strings`
 # - Abschnitt "Begrüßung 1"
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -145,11 +145,11 @@ print(ausgabe)
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `015x-Workshop Mehr zu Strings`
+# - Notebook `lecture_015x_Workshop_Mehr zu Strings`
 # - Abschnitt "Begrüßung 2"
 
 # %% [markdown]
 # ## Mini-Workshop
 #
-# - Notebook `015x-Workshop Mehr zu Strings`
+# - Notebook `lecture_015x_Workshop_Mehr zu Strings`
 # - Abschnitt "Piraten 4"

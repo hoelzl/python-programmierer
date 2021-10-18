@@ -14,7 +14,7 @@
 #     name: python3
 # ---
 
-# %% [markdown] pycharm={"name": "#%% md\n"}
+# %% [markdown]
 # # Playground
 #
 # Ein leeres Notebook für Experimente und kleine Beispiele.

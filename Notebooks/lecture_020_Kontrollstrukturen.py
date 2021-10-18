@@ -87,7 +87,7 @@ def ist_glückszahl(zahl):
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `020x-Workshop Kontrollstrukturen`
+# - Notebook `lecture_020x_Workshop_Kontrollstrukturen`
 # - Abschnitt "Gerade Zahl"
 #
 
@@ -121,7 +121,7 @@ klassifiziere_zahl(12, 12)
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `020x-Workshop Kontrollstrukturen`
+# - Notebook `lecture_020x_Workshop_Kontrollstrukturen`
 # - Abschnitt "Positiv/Negativ"
 #
 
@@ -246,7 +246,7 @@ print(text)
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `020x-Workshop Kontrollstrukturen`
+# - Notebook `lecture_020x_Workshop_Kontrollstrukturen`
 # - Abschnitt "Signum"
 #
 
@@ -316,7 +316,7 @@ def temperaturkonverter_2():
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `020x-Workshop Kontrollstrukturen`
+# - Notebook `lecture_020x_Workshop_Kontrollstrukturen`
 # - Abschnitt "Umrechnung in Meilen"
 #
 
@@ -375,14 +375,14 @@ else:
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `020x-Workshop Kontrollstrukturen`
+# - Notebook `lecture_020x_Workshop_Kontrollstrukturen`
 # - Abschnitt "Umrechnung in Meilen mit Truthiness"
 #
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `020x-Workshop Kontrollstrukturen`
+# - Notebook `lecture_020x_Workshop_Kontrollstrukturen`
 # - Abschnitt "Kino-Preis"
 #
 
@@ -400,7 +400,7 @@ print(text)
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `020x-Workshop Kontrollstrukturen`
+# - Notebook `lecture_020x_Workshop_Kontrollstrukturen`
 # - Abschnitt "Shout"
 #
 
@@ -476,7 +476,7 @@ def annoy_user():
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `020x-Workshop Kontrollstrukturen`
+# - Notebook `lecture_020x_Workshop_Kontrollstrukturen`
 # - Abschnitt "Ratespiele"
 #
 
@@ -544,7 +544,7 @@ cp.randomize()
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `020x-Workshop Kontrollstrukturen`
+# - Notebook `lecture_020x_Workshop_Kontrollstrukturen`
 # - Abschnitt "Vererbung"
 #
 
@@ -727,7 +727,7 @@ assert my_var == 1
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `020x-Workshop Kontrollstrukturen`
+# - Notebook `lecture_020x_Workshop_Kontrollstrukturen`
 # - Abschnitt "Knobeln"
 #
 
@@ -821,7 +821,7 @@ with open('my-data-file.txt', 'r+') as file:
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `020x-Workshop Kontrollstrukturen`
+# - Notebook `lecture_020x_Workshop_Kontrollstrukturen`
 # - Abschnitt "# Lesen und Schreiben in Dateien"
 #
 

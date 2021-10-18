@@ -238,7 +238,7 @@ total_price_of_shopping_cart(shopping_cart)
 # %% [markdown] slideshow={"slide_type": "slide"}
 # ## Mini Workshop
 #
-# - Notebook `062x-Workshop Todo-Liste V1`
+# - Notebook `lecture_062x_Workshop_Todo-Liste V1`
 # - Abschnitt "TODO-Liste Version 1"
 #
 # Update von `https://gitlab.com/mhoelzl/python-programmierer`
@@ -467,25 +467,25 @@ a
 #
 # ## Workshop
 #
-# - Notebook `064x-Workshop Todo-Liste V2`
+# - Notebook `lecture_064x_Workshop_Todo-Liste V2`
 # - Abschnitt "Grundlegende Funktionalität"
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # ## Workshop
 #
-# - Notebook `064x-Workshop Todo-Liste V2`
+# - Notebook `lecture_064x_Workshop_Todo-Liste V2`
 # - Abschnitt "Laden und Speichern"
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # ## Workshop
 #
-# - Notebook `064x-Workshop Todo-Liste V2`
+# - Notebook `lecture_064x_Workshop_Todo-Liste V2`
 # - Abschnitt "Kommandozeilenargumente"
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # ## Workshop
 #
-# - Notebook `064x-Workshop Todo-Liste V2`
+# - Notebook `lecture_064x_Workshop_Todo-Liste V2`
 # - Abschnitt "Packaging"
 
 # %%

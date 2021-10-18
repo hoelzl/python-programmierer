@@ -23,37 +23,6 @@
 # <div style="text-align:center;">Dr. Matthias Hölzl</div>
 # <div style="text-align:center;">Allaithy Raed</div>
 
-# %% [markdown] slideshow={"slide_type": "slide"}
-# # Python und Jupyter Notebooks
-#
-# Wir beginnen mit einer kurzen Einführung in die Arbeitsweise von Python und Jypyter Notebooks.
-
-# %% [markdown] slideshow={"slide_type": "subslide"}
-# ## Compiler (C++)
-#
-# <img src="img/compiler.svg" style="width:60%;margin:auto"/>
-
-# %% [markdown] slideshow={"slide_type": "subslide"}
-# ## Interpreter (Python)
-#
-# <img src="img/interpreter.svg" style="width:60%;margin:auto"/>
-#
-
-# %% [markdown] slideshow={"slide_type": "subslide"}
-# ## Jupyter Notebooks
-#
-# <img src="img/jupyter-notebook.svg" style="width:60%;margin:auto"/>
-
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
-import numpy as np
-import matplotlib.pyplot as plt
-
-page_load_time = np.random.normal(3.0, 1.0, 1000)
-purchase_amount = np.random.normal(50.0, 1.5, 1000) - page_load_time
-
-plt.figure(figsize=(12, 8))
-plt.scatter(page_load_time, purchase_amount)
-
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # # Woraus besteht ein Programm?
@@ -84,7 +53,7 @@ plt.scatter(page_load_time, purchase_amount)
 # - `#` gefolgt von beliebigem Text
 # - bis zum Ende der Zeile
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # Das ist ein Kommentar.
 # Alle Zeilen in dieser Zelle werden
 # von Python ignoriert.
@@ -96,153 +65,68 @@ plt.scatter(page_load_time, purchase_amount)
 # - Zahlen: `123`, `3.141592`
 # - Text (Strings): `'Das ist ein Text'`, `"Hello, world!"`
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 # Die Zahl 123
 123
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # Die Zahl Pi = 3.141592
 3.141592
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 # Der Text 'Das ist ein Text'
 "Das ist ein Text"
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # Der Text 'Hello, world!'
 "Hello, world!"
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 """Auch ein Text.
 Der über mehrere Zeilen geht."""
-
-
-# %% [markdown] slideshow={"slide_type": "slide"}
-# ## Anzeige von Werten
-#
-# - Jupyter Notebooks geben den letzten Wert jeder Zelle auf dem Bildschirm aus
-# - Das passiert in "normalen" Python-Programmen nicht!
-#   - Wenn sie als Programme ausgeführt werden
-#   - Der interaktive Interpreter verhält sich ähnlich wie Notebooks
-
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
-123
-
-
-# %% [markdown]
-# Um die Ausgabe des letzten Wertes einer Zeile in Jupyter zu unterbinden kann man
-# die Zeile mit einem Strichpunkt beenden:
-
-# %% pycharm={"name": "#%%\n"}
-123
-
-
-# %% [markdown] slideshow={"slide_type": "slide"}
-# ## Mehrere Berechnungen
-
-# %% pycharm={"name": "#%%\n"}
-2 * 3 + 4
-5 + 6 * 7
-
-
-# %% pycharm={"name": "#%%\n"}
-2 * 3 + 4
-
-
-# %% pycharm={"name": "#%%\n"}
-5 + 6 * 7
-
-
-# %% [markdown] slideshow={"slide_type": "subslide"}
-# Wie kann man die Werte mehrerer Berechnungen in einer Zelle anzeigen?
-
-# %% [markdown] slideshow={"slide_type": "slide"}
-# # Anweisungen
-#
-# `print(...)` gibt den in Klammern eingeschlossenen Text auf dem Bildschirm aus
-
-# %% pycharm={"name": "#%%\n"}
-print("Hello, world!")
-
-
-# %% [markdown]
-# Vergleichen Sie die Ausgabe mit der folgenden Zelle:
-
-# %% pycharm={"name": "#%%\n"}
-"Hello, world!"
-
-
-# %% [markdown] slideshow={"slide_type": "subslide"}
-# - Den in Klammern eingeschlossenen Text nennt man das *Argument*
-# - Man kann auch Zahlen und andere Werte mit `print` ausgeben.
-
-# %% pycharm={"name": "#%%\n"}
-print(234)
-
-
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "-"}
-print(1.1)
-
-
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
-print(2 * 3 + 4)
-print(5 + 6 * 7)
-
-
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
-print(1 + 1)
-2 + 2
-print(3 + 3)
-4 + 4
-print(5 + 5)
-6 + 6
-
-
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
-print("Hello, world!")
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `010x-Workshop Einführung in Python`
+# - Notebook `lecture_010x_Workshop_Einführung_in_Python`
 # - Abschnitt "Einleitung"
 
 # %% [markdown] slideshow={"slide_type": "slide"}
-# ## Ausdrucken mehrerer Werte in einer Zeile
+# ## Wiederholung: `print()`-Funktion
 #
 # Einer `print()`-Anweisung können mehrere Argumente übergeben werden.
 # - Die Argumente werden durch Kommata getrennt
 # - Alle Argumente werden in einer Zeile ausgegeben, mit Leerzeichen zwischen den Argumenten.
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print("Der Wert von 1 + 1 ist", 1 + 1, ".")
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Durch Angabe eines *benannten Arguments* `sep=''` kann die Ausgabe der Leerzeichen unterdrückt werden:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print("Der Wert von 1 + 1 ist", 1 + 1, ".", sep="")
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print("Der Wert von 1 + 1 ist ", 1 + 1, ".", sep="")
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Es sind auch beliebige andere Strings als Wert des Arguments `sep` zulässig:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # CSV (nicht empfehlenswert)
 print(1, 3, 7.5, 2, sep=",")
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # Uh, oh
 print(1, 3, 7.5, 2, "who, me?", sep=",")
 
@@ -261,11 +145,11 @@ print(1, 3, 7.5, 2, "who, me?", sep=",")
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Python als Taschenrechner
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 17 + 4
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1 + 4 * 4 + (3 - 1) * (1 + 1)
 
 
@@ -277,33 +161,33 @@ print(1, 3, 7.5, 2, "who, me?", sep=",")
 #     - `1.0` ist eine Gleitkommazahl (`float`)
 # - Mit `type(...)` kann man den Typ des Arguments erfahren:
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 type(1)
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 type(1.0)
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 type("1")
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Ganze Zahlen in Python haben keine (praktisch relevante) Obergrenze:
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": ""}
+# %% slideshow={"slide_type": ""}
 10000000000000000000000000000000000000000000000000 + 500
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": ""}
+# %% slideshow={"slide_type": ""}
 type(10000000000000000000000000000000000000000000000000)
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `010x-Workshop Einführung in Python`
+# - Notebook `lecture_010x_Workshop_Einführung_in_Python`
 # - Abschnitt "Zahlen und Mathematik"
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -322,59 +206,59 @@ type(10000000000000000000000000000000000000000000000000)
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Division
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 4 / 2
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 20 / 7
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 # // und % können zur Division mit Rest verwendet werden:
 20 // 7  # Wie oft geht 7 in 20?
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 20 % 7  # Welcher Rest bleibt dabei?
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 (20 // 7) * 7 + (20 % 7)
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # `/` ist links-assoziativ (genau wie `//`, `%`, `+`, `-`, `*`)
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 20 / 5 / 2
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # Besser:
 (20 / 5) / 2
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 20 / (5 / 2)
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Exponentiation (Potenz)
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 2 ** 3
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 2 * 2 * 2
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 2 ** 4
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 2 * 2 * 2 * 2
 
 
@@ -384,15 +268,15 @@ type(10000000000000000000000000000000000000000000000000)
 # $2^{(2^3)} = 2^8 = 256 \qquad$
 # $(2^2)^3 = 4^3 = 64$
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 2 ** 2 ** 3
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 2 ** (2 ** 3)
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 (2 ** 2) ** 3
 
 
@@ -403,15 +287,15 @@ type(10000000000000000000000000000000000000000000000000)
 # $\sqrt{9} = 9^{1/2} = 3\qquad$
 # $\sqrt{2} = 2^{1/2} \approx 1.4142\qquad$
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 4 ** 0.5
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 9 ** 0.5
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 2 ** 0.5
 
 
@@ -431,7 +315,7 @@ type(10000000000000000000000000000000000000000000000000)
 #
 # Wie lange muss unser Zaun sein?
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 20 + 30 + (20 ** 2 + 30 ** 2) ** 0.5
 
 
@@ -444,7 +328,7 @@ type(10000000000000000000000000000000000000000000000000)
 #
 # Wie lange muss unser Zaun sein?
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 länge_birkenweg = 20
 länge_fichtengasse = 30
 länge_hauptstr = (länge_birkenweg ** 2 + länge_fichtengasse ** 2) ** 0.5
@@ -474,7 +358,7 @@ ergebniss = länge_gesamt
 # Erzeugen und Ändern von Variablen<br/>
 # sind *Anweisungen*.
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 länge_birkenweg = 20
 print(länge_birkenweg)
 länge_birkenweg = 25
@@ -491,7 +375,7 @@ print(länge_birkenweg)
 # - Man kann Variablen neue Werte zuweisen
 #     - Dabei kann der *alte Wert* der Variablen auf der rechten Seite verwendet werden:<br/> `jobs = jobs + 1`
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 x = "Hallo!"
 print(x)
 x = 123
@@ -502,11 +386,11 @@ x += 1
 print(x)
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 # print(diese_variable_gibt_es_nicht)
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # nonono = nonono + 1
 
 
@@ -533,17 +417,17 @@ print(x)
 #     - `__class__`, `__name__`
 #     - Normale benutzerdefinierte Variablen sollten nicht als Dunders benannt werden
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 print(__name__)
 print(type(__name__))
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # Bitte nicht nachmachen, obwohl es möglich ist:
 __my_var__ = 123
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 __my_var__
 
 
@@ -553,45 +437,45 @@ __my_var__
 #     - In Klassen gibt es weitere Konventionen
 # - Die meisten Python-Projekte folgen den Konventionen in [PEP 8](https://www.python.org/dev/peps/pep-0008/#naming-conventions)
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 _my_var = 234
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 _my_var
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 variable_1 = 123
 VARIABLE_1 = 234
 Variable_1 = 345
 variablE_1 = 456
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print(variable_1)
 print(VARIABLE_1)
 print(Variable_1)
 print(variablE_1)
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 _my_var = 1
 print(_my_var)
 _my_var = _my_var + 5
 print(_my_var)
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 größenmaßstäbe_der_fußgängerübergänge = 0.3
 größenmaßstäbe_der_fußgängerübergänge
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # me@foo = 1
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 α = 0.2
 β = 0.7
 γ = α ** 2 + 3 * β ** 2
@@ -606,7 +490,7 @@ print(Σ)
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `010x-Workshop Einführung in Python`
+# - Notebook `lecture_010x_Workshop_Einführung_in_Python`
 # - Abschnitt "Piraten"
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -614,7 +498,7 @@ print(Σ)
 #
 # In Python können mehrere Variablen gleichzeitig definiert bzw. mit neuen Werten versehen werden:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 a, b = 1, 2
 print(a)
 print(b)
@@ -627,7 +511,7 @@ print(b)
 #
 # Für jedes von Straßen $A$, $B$ und $C$ begrenze Grundstück berechnen wir:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 länge_a = 10  # Beispielwert
 länge_b = 40  # Beispielwert
 länge_c = (länge_a ** 2 + länge_b ** 2) ** 0.5
@@ -645,18 +529,18 @@ print(länge_gesamt)
 #
 # Das können wir in Python durch eine *Funktion* ausdrücken:
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 def pythagoras(a, b):
     c = (a ** 2 + b ** 2) ** 0.5
     return c
 
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 pythagoras(3, 4)
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 pythagoras(1, 1)
 
 
@@ -671,7 +555,7 @@ pythagoras(1, 1)
 #     - Beendet die Funktion
 #     - Bestimmt welcher Wert zurückgegeben wird
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 def pythagoras(a, b):
     quadratsumme = a ** 2 + b ** 2
     return quadratsumme ** 0.5
@@ -685,7 +569,7 @@ def pythagoras(a, b):
 # - Argumente des Aufrufs, in Klammern
 # - Ein Argument für jeden Parameter
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 pythagoras(3, 4)
 
 
@@ -695,7 +579,7 @@ pythagoras(3, 4)
 # - Wir haben bis jetzt die Länge der dritten Seite unseres Grundstücks berechnet.
 # - Wir brauchen noch eine Funktion, die die Gesamtlänge ausrechnet:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 def gesamtlänge(x, y):
     z = pythagoras(x, y)
     länge = x + y + z
@@ -706,7 +590,7 @@ def gesamtlänge(x, y):
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Damit können wir unser Problem vereinfachen:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 länge_a = 10  # Beispielwert
 länge_b = 40  # Beispielwert
 print(gesamtlänge(länge_a, länge_b))
@@ -715,7 +599,7 @@ print(gesamtlänge(länge_a, länge_b))
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `010x-Workshop Einführung in Python`
+# - Notebook `lecture_010x_Workshop_Einführung_in_Python`
 # - Abschnitt "Spenden"
 #
 
@@ -724,7 +608,7 @@ print(gesamtlänge(länge_a, länge_b))
 #
 # Ein Großteil der Funktionalität von Python ist nicht direkt im Interpreter verfügbar sonder in Module (und Packages) ausgelagert. Mit der `import` Anweisung kann man dises Funktionalität verfügbar machen:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # Zusätzliche mathematische Funktionen:
 import math
 
@@ -732,25 +616,25 @@ import math
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Auf die Funktionen aus dem `math` Modul kann man dann mit der Syntax `math.floor` zugreifen:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 math.floor(2.5)
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 math.floor(2.9)
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Die Funktion `pythagoras` steht im `math`-Modul unter dem Namen `hypot` zur Verfügung:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 math.hypot(3, 4)
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Damit können wir die Funktion `gesamtlänge` ohne die Hilfsfunktion `pythagoras` schreiben:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 def gesamtlänge(x, y):
     z = math.hypot(x, y)
     länge = x + y + z
@@ -758,7 +642,7 @@ def gesamtlänge(x, y):
 
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 gesamtlänge(3, 4)
 
 
@@ -772,21 +656,21 @@ gesamtlänge(3, 4)
 # - Ganze Zahlen mit fixer Größe (z.B. mit `numpy`)
 # - Gleitkommazahlen mit unterschiedlicher Größe (`numpy`)
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 1.1 * 100
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 import decimal
 
 decimal.Decimal("1.1") * 100
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 (1 + 1j) * (1 + 1j)
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1j * 1j
 
 
@@ -796,17 +680,17 @@ decimal.Decimal("1.1") * 100
 # - Eine Funktion kann auch ohne formale Parameter definiert werden.
 # - Sowohl bei der Definition, als auch beim Aufruf müssen die Klammern trotzdem angegeben werden.
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 def null():
     return 0
 
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 null()
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # Fehler: 'Aufruf' ohne Klammern
 null
 # plus_eins(null)
@@ -820,7 +704,7 @@ null
 # - Werte berechnen: `quadratsumme(3, 4)`
 # - Seiteneffekte haben: `print("Hans")`
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 type(print("Hans"))
 
 
@@ -830,15 +714,15 @@ type(print("Hans"))
 # Der Rückgabewert der Funktion `print()` ist der spezielle Wert `None`.
 # - Jupyter druckt `None` nicht als Wert einer Zelle aus:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 None
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print(None)
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print(print("Hans"))
 
 
@@ -850,21 +734,21 @@ print(print("Hans"))
 #     - Oft ist das der spezielle Wert `None`
 #     - Wenn eine Funktion `None` zurückgibt brauchen wir keine explizite `return`-Anweisung
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 def say_hello():
     print("Hello, world!")
     print("Today is a great day!")
 
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 say_hello()
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `010x-Workshop Einführung in Python`
+# - Notebook `lecture_010x_Workshop_Einführung_in_Python`
 # - Abschnitt "Piraten, Teil 2"
 #
 
@@ -876,16 +760,47 @@ say_hello()
 # - Wird das entsprechende Argument nicht übergeben so wird der Default-Wert eingesetzt
 # - Hat ein Parameter einen Default-Wert, so müssen alle rechts davon stehenden Werte ebenfalls einen haben
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 def add_weighted(a, b=0, c=0):
     return a + 2 * b + 3 * c
 
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print(add_weighted(2))
 print(add_weighted(2, 3))
 print(add_weighted(2, 3, 4))
+
+# %% [markdown] slideshow={"slide_type": "slide"}
+# ## Vorsicht mit veränderlichen Default-Argumenten
+
+# %%
+def append_value(value, my_list=[]):
+    my_list.append(value)
+    return my_list
+
+# %%
+append_value(1)
+
+# %%
+append_value(2)
+
+# %% [markdown] slideshow={"slide_type": "slide"}
+#
+# Lösung: verwende `Null` als Argument, erzeuge in jedem Aufruf eine neue Liste
+
+# %%
+def append_value(value, my_list=None):
+    if my_list is None:
+        my_list = []
+    my_list.append(value)
+    return my_list
+
+# %%
+append_value(1)
+
+# %%
+append_value(2)
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -895,32 +810,32 @@ print(add_weighted(2, 3, 4))
 # - Der entsprechende Wert wird dann für den benannten Parameter eingesetzt
 # - Werden alle Parameter benannt, so wird der Aufruf unabhängig von der Parameterreihenfolge
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 def say_hi(person, greeting="Hi"):
     print(greeting, " ", person, "!", sep="")
 
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 say_hi("Jill")
 say_hi("Jack", "Good morning")
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 say_hi(greeting="Heya", person="Betty")
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 def add_weighted(a, b=0, c=0):
     return a + 2 * b + 3 * c
 
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": ""}
+# %% slideshow={"slide_type": ""}
 add_weighted(c=2, a=1)
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 add_weighted(5, c=7)
 
 
@@ -929,41 +844,63 @@ add_weighted(5, c=7)
 #
 # Python erlaubt es die Typen von Funktionsargumenten und den Rückgabetyp einer Funktion anzugeben:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 def mult(a: int, b: float) -> float:
     return a * b
 
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 mult(3, 2.0)
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Typannotationen dienen lediglich zur Dokumentation und werden von Python ignoriert:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 mult("a", 3)
+
+# %% [markdown] slideshow={"slide_type": "subslide"}
+# Typannotationen können parametrische Typen, optionale Typen, etc. enthalten.
+
+# %%
+from typing import Optional
+def my_append(lhs: list[int], rhs: Optional[int]):
+    # What exactly does this mean?
+    if rhs:
+        lhs.append(rhs)
+
+
+# %% slideshow={"slide_type": "subslide"}
+my_list = [1, 2, 3]
+my_append(my_list, None)
+my_list
+
+# %%
+my_append(my_list, 4)
+my_list
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # ## Docstrings
 #
-# Jede Funktion in Python kann dokumentiert werden, indem ein String-Literal als erstes Element im Rumpf angegeben wird. Meistens wird dafür ein `"""`-String verwendet:
+# Jede Funktion in Python kann dokumentiert werden, indem ein String-Literal als
+# erstes Element im Rumpf angegeben wird. Meistens wird dafür ein `"""`-String
+# verwendet:
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 def my_fun(x):
     """
     Zeigt dem Benutzer den Wert von x an
 
     Verwendung:
-    > my_fun(123)
+    >>> my_fun(123)
     """
     print("Das Argument x hat den Wert", x)
 
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 my_fun(123)
 
 
@@ -973,36 +910,36 @@ my_fun(123)
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Der Docstring einer Funktion kann mit `help()` ausgegeben werden:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 help(my_fun)
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # In Jupyter kann man den Docstring einer Funktion durch ein vorangestelltes oder nachgestelltes Fragezeichen anzeigen lassen:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # # ?my_fun
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # # my_fun?
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Oft verwendet man statt dessen Shift-Tab:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 my_fun
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Bei Funktionen mit langen Docstrings kann man durch zweimaliges Drücken von `Shift-Tab` auf die ausführliche Anzeigeform umschalten:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 my_fun
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print
 
 
@@ -1013,31 +950,67 @@ print
 #
 # Jupyter zeigt u.a. die Signatur einer Funktion an, wenn man `Shift-Tab` eingibt:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 # Shift-Tab zum Anzeigen der Signatur:
 say_hi
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 def add_ints(m: int, n: int) -> int:
     return m + n
 
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 add_ints
 
+
+# %% [markdown] slideshow={"slide_type": "slide"}
+# ## Beliebig viele Argumente:
+#
+# Man kann Funktionen definieren, die beliebig viele Argumente bekommen können:
+
+# %%
+def my_add(*args):
+    result = 0
+    for i in args:
+        result += i
+    return result
+
+# %%
+my_add(1, 2, 3, 4, 5, 6)
+
+# %% [markdown] slideshow={"slide_type": "slide"}
+# Das kann auch mit anderen Argumenten kombiniert werden:
+
+# %%
+def add_more_than_two(x, y, *more_args):
+    result = x + y
+    for i in more_args:
+        result += i
+    return result
+
+# %% slideshow={"slide_type": "slide"}
+add_more_than_two(1, 2, 3, 4, 5, 6)
+
+# %%
+add_more_than_two(1, 2)
+
+# %%
+# add_more_than_two(1)
+
+# %%
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # ## Mehrere Rückgabewerte
 #
 # Wie oben gezeigt kann man mehrere Variablen in einem Schritt definieren:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 ergebnis, rest = 10, 2
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print(ergebnis)
 print(rest)
 
@@ -1046,19 +1019,19 @@ print(rest)
 # - Besonders hilfreich ist das für Funktionen die mehrere eng zusammenhängende Werte berechnen.
 # - Man kann mit `return wert1, wert2` mehrere Werte zurückgeben
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 def zwei_werte(a, b):
     return a + 1, b + 2
 
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 erster_wert, zweiter_wert = zwei_werte(1, 2)
 print(erster_wert)
 print(zweiter_wert)
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 def division_mit_rest(m, n):
     ergebnis = m // n
     rest = m % n
@@ -1066,20 +1039,20 @@ def division_mit_rest(m, n):
 
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 e, r = division_mit_rest(17, 7)
 print(e)
 print(r)
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": ""}
+# %% slideshow={"slide_type": ""}
 # Kürzer
 def division_mit_rest_2(m, n):
     return m // n, m % n
 
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 e, r = division_mit_rest_2(17, 7)
 print(e)
 print(r)
@@ -1088,7 +1061,7 @@ print(r)
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # (In Python gibt es die eingebaute Funktion `divmod`, die diese Berechnung ausführt:)
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 e, r = divmod(17, 7)
 print(e)
 print(r)
@@ -1097,5 +1070,5 @@ print(r)
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `010x-Workshop Einführung in Python`
+# - Notebook `lecture_010x_Workshop_Einführung_in_Python`
 # - Abschnitt "Piraten, Teil 3"

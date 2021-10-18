@@ -214,7 +214,7 @@ stringliste
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `030x-Workshop Listen und For-Schleifen`
+# - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
 # - Abschnitt "Farben"
 #
 
@@ -250,7 +250,7 @@ stringliste[:]
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `030x-Workshop Listen und For-Schleifen`
+# - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
 # - Abschnitt "Slicing"
 #
 
@@ -477,7 +477,7 @@ assert find('x', my_list) == find_return('x', my_list)
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `030x-Workshop Listen und For-Schleifen`
+# - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
 # - Abschnitt "Finden in Listen"
 #
 
@@ -498,7 +498,7 @@ summe([1, 2, 3])
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `030x-Workshop Listen und For-Schleifen`
+# - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
 # - Abschnitt "Mittelwert einer Liste"
 #
 
@@ -520,7 +520,7 @@ result
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `030x-Workshop Listen und For-Schleifen`
+# - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
 # - Abschnitt "Quadratzahlen"
 #
 
@@ -544,7 +544,7 @@ result
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `030x-Workshop Listen und For-Schleifen`
+# - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
 # - Abschnitt "Filtern"
 #
 
@@ -573,7 +573,7 @@ result
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `030x-Workshop Listen und For-Schleifen`
+# - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
 # - Abschnitte "Quadratzahlen mit Listen-Komprehension"
 #
 
@@ -610,7 +610,7 @@ result
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `030x-Workshop Listen und For-Schleifen`
+# - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
 # - Abschnitte "Filtern mit Listen-Komprehension"
 #
 

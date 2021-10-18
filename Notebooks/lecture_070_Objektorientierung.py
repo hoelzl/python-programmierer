@@ -316,7 +316,7 @@ yc.my_method()
 # %% [markdown] slideshow={"slide_type": "slide"}
 # # Workshop
 #
-# Siehe `070x-Workshop RPG-Würfel` bis `Factory für RPG-Würfel`.
+# Siehe `lecture_070x_Workshop_RPG-Würfel` bis `Factory für RPG-Würfel`.
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # # Reguläre Ausdrücke
@@ -342,7 +342,7 @@ yc.my_method()
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # # Workshop
 #
-# Siehe `070x-Workshop RPG-Würfel` bis `Factory für RPG-Würfel`.
+# Siehe `lecture_070x_Workshop_RPG-Würfel` bis `Factory für RPG-Würfel`.
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # # Workshop

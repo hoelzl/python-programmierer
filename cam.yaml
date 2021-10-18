@@ -1,0 +1,34 @@
+name: cam
+channels:
+  - pytorch
+  - conda-forge
+  - mhoelzl
+  - defaults
+dependencies:
+  - python[version='>=3.9']
+  - cudatoolkit===11.1
+  - cudnn
+  - autopep8
+  - datasets
+  - ipykernel
+  - jupyter
+  # - jupyter_contrib_nbextensions
+  - jupytext
+  - matplotlib
+  - nbex
+  - numba
+  - numpy
+  - pandas
+  - papermill
+  - pyarrow
+  - pytest
+  - pytest-cov
+  - pytorch
+  - rise
+  - scikit-learn
+  - scipy
+  - seaborn
+  - spacy[version='>=3']
+  - statsmodels
+  - transformers
+prefix: C:\Users\tc\Programming\Python\Anaconda3\envs\cam

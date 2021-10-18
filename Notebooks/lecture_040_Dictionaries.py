@@ -118,11 +118,11 @@ for key, val in translations.items():
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `040x-Workshop Dictionaries`
+# - Notebook `lecture_040x_Workshop_Dictionaries`
 # - Abschnitt "Worthäufigkeiten"
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `042x-Workshop Todo-Liste V0`
+# - Notebook `lecture_042x_Workshop_Todo-Liste V0`
 # - Abschnitt "TODO-Liste Version 0"

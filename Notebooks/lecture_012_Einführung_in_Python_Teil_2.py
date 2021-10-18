@@ -20,10 +20,10 @@
 # %% [markdown]
 # Gleichheit von Werten wird mit `==` getestet:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1 == 1
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1 == 2
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
@@ -32,54 +32,57 @@
 # - `True`
 # - `False`
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 type(True)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Gleichheit von Zahlen
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1 == 1.0
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 0.000_000_1 * 10_000_000 == 1
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Vorsicht: Rundungsfehler!
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 (2 ** 0.5) ** 2 == 2
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 (2 ** 0.5) ** 2
+
+# %%
+0.1 - 0.01
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Ungleichheit von Zahlen
 #
 # Der Operator `!=` testet, ob zwei Zahlen verschieden sind
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1 != 1.0
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1 != 2
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Vergleich von Zahlen
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1 < 2
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1 < 1
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1 <= 1
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 1 > 2
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 2 >= 1
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
@@ -92,13 +95,13 @@ type(True)
 # ## Operatoren auf Boole'schen Werten
 #
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1 < 2 and 3 < 2
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1 < 2 or 3 < 2
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 not (1 < 2)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
@@ -113,23 +116,23 @@ not (1 < 2)
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Verkettung von Vergleichen
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1 < 2 < 3
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1 < 2 and 2 < 3
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1 < 3 <= 2
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 1 < 3 and 3 <= 2
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `012x-Workshop Einführung in Python (Teil 2)`
+# - Notebook `lecture_012x_Workshop_Einführung in Python (Teil 2)`
 # - Abschnitt "Operatoren, Vergleiche"
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -141,7 +144,7 @@ not (1 < 2)
 # - Mit den Python-Konstrukten, die wir bis jetzt kennen können wir das nicht machen.
 # - Wir benötigen dazu die `if`-Anweisung:
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 def ist_glückszahl(zahl):
     print("Ist", zahl, "eine Glückszahl?")
     if zahl == 7:
@@ -151,14 +154,14 @@ def ist_glückszahl(zahl):
     print("Wir wünschen Ihnen alles Gute.")
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 ist_glückszahl(1)
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 ist_glückszahl(7)
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 def ist_glückszahl_2(zahl):
     if zahl == 7:
         print(zahl, "ist eine Glückszahl!")
@@ -169,14 +172,14 @@ def ist_glückszahl_2(zahl):
         print("Wir wünschen Ihnen trotzdem alles Gute.")
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 ist_glückszahl_2(1)
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 ist_glückszahl_2(7)
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 def einseitiges_if_1(zahl):
     print("Vorher")
 
@@ -187,24 +190,24 @@ def einseitiges_if_1(zahl):
     print("Nachher")
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 einseitiges_if_1(1)
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 einseitiges_if_1(7)
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 def einseitiges_if_2(zahl):
     if zahl % 2 != 0:
         zahl += 1         # zahl = zahl + 1
     print(zahl)
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 einseitiges_if_2(1)
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 einseitiges_if_2(6)
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -223,7 +226,7 @@ einseitiges_if_2(6)
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `012x-Workshop Einführung in Python (Teil 2)`
+# - Notebook `lecture_012x_Workshop_Einführung in Python (Teil 2)`
 # - Abschnitt "Volljährig"
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -231,7 +234,7 @@ einseitiges_if_2(6)
 #
 # - Bisher haben wir nur die Möglichkeit einzelne Werte in Variablen zu speichern:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 produkt_1 = "Haferflocken"
 produkt_2 = "Kaffeebohnen"
 produkt_3 = "Orangenmarmelade"
@@ -251,10 +254,10 @@ produkt_3 = "Orangenmarmelade"
 # - Wir brauchen einen Datentyp, der es uns erlaubt mehrere "Dinge" zusammenzufassen.
 # - In Python verwendet man häufig Listen um das zu erreichen.
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 warenkorb = ["Haferflocken", "Kaffeebohnen", "Orangenmarmelade"]
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 type(warenkorb)
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -264,42 +267,42 @@ type(warenkorb)
 # - Die Elemente einer Liste können beliebige Python-Werte sein.
 # - Eine Liste kann Elemente mit verschiedenen Typen enthalten.
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 liste_1 = [1, 2, 3, 4, 5]
 liste_2 = ["string1", "another string"]
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print(liste_1)
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print(liste_2)
 
 # %% slideshow={"slide_type": "subslide"}
 liste_3 = []
 liste_4 = [1, 0.4, "ein String", True, None]
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print(liste_3)
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print(liste_4)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Die Elemente einer Liste müssen keine Literale sein, man kann auch Werte von Variablen in einer Liste speichern:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 produkt_1 = "Haferflocken"
 produkt_2 = "Kaffeebohnen"
 produkt_3 = "Orangenmarmelade"
 warenkorb = [produkt_1, produkt_2, produkt_3, "Erdbeermarmelade"]
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 warenkorb
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Der Typ von Listen ist `list`.
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": ""}
+# %% slideshow={"slide_type": ""}
 type([1, 2, 3])
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
@@ -307,22 +310,22 @@ type([1, 2, 3])
 #
 # Im Moment kennen wir nur Listen und Strings als mögliche Argumenttypen:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 list("abc")
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 list([1, 2, 3])
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": ""}
 # ## Zugriff auf Listenelemente
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 zahlenliste = [0, 1, 2, 3]
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 zahlenliste[0]
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 zahlenliste[3]
 
 # %%
@@ -331,16 +334,16 @@ zahlenliste[-1]
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
 # ## Länge einer Liste
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 zahlenliste
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 len(zahlenliste)
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
 # ## Modifikation von Listeneinträgen
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 zahlenliste[1] = 10
 zahlenliste
 
@@ -349,7 +352,7 @@ zahlenliste
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
 # ## Anhängen von Elementen an eine Liste
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 zahlenliste.append(40)
 zahlenliste
 
@@ -366,7 +369,7 @@ zahlenliste
 # %% slideshow={"slide_type": "subslide"}
 zahlenliste
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 for zahl in zahlenliste:
     print("Die Zahl ist:", zahl)
 
@@ -383,7 +386,7 @@ for zahl in zahlenliste:
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Workshop
 #
-# - Notebook `012x-Workshop Einführung in Python (Teil 2)`
+# - Notebook `lecture_012x_Workshop_Einführung in Python (Teil 2)`
 # - Abschnitt "Einkaufsliste"
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
@@ -397,23 +400,23 @@ for zahl in zahlenliste:
 # - `range(m, n)` erzeugt das ganzzahlige Interval von $m$ bis $n-1$
 # - `range(m, n, k)` erzeugt die ganzzahlige Sequenz $m, m+k, m+2k, ..., p$, wobei $p$ die größte Zahl der Form $m + jk$ mit $j \geq 0$ und $p < n$ ist
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 range(3)
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 list(range(3))
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 list(range(3, 23, 5))
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 for i in range(3):
     print(i)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `012x-Workshop Einführung in Python (Teil 2)`
+# - Notebook `lecture_012x_Workshop_Einführung in Python (Teil 2)`
 # - Abschnitt "Ausgabe von Quadratzahlen"
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
@@ -425,16 +428,16 @@ for i in range(3):
 # - `repr` für eine "programmnahe" Darstellung (wie könnte der Wert im Programm erzeugt werden)
 # - `str` für eine "benutzerfreundliche" Darstellung
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print(str("Hallo!"))
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print(repr("Hallo!"))
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # Für manche Datentypen liefern `str` und `repr` den gleichen String zurück:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print(str(['a', 'b', 'c']))
 print(repr(['a', 'b', 'c']))
 
@@ -444,18 +447,18 @@ print(repr(['a', 'b', 'c']))
 #
 # In Python können benutzerdefinierte Datentypen definiert werden:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 class PointV0:
     def __init__(self, x, y):
         self.x = x
         self.y = y
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 p = PointV0(2, 3)
 p
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print("x =", p.x)
 print("y =", p.y)
 
@@ -469,7 +472,7 @@ print("y =", p.y)
 #
 # Per Konvention hat dieser Parameter den Namen `self`.
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 class PointV1:
     def __init__(self, x, y):
         self.x = x
@@ -480,12 +483,12 @@ class PointV1:
         self.y += dy
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 p = PointV1(2, 3)
 print("x =", p.x)
 print("y =", p.y)
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 p.move(3, 5)
 print("x =", p.x)
 print("y =", p.y)
@@ -496,7 +499,7 @@ print("y =", p.y)
 # Mit Dunder-Methoden können benutzerdefinierten Datentypen benutzerfreundlicher
 # gestaltet werden:
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print(str(p))
 print(repr(p))
 
@@ -507,7 +510,7 @@ print(repr(p))
 # `repr(x)` überprüft, ob `x` eine Methode `__repr__` hat und ruft diese auf,
 # falls sie existiert.
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 class PointV2:
     def __init__(self, x, y):
         self.x = x
@@ -521,7 +524,7 @@ class PointV2:
         self.y += dy
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 p = PointV2(2, 5)
 print(repr(p))
 
@@ -530,7 +533,7 @@ print(repr(p))
 # definiert ist:
 #
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 print(str(p))
 
 
@@ -539,7 +542,7 @@ print(str(p))
 # [Python Datenmodell](https://docs.python.org/3/reference/datamodel.html)
 # in der Dokumentation
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 class Point:
     def __init__(self, x=0, y=0):
         self.x = x
@@ -559,28 +562,28 @@ class Point:
         self.y += dy
 
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 p1 = Point(1, 2)
 p2 = Point(2, 4)
 p = p1 + p2
 p
 
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 p += p1
 p
 
-# %% pycharm={"name": "#%%\n"}
+# %%
 p3 = p - Point(3, 2)
 p3
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Workshop
 #
-# - Notebook `012x-Workshop Einführung in Python (Teil 2)`
+# - Notebook `lecture_012x_Workshop_Einführung in Python (Teil 2)`
 # - Abschnitt "Verbesserte Einkaufsliste"
 
-# %% [markdown] pycharm={"name": "#%%\n"}
+# %% [markdown]
 # ## Dataclasses
 #
 # Definition einer Klasse, in der Attribute besser sichtbar sind, Repräsentation und Gleichheit vordefiniert sind, etc.
