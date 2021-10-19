@@ -21,8 +21,6 @@
 # <h2 style="text-align:center;">Coding Akademie München GmbH</h2>
 # <br/>
 # <div style="text-align:center;">Dr. Matthias Hölzl</div>
-# <div style="text-align:center;">Allaithy Raed</div>
-#
 
 # %% [markdown]
 # # Listen
@@ -90,14 +88,15 @@ my_list[my_index]
 # [1, 3, 5].index(2)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
-# Die Methode `index` wirft eine Exception, wenn das gesuchte Objekt nicht in der Liste vorkommt. Wie können wir eine Funktion
+# ## Micro-Workshop:
+#
+# Die Methode `index` wirft eine Exception, wenn das gesuchte Objekt nicht in der Liste vorkommt. Schreiben Sie eine Funktion
 # ```
 # find(element, a_list)
 # ```
-# schreiben, die uns 
 #
-# - einen Index zurückgibt, falls das Element `element` in der Liste vorkommt, und die
-# - `None` zurückgibt, falls es nicht vorkommt?
+# - die einen Index zurückgibt, falls das Element `element` in der Liste vorkommt, und
+# - die `None` zurückgibt, falls es nicht vorkommt
 
 # %% pycharm={"is_executing": false} slideshow={"slide_type": "subslide"}
 def find(element, a_list):
@@ -181,9 +180,7 @@ stringliste
 # ### Entfernen von Elementen
 
 # %% pycharm={"is_executing": false}
-stringliste
-
-# %% pycharm={"is_executing": false}
+stringliste = ['ANFANG', 'A', 'Y', 'b', 'c', 'D', 'E', 'ENDE', 'F']
 stringliste[7]
 
 # %% pycharm={"is_executing": false}
@@ -217,6 +214,20 @@ stringliste
 # - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
 # - Abschnitt "Farben"
 #
+
+# %% [markdown] slideshow={"slide_type": "slide"}
+# ## Erzeugen von Listen
+#
+# Durch den Multiplikationsoperator `*` können die Elemente einer Liste wiederholt werden:
+
+# %%
+[1, 2] * 3
+
+# %%
+3 * ["a", "b"]
+
+# %%
+[0] * 10
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # ## Slicing
@@ -254,20 +265,6 @@ stringliste[:]
 # - Abschnitt "Slicing"
 #
 
-# %% [markdown] slideshow={"slide_type": "slide"}
-# ## Erzeugen von Listen
-#
-# Durch den Multiplikationsoperator `*` können die Elemente einer Liste wiederholt werden:
-
-# %%
-[1, 2] * 3
-
-# %%
-3 * ["a", "b"]
-
-# %%
-[0] * 10
-
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
 # ## Zuweisung an Slices
 #
@@ -291,6 +288,45 @@ liste
 # %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
 liste[:] = [11, 22, 33]
 liste
+
+# %% [markdown] slideshow={"slide_type": "slide"}
+# ## Slices als Objekte
+#
+# Slices sind selber Python Objekte. Außerhalb der Indexing-Operation `[]` können sie allerdings nicht mit der Notation `a:b` erzeugt werden, sondern mit der Konstruktor-Funktion `slice()`. 
+
+# %% slideshow={"slide_type": "-"}
+my_list = [1, 2, 3, 4, 5, 6]
+my_slice = slice(2, 4)
+print(my_list[2:4])
+print(my_list[my_slice])
+
+# %% slideshow={"slide_type": "subslide"}
+my_slice = slice(None, 3)
+print(my_list[:3])
+print(my_list[my_slice])
+
+# %% [markdown] slideshow={"slide_type": "subslide"}
+# Die `indices()`-Methode eines Slice-Objekts kann dazu verwendet werden zu bestimmen, welche Indizes das Slice enthält:
+
+# %% slideshow={"slide_type": "-"}
+print(my_slice.indices(len(my_list)))
+
+# %% [markdown] slideshow={"slide_type": "-"}
+# Damit können wir eine Funktion schreiben, die alle Elemente eines Slices durch einen Wert ersetzt:
+
+# %% slideshow={"slide_type": "subslide"}
+import math
+def replace_with(my_list, my_slice, value):
+    start, stop, stride = my_slice.indices(len(my_list))
+    num_values = math.ceil((stop - start) / stride)
+    my_list[my_slice] = [value] * num_values
+
+
+# %% slideshow={"slide_type": "subslide"}
+my_list = [1, 2, 3, 4, 5, 6]
+my_slice = slice(2, 6)
+replace_with(my_list, my_slice, 8)
+my_list
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # ## Identität von Objekten
@@ -323,6 +359,8 @@ print(f"a = {a}, b = {b}, c = {c}")
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
 # ## Test der Identität von Objekten
+#
+# Die [Python Tutor](https://pythontutor.com/visualize.html) Website visualisiert die Zusammenhänge sehr anschaulich.
 
 # %% pycharm={"is_executing": false}
 a = [1, 2, 3]
@@ -355,6 +393,9 @@ b is c
 c is d
 
 # %% slideshow={"slide_type": "subslide"}
+hex(10), hex(78)
+
+# %%
 hex(id([1, 2, 3]))
 
 
@@ -371,45 +412,6 @@ modify_list(my_list)
 
 # %% pycharm={"name": "#%%\n"}
 my_list
-
-# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
-# # Iteration über Listen
-#
-# Zur Iteration über Listen (und andere Datenstrukturen) bietet Python die bereits besprochene`for`-Schleife:
-
-# %% pycharm={"is_executing": false} slideshow={"slide_type": "subslide"}
-my_list = [1, 2, 3, 4]
-for n in my_list:
-    print(f"Item {n}")
-
-# %%
-index = 0
-while index < len(my_list):
-    n = my_list[index]
-    print(f"Item {n}")
-    index += 1
-
-# %% [markdown] slideshow={"slide_type": "slide"}
-# ## Iteration über Listen von Listen
-
-# %%
-a, b = [1, 2]
-print(a)
-print(b)
-
-# %% slideshow={"slide_type": "subslide"}
-my_list = [[1, 2], [3, 4], [5, 6]]
-
-# %%
-index = 0
-while index < len(my_list):
-    m, n = my_list[index]
-    print(f"Items {m} and {n}")
-    index += 1
-
-# %% slideshow={"slide_type": "subslide"}
-for m, n in my_list:
-    print(f"Items {m} and {n}")
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
 # # Nochmal Finden von Elementen
@@ -431,10 +433,6 @@ list(enumerate(my_list))
 # %% pycharm={"is_executing": false} slideshow={"slide_type": "subslide"}
 for index, element in enumerate(my_list):
     print(f"index = {index}, element = {element}")
-
-# %% pycharm={"name": "#%%\n"}
-for index, element, other in [[1, 2, 3], ['a', 'b', 'c']]:
-    print(index, element, other)
 
 
 # %% pycharm={"is_executing": false, "name": "#%%\n"} slideshow={"slide_type": "subslide"}
@@ -525,30 +523,6 @@ result
 #
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
-# # Filtern von Listen
-
-# %% pycharm={"is_executing": false, "name": "#%%\n"}
-result = []
-for item in [1, 2, 3, 4, 5, 6]:
-    if item % 2 == 0:
-        result.append(item)
-result
-
-# %% pycharm={"is_executing": false, "name": "#%%\n"}
-result = []
-for item in ["abc", "def", "asd", "qwe", "bab"]:
-    if 'ab' in item:
-        result.append(item)
-result
-
-# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
-# ## Mini-Workshop
-#
-# - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
-# - Abschnitt "Filtern"
-#
-
-# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
 # ## Eleganter: Listen-Komprehension
 
 # %% pycharm={"is_executing": false}
@@ -576,6 +550,33 @@ result
 # - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
 # - Abschnitte "Quadratzahlen mit Listen-Komprehension"
 #
+
+# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
+# # Filtern von Listen
+
+# %% pycharm={"is_executing": false, "name": "#%%\n"}
+result = []
+for item in [1, 2, 3, 4, 5, 6]:
+    if item % 2 == 0:
+        result.append(item)
+result
+
+# %% pycharm={"is_executing": false, "name": "#%%\n"}
+result = []
+for item in ["abc", "def", "asd", "qwe", "bab"]:
+    if 'ab' in item:
+        result.append(item)
+result
+
+# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
+# ## Mini-Workshop
+#
+# - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
+# - Abschnitt "Filtern"
+#
+
+# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
+# ## Eleganter: Listen-Komprehension
 
 # %% pycharm={"is_executing": false} slideshow={"slide_type": "subslide"}
 result = []
@@ -614,6 +615,11 @@ result
 # - Abschnitte "Filtern mit Listen-Komprehension"
 #
 
+# %% [markdown]
+# ## Workshop
+#
+# - Notebook `lecture_930x_Workshop_Ox`
+
 # %% [markdown] slideshow={"slide_type": "slide"}
 # # Tupel
 #
@@ -623,14 +629,20 @@ result
 #
 # - Elemente durch Kommata getrennt: `1, 2, 3, 4`
 # - In vielen Fällen müssen Tupel eingeklammert werden: `(1, 2, 3)`
+# - Tupel mit einem Element müssen in der Form `(1,)` geschrieben werden.
 
 # %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
 1, 2, 3
 
+# %%
+non_tuple = (1)
+print(non_tuple)
+type(non_tuple)
+
 # %% pycharm={"name": "#%%\n"}
 (1,)
 
-# %% pycharm={"name": "#%%\n"}
+# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
 x = "a", 1, True
 
 # %% pycharm={"name": "#%%\n"}
@@ -757,7 +769,7 @@ next(it)
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
-# ## Generator Funktionen
+# ## Generator-Funktionen
 #
 # Komplexere Fälle können von Generator Expressions nicht mehr abgedeckt werden.
 #

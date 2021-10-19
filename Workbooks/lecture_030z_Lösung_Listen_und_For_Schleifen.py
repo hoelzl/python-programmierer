@@ -229,6 +229,26 @@ def quadriere(zahlen):
 quadriere(zahlen)
 
 # %% [markdown]
+# # Quadratzahlen mit Listen-Komprehension
+#
+# Erzeugen Sie eine neue Liste mit den Quadraten von `zahlen`. Verwenden Sie dazu eine Listen-Komprehension
+
+# %%
+[n * n for n in zahlen]
+
+
+# %% [markdown]
+# Schreiben Sie die Funktion `quadriere(zahlen)` mit Listen-Komprehension.
+
+# %%
+def quadriere(zahlen):
+    return [n * n for n in zahlen]
+
+
+# %%
+quadriere(zahlen)
+
+# %% [markdown]
 # # Filtern
 #
 # Gegeben sei die folgende Liste mit Zahlen:
@@ -261,26 +281,6 @@ def zahlen_größer_als_10(zahlen):
 
 # %%
 zahlen_größer_als_10(zahlen)
-
-# %% [markdown]
-# # Quadratzahlen mit Listen-Komprehension
-#
-# Erzeugen Sie eine neue Liste mit den Quadraten von `zahlen`. Verwenden Sie dazu eine Listen-Komprehension
-
-# %%
-[n * n for n in zahlen]
-
-
-# %% [markdown]
-# Schreiben Sie die Funktion `quadriere(zahlen)` mit Listen-Komprehension.
-
-# %%
-def quadriere(zahlen):
-    return [n * n for n in zahlen]
-
-
-# %%
-quadriere(zahlen)
 
 # %% [markdown]
 # # Filtern mit Listen-Komprehension

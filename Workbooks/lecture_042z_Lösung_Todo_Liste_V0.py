@@ -145,7 +145,7 @@ todos
 # %% [markdown]
 # Schreiben Sie eine Funktiion `delete_all_completed_todo_items(todo_list)`, die alle erledigten Todo-Items aus `todo_list` löscht.
 #
-# *Hinweis: Sie benötigen dazu wahrscheinlich zwei aufeinanderfolgende `for`-Schleifen: eine um die Indizes zu bestimmen und eine um sie zu löschen*
+# *Hinweis: Eine Möglichkeit diese Aufgabe zu lösen sind zwei aufeinanderfolgende `for`-Schleifen: eine um die Indizes zu bestimmen und eine um sie zu löschen. Beachten Sie die Reihenfolge, in der Sie Items löschen! Eine elegantere Methode ist eine List Comprehension und Zuweisung an ein Slice zu verwenden.*
 
 # %%
 def delete_all_completed_todo_items(todo_list):

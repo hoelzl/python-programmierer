@@ -285,23 +285,6 @@ def kino_app():
 # kino_app()
 
 # %% [markdown]
-# # Shout
-#
-# Schreiben Sie eine Funktion `shout(text)`, die `text` in Großbuchstaben, gefolgt von drei Außrufezeichen auf dem Bildschirm ausgibt.
-
-# %%
-def shout(text):
-    print(f"{text.upper()}!!!")
-
-
-# %% [markdown]
-# Testen Sie die Funktion mit Argument `"Hallo"`
-
-# %%
-shout("Hallo")
-
-
-# %% [markdown]
 # # Ratespiele
 #
 # Die folgenden einfachen "Spiele" erlauben dem Spieler unbegrenzt viele Eingaben. Daher ist es sinnvoll, sie mit einer While-Schleife zu implementieren.

@@ -56,6 +56,9 @@ type(True)
 # %%
 0.1 - 0.01
 
+# %%
+100 * 1.1, 100 * 0.1 + 100
+
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Ungleichheit von Zahlen
 #
@@ -231,31 +234,12 @@ einseitiges_if_2(6)
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # # Listen
-#
-# - Bisher haben wir nur die Möglichkeit einzelne Werte in Variablen zu speichern:
-
-# %%
-produkt_1 = "Haferflocken"
-produkt_2 = "Kaffeebohnen"
-produkt_3 = "Orangenmarmelade"
-
-# %% [markdown] slideshow={"slide_type": "subslide"}
-# - Probleme damit:
-#     - Außer den Variablennamen deutet nichts darauf hin, dass diese Werte z.B. zu einem Warenkorb gehören.
-#     - Wir können nur eine fest vorgegebene Anzahl von Werten speichern.
-#     - Es ist sehr schwer
-#         - die Werte nach verschiedenen Kriterien zu sortieren
-#         - Werte hinzuzufügen
-#         - Werte zu löschen
-#         - die Anzahl der Werte zu bestimmen
-#         - ...
-
-# %% [markdown] slideshow={"slide_type": "subslide"}
-# - Wir brauchen einen Datentyp, der es uns erlaubt mehrere "Dinge" zusammenzufassen.
-# - In Python verwendet man häufig Listen um das zu erreichen.
 
 # %%
 warenkorb = ["Haferflocken", "Kaffeebohnen", "Orangenmarmelade"]
+
+# %% [markdown]
+# Der Typ von Listen ist `list`.
 
 # %%
 type(warenkorb)
@@ -288,33 +272,43 @@ print(liste_3)
 print(liste_4)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
-# Die Elemente einer Liste müssen keine Literale sein, man kann auch Werte von Variablen in einer Liste speichern:
+#
+# Die Elemente einer Liste müssen keine Literale sein, man kann auch Werte von
+# Variablen in einer Liste speichern:
 
 # %%
 produkt_1 = "Haferflocken"
 produkt_2 = "Kaffeebohnen"
 produkt_3 = "Orangenmarmelade"
 warenkorb = [produkt_1, produkt_2, produkt_3, "Erdbeermarmelade"]
-
-# %%
 warenkorb
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
-# Der Typ von Listen ist `list`.
+#
+# Nachdem eine Liste erzeugt ist hat sie keine Verbindung zu den Variablen, die
+# in ihrer Konstruktion verwendet wurden:
 
-# %% slideshow={"slide_type": ""}
-type([1, 2, 3])
+# %%
+produkt_1 = "Dinkelflocken"
+produkt_2 = "Teebeutel"
+warenkorb
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
-# Mit der Funktion `list` können manche andere Datentypen in Listen umgewandelt werden.
 #
-# Im Moment kennen wir nur Listen und Strings als mögliche Argumenttypen:
+# Mit der Funktion `list` können manche andere Datentypen in Listen umgewandelt
+# werden.
+#
+# Im Moment kennen wir nur Listen, Strings und Dictionaries als mögliche
+# Argumenttypen:
 
 # %%
 list("abc")
 
 # %%
 list([1, 2, 3])
+
+# %%
+list({"a":1, "b": 2})
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": ""}
 # ## Zugriff auf Listenelemente
@@ -347,13 +341,15 @@ len(zahlenliste)
 zahlenliste[1] = 10
 zahlenliste
 
-# %%
-
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
 # ## Anhängen von Elementen an eine Liste
 
 # %%
 zahlenliste.append(40)
+zahlenliste
+
+# %%
+zahlenliste.extend([50, 60])
 zahlenliste
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
@@ -367,6 +363,7 @@ zahlenliste
 # aus C, C++ oder Java.
 
 # %% slideshow={"slide_type": "subslide"}
+zahlenliste = [0, 1, 2, 3, 4]
 zahlenliste
 
 # %%
@@ -401,12 +398,17 @@ for zahl in zahlenliste:
 # - `range(m, n, k)` erzeugt die ganzzahlige Sequenz $m, m+k, m+2k, ..., p$, wobei $p$ die größte Zahl der Form $m + jk$ mit $j \geq 0$ und $p < n$ ist
 
 # %% slideshow={"slide_type": "subslide"}
+range(3)
 
 # %%
+list(range(3))
 
 # %%
+list(range(3, 23, 5))
 
 # %% slideshow={"slide_type": "subslide"}
+for i in range(3):
+    print(i)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
@@ -443,13 +445,19 @@ print(repr(['a', 'b', 'c']))
 # In Python können benutzerdefinierte Datentypen definiert werden:
 
 # %%
-
+class PointV0:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
 
 # %%
+p = PointV0(2, 3)
+p
 
 # %%
-
+print("x =", p.x)
+print("y =", p.y)
 
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
@@ -462,13 +470,25 @@ print(repr(['a', 'b', 'c']))
 # Per Konvention hat dieser Parameter den Namen `self`.
 
 # %% slideshow={"slide_type": "subslide"}
+class PointV1:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
+    def move(self, dx=0, dy=0):
+        self.x += dx
+        self.y += dy
 
 
 # %% slideshow={"slide_type": "subslide"}
+p = PointV1(2, 3)
+print("x =", p.x)
+print("y =", p.y)
 
 # %%
-
+p.move(3, 5)
+print("x =", p.x)
+print("y =", p.y)
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
 # ## Das Python-Objektmodell
@@ -477,7 +497,8 @@ print(repr(['a', 'b', 'c']))
 # gestaltet werden:
 
 # %%
-
+print(str(p))
+print(repr(p))
 
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
@@ -487,11 +508,22 @@ print(repr(['a', 'b', 'c']))
 # falls sie existiert.
 
 # %% slideshow={"slide_type": "subslide"}
+class PointV2:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
+    def __repr__(self):
+        return "PointV2(" + repr(self.x) + ", " + repr(self.y) + ")"
+
+    def move(self, dx=0, dy=0):
+        self.x += dx
+        self.y += dy
 
 
 # %%
-
+p = PointV2(2, 5)
+print(repr(p))
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # Standardmäßig delegiert die Funktion `str` an `repr`, falls keine `__str__`-Methode
@@ -499,6 +531,7 @@ print(repr(['a', 'b', 'c']))
 #
 
 # %%
+print(str(p))
 
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
@@ -507,15 +540,39 @@ print(repr(['a', 'b', 'c']))
 # in der Dokumentation
 
 # %% slideshow={"slide_type": "subslide"}
+class Point:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return "Point(" + repr(self.x) + ", " + repr(self.y) + ")"
+
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+
+    def __sub__(self, other):
+        return Point(self.x - other.x, self.y - other.y)
+
+    def move(self, dx=0, dy=0):
+        self.x += dx
+        self.y += dy
 
 
 # %% slideshow={"slide_type": "subslide"}
+p1 = Point(1, 2)
+p2 = Point(2, 4)
+p = p1 + p2
+p
+
 
 # %%
-
+p += p1
+p
 
 # %%
-
+p3 = p - Point(3, 2)
+p3
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Workshop
@@ -531,13 +588,40 @@ print(repr(['a', 'b', 'c']))
 # Die [Dokumentation](https://docs.python.org/3/library/dataclasses.html) beinhaltet weitere Möglichkeiten.
 
 # %%
+from dataclasses import dataclass
+
+@dataclass
+class DataPoint:
+    x: float
+    y: float
+
 
 # %%
+dp = DataPoint(2, 3)
+dp
 
 # %%
+dp1 = DataPoint(1, 1)
+dp2 = DataPoint(1, 1)
+print(dp1 == dp2)
+print(dp1 is dp2)
+
 
 # %%
+@dataclass
+class Point3D:
+    x: float
+    y: float
+    z: float = 0.0
+
+    # Non-destructive move!
+    def move(self, dx=0.0, dy=0.0, dz=0.0):
+        return Point3D(self.x + dx, self.y + dy, self.z + dz)
+
 
 # %%
+p3d = Point3D(1.0, 2.0)
+print(p3d)
+print(p3d.move(dy=1.0, dz=5.0))
 
 # %%
