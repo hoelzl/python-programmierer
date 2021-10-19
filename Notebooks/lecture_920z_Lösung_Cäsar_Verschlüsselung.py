@@ -40,7 +40,7 @@
 # - ist `c` eine Ziffer, so wird sie unverändert zurückgegeben;
 # - andernfalls wird der leere String `""` zurückgegeben.
 #
-# *Hinweis:* Die folgenden beiden Listen sind dabei hilfreich:
+# *Hinweis:* Die folgenden beiden Strings sind dabei hilfreich:
 
 # %% pycharm={"is_executing": false, "name": "#%%\n"}
 letters_in_alphabetical_order = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"

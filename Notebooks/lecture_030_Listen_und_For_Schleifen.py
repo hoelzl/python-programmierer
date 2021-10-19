@@ -330,6 +330,8 @@ my_list
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # ## Identität von Objekten
+#
+# Die [Python Tutor](https://pythontutor.com/visualize.html) Website visualisiert die Zusammenhänge sehr anschaulich.
 
 # %% pycharm={"is_executing": false}
 a = [1, 2, 3]
@@ -360,7 +362,6 @@ print(f"a = {a}, b = {b}, c = {c}")
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
 # ## Test der Identität von Objekten
 #
-# Die [Python Tutor](https://pythontutor.com/visualize.html) Website visualisiert die Zusammenhänge sehr anschaulich.
 
 # %% pycharm={"is_executing": false}
 a = [1, 2, 3]

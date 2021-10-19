@@ -140,7 +140,7 @@
 # Schreiben Sie eine Funktion `drucke_kinopreis(alter)`, die einen Text der folgenden Art auf dem Bildschirm ausgibt:
 #
 # ```
-# Sie sind 1 Jahr alt. Ihr Preis beträgt 5 Euro.
+# Sie sind 1 Jahr alt. Ihr Preis beträgt 0 Euro.
 # Sie sind 15 Jahre alt. Ihr Preis beträgt 5 Euro.
 # ```
 
