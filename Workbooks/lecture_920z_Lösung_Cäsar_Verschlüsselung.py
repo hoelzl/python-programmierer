@@ -111,9 +111,7 @@ encoded_verlaine
 
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
-# Schreiben Sie jetzt Funktionen `decode_char(c: str)` und `decode_caesar(text:
-# str)`, die einen mit der Cäsar-Verschlüsselung verschlüsselten Text
-# entschlüsseln.
+# Schreiben Sie jetzt Funktionen `decode_char(c: str)` und `decode_caesar(text: str)`, die einen mit der Cäsar-Verschlüsselung verschlüsselten Text entschlüsseln. Um robust zu sein sollen diese Funktionen Zeichen, die nicht Buchstaben oder Ziffern sind unverändert zurückgeben.
 
 # %% pycharm={"is_executing": false, "name": "#%%\n"}
 def decode_char(c: str):
@@ -129,6 +127,14 @@ def decode_caesar(text: str):
     return "".join(decode_char(c) for c in text)
 
 
+# %%
+def decode_caesar2(text: str):
+    result = ""
+    for c in text:
+        result += decode_char(c)
+    return result
+
+
 # %% [markdown]
 # Testen Sie `decode_caesar()` mit `pangram` und `verlaine`.
 
@@ -139,6 +145,12 @@ decoded_pangram
 # %% pycharm={"is_executing": false, "name": "#%%\n"}
 decoded_verlaine = decode_caesar(encoded_verlaine)
 print(decoded_verlaine)
+
+# %%
+assert decoded_pangram == decode_caesar2(encoded_pangram)
+
+# %%
+assert decoded_verlaine == decode_caesar2(encoded_verlaine)
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # Entschlüsseln Sie den folgenden Text:
