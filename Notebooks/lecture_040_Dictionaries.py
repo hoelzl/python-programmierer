@@ -122,7 +122,7 @@ for key, val in translations.items():
 # - Abschnitt "Worthäufigkeiten"
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
-# ## Mini-Workshop
+# ## Workshop
 #
 # - Notebook `lecture_042x_Workshop_Todo-Liste V0`
 # - Abschnitt "TODO-Liste Version 0"

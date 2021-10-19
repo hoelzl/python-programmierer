@@ -26,7 +26,7 @@
 #     - Ein `+` wenn der Buchstabe an der richtigen Stelle vorkommt
 #     - Ein `–` wenn der Buchstabe in der Lösung an einer anderen Stelle vorkommt
 #     - Einen `.` wenn der Buchstabe nicht in der Lösung vorkommt
-# = Wenn der Benutzer das Wort in weniger als 10 Versuchen errät hat er gewonnen, andernfalls verloren.
+# - Wenn der Benutzer das Wort in weniger als 10 Versuchen errät hat er gewonnen, andernfalls verloren.
 #
 # ## Beispiele
 #
@@ -93,6 +93,7 @@
 #
 # - Benutzereingaben können Sie mittels der Funktion `input(quey: str)` erhalten.  `query` ist der Text,
 #   der dem Benutzer angezeigt wird; das Ergebnis der Funktion ist der vom Benutzer eingegebenee String.
+# - Speichern Sie das "Wörterbuch" als eine Liste von Wörtern.
 # - Mit `random.choice(list)` können Sie aus einer Liste ein zufälliges Element auswählen.
 # - Da wir noch keine benutzerdefinierten Datentypen kennengelernt haben bietet es sich an, eine Funktion
 #   zu implementieren, die die zeichenweise Übereinstimmung zweier Zeichenketten testet. Ein möglicher
@@ -105,5 +106,13 @@
 
 # %%
 import random
+
+# %%
+
+# %%
+
+# %%
+
+# %%
 
 # %%

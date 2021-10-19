@@ -20,22 +20,3 @@
 # Ein leeres Notebook für Experimente und kleine Beispiele.
 
 # %%
-import math
-def replace_with(my_list, my_slice, value):
-    start, stop, stride = my_slice.indices(len(my_list))
-    num_values = math.ceil((stop - start) / stride)
-    my_list[my_slice] = [value] * num_values
-
-
-# %%
-my_list = [1, 2, 3, 4, 5, 6]
-my_slice = slice(2, 6)
-print(my_slice.indices(len(my_list)))
-
-# %%
-my_list = [1, 2, 3, 4, 5, 6]
-my_slice = slice(2, 6)
-replace_with(my_list, my_slice, 8)
-my_list
-
-# %%
