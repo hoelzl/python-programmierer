@@ -14,8 +14,25 @@
 #     name: python3
 # ---
 
+# %% [markdown]
+# # Shout
+#
+# Schreiben Sie eine Funktion `shout(text)`, die `text` in Großbuchstaben, gefolgt von drei Außrufezeichen auf dem Bildschirm ausgibt.
+
+# %%
+def shout(text):
+    print(f"{text.upper()}!!!")
+
+
+# %% [markdown]
+# Testen Sie die Funktion mit Argument `"Hallo"`
+
+# %%
+shout("Hallo")
+
+
 # %% [markdown] pycharm={"name": "#%% md\n"}
-# # Vergleiche auf Strings
+# # Vergleichen von Strings
 
 # %% [markdown]
 # Ist `Abc` kleiner als `aBC`?

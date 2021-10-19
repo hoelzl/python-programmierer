@@ -86,7 +86,7 @@ Gesendet vom BBC 1944-06-01 um Operation Overlord anzukuendigen
 # %%
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
-# Schreiben Sie jetzt Funktionen `decode_char(c: str)` und `decode_caesar(text: str)`, die einen mit der Cäsar-Verschlüsselung verschlüsselten Text entschlüsseln.
+# Schreiben Sie jetzt Funktionen `decode_char(c: str)` und `decode_caesar(text: str)`, die einen mit der Cäsar-Verschlüsselung verschlüsselten Text entschlüsseln. Um robust zu sein sollen diese Funktionen Zeichen, die nicht Buchstaben oder Ziffern sind unverändert zurückgeben.
 
 # %% pycharm={"is_executing": false, "name": "#%%\n"}
 
@@ -109,7 +109,7 @@ Gesendet vom BBC 1944-06-01 um Operation Overlord anzukuendigen
 # %% pycharm={"is_executing": false, "name": "#%%\n"}
 
 # %% [markdown] pycharm={"is_executing": false, "name": "#%% md\n"}
-# Die Funktionen `encode_char()` und `decode_char()` enthalten viel duplizierten
+# Die Funktionen `encode_char()` und `decode_char()` enthalten (wahrscheinlich) viel duplizierten
 # Code. Können Sie eine Funktion `rot_n_char(...)` schreiben, die die
 # Funktionalität beider Funktionen verallgemeinert?
 
@@ -133,6 +133,11 @@ Gesendet vom BBC 1944-06-01 um Operation Overlord anzukuendigen
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # Die Decodierung mit dem ursprünglichen Cäsar-Code im Lösungsvorschlag zeigt, dass die neue
 # Implementierung im Lösungsvorschlag einen Fehler hat: sie vermischt Zahlen und Buchstaben. 
+#
+# ```
+# (VERLAINE, 4X99)
+# GESENDET VOM BBC 4Y77-Z9-Z4 UM OPERATION OVERLORD AN3UKUENDIGEN
+# ```
 #
 # Falls Ihre Implementierung den gleichen Fehler hat: Wie können wir den Fehler beseitigen?
 #

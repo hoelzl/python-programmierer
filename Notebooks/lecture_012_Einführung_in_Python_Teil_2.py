@@ -56,6 +56,9 @@ type(True)
 # %%
 0.1 - 0.01
 
+# %%
+100 * 1.1, 100 * 0.1 + 100
+
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Ungleichheit von Zahlen
 #
@@ -231,31 +234,12 @@ einseitiges_if_2(6)
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # # Listen
-#
-# - Bisher haben wir nur die Möglichkeit einzelne Werte in Variablen zu speichern:
-
-# %%
-produkt_1 = "Haferflocken"
-produkt_2 = "Kaffeebohnen"
-produkt_3 = "Orangenmarmelade"
-
-# %% [markdown] slideshow={"slide_type": "subslide"}
-# - Probleme damit:
-#     - Außer den Variablennamen deutet nichts darauf hin, dass diese Werte z.B. zu einem Warenkorb gehören.
-#     - Wir können nur eine fest vorgegebene Anzahl von Werten speichern.
-#     - Es ist sehr schwer
-#         - die Werte nach verschiedenen Kriterien zu sortieren
-#         - Werte hinzuzufügen
-#         - Werte zu löschen
-#         - die Anzahl der Werte zu bestimmen
-#         - ...
-
-# %% [markdown] slideshow={"slide_type": "subslide"}
-# - Wir brauchen einen Datentyp, der es uns erlaubt mehrere "Dinge" zusammenzufassen.
-# - In Python verwendet man häufig Listen um das zu erreichen.
 
 # %%
 warenkorb = ["Haferflocken", "Kaffeebohnen", "Orangenmarmelade"]
+
+# %% [markdown]
+# Der Typ von Listen ist `list`.
 
 # %%
 type(warenkorb)
@@ -288,33 +272,43 @@ print(liste_3)
 print(liste_4)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
-# Die Elemente einer Liste müssen keine Literale sein, man kann auch Werte von Variablen in einer Liste speichern:
+#
+# Die Elemente einer Liste müssen keine Literale sein, man kann auch Werte von
+# Variablen in einer Liste speichern:
 
 # %%
 produkt_1 = "Haferflocken"
 produkt_2 = "Kaffeebohnen"
 produkt_3 = "Orangenmarmelade"
 warenkorb = [produkt_1, produkt_2, produkt_3, "Erdbeermarmelade"]
-
-# %%
 warenkorb
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
-# Der Typ von Listen ist `list`.
+#
+# Nachdem eine Liste erzeugt ist hat sie keine Verbindung zu den Variablen, die
+# in ihrer Konstruktion verwendet wurden:
 
-# %% slideshow={"slide_type": ""}
-type([1, 2, 3])
+# %%
+produkt_1 = "Dinkelflocken"
+produkt_2 = "Teebeutel"
+warenkorb
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
-# Mit der Funktion `list` können manche andere Datentypen in Listen umgewandelt werden.
 #
-# Im Moment kennen wir nur Listen und Strings als mögliche Argumenttypen:
+# Mit der Funktion `list` können manche andere Datentypen in Listen umgewandelt
+# werden.
+#
+# Im Moment kennen wir nur Listen, Strings und Dictionaries als mögliche
+# Argumenttypen:
 
 # %%
 list("abc")
 
 # %%
 list([1, 2, 3])
+
+# %%
+list({"a":1, "b": 2})
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": ""}
 # ## Zugriff auf Listenelemente
@@ -347,13 +341,15 @@ len(zahlenliste)
 zahlenliste[1] = 10
 zahlenliste
 
-# %%
-
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
 # ## Anhängen von Elementen an eine Liste
 
 # %%
 zahlenliste.append(40)
+zahlenliste
+
+# %%
+zahlenliste.extend([50, 60])
 zahlenliste
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
@@ -367,6 +363,7 @@ zahlenliste
 # aus C, C++ oder Java.
 
 # %% slideshow={"slide_type": "subslide"}
+zahlenliste = [0, 1, 2, 3, 4]
 zahlenliste
 
 # %%
