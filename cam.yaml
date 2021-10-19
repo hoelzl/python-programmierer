@@ -11,8 +11,8 @@ dependencies:
   - autopep8
   - datasets
   - ipykernel
+  - mypy
   - jupyter
-  # - jupyter_contrib_nbextensions
   - jupytext
   - matplotlib
   - nbex
@@ -31,4 +31,5 @@ dependencies:
   - spacy[version='>=3']
   - statsmodels
   - transformers
+  - typer
 prefix: C:\Users\tc\Programming\Python\Anaconda3\envs\cam
