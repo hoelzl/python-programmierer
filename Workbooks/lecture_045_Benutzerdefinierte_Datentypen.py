@@ -33,18 +33,13 @@
 # - `str` für eine "benutzerfreundliche" Darstellung
 
 # %%
-print(str("Hallo!"))
 
 # %%
-print(repr("Hallo!"))
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # Für manche Datentypen liefern `str` und `repr` den gleichen String zurück:
 
 # %%
-print(str(['a', 'b', 'c']))
-print(repr(['a', 'b', 'c']))
-
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # # Benutzerdefinierte Datentypen
@@ -52,20 +47,10 @@ print(repr(['a', 'b', 'c']))
 # In Python können benutzerdefinierte Datentypen definiert werden:
 
 # %%
-class PointV0:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
 
 # %%
-p = PointV0(2, 3)
-p
 
 # %%
-print("x =", p.x)
-print("y =", p.y)
-
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # ## Methoden
@@ -77,25 +62,10 @@ print("y =", p.y)
 # Per Konvention hat dieser Parameter den Namen `self`.
 
 # %% slideshow={"slide_type": "subslide"}
-class PointV1:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def move(self, dx=0, dy=0):
-        self.x += dx
-        self.y += dy
-
 
 # %% slideshow={"slide_type": "subslide"}
-p = PointV1(2, 3)
-print("x =", p.x)
-print("y =", p.y)
 
 # %%
-p.move(3, 5)
-print("x =", p.x)
-print("y =", p.y)
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
 # ## Das Python-Objektmodell
@@ -104,9 +74,6 @@ print("y =", p.y)
 # gestaltet werden:
 
 # %%
-print(str(p))
-print(repr(p))
-
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # Durch Definition der Methode `__repr__(self)` kann der von `repr` zurückgegebene
@@ -115,22 +82,8 @@ print(repr(p))
 # falls sie existiert.
 
 # %% slideshow={"slide_type": "subslide"}
-class PointV2:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def __repr__(self):
-        return "PointV2(" + repr(self.x) + ", " + repr(self.y) + ")"
-
-    def move(self, dx=0, dy=0):
-        self.x += dx
-        self.y += dy
-
 
 # %%
-p = PointV2(2, 5)
-print(repr(p))
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # Standardmäßig delegiert die Funktion `str` an `repr`, falls keine `__str__`-Methode
@@ -138,8 +91,6 @@ print(repr(p))
 #
 
 # %%
-print(str(p))
-
 
 # %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
 # Python bietet viele Dunder-Methoden an: siehe das
@@ -147,39 +98,13 @@ print(str(p))
 # in der Dokumentation
 
 # %% slideshow={"slide_type": "subslide"}
-class Point:
-    def __init__(self, x=0, y=0):
-        self.x = x
-        self.y = y
-
-    def __repr__(self):
-        return "Point(" + repr(self.x) + ", " + repr(self.y) + ")"
-
-    def __add__(self, other):
-        return Point(self.x + other.x, self.y + other.y)
-
-    def __sub__(self, other):
-        return Point(self.x - other.x, self.y - other.y)
-
-    def move(self, dx=0, dy=0):
-        self.x += dx
-        self.y += dy
-
 
 # %% slideshow={"slide_type": "subslide"}
-p1 = Point(1, 2)
-p2 = Point(2, 4)
-p = p1 + p2
-p
 
 
 # %%
-p += p1
-p
 
 # %%
-p3 = p - Point(3, 2)
-p3
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Workshop
@@ -195,41 +120,14 @@ p3
 # Die [Dokumentation](https://docs.python.org/3/library/dataclasses.html) beinhaltet weitere Möglichkeiten.
 
 # %%
-from dataclasses import dataclass
-
-@dataclass
-class DataPoint:
-    x: float
-    y: float
-
 
 # %%
-dp = DataPoint(2, 3)
-dp
 
 # %%
-dp1 = DataPoint(1, 1)
-dp2 = DataPoint(1, 1)
-print(dp1 == dp2)
-print(dp1 is dp2)
-
 
 # %%
-@dataclass
-class Point3D:
-    x: float
-    y: float
-    z: float = 0.0
-
-    # Non-destructive move!
-    def move(self, dx=0.0, dy=0.0, dz=0.0):
-        return Point3D(self.x + dx, self.y + dy, self.z + dz)
-
 
 # %%
-p3d = Point3D(1.0, 2.0)
-print(p3d)
-print(p3d.move(dy=1.0, dz=5.0))
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -255,43 +153,18 @@ class Point:
 
 
 # %% slideshow={"slide_type": "subslide"}
-p = Point(0, 0)
-p
 
 # %%
-p.move(2, 3)
-p
 
 # %%
-p.randomize()
-p
-
 
 # %% slideshow={"slide_type": "subslide"}
-class ColorPoint(Point):
-    def __init__(self, x=0, y=0, color='black'):
-        super().__init__(x, y)
-        self.color = color
-    
-    def __repr__(self):
-        return f"ColorPoint({self.x:.1f}, {self.y:.1f}, {self.color!r})"
-
-    def randomize(self):
-        super().randomize()
-        self.color = random.choice(["black", "red", "green", "blue", "yellow", "white"])
-
 
 # %%
-cp = ColorPoint(2, 3, 'red')
-# cp
 
 # %%
-cp.move(2, 3)
-# cp
 
 # %%
-cp.randomize()
-# cp
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
@@ -371,7 +244,6 @@ def print_int_sqrt_2_better(n):
 
 print_int_sqrt_2_better(8)
 
-
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Beide Ansätze haben mehrere Probleme:
 # - Die Fehlerbehandlung ist optional. Wird sie nicht durchgeführt, so wird mit einem falschen Wert weitergerechnet.
@@ -380,68 +252,30 @@ print_int_sqrt_2_better(8)
 # Eine bessere Lösung:
 
 # %% slideshow={"slide_type": "subslide"}
-def int_sqrt(n: int) -> int:
-    for m in range(n + 1):
-        if m * m == n:
-            return m
-    raise ValueError(f"{n} is not a square number.")
-
 
 # %% slideshow={"slide_type": "subslide"}
-int_sqrt(9)
 
 # %%
-int_sqrt(0)
 
 # %%
-int_sqrt(1)
-
 
 # %% slideshow={"slide_type": "subslide"}
-# int_sqrt(8)
 
 # %% slideshow={"slide_type": "subslide"}
-def print_int_sqrt(n):
-    root = int_sqrt(n)
-    print(f"The root of {n} is {root}.")
-
 
 # %% slideshow={"slide_type": "subslide"}
-# print_int_sqrt(8)
 
 # %% slideshow={"slide_type": "subslide"}
-def print_int_sqrt_no_error(n):
-    try:
-        root = int_sqrt(n)
-        print(f"The root of {n} is {root}.")
-    except ValueError as error:
-        print(str(error))
-
 
 # %% slideshow={"slide_type": "subslide"}
-print_int_sqrt_no_error(9)
 
 # %% slideshow={"slide_type": "-"}
-print_int_sqrt_no_error(8)
-
 
 # %% slideshow={"slide_type": "subslide"}
-def print_int_sqrt_no_error_2(n):
-    try:
-        root = int_sqrt(n)
-        print(f"The root of {n} is {root}.")
-    except ValueError:
-        print(f"{n} does not have a root!")
-    finally:
-        print("And that's all there is to say about this topic.")
-
 
 # %% slideshow={"slide_type": "subslide"}
-print_int_sqrt_no_error_2(9)
 
 # %%
-print_int_sqrt_no_error_2(8)
-
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Fehlerklassen
@@ -459,22 +293,10 @@ print_int_sqrt_no_error_2(8)
 # Die Liste der in der Standardbibliothek definierten Fehlerklassen ist [hier](https://docs.python.org/3/library/exceptions.html).
 
 # %% slideshow={"slide_type": "subslide"}
-class NoRootError(ValueError):
-    pass
-
 
 # %% slideshow={"slide_type": "-"}
-try:
-    raise ValueError("ValueError")
-    # raise NoRootError("This is a NoRootError.")
-except NoRootError as error:
-    print(f"Case 1: {error}")
-except ValueError as error:
-    print(f"Case 2: {error}")
 
 # %% slideshow={"slide_type": "subslide"}
-my_var = 1
-assert my_var == 1
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
@@ -491,10 +313,8 @@ assert my_var == 1
 # Die einfachste Varianten Daten zu persistieren ist sie in einer Datei zu speichern:
 
 # %% slideshow={"slide_type": "subslide"}
-import os
 
 # %%
-os.getcwd()
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # - Mit `open()` kann eine Datei zum Lesen oder Schreiben geöffnet werden.
@@ -593,8 +413,7 @@ class ProgressNotifier(AbstractContextManager):
         self.num_completed_items = 0
 
     def __enter__(self):
-        print(f"{self.entry_message}")
-        sys.stdout.flush()
+        print(f"{self.entry_message}", flush=True)
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
@@ -605,13 +424,15 @@ class ProgressNotifier(AbstractContextManager):
 
     def item_completed(self):
         self.num_completed_items += 1
-        print(".", end='\n' if self.num_completed_items % self.width == 0 else '')
-        sys.stdout.flush()
+        print(".",
+              end='\n' if self.num_completed_items % self.width == 0 else '',
+              flush=True)
 
     def item_skipped(self):
         self.num_completed_items += 1
-        print("-", end='\n' if self.num_completed_items % self.width == 0 else '')
-        sys.stdout.flush()
+        print("-",
+              end='\n' if self.num_completed_items % self.width == 0 else '',
+              flush=True)
 
 
 def progress(entry_message):
@@ -639,3 +460,5 @@ try:
     print("Finished successfully")
 except IOError:
     print("Caught IOError")
+
+# %%

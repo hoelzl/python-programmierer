@@ -51,26 +51,19 @@
 
 # %%
 numbers = [3, 8, -7, 1, 0, 2, -3, 3]
-sorted(numbers)
+
 
 # %%
-sorted(numbers, key=abs)
 
 # %% slideshow={"slide_type": "subslide"}
 strings = ["a", "ABC", "xy", "Asdfgh", "foo", "bar", "quux"]
-sorted(strings)
 
 
 # %%
-def lower(my_string):
-    return my_string.lower()
-
 
 # %%
-sorted(strings, key=lower)
 
 # %%
-sorted(strings, key=len)
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 #
@@ -90,22 +83,17 @@ locale.getlocale()
 
 # %%
 my_strings = ["o", "oa", "oe", "ö", "oz", "sa", "s", "ß", "ss", "sz"]
-sorted(my_strings)
+
 
 # %%
-sorted(my_strings, key=locale.strxfrm)
 
 # %% slideshow={"slide_type": "subslide"}
-locale.setlocale(locale.LC_COLLATE, "de_DE.UTF-8")
 
 # %%
-sorted(my_strings, key=locale.strxfrm)
 
 # %%
-locale.setlocale(locale.LC_COLLATE, "C")
 
 # %%
-sorted(my_strings, key=locale.strxfrm)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 #
@@ -136,13 +124,11 @@ print(text)
 
 # %%
 s1 = "daß er sehe"
-s1.upper()
+
 
 # %%
-s1.lower()
 
 # %%
-s1.casefold()
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
@@ -249,18 +235,14 @@ s1 = "café"
 s2 = "cafe\u0301"
 
 # %%
-print(s1, s2)
-s1 == s2
 
 # %% slideshow={"slide_type": "subslide"}
 import unicodedata
-unicodedata.normalize("NFC", s1) == s1
+
 
 # %%
-unicodedata.normalize("NFC", s2) == s1
 
 # %%
-unicodedata.normalize("NFD", s1) == s2
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -315,29 +297,20 @@ print(ausgabe)
 # Der `in` Operator funktioniert auch mit Strings als Argument. Um den Index eines Substrings in einem String zu finden kann man die `index()`-Methode verwenden.
 
 # %%
-"a" in "abc"
 
 # %%
-"x" not in "abc"
 
 # %%
-"bc" in "abc"
 
 # %%
-"cb" in "abc"
 
 # %% slideshow={"slide_type": "subslide"}
-"Halloween".index("Hallo")
 
 # %%
-"Halloween".index("we")
 
 # %%
-# "Team".index("I")
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # ## Workshop
 #
 # - Notebook `lecture_920x_Workshop_Cäsar_Verschlüsselung`
-
-# %%

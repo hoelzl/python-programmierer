@@ -122,8 +122,7 @@ def ist_glückszahl(zahl):
 # - Abschnitt "Gerade Zahl"
 #
 
-# %% [markdown] slideshow={"slide_type":
-# "subslide"}
+# %% [markdown] slideshow={"slide_type": slideshow={"slide_type": "subslide"}
 # ## Mehrere Zweige
 #
 # - Wir wollen ein Spiel schreiben, in dem der Spieler eine Zahl zwischen 1 und
@@ -249,16 +248,10 @@ klassifiziere_zahl_3(100, 12)
 # - Die Funktion gibt den vom Benutzer eingegebenen Text als String zurück.
 
 # %% slideshow={"slide_type": "subslide"}
-# input("What is your name? ")
 
 # %%
-def query_name():
-    name = input("What is your name? ")
-    print(f"You entered {name}")
-
 
 # %%
-# query_name()
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Beispiel: Konvertierung von Temperaturen
@@ -276,33 +269,15 @@ konvertiere_fahrenheit_nach_celsius(32)
 # %%
 konvertiere_fahrenheit_nach_celsius(90)
 
+# %% slideshow={"slide_type": "subslide"}
+
+# %%
+
+# %%
 
 # %% slideshow={"slide_type": "subslide"}
-def temperaturkonverter_1():
-    fahrenheit = input("Bitte geben Sie die Temperatur in Fahrenheit ein: ")
-    celsius = konvertiere_fahrenheit_nach_celsius(float(fahrenheit))
-    print(f"{fahrenheit}F sind {celsius}°C")
-
 
 # %%
-float('1.23')
-
-
-# %%
-# temperaturkonverter_1()
-
-# %% slideshow={"slide_type": "subslide"}
-def temperaturkonverter_2():
-    fahrenheit = input("Bitte geben Sie die Temperatur in Fahrenheit ein: ")
-    if fahrenheit != "":
-        celsius = konvertiere_fahrenheit_nach_celsius(float(fahrenheit))
-        print(f"{fahrenheit}F sind {celsius}°C")
-    else:
-        print("Bitte geben Sie eine gültige Temperatur ein.")
-
-
-# %%
-# temperaturkonverter_2()
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
@@ -312,17 +287,8 @@ def temperaturkonverter_2():
 #
 
 # %% slideshow={"slide_type": "subslide"}
-def temperaturkonverter_3():
-    fahrenheit = input("Bitte geben Sie die Temperatur in Fahrenheit ein: ")
-    if fahrenheit:
-        celsius = konvertiere_fahrenheit_nach_celsius(float(fahrenheit))
-        print(f"{fahrenheit}F sind {celsius}°C")
-    else:
-        print("Bitte geben Sie eine gültige Temperatur ein.")
-
 
 # %%
-# temperaturkonverter_3()
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # # Wahrheitswerte: Truthiness

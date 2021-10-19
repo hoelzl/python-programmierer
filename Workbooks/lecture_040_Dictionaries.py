@@ -52,22 +52,16 @@ non_sparse
 # bestimmten Reihenfolge angeordnet.
 
 # %% pycharm={"is_executing": false} slideshow={"slide_type": "subslide"}
-sparse = {0: 1, 9: 1}
 
 # %% pycharm={"is_executing": false}
-sparse
 
 # %% pycharm={"is_executing": false, "name": "#%%\n"}
-sparse[0]
 
 # %% pycharm={"is_executing": false, "name": "#%%\n"}
 # Fehler
-# sparse[1]
+
 
 # %% pycharm={"is_executing": false, "name": "#%%\n"}
-sparse[12] = 3
-print(sparse[12])
-sparse
 
 # %% pycharm={"is_executing": false} slideshow={"slide_type": "subslide"}
 translations = {'snake': 'Schlange', 'bat': 'Fledermaus', 'horse': 'Hose', 'bird': 'Vogel'}
