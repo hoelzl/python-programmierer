@@ -52,7 +52,7 @@ page_load_time = np.random.normal(3.0, 1.0, 1000)
 purchase_amount = np.random.normal(50.0, 1.5, 1000) - page_load_time
 
 plt.figure(figsize=(12, 8))
-plt.scatter(page_load_time, purchase_amount)
+plt.scatter(page_load_time, purchase_amount);
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -61,30 +61,43 @@ plt.scatter(page_load_time, purchase_amount)
 # Zahlen und Arithmetik:
 
 # %%
+17 + 4
 
 # %%
+1.5 + 7.4
 
 # %%
+1 + 2 * 3
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Zeichenketten
 
 # %%
+"This is a string"
 
 # %%
+'This is also a string'
 
 # %%
+str(1 + 3)
 
 # %% slideshow={"slide_type": "subslide"}
+"abc" + str(3)
 
 # %%
+"abc" "def"
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Variablen
 
 # %%
+answer = 42
 
 # %%
+answer
+
+# %%
+my_value = answer + 2
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -96,21 +109,27 @@ plt.scatter(page_load_time, purchase_amount)
 #   - Der interaktive Interpreter verhält sich ähnlich wie Notebooks
 
 # %% slideshow={"slide_type": "subslide"}
+123
 
 # %% [markdown]
 # Um die Ausgabe des letzten Wertes einer Zeile in Jupyter zu unterbinden kann man
 # die Zeile mit einem Strichpunkt beenden:
 
 # %%
+123;
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Jupyter zeigt auch den Wert von Variablen an:
 
 # %%
+answer
 
 # %%
+my_value
 
 # %%
+answer
+my_value
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Um mehrere Werte anzuzeigen kann man die `print()`-Funktion verwenden:
@@ -118,67 +137,104 @@ plt.scatter(page_load_time, purchase_amount)
 # `print(...)` gibt den in Klammern eingeschlossenen Text auf dem Bildschirm aus.
 
 # %%
+print(123)
 
 # %%
+print(answer)
 
 # %%
+print(my_value)
 
 # %%
+print(answer)
+print(my_value)
 
 
 # %% slideshow={"slide_type": "subslide"}
+print("Hello, world!")
 
 
 # %% [markdown]
 # Vergleichen Sie die Ausgabe mit der folgenden Zelle:
 
 # %%
+"Hello, world!"
 
 # %% slideshow={"slide_type": "subslide"}
+print("answer =", answer, "my_value =", my_value)
+print("That's all!")
 
 # %%
+print("a", "b", "c", sep="-", end="+++")
+print("d", "e")
 
 # %%
+print("a", end=", ")
+print("b", end=", ")
+print("c")
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Typen
 
 # %%
+type(123)
 
 # %%
+type("Foo")
 
 # %%
+answer = 42
+print(type(answer))
+answer = "Hallo!"
+print(type(answer))
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Vordefinierte Funktionen
 
 # %%
+print("Hello, world!")
 
 # %%
+int("123")
 
 # %%
+int(3.8)
 
 # %%
+round(4.4)
 
 # %%
+round(4.6)
 
 # %%
+print(round(0.5), round(1.5), round(2.5), round(3.5))
+
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Funktionen
 
 # %%
+def add_1(n):
+    return n + 1
 
 
 # %%
+x = add_1(10)
+add_1(10) + 1 + 1
 
 # %%
+add_1(5) + add_1(7)
+
 
 # %%
+def my_round(n):
+    return int(n + 0.5)
 
 
 # %%
+print(my_round(0.5), my_round(1.5), my_round(2.5), my_round(3.5))
+
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Micro-Workshop
@@ -192,83 +248,140 @@ plt.scatter(page_load_time, purchase_amount)
 # ```
 
 # %%
+def greeting(name):
+    print("Hallo ", name, "!", sep="")
 
 
 # %%
+greeting("Max")
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Methoden
 
 # %%
+"Foo".lower()
 
 # %%
+# 4.bit_length()
 
 # %%
+number = 5
+number.bit_length()
+
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Mehrere Parameter, Default Argumente
 
 # %%
+def add2(a, b):
+    return a + b
 
 
 # %%
+def add3(a, b=0, c=1):
+    return a + 2 * b + 3 * c
 
 
 # %%
+print(add3(2))
+print(add3(2, 3))
+print(add3(2, 3, 4))
+print(add3(1, c=1))
+print(add3(c=2, b=5, a=1))
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Verschachtelte Funktionsaufrufe
 
 # %%
+add3(add_1(2), add3(1, 2, 3))
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Typannotationen
 
 # %%
+def mult(a: int, b: float) -> float:
+    return a * b
 
 
 # %%
+mult(3, 5.0)
 
 # %%
 # Typannotationen dienen lediglich zur Dokumentation und werden von Python
 # ignoriert:
+mult("a", 3)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Listen und Tupel
 
 # %%
+numbers = [1, 2, 3, 4]
 
 # %%
+print(numbers)
+print(numbers[0], numbers[3])
+print(numbers[1:3])
+print("Länge:", len(numbers))
 
 # %% slideshow={"slide_type": "subslide"}
+numbers + numbers
 
 # %%
+[1] * 3
 
 # %%
+5 in [5, 6, 7]
 
 # %%
+3 not in [5, 6, 7]
 
 # %% slideshow={"slide_type": "subslide"}
+my_list = [1, 2, 3]
+my_list[1] = 5
+my_list[1:2]
 
 # %%
+my_list.append(7)
+my_list
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Boole'sche Werte und `if`-Anweisungen
 
 # %%
+True
 
 # %%
+False
 
 # %%
+value = True
 
 # %%
+if value:
+    print("Wahr")
+else:
+    print("Falsch")
+
 
 # %% slideshow={"slide_type": "subslide"}
+def print_size(n):
+    if n < 10:
+        print("Very small")
+    elif n < 15:
+        print("Small")
+    elif n < 30:
+        print("Average")
+    else:
+        print("Large")
 
 
 # %% slideshow={"slide_type": "subslide"}
+print_size(1)
+print_size(10)
+print_size(20)
+print_size(100)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Micro-Workshop
@@ -297,15 +410,35 @@ plt.scatter(page_load_time, purchase_amount)
 # ```
 
 # %%
+import math
+def replace_with(my_list, my_slice, value):
+    start, stop, stride = my_slice.indices(len(my_list))
+    num_values = math.ceil((stop - start) / stride)
+    my_list[my_slice] = [value] * num_values
 
 
 # %%
+my_list = [1, 2, 3, 4, 5, 6]
+my_slice = slice(2, 6)
+print(my_slice.indices(len(my_list)))
 
 # %%
+my_list = [1, 2, 3, 4, 5, 6]
+my_slice = slice(2, 4)
+replace_with(my_list, my_slice, 8)
+my_list
 
 # %%
+my_list = [1, 2, 3, 4, 5, 6]
+my_slice = slice(2, None, 2)
+replace_with(my_list, my_slice, 8)
+my_list
 
 # %%
+my_list = [1, 2, 3, 4, 5, 6]
+my_slice = slice(1, None, 3)
+replace_with(my_list, my_slice, 8)
+my_list
 
 # %%
 
@@ -314,8 +447,16 @@ plt.scatter(page_load_time, purchase_amount)
 # ## `for`-Schleifen
 
 # %% slideshow={"slide_type": "subslide"}
+for number in [1, 2, 3, 4]:
+    print("Die Zahl ist: ", end="")
+    print(number)
 
 # %%
+result = 0
+for n in [1, 2, 3, 4]:
+    result += n
+result
+
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Micro-Workshop
@@ -334,14 +475,25 @@ plt.scatter(page_load_time, purchase_amount)
 # z.B. `print_all("abc")`
 
 # %%
+def print_all(items: list):
+    for item in items:
+        print(item)
+
 
 # %%
+print_all([1, 2, 3])
 
 # %%
+print_all("abc")
 
 # %% slideshow={"slide_type": "subslide"}
+for i in range(3):
+    print(i, end=", ")
 
 # %%
+for i in range(1, 6, 2):
+    print(i, end=", ")
+
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Micro-Workshop
@@ -350,7 +502,7 @@ plt.scatter(page_load_time, purchase_amount)
 # Zahlen von 1 bis n ausgibt, jeweils ein Element pro Zeile:
 #
 # ```python
-# >>> print_square(3)
+# >>> print_squares(3)
 # 1**2 = 1
 # 2**2 = 4
 # 3**2 = 9
@@ -358,30 +510,54 @@ plt.scatter(page_load_time, purchase_amount)
 # ```
 
 # %%
+def print_squares(n: int):
+    for i in range(1, n+1):
+        print(i, "**2 = ", i*i, sep="")
+
 
 # %%
+print_squares(3)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Dictionaries
 
 # %%
+translations = {"snake": "Schlange", "bat": "Fledermaus", "horse": "Hose"}
 
 # %%
+print(translations["snake"])
+print(translations.get("snake"))
+print(translations.get("monkey"))
+print(translations.get("monkey", "<unbekannt>"))
 
 # %%
 # Fehler:
 # translations['monkey']
 
 # %% slideshow={"slide_type": "subslide"}
+translations["horse"] = "Pferd"
+translations["horse"]
 
 # %% slideshow={"slide_type": "subslide"}
+for key in translations.keys():
+    print(key, end=", ")
 
 # %% slideshow={"slide_type": "subslide"}
+for key in translations:
+    print(key, end=", ")
 
 # %%
+for value in translations.values():
+    print(value, end=", ")
 
 # %% slideshow={"slide_type": "subslide"}
+for item in translations.items():
+    print(item, end=", ")
 
 # %%
+for key, value, *extra in translations.items():
+    print("Key:", key, "\tValue:", value, "\tExtra:", extra)
 
 # %%
+for key, value in [[1, 2, 3], [7, 8, 9, 10], [11, 12], [1]]:
+    print(key, value, extra)

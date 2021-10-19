@@ -90,6 +90,9 @@
 Der über mehrere Zeilen geht."""
 
 
+# %%
+"Neue\r\nZeile"
+
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
@@ -162,12 +165,15 @@ print(1, 3, 7.5, 2, "who, me?", sep=",")
 # - Mit `type(...)` kann man den Typ des Arguments erfahren:
 
 # %% slideshow={"slide_type": "subslide"}
+type(1)
 
 
 # %%
+type(1.0)
 
 
 # %%
+type("1")
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
@@ -356,7 +362,16 @@ ergebniss = länge_gesamt
 # sind *Anweisungen*.
 
 # %% slideshow={"slide_type": "subslide"}
+länge_birkenweg = 25
+print(länge_birkenweg)
+neue_variable = 30
 
+
+# %%
+neue_varaible = 40
+neue_variable
+
+# %%
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # ## Eigenschaften von Variablen in Python
@@ -369,12 +384,20 @@ ergebniss = länge_gesamt
 #     - Dabei kann der *alte Wert* der Variablen auf der rechten Seite verwendet werden:<br/> `jobs = jobs + 1`
 
 # %% slideshow={"slide_type": "subslide"}
+x = "Hallo!"
+print(x)
+x = 123
+print(x)
+x = 1.0 + x
+print(x)
 
 
 # %% slideshow={"slide_type": "subslide"}
+unbekannt
 
 
 # %%
+unbekannt = unbekannt
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -482,6 +505,9 @@ print(Σ)
 # In Python können mehrere Variablen gleichzeitig definiert bzw. mit neuen Werten versehen werden:
 
 # %%
+a, b = 1, 2
+print(a)
+print(b)
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -507,15 +533,23 @@ print(länge_gesamt)
 #
 # Wir berechnen die Länge von $C$ aus $A$ und $B$ immer nach dem Satz von Pythagoras: $C = \sqrt{A^2 + B^2}$.
 #
+#
 # Das können wir in Python durch eine *Funktion* ausdrücken:
 
 # %% slideshow={"slide_type": "subslide"}
+c = 999
+def pythagoras(a, b):
+    c = (a ** 2 + b ** 2) ** 0.5
+    return c
 
 
 # %%
+print(pythagoras(3, 4))
+c
 
 
 # %%
+pythagoras(1, 1)
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -549,6 +583,10 @@ print(länge_gesamt)
 # - Wir brauchen noch eine Funktion, die die Gesamtlänge ausrechnet:
 
 # %%
+def gesamtlänge(x, y):
+    z = pythagoras(x, y)
+    länge = x + y + z
+    return länge
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
@@ -557,9 +595,11 @@ print(länge_gesamt)
 # %%
 länge_a = 10  # Beispielwert
 länge_b = 40  # Beispielwert
+gesamtlänge(länge_a, länge_b)
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
+#
 # ## Mini-Workshop
 #
 # - Notebook `lecture_010x_Workshop_Einführung_in_Python`
@@ -573,30 +613,39 @@ länge_b = 40  # Beispielwert
 
 # %%
 # Zusätzliche mathematische Funktionen:
+import math
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Auf die Funktionen aus dem `math` Modul kann man dann mit der Syntax `math.floor` zugreifen:
 
 # %%
+math.floor(2.5)
 
 
 # %%
+math.floor(2.9999)
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Die Funktion `pythagoras` steht im `math`-Modul unter dem Namen `hypot` zur Verfügung:
 
 # %%
+math.hypot(3.0, 4.0)
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Damit können wir die Funktion `gesamtlänge` ohne die Hilfsfunktion `pythagoras` schreiben:
 
 # %%
+def gesamtlänge(x, y):
+    z = math.hypot(x, y)
+    länge = x + y + z
+    return länge
 
 
 # %%
+gesamtlänge(3, 4)
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -610,15 +659,21 @@ länge_b = 40  # Beispielwert
 # - Gleitkommazahlen mit unterschiedlicher Größe (`numpy`)
 
 # %% slideshow={"slide_type": "subslide"}
+1.1 * 100
 
 
 # %%
+import decimal
+
+decimal.Decimal("1.1") * 100
 
 
 # %% slideshow={"slide_type": "subslide"}
+(1 + 1j) * (1 + 1j)
 
 
 # %%
+1.0j * 1.0j
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -628,13 +683,20 @@ länge_b = 40  # Beispielwert
 # - Sowohl bei der Definition, als auch beim Aufruf müssen die Klammern trotzdem angegeben werden.
 
 # %% slideshow={"slide_type": "subslide"}
+def null():
+    return 0
 
 
 # %%
+def use_function(fun):
+    return fun()
+
+use_function(list)
 
 
 # %%
 # Fehler: 'Aufruf' ohne Klammern
+10 + null()
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -646,6 +708,7 @@ länge_b = 40  # Beispielwert
 # - Seiteneffekte haben: `print("Hans")`
 
 # %%
+type(print("Hans"))
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
@@ -655,12 +718,16 @@ länge_b = 40  # Beispielwert
 # - Jupyter druckt `None` nicht als Wert einer Zelle aus:
 
 # %%
+None
 
 
 # %%
+type(None)
 
 
 # %%
+print(print("Hans"))
+
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # - Funktionen können Seiteneffekte haben
@@ -671,9 +738,13 @@ länge_b = 40  # Beispielwert
 #     - Wenn eine Funktion `None` zurückgibt brauchen wir keine explizite `return`-Anweisung
 
 # %% slideshow={"slide_type": "subslide"}
+def say_hello():
+    print("Hello, world!")
 
 
 # %%
+def thermo():
+    return 0.0, False
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
@@ -692,28 +763,48 @@ länge_b = 40  # Beispielwert
 # - Hat ein Parameter einen Default-Wert, so müssen alle rechts davon stehenden Werte ebenfalls einen haben
 
 # %% slideshow={"slide_type": "subslide"}
+def add(a=0, b=0):
+    return a + b
 
 
 # %%
+add(1)
+
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # ## Vorsicht mit veränderlichen Default-Argumenten
 
 # %%
+def append_value(value, my_list=[]):
+    my_list.append(value)
+    return my_list
+
 
 # %%
+append_value(1)
 
 # %%
+append_value(2)
+
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 #
-# Lösung: verwende `Null` als Argument, erzeuge in jedem Aufruf eine neue Liste
+# Lösung: verwende `None` als Argument, erzeuge in jedem Aufruf eine neue Liste
 
 # %%
+def append_value(value, my_list=None):
+    if my_list is None:
+        my_list = []
+    my_list.append(value)
+    return my_list
+    
+
 
 # %%
+append_value(1)
 
 # %%
+append_value(2)
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -772,6 +863,10 @@ mult("a", 3)
 # Typannotationen können parametrische Typen, optionale Typen, etc. enthalten.
 
 # %%
+import typing
+def my_append(lhs: list[int], rhs: typing.Optional[int] = None):
+    if rhs is not None:
+        lhs.append(rhs)
 
 
 # %% slideshow={"slide_type": "subslide"}

@@ -248,9 +248,10 @@ drucke_aufteilung_der_beute(17, 8)
 
 # %%
 def teile_beute_auf(dublonen, piraten):
-    dublonen_pro_pirat = dublonen // piraten
-    dublonen_kapitän = dublonen % piraten
-    return dublonen_pro_pirat, dublonen_kapitän
+#     dublonen_pro_pirat = dublonen // piraten
+#     dublonen_kapitän = dublonen % piraten
+#     return dublonen_pro_pirat, dublonen_kapitän
+    return divmod(dublonen, piraten)
 
 
 # %% [markdown]
