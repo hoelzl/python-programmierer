@@ -8,7 +8,7 @@ setup(
     version='0.1',
     packages=find_packages(),
     entry_points={'console_scripts': [
-        'msgqueue = msgqueue.main:main'
+        'msgqueue = msgqueue.__main__:main'
     ]},
     author='Matthias Hölzl',
     author_email='tc@xantira.com',
