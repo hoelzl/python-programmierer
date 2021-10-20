@@ -335,7 +335,7 @@ class MyBadList:
 
     def append(self, element):
         self.elements.append(element)
-    
+
 
 # %% slideshow={"slide_type": "subslide"}
 my_list_1 = MyBadList()
@@ -412,7 +412,7 @@ print(p3d)
 print(p3d.move(dy=1.0, dz=5.0))
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
-# 
+#
 # Dataclasses erzwingen, dass alle Default-Werte unveränderlich sind:
 
 # %%

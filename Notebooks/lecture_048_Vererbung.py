@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # %% [markdown]
 # <img src="img/python-logo-notext.svg"
 #      style="display:block;margin:auto;width:10%"/>

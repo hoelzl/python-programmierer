@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # %% [markdown]
 #
 # # Kraftfahrzeuge (Teil 1)
@@ -8,7 +9,7 @@
 # %%
 
 # %% [markdown]
-# 
+#
 # Erzeugen Sie zwei Kraftfahrzeuge:
 # - einen BMW mit Kennzeichen "M-BW 123"
 # - einen VW mit Kennzeichen "WOB-VW 246"
@@ -23,7 +24,7 @@
 
 # %%
 
-# %% [markdown] 
+# %% [markdown]
 #
 # Wie können Sie feststellen, ob `bmw` und `bmw2` (bzw. `bmw` und `vw`) das
 # gleiche Fahrzeug beschreiben?
@@ -31,9 +32,9 @@
 # %%
 
 # %% [markdown]
-# 
+#
 # # Kraftfahrzeuge (Teil 2)
-# 
+#
 # Erweitern Sie die Klasse `Kfz` um eine Methode `melde_um(self,
 # neues_kennzeichen)`, die das Kennzeichen des Fahrzeugs ändert.
 
@@ -47,14 +48,14 @@
 # %%
 
 # %% [markdown]
-# 
+#
 # Melden Sie den obern erzeugten VW um, so dass er das neue Kennzeichen "BGL-A
 # 9" hat. Wie können Sie feststellen ob das Ummelden die gewünschte Änderung
 # hatte?
 
 # %%
 
-# %% [markdown] 
+# %% [markdown]
 #
 # Melden Sie den in `bmw` gespeicherten BMW um (mit Kennzeichen "F-B 21"). Wirkt
 # sich die Änderung auf das in `bmw2` gespeicherte KFZ aus?
@@ -82,7 +83,7 @@
 # %%
 
 
-# %% [markdown] 
+# %% [markdown]
 #
 # Definieren Sie eine Klasse `ShoppingList`, die eine Liste von `Item`-Instanzen
 # beinhaltet:

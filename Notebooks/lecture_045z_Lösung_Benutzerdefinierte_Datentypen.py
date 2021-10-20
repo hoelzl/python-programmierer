@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # %% [markdown]
 #
 # # Kraftfahrzeuge (Teil 1)
@@ -12,7 +13,7 @@ class Kfz:
         self.kennzeichen = kennzeichen
 
 # %% [markdown]
-# 
+#
 # Erzeugen Sie zwei Kraftfahrzeuge:
 # - einen BMW mit Kennzeichen "M-BW 123"
 # - einen VW mit Kennzeichen "WOB-VW 246"
@@ -30,7 +31,7 @@ vw = Kfz("VW", "WOB-VW 246")
 # %%
 bmw2 = Kfz("BMW", "M-BW 123")
 
-# %% [markdown] 
+# %% [markdown]
 #
 # Wie können Sie feststellen, ob `bmw` und `bmw2` (bzw. `bmw` und `vw`) das
 # gleiche Fahrzeug beschreiben?
@@ -42,9 +43,9 @@ bmw.hersteller == bmw2.hersteller and bmw.kennzeichen == bmw2.kennzeichen
 bmw.hersteller == vw.hersteller and bmw.kennzeichen == vw.kennzeichen
 
 # %% [markdown]
-# 
+#
 # # Kraftfahrzeuge (Teil 2)
-# 
+#
 # Erweitern Sie die Klasse `Kfz` um eine Methode `melde_um(self,
 # neues_kennzeichen)`, die das Kennzeichen des Fahrzeugs ändert.
 
@@ -68,7 +69,7 @@ bmw2 = Kfz("BMW", "M-BW 123")
 vw = Kfz("VW", "WOB-VW 246")
 
 # %% [markdown]
-# 
+#
 # Melden Sie den obern erzeugten VW um, so dass er das neue Kennzeichen "BGL-A
 # 9" hat. Wie können Sie feststellen ob das Ummelden die gewünschte Änderung
 # hatte?
@@ -82,7 +83,7 @@ assert vw.kennzeichen == "BGL-A 9" and vw.hersteller == "VW"
 # Oder
 print("Hersteller:", vw.hersteller, "\tKennzeichen:", vw.kennzeichen)
 
-# %% [markdown] 
+# %% [markdown]
 #
 # Melden Sie den in `bmw` gespeicherten BMW um (mit Kennzeichen "F-B 21"). Wirkt
 # sich die Änderung auf das in `bmw2` gespeicherte KFZ aus?
@@ -120,7 +121,7 @@ class Item:
 Item("Kaffee", "500g")
 
 
-# %% [markdown] 
+# %% [markdown]
 #
 # Definieren Sie eine Klasse `ShoppingList`, die eine Liste von `Item`-Instanzen
 # beinhaltet:
