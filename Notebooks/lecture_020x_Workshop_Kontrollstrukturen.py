@@ -309,5 +309,3 @@
 # Testen Sie die Funktion mit einer existierenden und einer nicht existierenden Datei.
 
 # %%
-
-# %%

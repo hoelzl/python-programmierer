@@ -257,19 +257,14 @@ my_var = 1
 assert my_var == 1
 
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
-# ## Mini-Workshop
-#
-# - Notebook `lecture_048x_Workshop_Vererbung`
-# - Abschnitt "Exceptions"
-
-
 # %% [markdown] slideshow={"slide_type": "slide"}
 # # Dateien
 #
-# Bislang gehen am Ende der Programmausführung alle Daten, die wir berechnet haben verloren.
+# Bislang gehen am Ende der Programmausführung alle Daten, die wir berechnet
+# haben verloren.
 #
-# Die einfachste Varianten Daten zu persistieren ist sie in einer Datei zu speichern:
+# Die einfachste Varianten Daten zu persistieren ist sie in einer Datei zu
+# speichern:
 
 # %% slideshow={"slide_type": "subslide"}
 import os
@@ -278,6 +273,7 @@ import os
 os.getcwd()
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
+#
 # - Mit `open()` kann eine Datei zum Lesen oder Schreiben geöffnet werden.
 # - Der `mode` Parameter gibt an, ob die Datei zum Lesen oder Schreiben geöffnet wird:
 #   - `r`: Lesen
@@ -326,7 +322,10 @@ print(contents)
 file.close()
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
-# Dateien müssen immer mit `close` geschlossen werden, auch wenn der Programmteil, in dem die Datei verwendet wird durch eine Exception verlassen wird. Das könnte mit `try ... finally` erfolgen.
+#
+# Dateien müssen immer mit `close` geschlossen werden, auch wenn der
+# Programmteil, in dem die Datei verwendet wird durch eine Exception verlassen
+# wird. Das könnte mit `try ... finally` erfolgen.
 #
 # Python bietet dafür ein eleganteres Konstrukt:
 
@@ -354,6 +353,6 @@ with open('my-data-file.txt', 'r+') as file:
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_020x_Workshop_Kontrollstrukturen`
-# - Abschnitt "# Lesen und Schreiben in Dateien"
+# - Notebook `lecture_048x_Workshop_Vererbung`
+# - Abschnitt "Lesen und Schreiben in Dateien"
 #

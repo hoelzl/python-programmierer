@@ -167,4 +167,63 @@ try:
 except ValueError as err:
     print("ERROR:", err)
 
+
+# %% [markdown]
+#
+#  # Lesen und Schreiben in Dateien
+#
+# Schreiben Sie eine Funktion `write_text_to_file(text: str, file_name: str) ->
+# None`, die den String `text` in die Datei `file_name` schreibt, sofern diese
+# *nicht* existiert und eine Exception vom Typ `FileExistsError` wirft, falls
+# die Datei existiert.
+#
+# *Hinweis:*  Beachten Sie die möglichen Werte für das `mode` Argument von
+# `open()`.
+
+# %%
+def write_text_to_file(text, file_name):
+    with open(file_name, 'x') as file:
+        file.write(text)
+
+
+# %% [markdown]
+#
+# Testen Sie die Funktion, indem Sie zweimal hintereinander versuchen den Text
+# `Python 3.8` in die Datei `my-private-file.txt` zu schreiben.
+
+# %%
+write_text_to_file('Python 3.8', 'my_private_file.txt')
+
+# %%
+# write_text_to_file('Python 3.8', 'my_private_file.txt')
+
+
+# %% [markdown]
+#
+#  Schreiben Sie eine Funktion `annotate_file(file_name: str) -> None`, die 
+# - den Inhalt der Datei `file_name` gefolgt von dem Text `(annotated version)`
+#   auf dem Bildschirm ausgibt, falls sie existiert
+# - den Text `No file found, we will bill the time we spent searching.` ausgibt
+#   falls sie nicht existiert
+# - in beiden Fällen den Text `Our invoice will be sent by mail.` ausgibt.
+
+# %%
+def annotate_file(file_name):
+    try:
+        with open(file_name, 'r') as file:
+            print(file.read())
+            print('(annotated version)')
+    except FileNotFoundError:
+        print('No file found, we will bill the time we spent searching.')
+    finally:
+        print('Our invoice will be sent by mail.')
+
+
+# %%
+annotate_file('my_private_file.txt')
+
+# %%
+annotate_file('does-not-exist.txt')
+
+
 # %%
