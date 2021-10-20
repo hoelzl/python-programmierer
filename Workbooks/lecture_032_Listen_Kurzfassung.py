@@ -51,6 +51,9 @@ stringliste[1:]
 # %%
 stringliste[:]
 
+# %%
+stringliste[1:5:2]
+
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
@@ -123,7 +126,8 @@ def replace_with(my_list, my_slice, value):
 
 # %% slideshow={"slide_type": "subslide"}
 my_list = [1, 2, 3, 4, 5, 6]
-my_slice = slice(2, 6)
+my_slice = slice(2, 4)
+my_list[2:4]
 replace_with(my_list, my_slice, 8)
 my_list
 

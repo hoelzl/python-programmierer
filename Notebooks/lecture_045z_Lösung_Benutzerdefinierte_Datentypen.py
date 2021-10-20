@@ -112,7 +112,7 @@ from dataclasses import dataclass
 @dataclass
 class Item:
     product: str
-    amount: int = 1
+    amount: str = "1 Stück"
 
 # %% [markdown]
 # Erzeugen sie ein Item, das 500g Kaffee repräsentiert:

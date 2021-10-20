@@ -33,13 +33,18 @@
 # - `str` für eine "benutzerfreundliche" Darstellung
 
 # %%
+print(str("Hallo!"))
 
 # %%
+print(repr("Hallo!"))
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Für manche Datentypen liefern `str` und `repr` den gleichen String zurück:
 
 # %%
+print(str(["a", "b", "c"]))
+print(repr(["a", "b", "c"]))
+
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # # Benutzerdefinierte Datentypen
@@ -47,6 +52,8 @@
 # In Python können benutzerdefinierte Datentypen (Klassen) definiert werden:
 
 # %%
+class PointV0:
+    pass
 
 # %% [markdown]
 #
@@ -60,12 +67,18 @@
 # Funktionen können verwendet werden:
 
 # %% slideshow={"slide_type": "subslide"}
+p1 = PointV0()
+p1
 
 # %%
+print(p1)
 
 # %%
+p2 = PointV0()
+p1 == p2
 
 # %%
+# p1 < p2
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 #
@@ -75,11 +88,14 @@
 
 # %%
 # Möglich, aber nicht gut...
-
+p1.x = 1.0
+p1.y = 2.0
+print(p1.x)
+print(p1.y)
 
 # %%
 # Fehler!
-
+# p2.y
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 #
@@ -92,16 +108,27 @@
 # (mindestens) einen Parameter, der per Konvention `self` heißt:
 
 # %% slideshow={"slide_type": "subslide"}
+class PointV1:
+    def __init__(self):
+        self.x = 0.0
+        self.y = 0.0
 
 # %%
-
-# %%
+p1 = PointV1()
+p2 = PointV1()
+print("p1: x =", p1.x, "y =", p1.y)
+print("p2: x =", p2.x, "y =", p2.y)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 #
 # Die Werte von Attributen können verändert werden:
 
 # %%
+p1.x = 1.0
+p1.y = 2.0
+print("p1: x =", p1.x, "y =", p1.y)
+print("p2: x =", p2.x, "y =", p2.y)
+
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 #
@@ -110,8 +137,18 @@
 # zusätzliche Parameter gibt.
 
 # %% slideshow={"slide_type": "subslide"}
+class PointV2:
+    def __init__(self, x: float = 0.0, y: float = 0.0):
+        self.x = x
+        self.y = y
+
 
 # %%
+p1 = PointV2(x=2.0, y=3.0)
+p2 = PointV2(y=2.1)
+print("p1: x =", p1.x, "y =", p1.y)
+print("p2: x =", p2.x, "y =", p2.y)
+p1
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
@@ -132,10 +169,22 @@
 # `__init__()`-Methode.
 
 # %% slideshow={"slide_type": "subslide"}
+class PointV3:
+    def __init__(self, x: float = 0.0, y: float = 0.0):
+        self.x = x
+        self.y = y
+    
+    def move(self, dx=0.0, dy=0.0):
+        self.x += dx
+        self.y += dy
 
 # %% slideshow={"slide_type": "subslide"}
+p = PointV3(2.0, 3.0)
+print(p.x, p.y)
 
 # %%
+p.move(2.0, 5.0)
+print(p.x, p.y)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
@@ -151,6 +200,9 @@
 # gestaltet werden:
 
 # %%
+print(str(p))
+print(repr(p))
+
 
 # %% [markdown]
 # Durch Definition der Methode `__repr__(self)` kann der von `repr` zurückgegebene
@@ -164,7 +216,13 @@ class PointV4:
         self.x = x
         self.y = y
 
-    ###
+    def __repr__(self):
+        return f"PointV4({self.x}, {self.y})"
+    
+    def __eq__(self, other):
+        if isinstance(other, PointV4):
+            return self.x == other.x and self.y == other.y
+        return False
 
     def move(self, dx=0, dy=0):
         self.x += dx
@@ -174,6 +232,23 @@ class PointV4:
 # %%
 p1 = PointV4(2, 5)
 print(repr(p1))
+print(str(p1))
+
+# %%
+p2 = PointV4(2, 5)
+p3 = PointV4(3, 7)
+
+# %%
+p1 == p2
+
+# %%
+p1 is p2
+
+# %%
+p1 == p3
+
+# %%
+p1 == 123
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Standardmäßig delegiert die Funktion `str` an `repr`, falls keine `__str__`-Methode
@@ -209,10 +284,13 @@ class Point:
     def __sub__(self, other):
         return Point(self.x - other.x, self.y - other.y)
 
+    # Double dispatch
     def __mul__(self, other):
+        print("Called __mul__()")
         return Point(other * self.x, other * self.y)
     
     def __rmul__(self, other):
+        print("Called __rmul__()")
         return Point(other * self.x, other * self.y)
 
     def move(self, dx=0, dy=0):
@@ -224,6 +302,7 @@ class Point:
 p1 = Point(1, 2)
 p2 = Point(2, 4)
 p3 = Point(2, 4)
+p1, p2, p3
 
 # %%
 p1 == p2
@@ -251,13 +330,6 @@ p2
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 #
-#  ## Mini-Workshop
-#
-# - Notebook `lecture_045x_Workshop_Benutzerdefinierte_Datentypen`
-# - Abschnitt "Kraftfahrzeuge (Teil 2)"
-
-# %% [markdown] slideshow={"slide_type": "subslide"}
-#
 # Es ist möglich eigene Typen zu definieren, die sich wie Listen verhalten:
 
 # %%
@@ -275,7 +347,7 @@ class MyBadList:
     
     def __repr__(self):
         return f"MyBadList({self.elements!r})"
-
+    
     def append(self, element):
         self.elements.append(element)
 
@@ -322,8 +394,8 @@ from dataclasses import dataclass
 
 @dataclass
 class DataPoint:
-    x: float
-    y: float
+    x: float = 0.0
+    y: float = 0.0
 
 
 # %%

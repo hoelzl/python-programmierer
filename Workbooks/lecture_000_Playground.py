@@ -20,3 +20,8 @@
 # Ein leeres Notebook für Experimente und kleine Beispiele.
 
 # %%
+class A:
+    def __init__(x):
+        print(f"A, {x}")
+
+

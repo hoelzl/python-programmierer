@@ -13,14 +13,15 @@
 # %%
 import random
 class Point:
-    def __init__(self, x=0, y=0):
+    def __init__(self, x=0.0, y=0.0):
+        super().__init__()
         self.x = x
         self.y = y
 
     def __repr__(self):
-        return f"Point({self.x:.1f}, {self.y:.1f})"
+        return f"{self.__class__.__name__}({self.x:.1f}, {self.y:.1f})"
 
-    def move(self, dx=0, dy=0):
+    def move(self, dx=0.0, dy=0.0):
         self.x += dx
         self.y += dy
     
@@ -44,21 +45,21 @@ p
 
 # %% slideshow={"slide_type": "subslide"}
 class ColorPoint(Point):
-    def __init__(self, x=0, y=0, color='black'):
+    def __init__(self, x=0.0, y=0.0, color='black'):
         super().__init__(x, y)
         self.color = color
     
-    def __repr__(self):
-        return f"ColorPoint({self.x:.1f}, {self.y:.1f}, {self.color!r})"
+#     def __repr__(self):
+#         return f"ColorPoint({self.x:.1f}, {self.y:.1f}, {self.color!r})"
 
-    def randomize(self):
-        super().randomize()
-        self.color = random.choice(["black", "red", "green", "blue", "yellow", "white"])
+#     def randomize(self):
+#         super().randomize()
+#         self.color = random.choice(["black", "red", "green", "blue", "yellow", "white"])
 
 
 # %%
 cp = ColorPoint(2, 3, 'red')
-# cp
+cp, type(cp)
 
 # %%
 cp.move(2, 3)
