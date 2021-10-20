@@ -54,7 +54,7 @@ stringliste[:]
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
+# - Notebook `lecture_030x_Workshop_Listen_und_For_Schleifen`
 # - Abschnitt "Slicing"
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -238,8 +238,8 @@ result
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
-# - Abschnitte "Quadratzahlen mit Listen-Komprehension"
+# - Notebook `lecture_030x_Workshop_Listen_und_For_Schleifen`
+# - Abschnitt "Quadratzahlen mit Listen-Komprehension"
 #
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -280,8 +280,8 @@ result
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
-# - Abschnitte "Filtern mit Listen-Komprehension"
+# - Notebook `lecture_030x_Workshop_Listen_und_For_Schleifen`
+# - Abschnitt "Filtern mit Listen-Komprehension"
 #
 
 # %%

@@ -33,18 +33,13 @@
 # - `str` für eine "benutzerfreundliche" Darstellung
 
 # %%
-print(str("Hallo!"))
 
 # %%
-print(repr("Hallo!"))
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # Für manche Datentypen liefern `str` und `repr` den gleichen String zurück:
 
 # %%
-print(str(['a', 'b', 'c']))
-print(repr(['a', 'b', 'c']))
-
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # # Benutzerdefinierte Datentypen
@@ -52,8 +47,6 @@ print(repr(['a', 'b', 'c']))
 # In Python können benutzerdefinierte Datentypen (Klassen) definiert werden:
 
 # %%
-class PointV0:
-    pass
 
 # %% [markdown]
 #
@@ -67,19 +60,12 @@ class PointV0:
 # Funktionen können verwendet werden:
 
 # %% slideshow={"slide_type": "subslide"}
-p1 = PointV0()
-p1
 
 # %%
-print(p1)
 
 # %%
-p2 = PointV0()
-p1 == p2
 
 # %%
-# Fehler
-# p1 < p2
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 #
@@ -89,14 +75,11 @@ p1 == p2
 
 # %%
 # Möglich, aber nicht gut...
-p1.x = 1.0
-p1.y = 2.0
-print(p1.x)
-print(p1.y)
+
 
 # %%
 # Fehler!
-# p2.x
+
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 #
@@ -109,29 +92,16 @@ print(p1.y)
 # (mindestens) einen Parameter, der per Konvention `self` heißt:
 
 # %% slideshow={"slide_type": "subslide"}
-class PointV1:
-    def __init__(self):
-        self.x = 0.0
-        self.y = 0.0
 
 # %%
-p1 = PointV1()
-p2 = PointV1()
-print("p1: x =", p1.x, "y =", p1.y)
-print("p2: x =", p2.x, "y =", p2.y)
 
 # %%
-p1 == p2
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 #
 # Die Werte von Attributen können verändert werden:
 
 # %%
-p1.x = 1.0
-p1.y = 2.0
-print("p1: x =", p1.x, "y =", p1.y)
-print("p2: x =", p2.x, "y =", p2.y)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 #
@@ -140,17 +110,8 @@ print("p2: x =", p2.x, "y =", p2.y)
 # zusätzliche Parameter gibt.
 
 # %% slideshow={"slide_type": "subslide"}
-class PointV2:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
 
 # %%
-p1 = PointV2(2.0, 3.0)
-p2 = PointV2(0.0, 0.0)
-print("p1: x =", p1.x, "y =", p1.y)
-print("p2: x =", p2.x, "y =", p2.y)
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
@@ -171,24 +132,10 @@ print("p2: x =", p2.x, "y =", p2.y)
 # `__init__()`-Methode.
 
 # %% slideshow={"slide_type": "subslide"}
-class PointV3:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def move(self, dx=0.0, dy=0.0):
-        self.x += dx
-        self.y += dy
 
 # %% slideshow={"slide_type": "subslide"}
-p = PointV3(2, 3)
-print("x =", p.x)
-print("y =", p.y)
 
 # %%
-p.move(3, 5)
-print("x =", p.x)
-print("y =", p.y)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
@@ -204,9 +151,6 @@ print("y =", p.y)
 # gestaltet werden:
 
 # %%
-print(str(p1))
-print(repr(p1))
-
 
 # %% [markdown]
 # Durch Definition der Methode `__repr__(self)` kann der von `repr` zurückgegebene
@@ -220,8 +164,7 @@ class PointV4:
         self.x = x
         self.y = y
 
-    def __repr__(self):
-        return "PointV4(" + repr(self.x) + ", " + repr(self.y) + ")"
+    ###
 
     def move(self, dx=0, dy=0):
         self.x += dx
