@@ -291,3 +291,10 @@ html.entities.entitydefs['Psi']
 # - Erstellen der Distribution mit `python setup.py bdist_wheel`
 # - Installation mit `pip` und dem generierten Wheel
 # - Installation während der Entwicklung: `pip install -e .`
+
+# %% [markdown]
+# ## Alternative: Projekt-Generatoren
+#
+# - Beispiele: [PyScaffold](https://pypi.org/project/PyScaffold/), [Cookiecutter PyPackage](https://github.com/audreyr/cookiecutter-pypackage)
+
+# %%
