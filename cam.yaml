@@ -12,6 +12,7 @@ dependencies:
   - datasets
   - ipykernel
   - mypy
+  - jinja2
   - jupyter
   - jupytext
   - matplotlib
