@@ -13,15 +13,11 @@
 #     name: python3
 # ---
 
-# %% [markdown]
-#
-#  <img src="img/python-logo-notext.svg"
-#       style="display:block;margin:auto;width:10%"/>
-#  <h1 style="text-align:center;">Python: Dictionaries</h1>
-#  <h2 style="text-align:center;">Coding Akademie München GmbH</h2>
-#  <br/>
-#  <div style="text-align:center;">Dr. Matthias Hölzl</div>
-#  <div style="text-align:center;">Allaithy Raed</div>
+
+# j2 import 'macros.j2' as doc
+# %% [markdown] {{ doc.slide() }}
+# {{ doc.header (Dictionaries) }}
+
 
 # %% [markdown]
 #

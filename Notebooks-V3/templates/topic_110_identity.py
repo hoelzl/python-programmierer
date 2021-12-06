@@ -2,16 +2,22 @@
 # ---
 # jupyter:
 #   jupytext:
+#     cell_metadata_json: true
 #     text_representation:
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.13.2
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
+
+# %%
+# j2 import 'macros.j2' as doc
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.slide() }}"}
+# {{ doc.header (Identität von Objekten) }}
 
 # %% [markdown]
 #
@@ -75,7 +81,8 @@ c == d
 a = [1, 2, 3]
 b = a
 c = [1, 2, 3]
-d = c.copy()
+d = c[:]
+e = c.copy()
 
 # %%
 a is b
@@ -87,8 +94,16 @@ b is c
 c is d
 
 # %%
+c is e
+
+# %%
 c[0] = 2
+
+# %%
 d
+
+# %%
+e
 
 # %% [markdown]
 #
@@ -105,8 +120,7 @@ id([1, 2, 3])
 hex(id([1, 2, 3]))
 
 # %% [markdown]
-#
-#  Gilt für Zahlen mit `x == y` immer `x is y`?
+# *Nur am Rande:* Gilt für Zahlen mit `x == y` immer `x is y`?
 
 # %%
 x = 1
@@ -138,6 +152,9 @@ print(hex(id(x)))
 print(x_refcount)
 print(x_int_value)
 
+
+# %% [markdown]
+# ## Vorsicht mit veränderlichen Default-Argumenten!
 
 # %%
 def f(lst=[]):

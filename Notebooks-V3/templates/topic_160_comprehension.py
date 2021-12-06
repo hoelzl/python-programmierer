@@ -10,6 +10,12 @@
 
 # %%
 
+
+# j2 import 'macros.j2' as doc
+# %% [markdown] {{ doc.slide() }}
+# {{ doc.header (Listen-Komprehensione: Elegantere Iteration) }}
+
+
 # %% [markdown]
 #
 # # Eleganter: Listen-Komprehension

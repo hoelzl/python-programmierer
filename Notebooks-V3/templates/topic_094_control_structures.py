@@ -2,16 +2,23 @@
 # ---
 # jupyter:
 #   jupytext:
+#     cell_metadata_json: true
 #     text_representation:
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.13.2
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
+
+# %%
+
+# j2 import 'macros.j2' as doc
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.slide(Kontrollstrukturen) }}"}
+# {{ doc.header () }}
 
 # %% [markdown]
 #
@@ -71,27 +78,27 @@ klassifiziere_zahl(12, 12)
 
 # %% [markdown]
 #
-#  ## Struktur einer `if`-Anweisung (vollständig):
-#
-#  ```python
-#  if <Bedingung 1>:
-#      Rumpf, der ausgeführt wird, wenn Bedingung 1 wahr ist
-#  elif <Bedingung 2>:
-#      Rumpf, der ausgeführt wird, wenn Bedingung 2 wahr ist
-#  ...
-#  else:
-#      Rumpf, der ausgeführt wird, wenn keine der Bedingungen wahr ist
-#  ```
-#  - Nur das `if` und der erste Rumpf sind notwendig
-#  - Falls ein `elif` oder ein `else` vorhanden ist, so darf der entsprechende Rumpf nicht leer sein
-
-# %% [markdown]
-#
 #  ## Extra Mini-Workshop
 #
 #  - Notebook `020x-Workshop Kontrollstrukturen`
 #  - Abschnitt "Positiv/Negativ"
 #
+
+# %% [markdown]
+#
+#  ## Struktur einer `if`-Anweisung (vollständig):
+#
+# ```python
+# if <Bedingung 1>:
+#     Rumpf, der ausgeführt wird, wenn Bedingung 1 wahr ist
+# elif <Bedingung 2>:
+#     Rumpf, der ausgeführt wird, wenn Bedingung 2 wahr ist
+# ...
+# else:
+#     Rumpf, der ausgeführt wird, wenn keine der Bedingungen wahr ist
+# ```
+#  - Nur das `if` und der erste Rumpf sind notwendig
+#  - Falls ein `elif` oder ein `else` vorhanden ist, so darf der entsprechende Rumpf nicht leer sein
 
 # %% [markdown]
 #

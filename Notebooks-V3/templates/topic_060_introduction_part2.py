@@ -2,19 +2,27 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py:percent
+#     cell_metadata_json: true
+#     formats: py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.0
+#       jupytext_version: 1.13.2
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
-# %% [markdown] slideshow={"slide_type": "slide"}
+# %%
+
+# j2 import 'macros.j2' as doc
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.slide() }}"}
+# {{ doc.header (Einführung in Python: Grundlagen (Teil 2)) }}
+
+
+# %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # # Vergleiche, Boole'sche Werte
 
 # %% [markdown]
@@ -26,7 +34,7 @@
 # %%
 1 == 2
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # Das Ergebnis eines Vergleichs ist ein Boole'scher Wert (Wahrheitswert)
 #
 # - `True`
@@ -35,31 +43,40 @@
 # %%
 type(True)
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Gleichheit von Zahlen
 
 # %%
 1 == 1.0
 
+# %% [markdown]
+# Mit Unterstrichen lassen sich Zahlen übersichtlicher schreiben.
+
 # %%
 0.000_000_1 * 10_000_000 == 1
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # Vorsicht: Rundungsfehler!
 
 # %%
-(2 ** 0.5) ** 2 == 2
+1 / 10
 
 # %%
-(2 ** 0.5) ** 2
+1 / 100
+
+# %%
+(1/10) * (1/10) == (1/100)
+
+# %%
+0.1 * 0.1
 
 # %%
 0.1 - 0.01
 
 # %%
-100 * 1.1, 100 * 0.1 + 100
+100 * 1.1
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Ungleichheit von Zahlen
 #
 # Der Operator `!=` testet, ob zwei Zahlen verschieden sind
@@ -70,7 +87,7 @@ type(True)
 # %%
 1 != 2
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Vergleich von Zahlen
 
 # %%
@@ -82,19 +99,19 @@ type(True)
 # %%
 1 <= 1
 
-# %% slideshow={"slide_type": "subslide"}
+# %% {"slideshow": {"slide_type": "subslide"}}
 1 > 2
 
 # %%
 2 >= 1
 
-# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
+# %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}}
 # ## Vergleichsoperatoren auf anderen Typen
 #
 # Die Vergleichsoperatoren lassen sich auch auf viele andere Typen anwenden
 # (genaueres später).
 
-# %% [markdown] slideshow={"slide_type": "slide"}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # ## Operatoren auf Boole'schen Werten
 #
 
@@ -107,7 +124,7 @@ type(True)
 # %%
 not (1 < 2)
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ### Wann ist ein logischer Ausdruck wahr?
 #
 # | Operator | Operation                      | `True` wenn...                 |
@@ -116,7 +133,7 @@ not (1 < 2)
 # | or       | logisches "Oder" (Disjunktion) | mindestens ein Argument `True` |
 # | not      | logisches "Nicht" (Negation)   | Argument `False`               |
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ### Verkettung von Vergleichen
 
 # %%
@@ -132,28 +149,29 @@ not (1 < 2)
 1 < 3 and 3 <= 2
 
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
 # - Notebook `lecture_012x_Workshop_Einführung in Python (Teil 2)`
 # - Abschnitt "Operatoren, Vergleiche"
 
-# %% [markdown] slideshow={"slide_type": "slide"}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # # `if`-Anweisungen
 #
 # - Wir wollen ein Programm schreiben, das bestimmt ob eine Zahl eine Glückszahl ist oder nicht:
 #     - 7 ist eine Glückszahl
 #     - Alle anderen Zahlen sind es nicht.
-# - Mit den Python-Konstrukten, die wir bis jetzt kennen können wir das nicht machen.
 # - Wir benötigen dazu die `if`-Anweisung:
 
-# %% slideshow={"slide_type": "subslide"}
+# %% {"slideshow": {"slide_type": "subslide"}}
 def ist_glückszahl(zahl):
     print("Ist", zahl, "eine Glückszahl?")
+    
     if zahl == 7:
         print("Ja!")
     else:
         print("Leider nein.")
+    
     print("Wir wünschen Ihnen alles Gute.")
 
 
@@ -164,7 +182,7 @@ ist_glückszahl(1)
 ist_glückszahl(7)
 
 
-# %% slideshow={"slide_type": "subslide"}
+# %% {"slideshow": {"slide_type": "subslide"}}
 def ist_glückszahl_2(zahl):
     if zahl == 7:
         print(zahl, "ist eine Glückszahl!")
@@ -182,7 +200,7 @@ ist_glückszahl_2(1)
 ist_glückszahl_2(7)
 
 
-# %% slideshow={"slide_type": "subslide"}
+# %% {"slideshow": {"slide_type": "subslide"}}
 def einseitiges_if_1(zahl):
     print("Vorher")
 
@@ -200,7 +218,7 @@ einseitiges_if_1(1)
 einseitiges_if_1(7)
 
 
-# %% slideshow={"slide_type": "subslide"}
+# %% {"slideshow": {"slide_type": "subslide"}}
 def einseitiges_if_2(zahl):
     if zahl % 2 != 0:
         zahl += 1         # zahl = zahl + 1
@@ -213,7 +231,7 @@ einseitiges_if_2(1)
 # %%
 einseitiges_if_2(6)
 
-# %% [markdown] slideshow={"slide_type": "slide"}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # ## Struktur einer `if`-Anweisung (unvollständig):
 #
 # ```python
@@ -226,13 +244,13 @@ einseitiges_if_2(6)
 # - Falls ein `else` vorhanden ist, so darf der entsprechende Rumpf nicht leer sein
 #
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
 # - Notebook `lecture_012x_Workshop_Einführung in Python (Teil 2)`
 # - Abschnitt "Volljährig"
 
-# %% [markdown] slideshow={"slide_type": "slide"}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # # Listen
 
 # %%
@@ -244,14 +262,14 @@ warenkorb = ["Haferflocken", "Kaffeebohnen", "Orangenmarmelade"]
 # %%
 type(warenkorb)
 
-# %% [markdown] slideshow={"slide_type": "slide"}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # ## Erzeugen von Listen
 #
 # - Listen werden erzeugt, indem man ihre Elemente in eckige Klammern einschließt.
 # - Die Elemente einer Liste können beliebige Python-Werte sein.
 # - Eine Liste kann Elemente mit verschiedenen Typen enthalten.
 
-# %% slideshow={"slide_type": "subslide"}
+# %% {"slideshow": {"slide_type": "subslide"}}
 liste_1 = [1, 2, 3, 4, 5]
 liste_2 = ["string1", "another string"]
 
@@ -261,7 +279,7 @@ print(liste_1)
 # %%
 print(liste_2)
 
-# %% slideshow={"slide_type": "subslide"}
+# %% {"slideshow": {"slide_type": "subslide"}}
 liste_3 = []
 liste_4 = [1, 0.4, "ein String", True, None]
 
@@ -271,7 +289,7 @@ print(liste_3)
 # %%
 print(liste_4)
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 #
 # Die Elemente einer Liste müssen keine Literale sein, man kann auch Werte von
 # Variablen in einer Liste speichern:
@@ -283,7 +301,7 @@ produkt_3 = "Orangenmarmelade"
 warenkorb = [produkt_1, produkt_2, produkt_3, "Erdbeermarmelade"]
 warenkorb
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 #
 # Nachdem eine Liste erzeugt ist hat sie keine Verbindung zu den Variablen, die
 # in ihrer Konstruktion verwendet wurden:
@@ -293,7 +311,7 @@ produkt_1 = "Dinkelflocken"
 produkt_2 = "Teebeutel"
 warenkorb
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 #
 # Mit der Funktion `list` können manche andere Datentypen in Listen umgewandelt
 # werden.
@@ -310,7 +328,7 @@ list([1, 2, 3])
 # %%
 list({"a":1, "b": 2})
 
-# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": ""}
+# %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": ""}}
 # ## Zugriff auf Listenelemente
 
 # %%
@@ -325,7 +343,7 @@ zahlenliste[3]
 # %%
 zahlenliste[-1]
 
-# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
+# %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}}
 # ## Länge einer Liste
 
 # %%
@@ -334,14 +352,14 @@ zahlenliste
 # %%
 len(zahlenliste)
 
-# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
+# %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}}
 # ## Modifikation von Listeneinträgen
 
 # %%
 zahlenliste[1] = 10
 zahlenliste
 
-# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
+# %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}}
 # ## Anhängen von Elementen an eine Liste
 
 # %%
@@ -352,7 +370,7 @@ zahlenliste
 zahlenliste.extend([50, 60])
 zahlenliste
 
-# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
+# %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}}
 # ## Iteration über Listen
 #
 # In Python kann man mit der `for`-Schleife über Listen iterieren.
@@ -362,7 +380,7 @@ zahlenliste
 # aus Java, nicht der klassischen `for`-Schleife
 # aus C, C++ oder Java.
 
-# %% slideshow={"slide_type": "subslide"}
+# %% {"slideshow": {"slide_type": "subslide"}}
 zahlenliste = [0, 1, 2, 3, 4]
 zahlenliste
 
@@ -372,7 +390,7 @@ for zahl in zahlenliste:
 
 
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Syntax der `for`-Schleife
 #
 # ```python
@@ -380,13 +398,13 @@ for zahl in zahlenliste:
 #     <rumpf>
 # ```
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Workshop
 #
 # - Notebook `lecture_012x_Workshop_Einführung in Python (Teil 2)`
 # - Abschnitt "Einkaufsliste"
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Simulation der klassischen `for`-Schleife
 #
 # Iteration mit einer `for`-Schleife ist auch über andere Datenstrukturen als Listen möglich.
@@ -397,7 +415,7 @@ for zahl in zahlenliste:
 # - `range(m, n)` erzeugt das ganzzahlige Interval von $m$ bis $n-1$
 # - `range(m, n, k)` erzeugt die ganzzahlige Sequenz $m, m+k, m+2k, ..., p$, wobei $p$ die größte Zahl der Form $m + jk$ mit $j \geq 0$ und $p < n$ ist
 
-# %% slideshow={"slide_type": "subslide"}
+# %% {"slideshow": {"slide_type": "subslide"}}
 range(3)
 
 # %%
@@ -406,17 +424,17 @@ list(range(3))
 # %%
 list(range(3, 23, 5))
 
-# %% slideshow={"slide_type": "subslide"}
+# %% {"slideshow": {"slide_type": "subslide"}}
 for i in range(3):
     print(i)
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
 # - Notebook `lecture_012x_Workshop_Einführung in Python (Teil 2)`
 # - Abschnitt "Ausgabe von Quadratzahlen"
 
-# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
+# %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}}
 # # Umwandlung in Strings
 #
 # Python bietet zwei Funktionen an, mit denen beliebige Werte in Strings umgewandelt
@@ -431,7 +449,7 @@ print(str("Hallo!"))
 # %%
 print(repr("Hallo!"))
 
-# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
+# %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "subslide"}}
 # Für manche Datentypen liefern `str` und `repr` den gleichen String zurück:
 
 # %%
@@ -439,49 +457,144 @@ print(str(['a', 'b', 'c']))
 print(repr(['a', 'b', 'c']))
 
 
+
+
 # %% [markdown] slideshow={"slide_type": "slide"}
 # # Benutzerdefinierte Datentypen
 #
-# In Python können benutzerdefinierte Datentypen definiert werden:
+# In Python können benutzerdefinierte Datentypen (Klassen) definiert werden:
 
 # %%
 class PointV0:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+    pass
 
+# %% [markdown]
+#
+# Klassennamen werden in Pascal-Case (d.h. groß und mit Großbuchstaben zur
+# Trennung von Namensbestandteilen) geschrieben, z.B. `MyVerySpecialClass`.
+
+# %% [markdown] slideshow={"slide_type": "subslide"}
+#
+# Instanzen von benutzerdefinierten Klassen werden erzeugt, indem man den
+# Klassennamen als Funktion aufruft.  Manche der Python Operatoren und
+# Funktionen können verwendet werden:
+
+# %% slideshow={"slide_type": "subslide"}
+p1 = PointV0()
+p1
 
 # %%
-p = PointV0(2, 3)
-p
+print(p1)
 
 # %%
-print("x =", p.x)
-print("y =", p.y)
+p2 = PointV0()
+p1 == p2
 
+# %%
+# Fehler
+# p1 < p2
 
-# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
-# ## Methoden
+# %% [markdown] slideshow={"slide_type": "subslide"}
 #
-# Klassen können Methoden enthalten. Im Gegensatz zu vielen anderen Sprachen hat
-# Python bei der Definition keinen impliziten `this` Parameter; das Objekt auf dem
-# die Methode aufgerufen wird muss als erster Parameter angegeben werden.
+# Ähnlich wie Dictionaries neue Einträge zugewiesen werden können, kann man
+# benutzerdefinierten Datentypen neue *Attribute* zuweisen, allerdings verwendet
+# man die `.`-Notation statt der Indexing Notation `[]`:
+
+# %%
+# Möglich, aber nicht gut...
+p1.x = 1.0
+p1.y = 2.0
+print(p1.x)
+print(p1.y)
+
+# %%
+# Fehler!
+# p2.x
+
+# %% [markdown] slideshow={"slide_type": "subslide"}
 #
-# Per Konvention hat dieser Parameter den Namen `self`.
+# Im Gegensatz zu Dictionaries werden Instanzen von Klassen typischerweise
+# *nicht* nach der Erzeugung beliebige Attribute zugewiesen!
+#
+# Statt dessen sollen allen Instanzen die gleiche Form haben. Deswegen werden
+# die Attribute eines Objekts bei seiner Konstruktion initialisiert. Das geht
+# über die `__init__()` Methode. Die `__init__()`-Methode hat immer
+# (mindestens) einen Parameter, der per Konvention `self` heißt:
 
 # %% slideshow={"slide_type": "subslide"}
 class PointV1:
+    def __init__(self):
+        self.x = 0.0
+        self.y = 0.0
+
+# %%
+p1 = PointV1()
+p2 = PointV1()
+print("p1: x =", p1.x, "y =", p1.y)
+print("p2: x =", p2.x, "y =", p2.y)
+
+# %%
+p1 == p2
+
+# %% [markdown] slideshow={"slide_type": "subslide"}
+#
+# Die Werte von Attributen können verändert werden:
+
+# %%
+p1.x = 1.0
+p1.y = 2.0
+print("p1: x =", p1.x, "y =", p1.y)
+print("p2: x =", p2.x, "y =", p2.y)
+
+# %% [markdown] slideshow={"slide_type": "subslide"}
+#
+# In vielen Fällen wäre es besser, bei der Konstruktion eines Objekts Werte für
+# die Attribute anzugeben. Das ist möglich, indem man der `__init__()`-Methode
+# zusätzliche Parameter gibt.
+
+# %% slideshow={"slide_type": "subslide"}
+class PointV2:
     def __init__(self, x, y):
         self.x = x
         self.y = y
 
-    def move(self, dx=0, dy=0):
+
+# %%
+p1 = PointV2(2.0, 3.0)
+p2 = PointV2(0.0, 0.0)
+print("p1: x =", p1.x, "y =", p1.y)
+print("p2: x =", p2.x, "y =", p2.y)
+
+
+# %% [markdown] slideshow={"slide_type": "subslide"}
+# ## Mini-Workshop
+#
+# - Notebook `lecture_045x_Workshop_Benutzerdefinierte_Datentypen`
+# - Abschnitt "Kraftfahrzeuge (Teil 1)"
+
+
+# %% [markdown] slideshow={"slide_type": "subslide"}
+# ## Methoden
+#
+# Klassen können Methoden enthalten. Im Gegensatz zu vielen anderen Sprachen hat
+# Python bei der Definition keinen impliziten `this` Parameter; das Objekt auf
+# dem die Methode aufgerufen wird muss als erster Parameter angegeben werden.
+#
+# Per Konvention hat dieser Parameter den Namen `self`, wie bei der
+# `__init__()`-Methode.
+
+# %% slideshow={"slide_type": "subslide"}
+class PointV3:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def move(self, dx=0.0, dy=0.0):
         self.x += dx
         self.y += dy
 
-
 # %% slideshow={"slide_type": "subslide"}
-p = PointV1(2, 3)
+p = PointV3(2, 3)
 print("x =", p.x)
 print("y =", p.y)
 
@@ -490,31 +603,38 @@ p.move(3, 5)
 print("x =", p.x)
 print("y =", p.y)
 
-# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "slide"}
+# %% [markdown] slideshow={"slide_type": "subslide"}
+# ## Mini-Workshop
+#
+# - Notebook `lecture_045x_Workshop_Benutzerdefinierte_Datentypen`
+# - Abschnitt "Kraftfahrzeuge (Teil 2)"
+
+
+# %% [markdown] slideshow={"slide_type": "slide"}
 # ## Das Python-Objektmodell
 #
 # Mit Dunder-Methoden können benutzerdefinierten Datentypen benutzerfreundlicher
 # gestaltet werden:
 
 # %%
-print(str(p))
-print(repr(p))
+print(str(p1))
+print(repr(p1))
 
 
-# %% [markdown] pycharm={"name": "#%% md\n"}
+# %% [markdown]
 # Durch Definition der Methode `__repr__(self)` kann der von `repr` zurückgegebene
 # String für benutzerdefinierte Klassen angepasst werden: Der Funktionsaufruf
 # `repr(x)` überprüft, ob `x` eine Methode `__repr__` hat und ruft diese auf,
 # falls sie existiert.
 
 # %% slideshow={"slide_type": "subslide"}
-class PointV2:
+class PointV4:
     def __init__(self, x, y):
         self.x = x
         self.y = y
 
     def __repr__(self):
-        return "PointV2(" + repr(self.x) + ", " + repr(self.y) + ")"
+        return "PointV4(" + repr(self.x) + ", " + repr(self.y) + ")"
 
     def move(self, dx=0, dy=0):
         self.x += dx
@@ -522,19 +642,19 @@ class PointV2:
 
 
 # %%
-p = PointV2(2, 5)
-print(repr(p))
+p1 = PointV4(2, 5)
+print(repr(p1))
 
-# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # Standardmäßig delegiert die Funktion `str` an `repr`, falls keine `__str__`-Methode
 # definiert ist:
 #
 
 # %%
-print(str(p))
+print(str(p1))
 
 
-# %% [markdown] pycharm={"name": "#%% md\n"} slideshow={"slide_type": "subslide"}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # Python bietet viele Dunder-Methoden an: siehe das
 # [Python Datenmodell](https://docs.python.org/3/reference/datamodel.html)
 # in der Dokumentation
@@ -548,11 +668,22 @@ class Point:
     def __repr__(self):
         return "Point(" + repr(self.x) + ", " + repr(self.y) + ")"
 
+    def __eq__(self, o: object) -> bool:
+        if isinstance(o, Point):
+            return self.x == o.x and self.y == o.x
+        return False
+
     def __add__(self, other):
         return Point(self.x + other.x, self.y + other.y)
 
     def __sub__(self, other):
         return Point(self.x - other.x, self.y - other.y)
+
+    def __mul__(self, other):
+        return Point(other * self.x, other * self.y)
+    
+    def __rmul__(self, other):
+        return Point(other * self.x, other * self.y)
 
     def move(self, dx=0, dy=0):
         self.x += dx
@@ -562,30 +693,99 @@ class Point:
 # %% slideshow={"slide_type": "subslide"}
 p1 = Point(1, 2)
 p2 = Point(2, 4)
-p = p1 + p2
-p
-
+p3 = Point(2, 4)
 
 # %%
-p += p1
-p
+p1 == p2
 
 # %%
-p3 = p - Point(3, 2)
+p2 == p3
+
+# %% slideshow={"slide_type": "subslide"}
+p3 = p1 + p2
 p3
 
+# %%
+p3 = p1 - Point(3, 2)
+p3
+
+# %% slideshow={"slide_type": "subslide"}
+print(p1)
+print(p1 * 3)
+print(3 * p1)
+
+# %% slideshow={"slide_type": "subslide"}
+print(p2)
+p2 += p1
+p2
+
 # %% [markdown] slideshow={"slide_type": "subslide"}
-# ## Workshop
 #
-# - Notebook `lecture_012x_Workshop_Einführung in Python (Teil 2)`
-# - Abschnitt "Verbesserte Einkaufsliste"
+#  ## Mini-Workshop
+#
+# - Notebook `lecture_045x_Workshop_Benutzerdefinierte_Datentypen`
+# - Abschnitt "Kraftfahrzeuge (Teil 2)"
+
+# %% [markdown] slideshow={"slide_type": "subslide"}
+#
+# Es ist möglich eigene Typen zu definieren, die sich wie Listen verhalten:
+
+# %%
+class MyBadList:
+    def __init__(self, elements = None):
+        if elements is None:
+            elements = []
+        self.elements = elements
+    
+    def __getitem__(self, n):
+        return self.elements[n]
+    
+    def __len__(self):
+        return len(self.elements)
+    
+    def __repr__(self):
+        return f"MyBadList({self.elements!r})"
+
+    def append(self, element):
+        self.elements.append(element)
+
+
+# %% slideshow={"slide_type": "subslide"}
+my_list_1 = MyBadList()
+my_list_2 = MyBadList()
+my_list_3 = MyBadList([1, 2, 3])
+print(my_list_1)
+print(my_list_2)
+print(my_list_3)
+
+# %% slideshow={"slide_type": "subslide"}
+my_list_1.append("a")
+my_list_1.append("b")
+my_list_1.append("c")
+print(my_list_1)
+print(my_list_2)
+print(my_list_3)
+
+# %%
+print(len(my_list_1))
+print(my_list_1[0])
+# print(my_list_1[10])
+
+# %%
+for elt in my_list_1:
+    print(elt)
+
+# %%
+my_list_1[1:]
 
 # %% [markdown]
 # ## Dataclasses
 #
-# Definition einer Klasse, in der Attribute besser sichtbar sind, Repräsentation und Gleichheit vordefiniert sind, etc.
+# Definition einer Klasse, in der Attribute besser sichtbar sind, Repräsentation
+# und Gleichheit vordefiniert sind, etc.
 #
-# Die [Dokumentation](https://docs.python.org/3/library/dataclasses.html) beinhaltet weitere Möglichkeiten.
+# Die [Dokumentation](https://docs.python.org/3/library/dataclasses.html)
+# beinhaltet weitere Möglichkeiten.
 
 # %%
 from dataclasses import dataclass
@@ -623,5 +823,32 @@ class Point3D:
 p3d = Point3D(1.0, 2.0)
 print(p3d)
 print(p3d.move(dy=1.0, dz=5.0))
+
+# %% [markdown] slideshow={"slide_type": "subslide"}
+#
+# Dataclasses erzwingen, dass alle Default-Werte unveränderlich sind:
+
+# %%
+from dataclasses import dataclass, field
+
+@dataclass
+class DefaultDemo:
+    # item: list = []
+    items: list = field(default_factory=list)
+
+# %%
+d1 = DefaultDemo()
+d2 = DefaultDemo()
+
+# %%
+d1.items.append(1234)
+print(d1)
+print(d2)
+
+# %% [markdown] slideshow={"slide_type": "subslide"}
+# ## Workshop
+#
+# - Notebook `lecture_045x_Workshop_Benutzerdefinierte_Datentypen`
+# - Abschnitt "Einkaufsliste"
 
 # %%

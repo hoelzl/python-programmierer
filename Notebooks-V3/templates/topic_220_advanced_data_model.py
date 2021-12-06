@@ -9,6 +9,10 @@
 #       jupytext_version: 1.13.2
 # ---
 
+# j2 import 'macros.j2' as doc
+# %% [markdown] {{ doc.slide() }}
+# {{ doc.header (Mehr zum Python Datenmodell) }}
+
 # %% [markdown]
 #
 #  ## Workshop

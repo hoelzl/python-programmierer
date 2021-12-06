@@ -8,14 +8,9 @@
 #       jupytext_version: 1.13.2
 # ---
 
-# %%
-
-# %% [markdown]
-#
-# ## Workshop
-#
-# - Notebook `064x-Workshop Todo-Liste V2`
-# - Abschnitt "Kommandozeilenargumente"
+# j2 import 'macros.j2' as doc
+# %% [markdown] {{ doc.slide() }}
+# {{ doc.header (Setuptools und Installation) }}
 
 
 # %% [markdown]

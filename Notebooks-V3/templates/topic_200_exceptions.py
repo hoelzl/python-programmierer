@@ -9,7 +9,10 @@
 #       jupytext_version: 1.13.2
 # ---
 
-# %%
+# j2 import 'macros.j2' as doc
+# %% [markdown] {{ doc.slide() }}
+# {{ doc.header (Ausnahmen und Fehlerbehandlung) }}
+
 
 # %% [markdown]
 #

@@ -2,16 +2,22 @@
 # ---
 # jupyter:
 #   jupytext:
+#     cell_metadata_json: true
 #     text_representation:
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.13.2
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
+
+# %%
+# j2 import 'macros.j2' as doc
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.slide() }}"}
+# {{ doc.header (Tupel) }}
 
 # %% [markdown]
 # # Tupel
@@ -29,7 +35,14 @@
 
 
 # %%
-(1,)
+non_tuple = (1)
+print(non_tuple)
+type(non_tuple)
+
+# %%
+singleton_tuple = (1,)
+print(singleton_tuple)
+type(singleton_tuple)
 
 
 # %%

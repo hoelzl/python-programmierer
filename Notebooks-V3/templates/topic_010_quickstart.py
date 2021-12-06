@@ -2,45 +2,47 @@
 # ---
 # jupyter:
 #   jupytext:
+#     cell_metadata_json: true
 #     formats: py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.0
+#       jupytext_version: 1.13.2
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
+# %%
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.slide() }}"}
 # {{ doc.header (Quickstart) }}
 
-# %% [markdown]  {{ doc.slide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{\"incorrectly_encoded_metadata\": \"{{ doc.slide() }}\""}
 # # Python und Jupyter Notebooks
 #
 # Wir beginnen mit einer kurzen Einführung in die Arbeitsweise von Python und
 # Jypyter Notebooks.
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{\"incorrectly_encoded_metadata\": \"{{ doc.subslide() }}\""}
 # ## Compiler (C++)
 #
 # <img src="img/compiler.svg" style="width:60%;margin:auto"/>
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{\"incorrectly_encoded_metadata\": \"{{ doc.subslide() }}\""}
 # ## Interpreter (Python)
 #
 # <img src="img/interpreter.svg" style="width:60%;margin:auto"/>
 #
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{\"incorrectly_encoded_metadata\": \"{{ doc.subslide() }}\""}
 # ## Jupyter Notebooks
 #
 # <img src="img/jupyter-notebook.svg" style="width:60%;margin:auto"/>
 
-# %% {{ doc.subslide() }}
+# %% {"incorrectly_encoded_metadata": "{\"incorrectly_encoded_metadata\": \"{{ doc.subslide() }}\""}
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -51,7 +53,7 @@ plt.figure(figsize=(12, 8))
 plt.scatter(page_load_time, purchase_amount)
 
 
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{\"incorrectly_encoded_metadata\": \"{{ doc.slide() }}\""}
 # ## Variablen und Datentypen
 #
 # Zahlen und Arithmetik:
@@ -65,7 +67,7 @@ plt.scatter(page_load_time, purchase_amount)
 # %%
 1 + 2 * 3
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{\"incorrectly_encoded_metadata\": \"{{ doc.subslide() }}\""}
 # ## Zeichenketten
 
 # %%
@@ -74,16 +76,16 @@ plt.scatter(page_load_time, purchase_amount)
 # %%
 "This is also a string"
 
-# %%
+# %% {"slideshow": {"slide_type": "-"}}
 str(1 + 2)
 
-# %% {{ doc.subslide() }}
+# %% {"incorrectly_encoded_metadata": "{\"incorrectly_encoded_metadata\": \"{{ doc.subslide() }}\""}
 "3" + "abc"
 
 # %%
 "literal strings " "can be concatenated " "by justaposition"
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{\"incorrectly_encoded_metadata\": \"{{ doc.subslide() }}\""}
 # ### Variablen
 
 # %%
@@ -93,7 +95,7 @@ answer = 42
 my_value = answer + 2
 
 
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{\"incorrectly_encoded_metadata\": \"{{ doc.slide() }}\""}
 # ## Jupyter Notebooks: Anzeige von Werten
 #
 # - Jupyter Notebooks geben den letzten Wert jeder Zelle auf dem Bildschirm aus
@@ -101,7 +103,7 @@ my_value = answer + 2
 #   - Wenn sie als Programme ausgeführt werden
 #   - Der interaktive Interpreter verhält sich ähnlich wie Notebooks
 
-# %% {{ doc.subslide() }}
+# %% {"incorrectly_encoded_metadata": "{\"incorrectly_encoded_metadata\": \"{{ doc.subslide() }}\""}
 123
 
 # %% [markdown]
@@ -111,7 +113,7 @@ my_value = answer + 2
 # %%
 123;
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # Jupyter zeigt auch den Wert von Variablen an:
 
 # %%
@@ -124,7 +126,7 @@ my_value
 answer
 my_value
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # Um mehrere Werte anzuzeigen kann man die `print()`-Funktion verwenden:
 #
 # `print(...)` gibt den in Klammern eingeschlossenen Text auf dem Bildschirm aus.
@@ -143,7 +145,7 @@ print(answer)
 print(my_value)
 
 
-# %% {{ doc.subslide() }}
+# %% {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 print("Hello, world!")
 
 
@@ -153,7 +155,7 @@ print("Hello, world!")
 # %%
 "Hello, world!"
 
-# %% {{ doc.subslide() }}
+# %% {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 print("answer =", answer, "my_value =", my_value)
 
 # %%
@@ -165,7 +167,7 @@ print("a", end=", ")
 print("b", end=", ")
 print("c")
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # ## Typen
 
 # %%
@@ -181,7 +183,7 @@ answer = "Hallo!"
 print(type(answer))
 
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # ### Vordefinierte Funktionen
 
 # %%
@@ -202,7 +204,7 @@ round(4.6)
 # %%
 print(round(0.5), round(1.5), round(2.5), round(3.5))
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # ## Funktionen
 
 # %%
@@ -225,7 +227,7 @@ def my_round(n):
 # %%
 print(my_round(0.5), my_round(1.5), my_round(2.5), my_round(3.5))
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # ### Micro-Workshop
 #
 # Schreiben Sie eine Funktion `greeting(name)`, die eine Begrüßung in der Form
@@ -244,7 +246,7 @@ def greeting(name):
 # %%
 greeting("Max")
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # ### Methoden
 
 # %%
@@ -257,7 +259,7 @@ greeting("Max")
 number = 5
 number.bit_length()
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # ### Mehrere Parameter, Default Argumente
 
 # %%
@@ -276,14 +278,14 @@ print(add3(2, 3))
 print(add3(2, 3, 4))
 print(add3(1, c=3))
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # ### Verschachtelte Funktionsaufrufe
 
 # %%
 add3(add_1(2), add3(1, 2, add3(1, 2)))
 
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # ### Typannotationen
 
 # %%
@@ -299,7 +301,7 @@ mult(3, 2.0)
 # ignoriert:
 mult("a", 3)
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # ## Listen und Tupel
 
 # %%
@@ -310,7 +312,7 @@ print(numbers)
 print(numbers[0], numbers[3])
 print("Länge:", len(numbers))
 
-# %% {{ doc.subslide() }}
+# %% {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 numbers + numbers
 
 # %%
@@ -322,7 +324,7 @@ numbers + numbers
 # %%
 3 in [5, 6, 7]
 
-# %% {{ doc.subslide() }}
+# %% {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 my_list = [1, 2, 3]
 my_list[1] = 5
 my_list
@@ -332,7 +334,7 @@ my_list.append(7)
 my_list
 
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # ## Boole'sche Werte und `if`-Anweisungen
 
 # %%
@@ -350,7 +352,7 @@ if value:
 else:
     print("Falsch")
 
-# %% {{ doc.subslide() }}
+# %% {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 def print_size(n):
     if n < 10:
         print("Very small")
@@ -362,13 +364,13 @@ def print_size(n):
         print("Large")
 
 
-# %% {{ doc.subslide() }}
+# %% {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 print_size(1)
 print_size(10)
 print_size(20)
 print_size(100)
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # ### Micro-Workshop
 #
 # Schreiben Sie eine Funktion `fits_in_line(text: str, line_length: int = 72)`,
@@ -420,10 +422,10 @@ print_line("Hallo")
 print_line("Hallo", 3)
 
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # ## `for`-Schleifen
 
-# %% {{ doc.subslide() }}
+# %% {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 for char in "abc":
     print(char, end="|")
 
@@ -433,7 +435,7 @@ for n in [1, 2, 3, 4]:
     result += n
 result
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # ### Micro-Workshop
 #
 # Schreiben Sie eine Funktion `print_all(items: list)`, die die Elemente der
@@ -460,7 +462,7 @@ print_all([1, 2, 3])
 # %%
 print_all("abc")
 
-# %% {{ doc.subslide() }}
+# %% {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 for i in range(3):
     print(i, end=", ")
 
@@ -468,7 +470,7 @@ for i in range(3):
 for i in range(1, 6, 2):
     print(i, end=", ")
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # ### Micro-Workshop
 #
 # Schreiben Sie eine Funktion `print_squares(n: int)`, die die Quadrate der
@@ -490,7 +492,7 @@ def print_squares(n: int):
 # %%
 print_squares(3)
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 # ## Dictionaries
 
 # %%
@@ -505,15 +507,15 @@ print(translations.get("monkey", "<unbekannt>"))
 # Fehler:
 # translations['monkey']
 
-# %% {{ doc.subslide() }}
+# %% {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 translations["horse"] = "Pferd"
 translations["horse"]
 
-# %% {{ doc.subslide() }}
+# %% {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 for key in translations.keys():
     print(key, end=" ")
 
-# %% {{ doc.subslide() }}
+# %% {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 for key in translations:
     print(key, end=" ")
 
@@ -521,7 +523,7 @@ for key in translations:
 for val in translations.values():
     print(val, end=" ")
 
-# %% {{ doc.subslide() }}
+# %% {"incorrectly_encoded_metadata": "{{ doc.subslide() }}"}
 for item in translations.items():
     print(item, end=" ")
 
