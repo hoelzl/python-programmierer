@@ -72,8 +72,10 @@ print(a)
 # %% {{ doc.codealong() }}
 def slow_computation():
     import time
-    ## Increase this before demonstration!
+    # Increase this before demonstration!
     time.sleep(0.1)
+    return 1
+
 
 # %% {{ doc.codealong() }}
 "slow_value" in globals()

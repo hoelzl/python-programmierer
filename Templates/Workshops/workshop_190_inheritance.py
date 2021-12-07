@@ -93,6 +93,62 @@ m
 
 # %% [markdown]
 #
+# Lösung ohne Dataclasses:
+
+# %% {{ doc.solution() }}
+class Mitarbeiter:
+    def __init__(self, name, pers_nr, grundgehalt):
+        self.name = name
+        self.pers_nr = pers_nr
+        self.grundgehalt = grundgehalt
+
+    def gehalt(self):
+        return 13 / 12 * self.grundgehalt
+
+
+# %% {{ doc.solution() }}
+class Arbeiter(Mitarbeiter):
+    def __init__(self, name, pers_nr, grundgehalt, überstunden, stundensatz):
+        super().__init__(name, pers_nr, grundgehalt)
+        self.überstunden = überstunden
+        self.stundensatz = stundensatz
+
+    def __repr__(self):
+        return (
+            f"Arbeiter({self.name!r}, {self.pers_nr!r}, {self.grundgehalt}, "
+            f"{self.überstunden}, {self.stundensatz})")
+
+    def gehalt(self):
+        return super().gehalt() + self.überstunden * self.stundensatz
+
+
+# %% {{ doc.solution() }}
+class Manager(Mitarbeiter):
+    def __init__(self, name, pers_nr, grundgehalt, bonus):
+        super().__init__(name, pers_nr, grundgehalt)
+        self.bonus = bonus
+
+    def __repr__(self):
+        return (f"Manager({self.name!r}, {self.pers_nr!r}, {self.grundgehalt}, "
+                f"{self.bonus})")
+
+    def gehalt(self):
+        return super().gehalt() + self.bonus
+
+
+# %% {{ doc.solution() }}
+a = Arbeiter("Hans", 123, 36_000, 3, 40)
+print(a.gehalt())
+a
+
+# %% {{ doc.solution() }}
+m = Manager("Sepp", 666, 60_000, 30_000)
+print(m.gehalt())
+m
+
+
+# %% [markdown]
+#
 # # Bank Account
 #
 # Definieren Sie eine Klasse `BankAccount` mit einem Attribut `balance: float`

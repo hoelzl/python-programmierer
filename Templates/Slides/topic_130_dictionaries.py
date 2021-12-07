@@ -137,7 +137,7 @@ for key, val in translations.items():
 #
 #  ## Mini-Workshop
 #
-#  - Notebook `040x-Workshop Dictionaries`
+#  - Notebook `workshop_130_dictionaries`
 #  - Abschnitt "Worthäufigkeiten"
 
 # %% [markdown]

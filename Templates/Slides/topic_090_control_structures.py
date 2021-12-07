@@ -38,7 +38,7 @@ def ist_glückszahl(zahl):
 #
 #  ## Extra Mini-Workshop
 #
-#  - Notebook `020x-Workshop Kontrollstrukturen`
+#  - Notebook `workshop_090_control_structures`
 #  - Abschnitt "Gerade Zahl"
 
 # %% [markdown]
@@ -75,7 +75,7 @@ klassifiziere_zahl(12, 12)
 #
 #  ## Extra Mini-Workshop
 #
-#  - Notebook `020x-Workshop Kontrollstrukturen`
+#  - Notebook `workshop_090_control_structures`
 #  - Abschnitt "Positiv/Negativ"
 #
 
@@ -179,7 +179,7 @@ def ist_große_zahl(zahl):
 #
 #  ## Mini-Workshop
 #
-#  - Notebook `020x-Workshop Kontrollstrukturen`
+#  - Notebook `workshop_090_control_structures`
 #  - Abschnitt "Signum"
 #
 
@@ -259,7 +259,7 @@ def temperaturkonverter_2():
 #
 #  ## Mini-Workshop
 #
-#  - Notebook `020x-Workshop Kontrollstrukturen`
+#  - Notebook `workshop_090_control_structures`
 #  - Abschnitt "Umrechnung in Meilen"
 #
 
@@ -321,7 +321,7 @@ else:
 #
 #  ## Mini-Workshop
 #
-#  - Notebook `020x-Workshop Kontrollstrukturen`
+#  - Notebook `workshop_090_control_structures`
 #  - Abschnitt "Umrechnung in Meilen mit Truthiness"
 #
 
@@ -329,7 +329,7 @@ else:
 #
 #  ## Extra Mini-Workshop
 #
-#  - Notebook `020x-Workshop Kontrollstrukturen`
+#  - Notebook `workshop_090_control_structures`
 #  - Abschnitt "Kino-Preis"
 #
 
@@ -409,6 +409,6 @@ def annoy_user():
 #
 #  ## Mini-Workshop
 #
-#  - Notebook `020x-Workshop Kontrollstrukturen`
+#  - Notebook `workshop_090_control_structures`
 #  - Abschnitt "Ratespiele"
 #

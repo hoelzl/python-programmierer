@@ -159,7 +159,7 @@ s1.casefold()
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_015x_Workshop_Mehr zu Strings`
+# - Notebook `workshop_070_more_strings_and_sorting`
 # - Abschnitt "Shout"
 
 
@@ -249,7 +249,7 @@ kann der Zeilenvorschub unterdrückt werden."""
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_015x_Workshop_Mehr zu Strings`
+# - Notebook `workshop_070_more_strings_and_sorting`
 # - Abschnitt "Begrüßung 1"
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -315,13 +315,13 @@ print(ausgabe)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_015x_Workshop_Mehr zu Strings`
+# - Notebook `workshop_070_more_strings_and_sorting`
 # - Abschnitt "Begrüßung 2"
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_015x_Workshop_Mehr zu Strings`
+# - Notebook `workshop_070_more_strings_and_sorting`
 # - Abschnitt "Piraten 4"
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}

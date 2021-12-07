@@ -113,6 +113,55 @@ bmw.melde_um("F-B 21")
 print("Hersteller:", bmw.hersteller, "\tKennzeichen:", bmw.kennzeichen)
 print("Hersteller:", bmw2.hersteller, "\tKennzeichen:", bmw2.kennzeichen)
 
+
+# %% [markdown]
+#
+# # Kraftfahrzeuge (Teil 3)
+#
+# Verbessern Sie die Klasse `Kfz` indem Sie Methoden implementieren, die
+# ein KFZ in einer geeigneten Form ausgeben.  Führen Sie die obigen Beispiele
+# mit der verbesserten Klasse aus.
+
+
+# %% {{ doc.solution() }}
+class Kfz:
+    def __init__(self, hersteller, kennzeichen):
+        self.hersteller = hersteller
+        self.kennzeichen = kennzeichen
+
+    def melde_um(self, neues_kennzeichen):
+        self.kennzeichen = neues_kennzeichen
+
+    def __repr__(self):
+        return f"Kfz({self.hersteller!r}, {self.kennzeichen!r})"
+
+
+# %%
+bmw = Kfz("BMW", "M-BW 123")
+bmw
+
+# %%
+bmw2 = Kfz("BMW", "M-BW 123")
+bmw2
+
+# %%
+vw = Kfz("VW", "WOB-VW 246")
+vw
+
+# %% {{ doc.solution() }}
+vw.melde_um("BGL-A 9")
+vw
+
+# %% {{ doc.solution() }}
+assert vw.kennzeichen == "BGL-A 9" and vw.hersteller == "VW"
+
+# %% {{ doc.solution() }}
+bmw.melde_um("F-B 21")
+bmw
+
+# %%
+bmw2
+
 # %% [markdown]
 # # Einkaufsliste
 #

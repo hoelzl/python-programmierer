@@ -83,7 +83,7 @@ Der über mehrere Zeilen geht."""
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_010x_Workshop_Einführung_in_Python`
+# - Notebook `workshop_050_introduction_part1`
 # - Abschnitt "Einleitung"
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
@@ -163,7 +163,7 @@ type(10000000000000000000000000000000000000000000000000)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_010x_Workshop_Einführung_in_Python`
+# - Notebook `workshop_050_introduction_part1`
 # - Abschnitt "Zahlen und Mathematik"
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
@@ -440,7 +440,7 @@ print(Σ)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_010x_Workshop_Einführung_in_Python`
+# - Notebook `workshop_050_introduction_part1`
 # - Abschnitt "Piraten"
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
@@ -545,7 +545,7 @@ print(gesamtlänge(länge_a, länge_b))
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_010x_Workshop_Einführung_in_Python`
+# - Notebook `workshop_050_introduction_part1`
 # - Abschnitt "Spenden"
 #
 
@@ -689,7 +689,7 @@ say_hello()
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_010x_Workshop_Einführung_in_Python`
+# - Notebook `workshop_050_introduction_part1`
 # - Abschnitt "Piraten, Teil 2"
 #
 
@@ -1074,5 +1074,5 @@ print(r)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_010x_Workshop_Einführung_in_Python`
+# - Notebook `workshop_050_introduction_part1`
 # - Abschnitt "Piraten, Teil 3"

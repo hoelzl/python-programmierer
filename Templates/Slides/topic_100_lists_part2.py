@@ -210,7 +210,7 @@ stringliste
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
+# - Notebook `workshop_100_lists_part2`
 # - Abschnitt "Farben"
 #
 
@@ -260,7 +260,7 @@ stringliste[:]
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_030x_Workshop_Listen und For-Schleifen`
+# - Notebook `workshop_100_lists_part2`
 # - Abschnitt "Slicing"
 #
 

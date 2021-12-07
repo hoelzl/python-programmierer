@@ -152,13 +152,14 @@ not (1 < 2)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_012x_Workshop_Einführung in Python (Teil 2)`
+# - Notebook `workshop_060_introduction_part2`
 # - Abschnitt "Operatoren, Vergleiche"
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # # `if`-Anweisungen
 #
-# - Wir wollen ein Programm schreiben, das bestimmt ob eine Zahl eine Glückszahl ist oder nicht:
+# - Wir wollen ein Programm schreiben, das bestimmt ob eine Zahl eine Glückszahl
+#   ist oder nicht:
 #     - 7 ist eine Glückszahl
 #     - Alle anderen Zahlen sind es nicht.
 # - Wir benötigen dazu die `if`-Anweisung:
@@ -247,7 +248,7 @@ einseitiges_if_2(6)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_012x_Workshop_Einführung in Python (Teil 2)`
+# - Notebook `workshop_060_introduction_part2`
 # - Abschnitt "Volljährig"
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
@@ -400,7 +401,7 @@ for zahl in zahlenliste:
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Workshop
 #
-# - Notebook `lecture_012x_Workshop_Einführung in Python (Teil 2)`
+# - Notebook `workshop_060_introduction_part2`
 # - Abschnitt "Einkaufsliste"
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -430,7 +431,7 @@ for i in range(3):
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_012x_Workshop_Einführung in Python (Teil 2)`
+# - Notebook `workshop_060_introduction_part2`
 # - Abschnitt "Ausgabe von Quadratzahlen"
 
 # %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}}
@@ -570,7 +571,7 @@ print("p2: x =", p2.x, "y =", p2.y)
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_045x_Workshop_Benutzerdefinierte_Datentypen`
+# - Notebook `workshop_062_objects`
 # - Abschnitt "Kraftfahrzeuge (Teil 1)"
 
 
@@ -624,10 +625,10 @@ print(repr(p1))
 
 
 # %% [markdown]
-# Durch Definition der Methode `__repr__(self)` kann der von `repr` zurückgegebene
-# String für benutzerdefinierte Klassen angepasst werden: Der Funktionsaufruf
-# `repr(x)` überprüft, ob `x` eine Methode `__repr__` hat und ruft diese auf,
-# falls sie existiert.
+# Durch Definition der Methode `__repr__(self)` kann der von `repr`
+# zurückgegebene String für benutzerdefinierte Klassen angepasst werden: Der
+# Funktionsaufruf `repr(x)` überprüft, ob `x` eine Methode `__repr__` hat und
+# ruft diese auf, falls sie existiert.
 
 # %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 class PointV4:
@@ -647,9 +648,8 @@ class PointV4:
 p1 = PointV4(2, 5)
 print(repr(p1))
 
-# %% [markdown] slideshow={"slide_type": "subslide"}
-# Standardmäßig delegiert die Funktion `str` an `repr`, falls keine `__str__`-Methode
-# definiert ist:
+# %% [markdown] slideshow={"slide_type": "subslide"} Standardmäßig delegiert
+# die Funktion `str` an `repr`, falls keine `__str__`-Methode definiert ist:
 #
 
 # %% {{ doc.codealong() }}
@@ -727,7 +727,8 @@ p2
 #  ## Mini-Workshop
 #
 # - Notebook `lecture_045x_Workshop_Benutzerdefinierte_Datentypen`
-# - Abschnitt "Kraftfahrzeuge (Teil 2)"
+# - Abschnitt "Kraftfahrzeuge (Teil 3)"
+
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 #
@@ -854,7 +855,7 @@ print(d2)
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Workshop
 #
-# - Notebook `lecture_045x_Workshop_Benutzerdefinierte_Datentypen`
+# - Notebook `workshop_062_objects`
 # - Abschnitt "Einkaufsliste"
 
 # %%
