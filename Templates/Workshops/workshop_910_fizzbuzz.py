@@ -1,7 +1,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py:percent
+#     formats: py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -13,10 +13,12 @@
 #     name: python3
 # ---
 
+# j2 import 'macros.j2' as doc
 # %% [markdown]
 # ## Extra Credits: FizzBuzz
 #
-# Schreiben Sie eine Funktion `fizz_buzz(n)`, die die Zahlen von 1 bis `n` ausgibt aber dabei
+# Schreiben Sie eine Funktion `fizz_buzz(n)`, die die Zahlen von 1 bis `n`
+# ausgibt aber dabei
 #
 # - jede Zahl, die durch 3 teilbar ist, durch `Fizz` ersetzt
 # - jede Zahl, die durch 5 teilbar ist, durch `Buzz` ersetzt
@@ -58,7 +60,7 @@
 # 31
 # ```
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def fizz_buzz(n):
     for n in range(1, n+1):
         if n % 15 == 0:
@@ -71,5 +73,5 @@ def fizz_buzz(n):
             print(n)
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 fizz_buzz(31)

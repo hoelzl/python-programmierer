@@ -14,7 +14,6 @@
 #     name: python3
 # ---
 
-# %%
 # j2 import 'macros.j2' as doc
 # %% [markdown] {{ doc.slide() }}
 # {{ doc.header("Vertiefung zu Listen") }}
@@ -31,7 +30,7 @@
 # %%
 ['a', 'b', 'c']
 
-# %% pycharm={"name": "#%%\n"}
+# %%  {{ doc.codealong() }}
 list(range(3))
 
 
@@ -46,57 +45,59 @@ list(range(3))
 # Listen können Elemente mit verschiedenen Typen enthalten, die meisten Listen
 # enthalten aber Elemente eines einzigen Typs.
 
-# %% pycharm={"is_executing": false} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 stringliste = ["a", "b", "c"]
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste[0]
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste[-1]
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Überprüfen, ob ein Element in einer Liste enthalten ist
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 2 in [1, 2, 3]
 
 
-# %%
+# %% {{ doc.codealong() }}
 not (2 in [1, 3, 5])
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 2 not in [1, 3, 5]
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Finden der Position eines Elements
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 [1, 2, 3, 2, 4].index(2)
 
-# %%
+# %% {{ doc.codealong() }}
 my_list = ['a', 'b', 'c', 'd', 'b', 'd', 'b']
 my_index = my_list.index('b')
 print(my_index)
 my_list[my_index]
 
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 # Fehler
 # [1, 3, 5].index(2)
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Micro-Workshop:
 #
-# Die Methode `index` wirft eine Exception, wenn das gesuchte Objekt nicht in der Liste vorkommt. Schreiben Sie eine Funktion
+# Die Methode `index` wirft eine Exception, wenn das gesuchte Objekt nicht in
+# der Liste vorkommt. Schreiben Sie eine Funktion
 # ```
 # find(element, a_list)
 # ```
 #
-# - die einen Index zurückgibt, falls das Element `element` in der Liste vorkommt, und
+# - die einen Index zurückgibt, falls das Element `element` in der Liste
+#   vorkommt, und
 # - die `None` zurückgibt, falls es nicht vorkommt
 
-# %% pycharm={"is_executing": false} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 def find(element, a_list):
     if element in a_list:
         return a_list.index(element)
@@ -104,105 +105,105 @@ def find(element, a_list):
         return None
 
 
-# %% pycharm={"is_executing": false} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 my_list = ['a', 'b', 'c', 'd', 'e']
 
-# %% pycharm={"is_executing": false} slideshow={"slide_type": "-"}
+# %% slideshow={"slide_type": "-"} {{ doc.codealong() }}
 find('a', my_list)
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 find('d', my_list)
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 print(find('x', my_list))
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Modifikation von Elementen
 
-# %% pycharm={"is_executing": false}
+# %%
 stringliste
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste[0] = "A"
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Einfügen und Anhängen von Elementen
 
-# %% pycharm={"is_executing": false}
+# %%
 stringliste
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste.append("D")
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste
 
-# %% pycharm={"is_executing": false} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 stringliste + ["E", "F"]
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste.extend(["E", "F"])
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste
 
-# %% pycharm={"is_executing": false} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 stringliste
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste.insert(1, "Y")
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste
 
-# %% pycharm={"is_executing": false} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 stringliste.insert(0, "ANFANG")
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 # Vorsicht!
 stringliste.insert(-1, "ENDE")
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Entfernen von Elementen
 
-# %% pycharm={"is_executing": false}
+# %%
 stringliste = ['ANFANG', 'A', 'Y', 'b', 'c', 'D', 'E', 'ENDE', 'F']
 stringliste[7]
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 del stringliste[7]
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Länge einer Liste
 
-# %% slideshow={"slide_type": "subslide"}
+# %%
 stringliste
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 len(stringliste)
 
-# %% pycharm={"is_executing": false} slideshow={"slide_type": "-"}
+# %%  {{ doc.codealong() }}
 stringliste.insert(len(stringliste), "WIRKLICH DAS ENDE")
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 # Vorsicht
 # stringliste[len(stringliste)]
 
@@ -218,13 +219,13 @@ stringliste
 #
 # Durch den Multiplikationsoperator `*` können die Elemente einer Liste wiederholt werden:
 
-# %%
+# %% {{ doc.codealong() }}
 [1, 2] * 3
 
-# %%
+# %% {{ doc.codealong() }}
 3 * ["a", "b"]
 
-# %%
+# %% {{ doc.codealong() }}
 [0] * 10
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -235,25 +236,25 @@ stringliste
 # - Das erste Element ist `liste[m]`
 # - Das letzte Element ist `liste[n-1]`
 
-# %% pycharm={"is_executing": false} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"}
 stringliste = ['a', 'b', 'c', 'd', 'e']
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste[1:3]
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste[1:1]
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste[0:len(stringliste)]
 
-# %% pycharm={"is_executing": false} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 stringliste[:3]
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste[1:]
 
-# %% pycharm={"is_executing": false}
+# %% {{ doc.codealong() }}
 stringliste[:]
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
@@ -268,29 +269,31 @@ stringliste[:]
 #
 # Man kann Werte an Slices zuweisen:
 
-# %%
+# %% {{ doc.codealong() }}
 liste = [1, 2, 3, 4]
 liste[1:3]
 
-# %%
+# %% {{ doc.codealong() }}
 liste[1:3] = ['a', 'b', 'c']
 liste
 
-# %%
+# %% {{ doc.codealong() }}
 liste[2:2]
 
-# %%
+# %% {{ doc.codealong() }}
 liste[2:2] = ['x']
 liste
 
-# %% pycharm={"name": "#%%\n"} slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 liste[:] = [11, 22, 33]
 liste
 
 # %% [markdown] slideshow={"slide_type": "slide"}
 # ## Slices als Objekte
 #
-# Slices sind selber Python Objekte. Außerhalb der Indexing-Operation `[]` können sie allerdings nicht mit der Notation `a:b` erzeugt werden, sondern mit der Konstruktor-Funktion `slice()`. 
+# Slices sind selber Python Objekte. Außerhalb der Indexing-Operation `[]`
+# können sie allerdings nicht mit der Notation `a:b` erzeugt werden, sondern
+# mit der Konstruktor-Funktion `slice()`.
 
 # %% slideshow={"slide_type": "-"}
 my_list = [1, 2, 3, 4, 5, 6]
@@ -304,13 +307,17 @@ print(my_list[:3])
 print(my_list[my_slice])
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
-# Die `indices()`-Methode eines Slice-Objekts kann dazu verwendet werden zu bestimmen, welche Indizes das Slice enthält:
+#
+# Die `indices()`-Methode eines Slice-Objekts kann dazu verwendet werden zu
+# bestimmen, welche Indizes das Slice enthält:
 
-# %% slideshow={"slide_type": "-"}
+# %%
 print(my_slice.indices(len(my_list)))
 
-# %% [markdown] slideshow={"slide_type": "-"}
-# Damit können wir eine Funktion schreiben, die alle Elemente eines Slices durch einen Wert ersetzt:
+# %% [markdown]
+#
+# Damit können wir eine Funktion schreiben, die alle Elemente eines Slices
+# durch einen Wert ersetzt:
 
 # %% slideshow={"slide_type": "subslide"}
 import math

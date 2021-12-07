@@ -2,7 +2,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py:percent
+#     formats: py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -14,30 +14,31 @@
 #     name: python3
 # ---
 
+# j2 import 'macros.j2' as doc
 # %% [markdown]
 # # Einleitung
 #
 # Wie können Sie den String `Hello, world!` in Python darstellen?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 'Hello, world!'
 
 # %% [markdown]
 # Wie können Sie Ihren Namen als Text (String) in Python darstellen?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 'Matthias'
 
 # %% [markdown]
 # Wie können Sie den String `Hello, World!` auf dem Bildschirm ausgeben?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 print('Hello, World!')
 
 # %% [markdown]
 # Wie können Sie Ihren Namen auf dem Bildschirm ausgeben?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 print('Matthias')
 
 # %% [markdown]
@@ -52,20 +53,20 @@ print('Matthias')
 #
 # auf dem Bildschirm ausgeben?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 print('130 g   Mehl')
 print('250 ml  Milch')
 print('1 EL    Vanillezucker')
 print('1 Prise Salz')
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 # Alternativ:
 print("""130 g   Mehl
 250 ml  Milch
 1 EL    Vanillezucker
 1 Prise Salz""")
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 # Alternativ:
 print("130 g   Mehl\n"
       "250 ml  Milch\n"
@@ -77,56 +78,56 @@ print("130 g   Mehl\n"
 #
 # Wie können Sie die Zahl `32` in Python darstellen?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 32
 
 # %% [markdown]
 # Wie können Sie den Datentyp von `14` in Python feststellen?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 type(14)
 
 # %% [markdown]
 # Wie können Sie den Datentyp von `14.0` in Python feststellen?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 type(14.0)
 
 # %% [markdown]
 # Wie können Sieden Datentyp von `'14'` in Python feststellen?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 type('14')
 
 # %% [markdown]
 # Was ist der Wert von `1 + 2 * 3`?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 1 + 2 * 3
 
 # %% [markdown]
 # Was ist der Datentyp von `1 + 2 * 3` in Python?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 type(1 + 2 * 3)
 
 # %% [markdown]
 # Was ist der Wert von `4 / 2` in Python?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 4 / 2
 
 # %% [markdown]
 # Was ist der Datentyp von `4 / 2` in Python?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 type(4 / 2)
 
 # %% [markdown]
 # Was sind Wert und Datentyp von `1 + 1.0` in Python? Können Sie den Datentyp
 # ohne Verwendung von `type` feststellen?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 1 + 1.0  # Typ ist float, da Ausgabe Nachkommastellen hat
 
 # %% [markdown]
@@ -141,7 +142,7 @@ type(4 / 2)
 #
 # (Verwenden Sie Variablen um die Berechnung klarer zu machen.)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 anzahl_piraten = 8
 beute_gesamt = 1000
 beute_pro_pirat = beute_gesamt // anzahl_piraten
@@ -150,7 +151,7 @@ beute_pro_pirat
 # %% [markdown]
 # Wie viele Golddublonen erhält der Kapitän extra?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 # noinspection NonAsciiCharacters
 beute_kapitän = beute_gesamt % anzahl_piraten
 beute_kapitän
@@ -163,7 +164,7 @@ beute_kapitän
 # (Verwenden Sie Zuweisungen an die existierenden Variablen um das Problem zu
 # lösen.)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 # anzahl_piraten += 3 # anzahl_piraten = anzahl_piraten + 3
 anzahl_piraten = 11  # besser, falls die Zelle evtl. mehrmals ausgewertet wird
 beute_pro_pirat = beute_gesamt // anzahl_piraten
@@ -172,7 +173,7 @@ beute_pro_pirat
 # %% [markdown]
 # Wie viele Golddublonen erhält der Kapitän in diesem Fall zusätzlich?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 beute_kapitän = beute_gesamt % anzahl_piraten
 beute_kapitän
 
@@ -187,7 +188,7 @@ beute_kapitän
 # Schreiben Sie eine Python Funktion `effektive_spende(n)`, die berechnet,
 # welcher Betrag effektiv gespendet wird, wenn ein Zuschauer $N$ Euro spendet.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def effektive_spende(spende):
     return 2 * spende + 10
 
@@ -195,7 +196,7 @@ def effektive_spende(spende):
 # %% [markdown]
 # Wie hoch ist die effektive Spende, wenn ein Zuschauer 20 Euro spendet?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 effektive_spende(20)
 
 # %% [markdown]
@@ -210,7 +211,7 @@ effektive_spende(20)
 #
 # eingeben bevor Sie die Argumente eintippen.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 print(effektive_spende(10))
 print(effektive_spende(25))
 print(effektive_spende(50))
@@ -235,7 +236,7 @@ print(effektive_spende(1000))
 # Kapitän erhält extra: 1 Golddublone(n)
 # ```
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def drucke_aufteilung_der_beute(dublonen, piraten):
     dublonen_pro_pirat = dublonen // piraten
     dublonen_kapitän = dublonen % piraten
@@ -258,7 +259,7 @@ drucke_aufteilung_der_beute(17, 8)
 # Beuteanteil jedes Piraten und die Extra-Beute des Kapitäns als zwei Werte
 # zurückgibt.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def teile_beute_auf(dublonen, piraten):
     dublonen_pro_pirat = dublonen // piraten
     dublonen_kapitän = dublonen % piraten
@@ -271,7 +272,7 @@ def teile_beute_auf(dublonen, piraten):
 # `drucke_aufteilung_der_beute()`, die `teile_beute_auf()` als Hilfsfunktion
 # verwendet.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def drucke_aufteilung_der_beute(dublonen, piraten):
     dublonen_pro_pirat, dublonen_kapitän = teile_beute_auf(dublonen, piraten)
     print('Piraten:', piraten)

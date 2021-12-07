@@ -15,8 +15,6 @@
 #     name: python3
 # ---
 
-# %%
-
 # j2 import 'macros.j2' as doc
 # %% [markdown] {{ doc.slide() }}
 # {{ doc.header("Einführung in Python: Grundlagen Teil 2") }}
@@ -28,10 +26,10 @@
 # %% [markdown]
 # Gleichheit von Werten wird mit `==` getestet:
 
-# %%
+# %% {{ doc.codealong() }}
 1 == 1
 
-# %%
+# %% {{ doc.codealong() }}
 1 == 2
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -40,40 +38,40 @@
 # - `True`
 # - `False`
 
-# %%
+# %% {{ doc.codealong() }}
 type(True)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Gleichheit von Zahlen
 
-# %%
+# %% {{ doc.codealong() }}
 1 == 1.0
 
 # %% [markdown]
 # Mit Unterstrichen lassen sich Zahlen übersichtlicher schreiben.
 
-# %%
+# %% {{ doc.codealong() }}
 0.000_000_1 * 10_000_000 == 1
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # Vorsicht: Rundungsfehler!
 
-# %%
+# %% {{ doc.codealong() }}
 1 / 10
 
-# %%
+# %% {{ doc.codealong() }}
 1 / 100
 
-# %%
-(1/10) * (1/10) == (1/100)
+# %% {{ doc.codealong() }}
+(1 / 10) * (1 / 10) == (1 / 100)
 
-# %%
+# %% {{ doc.codealong() }}
 0.1 * 0.1
 
-# %%
+# %% {{ doc.codealong() }}
 0.1 - 0.01
 
-# %%
+# %% {{ doc.codealong() }}
 100 * 1.1
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -81,28 +79,28 @@ type(True)
 #
 # Der Operator `!=` testet, ob zwei Zahlen verschieden sind
 
-# %%
+# %% {{ doc.codealong() }}
 1 != 1.0
 
-# %%
+# %% {{ doc.codealong() }}
 1 != 2
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Vergleich von Zahlen
 
-# %%
+# %% {{ doc.codealong() }}
 1 < 2
 
-# %%
+# %% {{ doc.codealong() }}
 1 < 1
 
-# %%
+# %% {{ doc.codealong() }}
 1 <= 1
 
-# %% {"slideshow": {"slide_type": "subslide"}}
+# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
 1 > 2
 
-# %%
+# %% {{ doc.codealong() }}
 2 >= 1
 
 # %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}}
@@ -115,13 +113,13 @@ type(True)
 # ## Operatoren auf Boole'schen Werten
 #
 
-# %%
+# %% {{ doc.codealong() }}
 1 < 2 and 3 < 2
 
-# %%
+# %% {{ doc.codealong() }}
 1 < 2 or 3 < 2
 
-# %%
+# %% {{ doc.codealong() }}
 not (1 < 2)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -136,16 +134,18 @@ not (1 < 2)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ### Verkettung von Vergleichen
 
-# %%
+# %% {{ doc.codealong() }}
 1 < 2 < 3
 
-# %%
+# %% {{ doc.codealong() }}
+# noinspection PyChainedComparisons
 1 < 2 and 2 < 3
 
-# %%
+# %% {{ doc.codealong() }}
 1 < 3 <= 2
 
-# %%
+# %% {{ doc.codealong() }}
+# noinspection PyChainedComparisons
 1 < 3 and 3 <= 2
 
 
@@ -163,22 +163,22 @@ not (1 < 2)
 #     - Alle anderen Zahlen sind es nicht.
 # - Wir benötigen dazu die `if`-Anweisung:
 
-# %% {"slideshow": {"slide_type": "subslide"}}
+# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
 def ist_glückszahl(zahl):
     print("Ist", zahl, "eine Glückszahl?")
-    
+
     if zahl == 7:
         print("Ja!")
     else:
         print("Leider nein.")
-    
+
     print("Wir wünschen Ihnen alles Gute.")
 
 
-# %%
+# %% {{ doc.codealong() }}
 ist_glückszahl(1)
 
-# %%
+# %% {{ doc.codealong() }}
 ist_glückszahl(7)
 
 
@@ -193,10 +193,10 @@ def ist_glückszahl_2(zahl):
         print("Wir wünschen Ihnen trotzdem alles Gute.")
 
 
-# %%
+# %% {{ doc.codealong() }}
 ist_glückszahl_2(1)
 
-# %%
+# %% {{ doc.codealong() }}
 ist_glückszahl_2(7)
 
 
@@ -211,24 +211,24 @@ def einseitiges_if_1(zahl):
     print("Nachher")
 
 
-# %%
+# %% {{ doc.codealong() }}
 einseitiges_if_1(1)
 
-# %%
+# %% {{ doc.codealong() }}
 einseitiges_if_1(7)
 
 
 # %% {"slideshow": {"slide_type": "subslide"}}
 def einseitiges_if_2(zahl):
     if zahl % 2 != 0:
-        zahl += 1         # zahl = zahl + 1
+        zahl += 1  # zahl = zahl + 1
     print(zahl)
 
 
-# %%
+# %% {{ doc.codealong() }}
 einseitiges_if_2(1)
 
-# %%
+# %% {{ doc.codealong() }}
 einseitiges_if_2(6)
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
@@ -259,13 +259,14 @@ warenkorb = ["Haferflocken", "Kaffeebohnen", "Orangenmarmelade"]
 # %% [markdown]
 # Der Typ von Listen ist `list`.
 
-# %%
+# %% {{ doc.codealong() }}
 type(warenkorb)
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # ## Erzeugen von Listen
 #
-# - Listen werden erzeugt, indem man ihre Elemente in eckige Klammern einschließt.
+# - Listen werden erzeugt, indem man ihre Elemente in eckige Klammern
+#   einschließt.
 # - Die Elemente einer Liste können beliebige Python-Werte sein.
 # - Eine Liste kann Elemente mit verschiedenen Typen enthalten.
 
@@ -273,20 +274,20 @@ type(warenkorb)
 liste_1 = [1, 2, 3, 4, 5]
 liste_2 = ["string1", "another string"]
 
-# %%
+# %% {{ doc.codealong() }}
 print(liste_1)
 
-# %%
+# %% {{ doc.codealong() }}
 print(liste_2)
 
-# %% {"slideshow": {"slide_type": "subslide"}}
+# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
 liste_3 = []
 liste_4 = [1, 0.4, "ein String", True, None]
 
-# %%
+# %% {{ doc.codealong() }}
 print(liste_3)
 
-# %%
+# %% {{ doc.codealong() }}
 print(liste_4)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -306,7 +307,7 @@ warenkorb
 # Nachdem eine Liste erzeugt ist hat sie keine Verbindung zu den Variablen, die
 # in ihrer Konstruktion verwendet wurden:
 
-# %%
+# %% {{ doc.codealong() }}
 produkt_1 = "Dinkelflocken"
 produkt_2 = "Teebeutel"
 warenkorb
@@ -319,14 +320,14 @@ warenkorb
 # Im Moment kennen wir nur Listen, Strings und Dictionaries als mögliche
 # Argumenttypen:
 
-# %%
+# %% {{ doc.codealong() }}
 list("abc")
 
-# %%
+# %% {{ doc.codealong() }}
 list([1, 2, 3])
 
-# %%
-list({"a":1, "b": 2})
+# %% {{ doc.codealong() }}
+list({"a": 1, "b": 2})
 
 # %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": ""}}
 # ## Zugriff auf Listenelemente
@@ -334,13 +335,13 @@ list({"a":1, "b": 2})
 # %%
 zahlenliste = [0, 1, 2, 3]
 
-# %%
+# %% {{ doc.codealong() }}
 zahlenliste[0]
 
-# %%
+# %% {{ doc.codealong() }}
 zahlenliste[3]
 
-# %%
+# %% {{ doc.codealong() }}
 zahlenliste[-1]
 
 # %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}}
@@ -349,24 +350,24 @@ zahlenliste[-1]
 # %%
 zahlenliste
 
-# %%
+# %% {{ doc.codealong() }}
 len(zahlenliste)
 
 # %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}}
 # ## Modifikation von Listeneinträgen
 
-# %%
+# %% {{ doc.codealong() }}
 zahlenliste[1] = 10
 zahlenliste
 
 # %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}}
 # ## Anhängen von Elementen an eine Liste
 
-# %%
+# %% {{ doc.codealong() }}
 zahlenliste.append(40)
 zahlenliste
 
-# %%
+# %% {{ doc.codealong() }}
 zahlenliste.extend([50, 60])
 zahlenliste
 
@@ -384,11 +385,9 @@ zahlenliste
 zahlenliste = [0, 1, 2, 3, 4]
 zahlenliste
 
-# %%
+# %% {{ doc.codealong() }}
 for zahl in zahlenliste:
     print("Die Zahl ist:", zahl)
-
-
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Syntax der `for`-Schleife
@@ -415,16 +414,16 @@ for zahl in zahlenliste:
 # - `range(m, n)` erzeugt das ganzzahlige Interval von $m$ bis $n-1$
 # - `range(m, n, k)` erzeugt die ganzzahlige Sequenz $m, m+k, m+2k, ..., p$, wobei $p$ die größte Zahl der Form $m + jk$ mit $j \geq 0$ und $p < n$ ist
 
-# %% {"slideshow": {"slide_type": "subslide"}}
+# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
 range(3)
 
-# %%
+# %% {{ doc.codealong() }}
 list(range(3))
 
-# %%
+# %% {{ doc.codealong() }}
 list(range(3, 23, 5))
 
-# %% {"slideshow": {"slide_type": "subslide"}}
+# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
 for i in range(3):
     print(i)
 
@@ -443,20 +442,18 @@ for i in range(3):
 # - `repr` für eine "programmnahe" Darstellung (wie könnte der Wert im Programm erzeugt werden)
 # - `str` für eine "benutzerfreundliche" Darstellung
 
-# %%
+# %% {{ doc.codealong() }}
 print(str("Hallo!"))
 
-# %%
+# %% {{ doc.codealong() }}
 print(repr("Hallo!"))
 
 # %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "subslide"}}
 # Für manche Datentypen liefern `str` und `repr` den gleichen String zurück:
 
-# %%
+# %% {{ doc.codealong() }}
 print(str(['a', 'b', 'c']))
 print(repr(['a', 'b', 'c']))
-
-
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -464,9 +461,10 @@ print(repr(['a', 'b', 'c']))
 #
 # In Python können benutzerdefinierte Datentypen (Klassen) definiert werden:
 
-# %%
+# %% {{ doc.codealong() }}
 class PointV0:
     pass
+
 
 # %% [markdown]
 #
@@ -479,18 +477,18 @@ class PointV0:
 # Klassennamen als Funktion aufruft.  Manche der Python Operatoren und
 # Funktionen können verwendet werden:
 
-# %% slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 p1 = PointV0()
 p1
 
-# %%
+# %% {{ doc.codealong() }}
 print(p1)
 
-# %%
+# %% {{ doc.codealong() }}
 p2 = PointV0()
 p1 == p2
 
-# %%
+# %% {{ doc.codealong() }}
 # Fehler
 # p1 < p2
 
@@ -500,14 +498,15 @@ p1 == p2
 # benutzerdefinierten Datentypen neue *Attribute* zuweisen, allerdings verwendet
 # man die `.`-Notation statt der Indexing Notation `[]`:
 
-# %%
+# %% {{ doc.codealong() }}
 # Möglich, aber nicht gut...
 p1.x = 1.0
 p1.y = 2.0
 print(p1.x)
 print(p1.y)
 
-# %%
+
+# %% {{ doc.codealong() }}
 # Fehler!
 # p2.x
 
@@ -521,30 +520,32 @@ print(p1.y)
 # über die `__init__()` Methode. Die `__init__()`-Methode hat immer
 # (mindestens) einen Parameter, der per Konvention `self` heißt:
 
-# %% slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 class PointV1:
     def __init__(self):
         self.x = 0.0
         self.y = 0.0
 
-# %%
+
+# %% {{ doc.codealong() }}
 p1 = PointV1()
 p2 = PointV1()
 print("p1: x =", p1.x, "y =", p1.y)
 print("p2: x =", p2.x, "y =", p2.y)
 
-# %%
+# %% {{ doc.codealong() }}
 p1 == p2
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 #
 # Die Werte von Attributen können verändert werden:
 
-# %%
+# %% {{ doc.codealong() }}
 p1.x = 1.0
 p1.y = 2.0
 print("p1: x =", p1.x, "y =", p1.y)
 print("p2: x =", p2.x, "y =", p2.y)
+
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 #
@@ -552,14 +553,14 @@ print("p2: x =", p2.x, "y =", p2.y)
 # die Attribute anzugeben. Das ist möglich, indem man der `__init__()`-Methode
 # zusätzliche Parameter gibt.
 
-# %% slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 class PointV2:
     def __init__(self, x, y):
         self.x = x
         self.y = y
 
 
-# %%
+# %% {{ doc.codealong() }}
 p1 = PointV2(2.0, 3.0)
 p2 = PointV2(0.0, 0.0)
 print("p1: x =", p1.x, "y =", p1.y)
@@ -583,7 +584,7 @@ print("p2: x =", p2.x, "y =", p2.y)
 # Per Konvention hat dieser Parameter den Namen `self`, wie bei der
 # `__init__()`-Methode.
 
-# %% slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 class PointV3:
     def __init__(self, x, y):
         self.x = x
@@ -593,12 +594,13 @@ class PointV3:
         self.x += dx
         self.y += dy
 
-# %% slideshow={"slide_type": "subslide"}
+
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 p = PointV3(2, 3)
 print("x =", p.x)
 print("y =", p.y)
 
-# %%
+# %% {{ doc.codealong() }}
 p.move(3, 5)
 print("x =", p.x)
 print("y =", p.y)
@@ -616,7 +618,7 @@ print("y =", p.y)
 # Mit Dunder-Methoden können benutzerdefinierten Datentypen benutzerfreundlicher
 # gestaltet werden:
 
-# %%
+# %% {{ doc.codealong() }}
 print(str(p1))
 print(repr(p1))
 
@@ -627,7 +629,7 @@ print(repr(p1))
 # `repr(x)` überprüft, ob `x` eine Methode `__repr__` hat und ruft diese auf,
 # falls sie existiert.
 
-# %% slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 class PointV4:
     def __init__(self, x, y):
         self.x = x
@@ -641,7 +643,7 @@ class PointV4:
         self.y += dy
 
 
-# %%
+# %% {{ doc.codealong() }}
 p1 = PointV4(2, 5)
 print(repr(p1))
 
@@ -650,7 +652,7 @@ print(repr(p1))
 # definiert ist:
 #
 
-# %%
+# %% {{ doc.codealong() }}
 print(str(p1))
 
 
@@ -659,7 +661,7 @@ print(str(p1))
 # [Python Datenmodell](https://docs.python.org/3/reference/datamodel.html)
 # in der Dokumentation
 
-# %% slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 class Point:
     def __init__(self, x=0, y=0):
         self.x = x
@@ -681,7 +683,7 @@ class Point:
 
     def __mul__(self, other):
         return Point(other * self.x, other * self.y)
-    
+
     def __rmul__(self, other):
         return Point(other * self.x, other * self.y)
 
@@ -690,34 +692,35 @@ class Point:
         self.y += dy
 
 
-# %% slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 p1 = Point(1, 2)
 p2 = Point(2, 4)
 p3 = Point(2, 4)
 
-# %%
+# %% {{ doc.codealong() }}
 p1 == p2
 
-# %%
+# %% {{ doc.codealong() }}
 p2 == p3
 
-# %% slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 p3 = p1 + p2
 p3
 
-# %%
+# %% {{ doc.codealong() }}
 p3 = p1 - Point(3, 2)
 p3
 
-# %% slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 print(p1)
 print(p1 * 3)
 print(3 * p1)
 
-# %% slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 print(p2)
 p2 += p1
 p2
+
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 #
@@ -730,19 +733,19 @@ p2
 #
 # Es ist möglich eigene Typen zu definieren, die sich wie Listen verhalten:
 
-# %%
+# %% {{ doc.codealong() }}
 class MyBadList:
-    def __init__(self, elements = None):
+    def __init__(self, elements=None):
         if elements is None:
             elements = []
         self.elements = elements
-    
+
     def __getitem__(self, n):
         return self.elements[n]
-    
+
     def __len__(self):
         return len(self.elements)
-    
+
     def __repr__(self):
         return f"MyBadList({self.elements!r})"
 
@@ -750,7 +753,7 @@ class MyBadList:
         self.elements.append(element)
 
 
-# %% slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 my_list_1 = MyBadList()
 my_list_2 = MyBadList()
 my_list_3 = MyBadList([1, 2, 3])
@@ -758,7 +761,7 @@ print(my_list_1)
 print(my_list_2)
 print(my_list_3)
 
-# %% slideshow={"slide_type": "subslide"}
+# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
 my_list_1.append("a")
 my_list_1.append("b")
 my_list_1.append("c")
@@ -766,16 +769,16 @@ print(my_list_1)
 print(my_list_2)
 print(my_list_3)
 
-# %%
+# %% {{ doc.codealong() }}
 print(len(my_list_1))
 print(my_list_1[0])
 # print(my_list_1[10])
 
-# %%
+# %% {{ doc.codealong() }}
 for elt in my_list_1:
     print(elt)
 
-# %%
+# %% {{ doc.codealong() }}
 my_list_1[1:]
 
 # %% [markdown]
@@ -787,8 +790,9 @@ my_list_1[1:]
 # Die [Dokumentation](https://docs.python.org/3/library/dataclasses.html)
 # beinhaltet weitere Möglichkeiten.
 
-# %%
+# %% {{ doc.codealong() }}
 from dataclasses import dataclass
+
 
 @dataclass
 class DataPoint:
@@ -796,18 +800,18 @@ class DataPoint:
     y: float
 
 
-# %%
+# %% {{ doc.codealong() }}
 dp = DataPoint(2, 3)
 dp
 
-# %%
+# %% {{ doc.codealong() }}
 dp1 = DataPoint(1, 1)
 dp2 = DataPoint(1, 1)
 print(dp1 == dp2)
 print(dp1 is dp2)
 
 
-# %%
+# %% {{ doc.codealong() }}
 @dataclass
 class Point3D:
     x: float
@@ -819,7 +823,7 @@ class Point3D:
         return Point3D(self.x + dx, self.y + dy, self.z + dz)
 
 
-# %%
+# %% {{ doc.codealong() }}
 p3d = Point3D(1.0, 2.0)
 print(p3d)
 print(p3d.move(dy=1.0, dz=5.0))
@@ -828,19 +832,21 @@ print(p3d.move(dy=1.0, dz=5.0))
 #
 # Dataclasses erzwingen, dass alle Default-Werte unveränderlich sind:
 
-# %%
+# %% {{ doc.codealong() }}
 from dataclasses import dataclass, field
+
 
 @dataclass
 class DefaultDemo:
     # item: list = []
     items: list = field(default_factory=list)
 
-# %%
+
+# %% {{ doc.codealong() }}
 d1 = DefaultDemo()
 d2 = DefaultDemo()
 
-# %%
+# %% {{ doc.codealong() }}
 d1.items.append(1234)
 print(d1)
 print(d2)

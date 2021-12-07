@@ -2,7 +2,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py:percent
+#     formats: py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -14,11 +14,12 @@
 #     name: python3
 # ---
 
+# j2 import 'macros.j2' as doc
 # %% [markdown]
 # # Grid World
 #
 # In den folgenden Abschnitten sollen die grundlegenden Komponenten eines
-# 2D-Rollenspiels implementeiert werden.
+# 2D-Rollenspiels implementiert werden.
 
 # %% [markdown]
 # ## Rechteckiges Spielfeld (Level)

@@ -1,4 +1,21 @@
 # -*- coding: utf-8 -*-
+# ---
+# jupyter:
+#   jupytext:
+#     formats: py:percent
+#     text_representation:
+#       extension: .py
+#       format_name: percent
+#       format_version: '1.3'
+#       jupytext_version: 1.13.0
+#   kernelspec:
+#     display_name: Python 3 (ipykernel)
+#     language: python
+#     name: python3
+# ---
+
+
+# j2 import 'macros.j2' as doc
 # %% [markdown]
 #
 # # Kraftfahrzeuge (Teil 1)
@@ -6,7 +23,7 @@
 # Definieren Sie eine Klasse `Kfz`, deren Instanzen Kraftfahrzeuge beschreiben.
 # Jedes KFZ soll Attribute `hersteller` und `kennzeichen` haben.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 class Kfz:
     def __init__(self, hersteller, kennzeichen):
         self.hersteller = hersteller
@@ -20,7 +37,7 @@ class Kfz:
 # - einen VW mit Kennzeichen "WOB-VW 246"
 # und speichern Sie sie in Variablen `bmw` und `vw`
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 bmw = Kfz("BMW", "M-BW 123")
 vw = Kfz("VW", "WOB-VW 246")
 
@@ -29,7 +46,7 @@ vw = Kfz("VW", "WOB-VW 246")
 # Erzeugen Sie eine neue Instanz von `Kfz` mit Hersteller BMW und Kennzeichen
 # "M-BW 123" und speichern Sie sie in einer Variablen `bmw2`.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 bmw2 = Kfz("BMW", "M-BW 123")
 
 # %% [markdown]
@@ -37,10 +54,10 @@ bmw2 = Kfz("BMW", "M-BW 123")
 # Wie können Sie feststellen, ob `bmw` und `bmw2` (bzw. `bmw` und `vw`) das
 # gleiche Fahrzeug beschreiben?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 bmw.hersteller == bmw2.hersteller and bmw.kennzeichen == bmw2.kennzeichen
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 bmw.hersteller == vw.hersteller and bmw.kennzeichen == vw.kennzeichen
 
 
@@ -51,7 +68,7 @@ bmw.hersteller == vw.hersteller and bmw.kennzeichen == vw.kennzeichen
 # Erweitern Sie die Klasse `Kfz` um eine Methode `melde_um(self,
 # neues_kennzeichen)`, die das Kennzeichen des Fahrzeugs ändert.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 class Kfz:
     def __init__(self, hersteller, kennzeichen):
         self.hersteller = hersteller
@@ -66,7 +83,7 @@ class Kfz:
 # Erzeugen Sie neue Instanzen von `bmw`, `bmw2` und `vw` wie in der obigen
 # Aufgabe:
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 bmw = Kfz("BMW", "M-BW 123")
 bmw2 = Kfz("BMW", "M-BW 123")
 vw = Kfz("VW", "WOB-VW 246")
@@ -77,10 +94,10 @@ vw = Kfz("VW", "WOB-VW 246")
 # 9" hat. Wie können Sie feststellen ob das Ummelden die gewünschte Änderung
 # hatte?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 vw.melde_um("BGL-A 9")
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 # Z.B
 assert vw.kennzeichen == "BGL-A 9" and vw.hersteller == "VW"
 # Oder
@@ -91,7 +108,7 @@ print("Hersteller:", vw.hersteller, "\tKennzeichen:", vw.kennzeichen)
 # Melden Sie den in `bmw` gespeicherten BMW um (mit Kennzeichen "F-B 21"). Wirkt
 # sich die Änderung auf das in `bmw2` gespeicherte KFZ aus?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 bmw.melde_um("F-B 21")
 print("Hersteller:", bmw.hersteller, "\tKennzeichen:", bmw.kennzeichen)
 print("Hersteller:", bmw2.hersteller, "\tKennzeichen:", bmw2.kennzeichen)
@@ -109,7 +126,7 @@ print("Hersteller:", bmw2.hersteller, "\tKennzeichen:", bmw2.kennzeichen)
 # Definieren Sie zunächst eine Klasse `Item`, die Attribute `product` und
 # `amount` hat. Verwenden Sie dazu den `@dataclass` Decorator
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 from dataclasses import dataclass
 
 
@@ -122,7 +139,7 @@ class Item:
 # %% [markdown]
 # Erzeugen sie ein Item, das 500g Kaffee repräsentiert:
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 Item("Kaffee", "500g")
 
 # %% [markdown]
@@ -162,7 +179,7 @@ Item("Kaffee", "500g")
 # Einkaufsliste zurückgibt, und für `__getitem__()`, die den Zugriff auf
 # Einträge über ihren numerischen Index erlaubt.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 from dataclasses import field
 
 
@@ -193,7 +210,7 @@ class ShoppingList:
 # - 2 Pakete Tee,
 # - 1 Paket Kaffee
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 meine_einkaufsliste = ShoppingList([Item('Tee', '2 Pakete'),
                                     Item('Kaffee', '1 Paket')])
 print(str(meine_einkaufsliste))
@@ -203,7 +220,7 @@ print(repr(meine_einkaufsliste))
 #
 # Drucken Sie `meine_einkaufsliste` aus.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 print(meine_einkaufsliste)
 
 # %% [markdown]
@@ -211,7 +228,7 @@ print(meine_einkaufsliste)
 # Stellen Sie fest, wie lange `meine_einkaufsliste` ist und welches Element an
 # Index 1 ist:
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 print(len(meine_einkaufsliste))
 print(meine_einkaufsliste[0])
 
@@ -223,7 +240,7 @@ print(meine_einkaufsliste[0])
 #       print(item)
 # ```
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 for item in meine_einkaufsliste:
     print(item)
 
@@ -232,7 +249,7 @@ for item in meine_einkaufsliste:
 # Fügen Sie  250 g Butter und  1 Laib Brot zur Einkaufsliste
 # `meine_einkaufsliste` hinzu.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 meine_einkaufsliste.add_item(Item("Butter", "250g"))
 meine_einkaufsliste.add_item(Item("Brot", "1 Laib"))
 meine_einkaufsliste
@@ -240,7 +257,7 @@ meine_einkaufsliste
 # %% [markdown]
 # Drucken Sie die Einkaufsliste nochmal aus.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 print(meine_einkaufsliste)
 
 # %% [markdown]
@@ -248,7 +265,7 @@ print(meine_einkaufsliste)
 # Was passiert, wenn Sie `Butter` und `Brot` nochmals zur Einkaufsliste
 # `meine_einkaufsliste` hinzufügen?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 meine_einkaufsliste.add_item(Item("Butter", "250g"))
 meine_einkaufsliste.add_item(Item("Brot", "1 Laib"))
 print(meine_einkaufsliste)

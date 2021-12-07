@@ -8,3 +8,6 @@ dataclasses~=0.8
 nbex~=0.4.1
 scipy~=1.7.3
 numba~=0.54.1
+jupytext~=1.13.2
+traitlets~=5.1.1
+nbconvert~=6.3.0

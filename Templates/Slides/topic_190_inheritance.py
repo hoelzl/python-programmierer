@@ -14,8 +14,6 @@
 #     name: python3
 # ---
 
-# %%
-
 # j2 import 'macros.j2' as doc
 # %% [markdown] {{ doc.slide() }}
 # {{ doc.header("Objektorientierung Teil 2: Vererbung") }}
@@ -31,7 +29,7 @@
 # %% [markdown]
 #  ## Vererbung
 
-# %%
+# %% {{ doc.codealong() }}
 import random
 from typing import Tuple
 
@@ -53,23 +51,20 @@ class Point:
         self.y = random.gauss(3, 2)
 
 
-
-# %%
+# %% {{ doc.codealong() }}
 p = Point(0, 0)
 p
 
-
-# %%
+# %% {{ doc.codealong() }}
 p.move(2, 3)
 p
 
-
-# %%
+# %% {{ doc.codealong() }}
 p.randomize()
 p
 
 
-# %%
+# %% {{ doc.codealong() }}
 class ColorPoint(Point):
     def __init__(self, x=0, y=0, color="black"):
         super().__init__(x, y)
@@ -80,21 +75,21 @@ class ColorPoint(Point):
 
     def randomize(self):
         super().randomize()
-        self.color = random.choice(["black", "red", "green", "blue", "yellow", "white"])
+        self.color = random.choice(
+            ["black", "red", "green", "blue", "yellow", "white"])
 
 
-
-# %%
+# %% {{ doc.codealong() }}
 cp = ColorPoint(2, 3, "red")
 # cp
 
 
-# %%
+# %% {{ doc.codealong() }}
 cp.move(2, 3)
 # cp
 
 
-# %%
+# %% {{ doc.codealong() }}
 cp.randomize()
 # cp
 
@@ -115,7 +110,7 @@ cp.randomize()
 #  - (Eigentlich ist eine Metaklasse verantwortlich)
 #  - `@abstractmethod` Dekorator
 
-# %%
+# %% {{ doc.codealong() }}
 from abc import ABC, abstractmethod
 
 
@@ -125,8 +120,7 @@ class MyBase(ABC):
         print("HI!")
 
 
-
-# %%
+# %% {{ doc.codealong() }}
 class MyClass(MyBase):
     pass
 
@@ -134,7 +128,7 @@ class MyClass(MyBase):
 # mc = MyClass()
 
 
-# %%
+# %% {{ doc.codealong() }}
 class YourClass(MyBase):
     def my_method(self):
         super().my_method()
@@ -143,6 +137,7 @@ class YourClass(MyBase):
 
 yc = YourClass()
 yc.my_method()
+
 
 # %% [markdown]
 #
@@ -166,7 +161,6 @@ class A:
         print(f"g(A) on {self!r}")
 
 
-
 # %%
 class B(A):
     def f(self):
@@ -178,7 +172,6 @@ class B(A):
         A.g(self)
 
 
-
 # %%
 class C(A):
     def f(self):
@@ -188,7 +181,6 @@ class C(A):
     def g(self):
         print(f"g(C) on {self!r}")
         A.g(self)
-
 
 
 # %%
@@ -203,12 +195,9 @@ class D(B, C):
         C.g(self)
 
 
-
 # %%
 d = D()
 d.f()
 
-
 # %%
 d.g()
-

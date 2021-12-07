@@ -14,7 +14,6 @@
 #     name: python3
 # ---
 
-# %%
 # j2 import 'macros.j2' as doc
 # %% [markdown] {{ doc.slide() }}
 # {{ doc.header("Identität von Objekten") }}

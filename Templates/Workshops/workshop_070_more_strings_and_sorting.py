@@ -2,7 +2,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py:percent
+#     formats: py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -14,13 +14,14 @@
 #     name: python3
 # ---
 
+# j2 import 'macros.j2' as doc
 # %% [markdown]
 # # Shout
 #
 # Schreiben Sie eine Funktion `shout(text)`, die `text` in Großbuchstaben,
 # gefolgt von drei Außrufezeichen auf dem Bildschirm ausgibt.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def shout(text):
     print(f"{text.upper()}!!!")
 
@@ -28,7 +29,7 @@ def shout(text):
 # %% [markdown]
 # Testen Sie die Funktion mit Argument `"Hallo"`
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 shout("Hallo")
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
@@ -37,13 +38,13 @@ shout("Hallo")
 # %% [markdown]
 # Ist `Abc` kleiner als `aBC`?
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 'Abc' < 'aBC'
 
 # %% [markdown]
 # Ist gleichzeitig `abc` kleiner als `abcd` und `abcd` kleiner als `abd`?
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 'abc' < 'abcd' < 'abd'
 
 
@@ -60,7 +61,7 @@ shout("Hallo")
 # Verwenden Sie dazu die `print()`-Funktion mit einem Argument und
 # String-Konkatenation.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def drucke_begrüßung(name):
     print('Hallo, ' + name + '!\n' +
           'Schön Sie heute wieder bei uns begrüßen zu dürfen.\n' +
@@ -76,7 +77,7 @@ drucke_begrüßung('Hans')
 # Schreiben Sie eine Funktion `drucke_begrüßung(name)`, die die
 # Funktionalität von `drucke_begrüßung(name)` mittels F-Strings implementiert.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def drucke_begrüßung_2(name):
     print(f'Hallo, {name}!\n'
           f'Schön Sie heute wieder bei uns begrüßen zu dürfen.'
@@ -113,7 +114,7 @@ def teile_beute_auf(dublonen, piraten):
     return dublonen_pro_pirat, dublonen_kapitän
 
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def drucke_aufteilung_der_beute(dublonen, piraten):
     dublonen_pro_pirat, dublonen_kapitän = teile_beute_auf(dublonen, piraten)
     if dublonen_kapitän == 1:
@@ -126,12 +127,12 @@ def drucke_aufteilung_der_beute(dublonen, piraten):
               f'Der Kapitän erhält extra {dublonen_kapitän} Golddublonen.')
 
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 drucke_aufteilung_der_beute(1000, 11)
 drucke_aufteilung_der_beute(17, 8)
 
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def drucke_aufteilung_der_beute_v2(dublonen, piraten):
     dublonen_pro_pirat, dublonen_kapitän = teile_beute_auf(dublonen, piraten)
     print(f'Jeder der {piraten} Piraten erhält {dublonen_pro_pirat} '
@@ -140,7 +141,7 @@ def drucke_aufteilung_der_beute_v2(dublonen, piraten):
           f'{"" if dublonen_kapitän == 1 else "n"}.')
 
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 drucke_aufteilung_der_beute_v2(1000, 11)
 drucke_aufteilung_der_beute_v2(17, 8)
 

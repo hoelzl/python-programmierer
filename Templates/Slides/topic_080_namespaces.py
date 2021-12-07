@@ -14,7 +14,6 @@
 #     name: python3
 # ---
 
-# %%
 # j2 import 'macros.j2' as doc
 # %% [markdown] {{ doc.slide() }}
 # {{ doc.header("Namensräume") }}
@@ -70,31 +69,31 @@ print(a)
 # **Warnung!** Hack!!!
 # Manchmal hilfreich, aber auch eine große Fehlerquelle!
 
-# %%
+# %% {{ doc.codealong() }}
 def slow_computation():
     import time
     ## Increase this before demonstration!
     time.sleep(0.1)
 
-# %%
+# %% {{ doc.codealong() }}
 "slow_value" in globals()
 
-# %%
+# %% {{ doc.codealong() }}
 slow_value = slow_computation()
 
-# %%
+# %% {{ doc.codealong() }}
 "slow_value" in globals()
 
-# %% {"slideshow": {"slide_type": "subslide"}}
+# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
 del slow_value
 
-# %%
+# %% {{ doc.codealong() }}
 "slow_value" in globals()
 
-# %% {"slideshow": {"slide_type": "subslide"}}
+# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
 if "slow_value" not in globals():
     slow_value = slow_computation()
 
-# %%
+# %% {{ doc.codealong() }}
 if "slow_value" not in globals():
     slow_value = slow_computation()

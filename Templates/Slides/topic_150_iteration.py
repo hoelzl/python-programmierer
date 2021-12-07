@@ -22,13 +22,13 @@
 # bereits besprochene`for`-Schleife:
 
 
-# %%
+# %% {{ doc.codealong() }}
 my_list = [1, 2, 3, 4]
 for n in my_list:
     print(f"Item {n}")
 
 
-# %%
+# %% {{ doc.codealong() }}
 index = 0
 while index < len(my_list):
     n = my_list[index]
@@ -40,7 +40,7 @@ while index < len(my_list):
 #
 #  ## Iteration über Listen von Listen
 
-# %%
+# %% {{ doc.codealong() }}
 a, b = [1, 2]
 print(a)
 print(b)
@@ -50,12 +50,12 @@ print(b)
 my_list = [[1, 2], [3, 4], [5, 6]]
 
 
-# %%
+# %% {{ doc.codealong() }}
 for m, n in my_list:
     print(f"Items {m} and {n}")
 
 
-# %%
+# %% {{ doc.codealong() }}
 index = 0
 while index < len(my_list):
     m, n = my_list[index]
@@ -77,19 +77,21 @@ while index < len(my_list):
 
 # %%
 my_list = ["a", "b", "c", "d", "e"]
+
+# %% {{ doc.codealong() }}
 enumerate(my_list)
 
 
-# %%
+# %% {{ doc.codealong() }}
 list(enumerate(my_list))
 
 
-# %%
+# %% {{ doc.codealong() }}
 for index, element in enumerate(my_list):
     print(f"index = {index}, element = {element}")
 
 
-# %%
+# %% {{ doc.codealong() }}
 def find(element, a_list):
     result = None
     for index, list_entry in enumerate(a_list):
@@ -102,18 +104,20 @@ def find(element, a_list):
 
 # %%
 my_list = ["a", "b", "c", "d", "a"]
+
+# %% {{ doc.codealong() }}
 find("a", my_list)
 
 
-# %%
+# %% {{ doc.codealong() }}
 find("d", my_list)
 
 
-# %%
+# %% {{ doc.codealong() }}
 assert find("x", my_list) == None
 
 
-# %%
+# %% {{ doc.codealong() }}
 # Alternative Implementierung:
 def find_return(element, a_list):
     for index, list_entry in enumerate(a_list):
@@ -123,7 +127,7 @@ def find_return(element, a_list):
 
 
 
-# %%
+# %% {{ doc.codealong() }}
 # Mit assert können Invarianten dokumentiert werden:
 assert find("a", my_list) == find_return("a", my_list)
 assert find("d", my_list) == find_return("d", my_list)
@@ -142,7 +146,7 @@ assert find("x", my_list) == find_return("x", my_list)
 #
 #  ## Aggregation von Listenelementen
 
-# %%
+# %% {{ doc.codealong() }}
 def summe(zahlen):
     ergebnis = 0
     for n in zahlen:
@@ -151,7 +155,7 @@ def summe(zahlen):
 
 
 
-# %%
+# %% {{ doc.codealong() }}
 summe([1, 2, 3])
 
 
@@ -166,14 +170,14 @@ summe([1, 2, 3])
 #
 #  ## Transformation von Listen
 
-# %%
+# %% {{ doc.codealong() }}
 result = []
 for item in [1, 2, 3, 4]:
     result.append(item + 1)
 result
 
 
-# %%
+# %% {{ doc.codealong() }}
 result = []
 for n in [1, 2, 3, 4]:
     result.append(f"Item {n}")
@@ -189,7 +193,7 @@ result
 #
 #  # Filtern von Listen
 
-# %%
+# %% {{ doc.codealong() }}
 result = []
 for item in [1, 2, 3, 4, 5, 6]:
     if item % 2 == 0:
@@ -197,7 +201,7 @@ for item in [1, 2, 3, 4, 5, 6]:
 result
 
 
-# %%
+# %% {{ doc.codealong() }}
 result = []
 for item in ["abc", "def", "asd", "qwe", "bab"]:
     if "ab" in item:

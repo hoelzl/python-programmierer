@@ -30,7 +30,7 @@
 #
 #  Elemente in einer Liste sind sortiert.
 
-# %%
+# %% {{ doc.codealong() }}
 non_sparse = [0] * 10
 non_sparse[0] = 1
 non_sparse[9] = 1
@@ -50,15 +50,15 @@ non_sparse
 #  Im Gegensatz zu Listen sind die Elemente in einem Dictionary nicht in einer
 #  bestimmten Reihenfolge angeordnet.
 
-# %%
+# %% {{ doc.codealong() }}
 sparse = {0: 1, 9: 1}
 
 
-# %%
+# %% {{ doc.codealong() }}
 sparse
 
 
-# %%
+# %% {{ doc.codealong() }}
 sparse[0]
 
 
@@ -67,7 +67,7 @@ sparse[0]
 # sparse[1]
 
 
-# %%
+# %% {{ doc.codealong() }}
 sparse[12] = 3
 print(sparse[12])
 sparse
@@ -82,25 +82,25 @@ translations = {
 }
 
 
-# %%
+# %% {{ doc.codealong() }}
 print(translations["snake"])
 print(translations.get("bat", "<unbekannt>"))
 print(translations.get("monkey", "Affe"))
 print(translations.get("tree"))
 
 
-# %%
+# %% {{ doc.codealong() }}
 # Fehler:
 # translations['monkey']
 translations
 
 
-# %%
+# %% {{ doc.codealong() }}
 translations["horse"] = "Pferd"
 translations["horse"]
 
 
-# %%
+# %% {{ doc.codealong() }}
 del translations["bird"]
 print(translations.get("bird", "<unbekannt>"))
 print(translations.setdefault("bird", "Vogel"))
@@ -108,27 +108,27 @@ print(translations.setdefault("bird", "<auch unbekannt>"))
 print(translations.get("bird", "<unbekannt>"))
 
 
-# %%
+# %% {{ doc.codealong() }}
 for key in translations:
     print(key, end=" ")
 
 
-# %%
+# %% {{ doc.codealong() }}
 for key in translations.keys():
     print(key, end=" ")
 
 
-# %%
+# %% {{ doc.codealong() }}
 for val in translations.values():
     print(val, end=" ")
 
 
-# %%
+# %% {{ doc.codealong() }}
 for item in translations.items():
     print(item, end=" ")
 
 
-# %%
+# %% {{ doc.codealong() }}
 for key, val in translations.items():
     print("Key:", key, "\tValue:", val)
 

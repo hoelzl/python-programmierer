@@ -2,7 +2,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py:percent
+#     formats: py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -14,6 +14,7 @@
 #     name: python3
 # ---
 
+# j2 import 'macros.j2' as doc
 # %% [markdown]
 # # Todo-Liste
 #
@@ -43,7 +44,7 @@
 # Implementieren Sie Methoden `__str__(self)` und `__repr__(self)`, 
 # die Instanzen der Klasse in Strings umwandeln. 
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 class TodoItem:
     def __init__(self, title, priority=1, is_completed=False):
         self.title = title
@@ -58,7 +59,7 @@ class TodoItem:
         return f"TodoItem({self.title!r}, {self.priority!r}, {self.is_completed!r})"
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 todos = [TodoItem('Python lernen', 3),
          TodoItem('Gemüse einkaufen', 2),
          TodoItem('Hans anrufen', 5, True)]
@@ -96,7 +97,7 @@ todos
 # `062z-Lösung Todo-Liste V1` oder ihrer vorherigen Implementierung und
 #  passen Sie den Code an. -->
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 from typing import List
 
 
@@ -125,37 +126,37 @@ class TodoList:
         return f"TodoList({self.items!r})"
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 todo_list = TodoList(todos)
 print(str(todo_list))
 todo_list
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 todo_list.add("Schnee schaufeln", 5)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 print(str(todo_list))
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 todo_list.add("Python lernen", 1)
 todo_list.add("Python lernen", 6)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 print(str(todo_list))
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 todo_list.mark_done("Python lernen")
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 print(str(todo_list))
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 todo_list.mark_done("Python lernen")
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 print(str(todo_list))
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 from typing import List
 
 

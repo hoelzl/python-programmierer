@@ -28,7 +28,7 @@ for item in [1, 2, 3, 4]:
 result
 
 
-# %%
+# %% {{ doc.codealong() }}
 my_list = [item + 1 for item in [1, 2, 3, 4]]
 my_list
 
@@ -40,7 +40,7 @@ for n in [1, 2, 3, 4]:
 result
 
 
-# %%
+# %% {{ doc.codealong() }}
 [f"Item {n}" for n in [1, 2, 3, 4]]
 
 
@@ -60,7 +60,7 @@ for item in [1, 2, 3, 4, 5, 6]:
 result
 
 
-# %%
+# %% {{ doc.codealong() }}
 [item for item in [1, 2, 3, 4, 5, 6] if item % 2 == 0]
 
 
@@ -72,7 +72,7 @@ for item in ["abc", "def", "asd", "qwe", "bab"]:
 result
 
 
-# %%
+# %% {{ doc.codealong() }}
 [item for item in ["abc", "def", "asd", "qwe"] if item[0] == "a"]
 
 
@@ -84,7 +84,7 @@ for list_1 in [[1, 2], ["a", "b", "c"]]:
 result
 
 
-# %%
+# %% {{ doc.codealong() }}
 [f"Item {item} in {list_1}" for list_1 in [[1, 2], ["a", "b", "c"]] for item in list_1]
 
 

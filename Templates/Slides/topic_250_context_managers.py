@@ -22,7 +22,7 @@
 #  Context Manager sind Objekte, die häufig verwendete `try-except-finally`
 #  Patterns für `with`-Blöcke kapseln.
 
-# %%
+# %% {{ doc.codealong() }}
 from contextlib import AbstractContextManager
 import sys
 
@@ -60,7 +60,7 @@ def progress(entry_message):
 
 
 
-# %%
+# %% {{ doc.codealong() }}
 import random
 
 
@@ -77,7 +77,7 @@ def download_items(n):
 
 
 
-# %%
+# %% {{ doc.codealong() }}
 try:
     download_items(500)
     print("Finished successfully")

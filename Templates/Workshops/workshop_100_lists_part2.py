@@ -2,7 +2,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py:percent
+#     formats: py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -14,93 +14,94 @@
 #     name: python3
 # ---
 
+# j2 import 'macros.j2' as doc
 # %% [markdown]
 # # Farben
 #
 # Definieren Sie eine Variable `farben`, die eine Liste mit den Strings
 # `Rot`, `Grün` und `Blau` enthält.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 farben = ["Rot", "Grün", "Blau"]
 
 # %% [markdown]
 # Überprüfen Sie, ob der String `Gelb` in `farben` enthalten ist
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 "Gelb" in farben
 
 # %% [markdown]
 # Fügen Sie `Gelb` zu den Farben hinzu.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 farben.append("Gelb")
 
 # %% [markdown]
 # Überprüfen Sie nochmals, ob `Gelb` in den Farben enthalten ist.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 "Gelb" in farben
 
 # %% [markdown]
 # Wie viele Farben enthält die in `farben` gespeicherte Liste jetzt?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 len(farben)
 
 # %% [markdown]
 # Ändern Sie das erste Element von `farben` in `Dunkelrot`
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 farben[0] = "Dunkelrot"
 
 # %% [markdown]
 # Fügen Sie `Lila` als zweites Element in die Liste ein.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 farben.insert(1, 'Lila')
 
 # %% [markdown]
 # Was ist das dritte Element der Liste `farben`?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 farben[2]
 
 # %% [markdown]
 # Löschen Sie das zweite Element der Liste `farben`
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 del farben[1]
 
 # %% [markdown]
 # Was ist das dritte Element der Liste `farben` jetzt?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 farben[2]
 
 # %% [markdown]
 # # Slicing
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 liste = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 # %% [markdown]
 # Extrahieren Sie von `liste` eine Liste mit allen Elementen außer den ersten
 # beiden.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 liste[2:]
 
 # %% [markdown]
 # Extrahieren Sie von `liste` eine Liste, die aus dem 2. und 3. Element besteht.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 liste[1:3]
 
 # %% [markdown]
 # Extrahieren Sie von `liste` eine neue Liste, die alle Elemente außer dem
 # ersten und dem letzten enthält.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 liste[1:-1]
 
 
@@ -111,7 +112,7 @@ liste[1:-1]
 # der ersten geraden Zahl in einer Liste von ganzen Zahlen zurückgibt. Falls
 # die Liste keine gerade Zahl enthält soll die Funktion `None` zurückgeben.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def finde_erste_gerade_zahl(liste):
     result = None
     for index, zahl in enumerate(liste):
@@ -124,7 +125,7 @@ def finde_erste_gerade_zahl(liste):
 # %% [markdown]
 # Testen Sie die Funktion für geeignete Argumente.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 print(finde_erste_gerade_zahl([1, 3, 5, 2, 4, 6]))
 print(finde_erste_gerade_zahl([1, 3]))
 print(finde_erste_gerade_zahl([0, 1, 2, 3]))
@@ -141,7 +142,7 @@ print(finde_erste_gerade_zahl([0, 1, 2, 3]))
 # Schreiben Sie eine Funktion `mittelwert(liste)`, die den Mittelwert einer
 # Liste berechnet.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def mittelwert(zahlen):
     if zahlen:
         ergebnis = 0
@@ -154,10 +155,10 @@ def mittelwert(zahlen):
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # Testen Sie die Funktion für geeignete Argumente.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 mittelwert([1, 2, 3])
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 mittelwert([])
 
 
@@ -175,7 +176,7 @@ mittelwert([])
 # Mittelwert einer Liste iterativ berechnet.
 #
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def iterativer_mittelwert(zahlen):
     ergebnis = 0
     for index, value in enumerate(zahlen):
@@ -183,25 +184,25 @@ def iterativer_mittelwert(zahlen):
     return ergebnis
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert iterativer_mittelwert([]) == 0.0
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert iterativer_mittelwert([1]) == 1.0
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert iterativer_mittelwert([1, 2, 3]) == 2.0
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert iterativer_mittelwert(range(11)) == 5.0
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def assert_mittelwert_equal(liste):
     assert iterativer_mittelwert(liste) == mittelwert(liste)
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert_mittelwert_equal([])
 assert_mittelwert_equal([1, 2, 3])
 assert_mittelwert_equal(list(range(10)))
@@ -217,7 +218,7 @@ zahlen = [1, 7, 4, 87, 23]
 # %% [markdown]
 # Erzeugen Sie eine neue Liste, die die Quadrate der Zahlen in `zahlen` enthält.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 result = []
 for n in zahlen:
     result.append(n * n)
@@ -228,7 +229,7 @@ result
 # Schreiben Sie eine Funktion `quadriere(zahlen)`, die eine neue Liste mit den
 # Quadraten der Zahlen in `zahlen` zurückgibt.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def quadriere(zahlen):
     result = []
     for n in zahlen:
@@ -236,7 +237,7 @@ def quadriere(zahlen):
     return result
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 quadriere(zahlen)
 
 # %% [markdown]
@@ -245,19 +246,19 @@ quadriere(zahlen)
 # Erzeugen Sie eine neue Liste mit den Quadraten von `zahlen`. Verwenden Sie
 # dazu eine Listen-Komprehension
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 [n * n for n in zahlen]
 
 
 # %% [markdown]
 # Schreiben Sie die Funktion `quadriere(zahlen)` mit Listen-Komprehension.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def quadriere(zahlen):
     return [n * n for n in zahlen]
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 quadriere(zahlen)
 
 # %% [markdown]
@@ -271,7 +272,7 @@ zahlen = [1, 183, 7, 4, 87, 10, 23, -12, 493, 11]
 # %% [markdown]
 # Erzeugen Sie eine neue Liste, die alle Zahlen in `zahlen` enthält, die größer als 10 sind.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 result = []
 for n in zahlen:
     if n > 10:
@@ -283,7 +284,7 @@ result
 # Schreiben Sie eine Funktion `zahlen_größer_als_10(zahlen)`, die eine neue
 # Liste zurückgibt, die die Zahlen aus `zahlen` enthält, die größer als 10 sind.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def zahlen_größer_als_10(zahlen):
     result = []
     for n in zahlen:
@@ -292,7 +293,7 @@ def zahlen_größer_als_10(zahlen):
     return result
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 zahlen_größer_als_10(zahlen)
 
 # %% [markdown]
@@ -301,7 +302,7 @@ zahlen_größer_als_10(zahlen)
 # Erzeugen Sie eine neue Liste, die alle Zahlen in `zahlen` enthält, die größer
 # als 10 sind. Verwenden Sie dazu Listen-Komprehension.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 [n for n in zahlen if n > 10]
 
 
@@ -309,12 +310,12 @@ zahlen_größer_als_10(zahlen)
 # Schreiben Sie die Funktion `zahlen_größer_als_10(zahlen)` mit
 # Listen-Komprehension.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def zahlen_größer_als_10(zahlen):
     return [n for n in zahlen if n > 10]
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 zahlen_größer_als_10(zahlen)
 
 
@@ -324,15 +325,15 @@ zahlen_größer_als_10(zahlen)
 # die eine neue Liste zurückgibt, die die Quadrate aller Zahlen < 10 aus
 # `zahlen` enthält.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def quadrate_von_zahlen_kleiner_10(zahlen):
     return [n * n for n in zahlen if n < 10]
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 zahlen
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 quadrate_von_zahlen_kleiner_10(zahlen)
 
 # %% [markdown]
@@ -343,10 +344,10 @@ quadrate_von_zahlen_kleiner_10(zahlen)
 #
 # Schreiben Sie einen Generator, der die ersten 10 Quadratzahlen erzeugt.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 gen = (i * i for i in range(1, 11))
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 for i in gen:
     print(i, end=" ")
 
@@ -358,7 +359,7 @@ for i in gen:
 # Argument bekommt und ein neues Iterable zurückgibt, das die ersten `n`
 # Elemente von `it` liefert.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def take(n, it):
     for i, elt in enumerate(it):
         if i >= n:
@@ -366,11 +367,11 @@ def take(n, it):
         yield elt
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 for i in take(4, range(20)):
     print(i, end=' ')
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 for i in take(100, range(5)):
     print(i, end=' ')
 

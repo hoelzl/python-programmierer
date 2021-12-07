@@ -14,7 +14,6 @@
 #     name: python3
 # ---
 
-# %%
 # j2 import 'macros.j2' as doc
 # %% [markdown] {{ doc.slide() }}
 # {{ doc.header("Vertiefung zu Strings") }}
@@ -52,29 +51,35 @@
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Einschub: Sortieren von Listen/Iterables
 #
-# Mit der Funktion `sorted()` können iterables sortiert werden. Mit dem benannten Argument `key` kann eine Funktion angegeben werden, die bestimmt, wie die Sortierung erfolgt:
+# Mit der Funktion `sorted()` können iterables sortiert werden. Mit dem
+# benannten Argument `key` kann eine Funktion angegeben werden, die bestimmt,
+# wie die Sortierung erfolgt:
 
 # %%
 numbers = [3, 8, -7, 1, 0, 2, -3, 3]
+
+# %% {{ doc.codealong() }}
 sorted(numbers)
 
-# %%
+# %% {{ doc.codealong() }}
 sorted(numbers, key=abs)
 
 # %% {"slideshow": {"slide_type": "subslide"}}
 strings = ["a", "ABC", "xy", "Asdfgh", "foo", "bar", "quux"]
+
+# %% {{ doc.codealong() }}
 sorted(strings)
 
 
-# %%
+# %% {{ doc.codealong() }}
 def lower(my_string):
     return my_string.lower()
 
 
-# %%
+# %% {{ doc.codealong() }}
 sorted(strings, key=lower)
 
-# %%
+# %% {{ doc.codealong() }}
 sorted(strings, key=len)
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
@@ -88,28 +93,30 @@ sorted(strings, key=len)
 # Das Standard Modul in Python ist `locale`; das auf die Locale-Settings des
 # Betriebssystems zurückgreift:
 
-# %% {"slideshow": {"slide_type": "subslide"}}
+# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
 import locale
 
 locale.getlocale()
 
 # %%
 my_strings = ["o", "oa", "oe", "ö", "oz", "sa", "s", "ß", "ss", "sz"]
+
+# %% {{ doc.codealong() }}
 sorted(my_strings)
 
-# %%
+# %% {{ doc.codealong() }}
 sorted(my_strings, key=locale.strxfrm)
 
-# %% {"slideshow": {"slide_type": "subslide"}}
+# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
 locale.setlocale(locale.LC_COLLATE, "de_DE.UTF-8")
 
-# %%
+# %% {{ doc.codealong() }}
 sorted(my_strings, key=locale.strxfrm)
 
-# %%
+# %% {{ doc.codealong() }}
 locale.setlocale(locale.LC_COLLATE, "C")
 
-# %%
+# %% {{ doc.codealong() }}
 sorted(my_strings, key=locale.strxfrm)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -126,12 +133,12 @@ sorted(my_strings, key=locale.strxfrm)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Umwandeln eines Strings in Groß-/Kleinbuchstaben
 
-# %%
+# %% {{ doc.codealong() }}
 text = "Das ist ein Text"
 print(text.lower())
 print(text)
 
-# %%
+# %% {{ doc.codealong() }}
 "Das ist ein Text".upper()
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -139,14 +146,14 @@ print(text)
 # Die `lower()` Methode führr nicht immer die gewünschten Umwandlungen durch.
 # Die `casefold` Methode is dafür manchmal nützlich:
 
-# %%
+# %% {{ doc.codealong() }}
 s1 = "daß er sehe"
 s1.upper()
 
-# %%
+# %% {{ doc.codealong() }}
 s1.lower()
 
-# %%
+# %% {{ doc.codealong() }}
 s1.casefold()
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -159,10 +166,12 @@ s1.casefold()
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # # Nochmal String Literale
 #
-# - String-Literale werden in einfache oder doppelte Anführungszeichen eingeschlossen
+# - String-Literale werden in einfache oder doppelte Anführungszeichen
+#   eingeschlossen
 #     - `"Hello, world!"`
 #     - `'Hallo Welt!'`
-#     - Welche Form man wählt spielt keine Rolle, außer man will Anführungszeichen im String haben
+#     - Welche Form man wählt spielt keine Rolle, außer man will
+#       Anführungszeichen im String haben
 #     - `"Er sagt 'Huh?'"`
 #     - `'Sie antwortet: "Genau."'`
 
@@ -201,7 +210,8 @@ print("\N{GREEK CAPITAL LETTER DELTA} \N{GREEK SMALL LETTER ALPHA}")
 print("\N{smiling face with open mouth and smiling eyes} \N{winking face}")
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
-# - String Literale können auch in 3-fache Anführungszeichen eingeschlossen werden
+# - String Literale können auch in 3-fache Anführungszeichen eingeschlossen
+#   werden
 # - Diese Art von Literalen kann über mehrere Zeilen gehen
 
 # %%
@@ -253,18 +263,18 @@ kann der Zeilenvorschub unterdrückt werden."""
 s1 = "café"
 s2 = "cafe\u0301"
 
-# %%
+# %% {{ doc.codealong() }}
 print(s1, s2)
 s1 == s2
 
-# %% {"slideshow": {"slide_type": "subslide"}}
+# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
 import unicodedata
 unicodedata.normalize("NFC", s1) == s1
 
-# %%
+# %% {{ doc.codealong() }}
 unicodedata.normalize("NFC", s2) == s1
 
-# %%
+# %% {{ doc.codealong() }}
 unicodedata.normalize("NFD", s1) == s2
 
 
@@ -273,7 +283,7 @@ unicodedata.normalize("NFD", s1) == s2
 #
 # Python bietet die Möglichkeit, Werte von Variablen in Strings einzusetzen:
 
-# %%
+# %% {{ doc.codealong() }}
 name = "Hans"
 zahl = 12
 f"Hallo, {name}, die Zahl ist {zahl + 1}"
@@ -319,22 +329,22 @@ print(ausgabe)
 #
 # Der `in` Operator funktioniert auch mit Strings als Argument. Um den Index eines Substrings in einem String zu finden kann man die `index()`-Methode verwenden.
 
-# %%
+# %% {{ doc.codealong() }}
 "a" in "abc"
 
-# %%
+# %% {{ doc.codealong() }}
 "x" not in "abc"
 
-# %%
+# %% {{ doc.codealong() }}
 "bc" in "abc"
 
-# %%
+# %% {{ doc.codealong() }}
 "cb" in "abc"
 
-# %% {"slideshow": {"slide_type": "subslide"}}
+# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
 "Halloween".index("Hallo")
 
-# %%
+# %% {{ doc.codealong() }}
 "Halloween".index("we")
 
 # %%

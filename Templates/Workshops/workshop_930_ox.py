@@ -2,7 +2,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py:percent
+#     formats: py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -14,6 +14,7 @@
 #     name: python3
 # ---
 
+# j2 import 'macros.j2' as doc
 # %% [markdown]
 # # Ox - Eine Variante von Bulls and Cows
 #
@@ -115,11 +116,11 @@
 # - Was passiert bei Ihrer Lösung, wenn der Benutzer ein Wort eingibt, das
 #  länger oder kürzer ist als die Lösung?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 import random
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def match_char(char, index, solution):
     """
     Checks whether `char` is a perfect match for position `index` in `solution`.
@@ -136,44 +137,44 @@ def match_char(char, index, solution):
         return '.'
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 match_char('b', 1, 'abc')
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 match_char('a', 1, 'abc')
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 match_char('x', 1, 'abc')
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 match_char('x', 10, 'abc')
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def match_chars(chars, solution):
     return [match_char(char, index, solution) for index, char in enumerate(chars)]
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 match_chars('cbx', 'abc')
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def evaluate_guess(guess, solution):
     return ''.join(match_chars(guess, solution))
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 evaluate_guess('cbx', 'abc')
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 evaluate_guess('b', 'abc')
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 evaluate_guess('bbcdea', 'abc')
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def is_perfect_result(result):
     if result == '':
         return False
@@ -183,30 +184,30 @@ def is_perfect_result(result):
     return True
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 is_perfect_result('+++')
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 is_perfect_result('+++-+')
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 is_perfect_result('')
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 dictionary = ['game', 'gate', 'teatime', 'python']
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def print_header(word):
     print(f"""Guess the word!
 The word to guess has {len(word)} characters.""")
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 print_header('foo')
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def ox():
     word = random.choice(dictionary)
     has_won = False
@@ -225,5 +226,5 @@ def ox():
         print(f"Better luck next time. The word was {word}.")
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 ox()

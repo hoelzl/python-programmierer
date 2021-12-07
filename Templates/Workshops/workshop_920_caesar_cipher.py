@@ -2,7 +2,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py:percent
+#     formats: py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -14,6 +14,7 @@
 #     name: python3
 # ---
 
+# j2 import 'macros.j2' as doc
 # %% [markdown]
 # ## Cäsar-Verschlüsselung
 #
@@ -43,12 +44,12 @@
 #
 # *Hinweis:* Die folgenden beiden Strings sind dabei hilfreich:
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 letters_in_alphabetical_order = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
 letters_in_encoded_order = "DEFGHIJKLMNOPQRSTUVWXYZABC1234567890"
 
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def encode_char(c: str):
     c_upper = c.upper()
     if c_upper in letters_in_alphabetical_order:
@@ -61,16 +62,16 @@ def encode_char(c: str):
 # %% [markdown]
 # Testen Sie Ihre Implementierung mit einigen Werten
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 encode_char("a")
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 encode_char("x")
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 encode_char("3")
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 encode_char("!")
 
 
@@ -79,7 +80,7 @@ encode_char("!")
 # Schreiben Sie eine Funktion `encode_caesar(text: str)`, die einen String
 # `text` mittels der Cäsar-Verschlüsselung verschlüsselt.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def encode_caesar(text: str):
     return "".join(encode_char(c) for c in text)
 
@@ -87,14 +88,14 @@ def encode_caesar(text: str):
 # %% [markdown]
 # Überprüfen Sie Ihr Programm mit den folgenden Beispielen:
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 pangram = "Sphinx of black quartz, judge my vow!"
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 encoded_pangram = encode_caesar(pangram)
 encoded_pangram
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 verlaine = """\
 1. Les sanglots longs
 2. Des violons
@@ -107,7 +108,7 @@ verlaine = """\
 Gesendet vom BBC 1944-06-01 um Operation Overlord anzukündigen
 """
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 encoded_verlaine = encode_caesar(verlaine)
 encoded_verlaine
 
@@ -119,7 +120,7 @@ encoded_verlaine
 # entschlüsseln. Um robust zu sein sollen diese Funktionen Zeichen, die nicht
 # Buchstaben oder Ziffern sind unverändert zurückgeben.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def decode_char(c: str):
     if c in letters_in_encoded_order:
         index = letters_in_encoded_order.index(c)
@@ -128,12 +129,12 @@ def decode_char(c: str):
         return c
 
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def decode_caesar(text: str):
     return "".join(decode_char(c) for c in text)
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def decode_caesar2(text: str):
     result = ""
     for c in text:
@@ -144,18 +145,18 @@ def decode_caesar2(text: str):
 # %% [markdown]
 # Testen Sie `decode_caesar()` mit `pangram` und `verlaine`.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 decoded_pangram = decode_caesar(encoded_pangram)
 decoded_pangram
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 decoded_verlaine = decode_caesar(encoded_verlaine)
 print(decoded_verlaine)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert decoded_pangram == decode_caesar2(encoded_pangram)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert decoded_verlaine == decode_caesar2(encoded_verlaine)
 
 # %% [markdown]
@@ -165,7 +166,7 @@ assert decoded_verlaine == decode_caesar2(encoded_verlaine)
 # (SDQJUDP IURP QDVD'V VSDFH VKXWWOH SURJUDP)
 # ```
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 secret_text = """\
 SDFN PB ERA ZLWK ILYH GRCHQ OLTXRU MXJV
 (SDQJUDP IURP QDVD'V VSDFH VKXWWOH SURJUDP)\
@@ -178,7 +179,7 @@ print(decode_caesar(secret_text))
 # Code. Können Sie eine Funktion `rot_n_char(...)` schreiben, die die
 # Funktionalität beider Funktionen verallgemeinert?
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def rot_n_char(c: str, n: int, keep_non_letters=False):
     c_upper = c.upper()
     if c_upper in letters_in_alphabetical_order:
@@ -196,13 +197,13 @@ def rot_n_char(c: str, n: int, keep_non_letters=False):
 # Wie würden Sie `encode_caesar_2()` und `decode_caesar_2()` unter
 # Zuhilfenahme dieser Funktion implementieren?
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def encode_caesar_2(text: str, keep_non_letters=False):
     return "".join(rot_n_char(c, 3, keep_non_letters=keep_non_letters)
                    for c in text)
 
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def decode_caesar_2(text: str):
     return "".join(rot_n_char(c, -3, keep_non_letters=True) for c in text)
 
@@ -211,17 +212,17 @@ def decode_caesar_2(text: str):
 # Testen Sie die neue Funktion mittels `secret_text` und `verlaine`.
 # Sind alte und neue Implementierung kompatibel?
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 print(decode_caesar_2(secret_text))
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 encoded_verlaine_2 = encode_caesar_2(verlaine, keep_non_letters=True)
 print(encoded_verlaine_2)
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 print(decode_caesar_2(encoded_verlaine_2))
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 print(decode_caesar(encoded_verlaine_2))
 
 # %% [markdown]
@@ -229,12 +230,12 @@ print(decode_caesar(encoded_verlaine_2))
 # Implementierung einen Fehler hat: sie vermischt Zahlen und Buchstaben. Wie
 # können wir den Fehler beseitigen?
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 letters
 
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def rot_n_char(c: str, n: int, keep_non_letters=False):
     c_upper = c.upper()
     if c_upper in letters:
@@ -259,21 +260,21 @@ def decode_caesar_2(text: str):
 # %% [markdown]
 # Testen Sie die neue Implementierung indem Sie `secret_text` decodieren.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 print(decode_caesar_2(secret_text))
 
 # %% [markdown]
 # Testen Sie die neue Implementierung mit `verlaine`.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 encoded_verlaine_2 = encode_caesar_2(verlaine, keep_non_letters=True)
 print(encoded_verlaine_2)
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 print(decode_caesar_2(encoded_verlaine_2))
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 print(decode_caesar(encoded_verlaine_2))
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 decode_caesar(encoded_verlaine_2) == decode_caesar_2(encoded_verlaine_2)

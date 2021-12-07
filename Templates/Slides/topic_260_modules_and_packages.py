@@ -25,12 +25,12 @@
 #  - Durch *Module* und *Packages* kann diese Funktionalität bei Bedarf geladen
 #    werden.
 
-# %%
+# %% {{ doc.codealong() }}
 # Importieren eines Moduls/Packages
 import os
 
 
-# %%
+# %% {{ doc.codealong() }}
 # Verwenden der Funktionalität
 os.getcwd()
 
@@ -48,12 +48,12 @@ os.getcwd()
 #
 #  [Hier](https://docs.python.org/3/py-modindex.html) ist eine vollständigere Liste.
 
-# %%
+# %% {{ doc.codealong() }}
 import os
 {'num-cpus': os.cpu_count(), 'pid': os.getpid()}
 
 
-# %%
+# %% {{ doc.codealong() }}
 import ast
 ast.dump(ast.parse('print(123)'), False)
 
@@ -68,7 +68,7 @@ ast.dump(ast.parse('print(123)'), False)
 #  - Wenn sich ein Python-Modul im Suchpfad befindet, kann es mit `import` geladen werden.
 #  - Jupyter Notebooks lassen sich nicht (ohne zusätzliche Pakete) als Module laden.
 
-# %%
+# %% {{ doc.codealong() }}
 # Welche Python-Dateien gibt es im aktuellen Verzeichnis?
 for filename in os.listdir(os.getcwd()):
     if filename[-3:] == '.py':
@@ -80,7 +80,7 @@ for filename in os.listdir(os.getcwd()):
 # # %pycat my_test_module.py
 
 
-# %%
+# %% {{ doc.codealong() }}
 # Andere Möglichkeit, den Inhalt von `my_test_module.py` anzuzeigen.
 with open('my_test_module.py', 'r') as file:
     text = file.read()
@@ -97,65 +97,65 @@ print(text)
 # get_ipython().run_line_magic('autoreload', '2')
 
 
-# %%
+# %% {{ doc.codealong() }}
 # Top-level code wird NICHT mehr ausgeführt
 import my_test_module
 
 
-# %%
+# %% {{ doc.codealong() }}
 my_test_module.add1(2)
 
 
-# %%
+# %% {{ doc.codealong() }}
 # add1
 
 
-# %%
+# %% {{ doc.codealong() }}
 import my_test_module as mm
 
-# %%
+# %% {{ doc.codealong() }}
 mm.add1(1)
 
 
-# %%
+# %% {{ doc.codealong() }}
 mm.perform_complex_computation(17)
 
 
-# %%
+# %% {{ doc.codealong() }}
 from my_test_module import multiply_by_2
 
 
-# %%
+# %% {{ doc.codealong() }}
 multiply_by_2(2)
 
 
-# %%
+# %% {{ doc.codealong() }}
 from my_test_module import multiply_by_2 as mult2
 
 
-# %%
+# %% {{ doc.codealong() }}
 mult2(4)
 
 
-# %%
+# %% {{ doc.codealong() }}
 # Im Regelfall besser vermeiden:
 from my_test_module import *
 
 
-# %%
+# %% {{ doc.codealong() }}
 multiply_by_2(3)
 
 
-# %%
+# %% {{ doc.codealong() }}
 add1(3)
 
 
-# %%
+# %% {{ doc.codealong() }}
 # Anzeigen aller definierten Namen:
 dir(my_test_module)
 
 
-# %%
+# %% {{ doc.codealong() }}
 [name for name in dir(my_test_module) if name[0] != '_']
 
 
@@ -163,13 +163,15 @@ dir(my_test_module)
 #
 #  ## Beispiel: `HttpServer`
 #
-#  Der Python Interpreter hat keinen eingebauten HTTP Server. Mittels der Standardbibliothek ist es aber nicht schwer einen zu schreiben.
+# Der Python Interpreter hat keinen eingebauten HTTP Server. Mittels der
+# Standardbibliothek ist es aber nicht schwer einen zu schreiben.
 
 # %% [markdown]
 #
 #  ### Beispiel: `ModuleTest`
 #
-#  Das `ModuleTest` Beispiel zeigt, wie ein Programm aus mehreren Modulen bestehen kann.
+# Das `ModuleTest` Beispiel zeigt, wie ein Programm aus mehreren Modulen
+# bestehen kann.
 
 # %%
 __name__
@@ -183,16 +185,16 @@ __name__
 #  - Ein Package ist eine Zusammenfassung von mehreren Modulen
 #  - `b` ist Sub-Package von `a`, `c` und `x` sind Submodule von `b`
 
-# %%
+# %% {{ doc.codealong() }}
 from html.parser import HTMLParser
 import html.entities
 
 
-# %%
+# %% {{ doc.codealong() }}
 HTMLParser()
 
 
-# %%
+# %% {{ doc.codealong() }}
 html.entities.entitydefs['Psi']
 
 

@@ -2,7 +2,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py:percent
+#     formats: py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -14,13 +14,14 @@
 #     name: python3
 # ---
 
+# j2 import 'macros.j2' as doc
 # %% [markdown]
 # # Gerade Zahl
 #
 # Schreiben Sie eine Funktion `ist_gerade(zahl)`, die `True` zurückgibt,
 # falls `zahl` gerade ist und `False`, falls `zahl` ungerade ist.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def ist_gerade(zahl):
     return zahl % 2 == 0
 
@@ -32,7 +33,7 @@ def ist_gerade(zahl):
 # - `{zahl} ist nicht gerade.` auf dem Bildschirm ausgibt, falls `zahl` nicht
 #   gerade ist.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def drucke_ist_gerade(zahl):
     if ist_gerade(zahl):
         print(f"{zahl} ist gerade.")
@@ -43,7 +44,7 @@ def drucke_ist_gerade(zahl):
 # %% [markdown]
 # Testen Sie `drucke_ist_gerade(zahl)` mit den Werten 0, 1 und 8.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 drucke_ist_gerade(0)
 drucke_ist_gerade(1)
 drucke_ist_gerade(8)
@@ -58,7 +59,7 @@ drucke_ist_gerade(8)
 # - `{zahl} ist Null.` auf dem Bildschirm ausgibt, falls `zahl == 0` ist,
 # - `{zahl} ist negativ.` auf dem Bildschirm ausgibt, falls `zahl < 0` ist.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def drucke_ist_positiv(zahl):
     if zahl > 0:
         print(f"{zahl} ist positiv.")
@@ -71,13 +72,13 @@ def drucke_ist_positiv(zahl):
 # %% [markdown]
 # Testen Sie `drucke_ist_positiv(zahl)` mit den Werten -3, 0 und 2.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 drucke_ist_positiv(-3)
 drucke_ist_positiv(0)
 drucke_ist_positiv(2)
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def klassifiziere_positiv_negativ(zahl):
     if zahl > 0:
         return f"{zahl} ist positiv."
@@ -91,7 +92,7 @@ def drucke_ist_positiv_2(zahl):
     print(klassifiziere_positiv_negativ(zahl))
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 drucke_ist_positiv_2(-3)
 drucke_ist_positiv_2(0)
 drucke_ist_positiv_2(2)
@@ -106,7 +107,7 @@ drucke_ist_positiv_2(2)
 # - 0 zurückgibt, falls `zahl == 0` ist,
 # - -1 zurückgibt, falls `zahl < 0` ist.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def signum(zahl):
     if zahl > 0:
         return 1
@@ -119,13 +120,13 @@ def signum(zahl):
 # %% [markdown]
 # Testen Sie die Funktion für repräsentative Werte.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 signum(-10)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 signum(0)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 signum(2)
 
 
@@ -139,7 +140,7 @@ signum(2)
 # *Hinweis:*
 # - Ein Kilometer entspricht $0,621371$ Meilen
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def konvertiere_km_nach_meilen(km):
     return km * 0.621371
 
@@ -147,10 +148,10 @@ def konvertiere_km_nach_meilen(km):
 # %% [markdown]
 # Testen Sie `konvertiere_km_nach_meilen(km)` für 1 und 5 km.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 konvertiere_km_nach_meilen(1)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 konvertiere_km_nach_meilen(5)
 
 
@@ -162,7 +163,7 @@ konvertiere_km_nach_meilen(5)
 # *Hinweise* 
 # - Ein String kann mit `float()` in einen Float-Wert umgewandelt werden.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def meilen_app():
     km = input("Bitte geben Sie eine Entfernung in km ein: ")
     if km != "":
@@ -172,7 +173,7 @@ def meilen_app():
         print("Bitte geben Sie eine gültige Entfernung in km ein.")
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 meilen_app()
 
 
@@ -182,7 +183,7 @@ meilen_app()
 # Schreiben Sie eine Funktion `meilen_app_2`, die sich wie `meilen_app`
 # verhält, aber Truthiness von Strings ausnutzt.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def meilen_app_2():
     km = input("Bitte geben Sie eine Entfernung in km ein: ")
     if km:
@@ -192,7 +193,7 @@ def meilen_app_2():
         print("Bitte geben Sie eine gültige Entfernung in km ein.")
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 # meilen_app_2()
 
 # %% [markdown]
@@ -209,7 +210,7 @@ def meilen_app_2():
 # Schreiben Sie eine Funktion `kinopreis(alter)`, die den Preis in
 # Abhängigkeit vom Alter berechnet und zurückgibt.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def kinopreis(alter):
     if (alter < 2):
         return 0
@@ -226,19 +227,19 @@ def kinopreis(alter):
 # %% [markdown]
 # Testen Sie die Funktion `kinopreis()` für einige repräsentative Werte.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 kinopreis(1)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 kinopreis(7)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 kinopreis(15)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 kinopreis(25)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 kinopreis(70)
 
 
@@ -250,7 +251,7 @@ kinopreis(70)
 # Sie sind 15 Jahre alt. Ihr Preis beträgt 5 Euro.
 # ```
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def drucke_kinopreis(alter):
     preis = kinopreis(alter)
     if alter == 1:
@@ -262,7 +263,7 @@ def drucke_kinopreis(alter):
 # %% [markdown]
 # Testen Sie `drucke_kinopreis(alter)` für repräsentative Werte.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 drucke_kinopreis(1)
 drucke_kinopreis(7)
 drucke_kinopreis(15)
@@ -284,7 +285,7 @@ drucke_kinopreis(70)
 # Sie sind 12 Jahre alt. Ihr Preis beträgt 2 Euro.
 # ```
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def kino_app():
     alter = input("Wie alt sind Sie? ")
     if alter:
@@ -308,7 +309,7 @@ def kino_app():
 # Implementieren Sie eine Funktion `rate_wort(lösung)`, die den Benutzer so
 # lange nach einem Wort fragt, bis das eingegebene Wort der Lösung entspricht.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def rate_wort(lösung):
     geratenes_wort = input("Bitte geben Sie ein Wort ein: ")
     while geratenes_wort != lösung:
@@ -327,7 +328,7 @@ def rate_wort(lösung):
 # Eingabe soll dem Benutzer angezeigt werden, ob die eingegebene Zahl zu
 # groß, zu klein oder richtig ist.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def rate_zahl(lösung):
     geratene_zahl = input("Bitte geben Sie eine Zahl ein: ")
     while int(geratene_zahl) != lösung:
@@ -347,7 +348,7 @@ def rate_zahl(lösung):
 # Wie müssen Sie Ihre Lösung modifizieren, damit der Spieler durch Eingabe
 # einer leeren Zeichenkette das Spiel abbrechen kann?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def rate_zahl_1(lösung):
     geratene_zahl = input("Bitte geben Sie eine Zahl ein: ")
     while geratene_zahl and int(geratene_zahl) != lösung:
@@ -362,13 +363,13 @@ def rate_zahl_1(lösung):
         print("Aufgeben ist feige!")
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 # rate_zahl_1(23)
 
 # %% [markdown]
 # Lösung unter Zuhilfenahme der Funktion `klassifiziere_zahl`
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def klassifiziere_zahl(geratene_zahl, lösung):
     if geratene_zahl < lösung:
         return False, "Die geratene Zahl ist zu klein! "
@@ -378,7 +379,7 @@ def klassifiziere_zahl(geratene_zahl, lösung):
         return True, "Sie haben gewonnen!"
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def rate_zahl_2(lösung):
     geratene_zahl = input("Bitte geben Sie eine Zahl ein: ")
     erfolg, hinweis = klassifiziere_zahl(int(geratene_zahl), lösung)
@@ -388,7 +389,7 @@ def rate_zahl_2(lösung):
     print("Sie haben gewonnen!")
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 # rate_zahl_2(23)
 
 # %% [markdown]
@@ -412,7 +413,7 @@ def rate_zahl_2(lösung):
 # mit geeigneten Attributen und einer Methode `gehalt()`, die das Gehalt
 # berechnet.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 class Mitarbeiter:
     def __init__(self, name, pers_nr, grundgehalt):
         self.name = name
@@ -423,7 +424,7 @@ class Mitarbeiter:
         return 13 / 12 * self.grundgehalt
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 class Arbeiter(Mitarbeiter):
     def __init__(self, name, pers_nr, grundgehalt, überstunden, stundensatz):
         super().__init__(name, pers_nr, grundgehalt)
@@ -439,7 +440,7 @@ class Arbeiter(Mitarbeiter):
         return super().gehalt() + self.überstunden * self.stundensatz
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 class Manager(Mitarbeiter):
     def __init__(self, name, pers_nr, grundgehalt, bonus):
         super().__init__(name, pers_nr, grundgehalt)
@@ -453,12 +454,12 @@ class Manager(Mitarbeiter):
         return super().gehalt() + self.bonus
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 a = Arbeiter("Hans", 123, 36_000, 3, 40)
 print(a.gehalt())
 a
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 m = Manager("Sepp", 666, 60_000, 30_000)
 print(m.gehalt())
 m
@@ -493,7 +494,7 @@ m
 # ungültig war. (Wenn beide Spieler eine ungültige Eingabe vorgenommen haben
 # kann ein beliebiger Spieler gespeichert werden.)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 class BadInputError(ValueError):
     def __init__(self, msg, invalid_player):
         super().__init__(msg)
@@ -531,35 +532,35 @@ def evaluiere_eine_runde_knobeln(spieler1, spieler2):
 # %% [markdown]
 # Testen Sie alle möglichen Pfade durch Ihre Funktion.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert evaluiere_eine_runde_knobeln("schere", "schere") == 0
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert evaluiere_eine_runde_knobeln("papier", "papier") == 0
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert evaluiere_eine_runde_knobeln("stein", "stein") == 0
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert evaluiere_eine_runde_knobeln("schere", "papier") == 1
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert evaluiere_eine_runde_knobeln("schere", "stein") == 2
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert evaluiere_eine_runde_knobeln("papier", "schere") == 2
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert evaluiere_eine_runde_knobeln("papier", "stein") == 1
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert evaluiere_eine_runde_knobeln("stein", "schere") == 1
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert evaluiere_eine_runde_knobeln("stein", "papier") == 2
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def assert_exception(lhs, rhs, invalid_player):
     try:
         evaluiere_eine_runde_knobeln(lhs, rhs)
@@ -568,19 +569,19 @@ def assert_exception(lhs, rhs, invalid_player):
         assert e.invalid_player == invalid_player, "Wrong invalid player"
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert_exception("eisen", "schere", 1)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert_exception("schere", "eisen", 2)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert_exception("papier", "eisen", 2)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert_exception("stein", "eisen", 2)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 assert_exception("eisen", "eisen", 1)
 
 
@@ -594,7 +595,7 @@ assert_exception("eisen", "eisen", 1)
 # - `Ungültiges Symbol von Spieler X!`, wenn Spieler X ein ungültiges Symbol
 #   eingegeben hat.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def vergleiche_symbole(spieler1, spieler2):
     try:
         ergebniss = evaluiere_eine_runde_knobeln(spieler1, spieler2)
@@ -609,31 +610,31 @@ def vergleiche_symbole(spieler1, spieler2):
 # %% [markdown]
 # Testen Sie `vergleiche_symbole` für geeignete Eingaben.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 vergleiche_symbole("papier", "papier")
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 vergleiche_symbole("schere", "papier")
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 vergleiche_symbole("papier", "stein")
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 vergleiche_symbole("stein", "schere")
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 vergleiche_symbole("papier", "schere")
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 vergleiche_symbole("stein", "papier")
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 vergleiche_symbole("schere", "stein")
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 vergleiche_symbole("computer", "papier")
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 vergleiche_symbole("papier", "computer")
 
 
@@ -646,7 +647,7 @@ vergleiche_symbole("papier", "computer")
 # (Das ist natürlich kein benutzbares Spiel, da Spieler 2 sehen kann,
 # was Spieler 1 gewählt hat.)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def spiele_eine_runde_knobeln():
     spieler1 = input("Auswahl von Spieler 1: ")
     spieler2 = input("Auswahl von Spieler 2: ")
@@ -656,7 +657,7 @@ def spiele_eine_runde_knobeln():
 # %% [markdown]
 # Testen Sie die Funktion `spiele_eine_runde_knobeln()` interaktiv.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 # spiele_eine_runde_knobeln()
 
 # %% [markdown]
@@ -666,7 +667,7 @@ def spiele_eine_runde_knobeln():
 # der andere (z.B. wenn der erste Spieler 2 Spiele gewonnen hat, der zweite
 # Spieler 5).
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def spiele_knobeln():
     gewinne1 = 0
     gewinne2 = 0
@@ -688,7 +689,7 @@ def spiele_knobeln():
     print(f"Spieler {1 if gewinne1 > gewinne2 else 2} gewinnt!")
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 # spiele_knobeln()
 
 # %% [markdown]
@@ -702,7 +703,7 @@ def spiele_knobeln():
 # *Hinweis:*  Beachten Sie die möglichen Werte für das `mode` Argument von
 # `open()`.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def write_text_to_file(text, file_name):
     with open(file_name, 'x') as file:
         file.write(text)
@@ -713,10 +714,10 @@ def write_text_to_file(text, file_name):
 # Testen Sie die Funktion, indem Sie zweimal hintereinander versuchen den
 # Text `Python 3.8` in die Datei `my-private-file.txt` zu schreiben.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 write_text_to_file('Python 3.8', 'my_private_file.txt')
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 write_text_to_file('Python 3.8', 'my_private_file.txt')
 
 
@@ -728,7 +729,7 @@ write_text_to_file('Python 3.8', 'my_private_file.txt')
 #   falls sie nicht existiert
 # - in beiden Fällen den Text `Our invoice will be sent by mail.` ausgibt.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def annotate_file(file_name):
     try:
         with open(file_name, 'r') as file:
@@ -740,8 +741,8 @@ def annotate_file(file_name):
         print('Our invoice will be sent by mail.')
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 annotate_file('my_private_file.txt')
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 annotate_file('does-not-exist.txt')

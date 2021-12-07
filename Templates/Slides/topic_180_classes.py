@@ -18,14 +18,16 @@
 # {{ doc.header("Objektorientierung Teil 1: Klassen") }}
 
 
-
 # %% [markdown]
 # ## Properties
 #
-# Wie können wir es ermöglichen auf einen Punkt sowohl mittels der `x` und `y`-Koordinaten zuzugreifen, als auch mittels Radius und Winkel?
+# Wie können wir es ermöglichen auf einen Punkt sowohl mittels der `x` und
+# `y`-Koordinaten zuzugreifen, als auch mittels Radius und Winkel?
 
-# %%
+# %% {{ doc.codealong() }}
 import math
+
+
 class GeoPointV0:
     def __init__(self, x=0, y=0):
         self.x = x
@@ -33,33 +35,35 @@ class GeoPointV0:
 
     def get_radius(self):
         return (self.x ** 2 + self.y ** 2) ** 0.5
-    
+
     def get_angle(self):
         return math.atan2(self.y, self.x)
-    
+
     def __repr__(self):
         return f"GeoPointV0({self.x:.1f}, {self.y:.1f}, r={self.get_radius():.2f}, θ={self.get_angle():.2f})"
 
 
-# %%
+# %% {{ doc.codealong() }}
 GeoPointV0()
 
-# %%
+# %% {{ doc.codealong() }}
 GeoPointV0(1.0, 0.0)
 
-# %%
+# %% {{ doc.codealong() }}
 GeoPointV0(0.0, 2.0)
 
 # %% [markdown]
-# Es ist unschön, dass bei der Verwendung von `GeoPointV0` die Attribute `x` und `y` anders behandelt werden müsseen als `radius` und `angle`:
+# Es ist unschön, dass bei der Verwendung von `GeoPointV0` die Attribute `x`
+# und `y` anders behandelt werden müsseen als `radius` und `angle`:
 
-# %%
+# %% {{ doc.codealong() }}
 p = GeoPointV0(1.0, 1.0)
 print(p.x, p.y, p.get_radius(), p.get_angle())
 
-
-# %%
+# %% {{ doc.codealong() }}
 import math
+
+
 class GeoPointV1:
     def __init__(self, x=0, y=0):
         self.x = x
@@ -68,25 +72,25 @@ class GeoPointV1:
     @property
     def radius(self):
         return (self.x ** 2 + self.y ** 2) ** 0.5
-    
+
     @property
     def angle(self):
         return math.atan2(self.y, self.x)
-    
+
     def __repr__(self):
         return f"GeoPointV1({self.x:.1f}, {self.y:.1f}, r={self.radius:.2f}, θ={self.angle:.2f})"
 
 
-# %%
+# %% {{ doc.codealong() }}
 GeoPointV1()
 
-# %%
+# %% {{ doc.codealong() }}
 GeoPointV1(1.0, 0.0)
 
-# %%
+# %% {{ doc.codealong() }}
 GeoPointV1(0.0, 2.0)
 
-# %%
+# %% {{ doc.codealong() }}
 p = GeoPointV1(1.0, 1.0)
 print(p.x, p.y, p.radius, p.angle)
 
@@ -96,8 +100,10 @@ print(p.x, p.y, p.radius, p.angle)
 #
 # Properties können auch modifiziert werden:
 
-# %%
+# %% {{ doc.codealong() }}
 import math
+
+
 class GeoPointV2:
     def __init__(self, x=0, y=0):
         self.x = x
@@ -106,7 +112,7 @@ class GeoPointV2:
     @property
     def radius(self):
         return (self.x ** 2 + self.y ** 2) ** 0.5
-    
+
     @radius.setter
     def radius(self, new_radius):
         old_radius = self.radius
@@ -117,12 +123,12 @@ class GeoPointV2:
     @property
     def angle(self):
         return math.atan2(self.y, self.x)
-    
+
     def __repr__(self):
         return f"GeoPointV1({self.x:.1f}, {self.y:.1f}, r={self.radius:.2f}, θ={self.angle:.2f})"
 
 
-# %%
+# %% {{ doc.codealong() }}
 p = GeoPointV2(3.0, 4.0)
 print("Original point:  ", p)
 p.radius = 10.0
@@ -135,7 +141,7 @@ print("Set radius to 10:", p)
 #  
 # Die meisten Attribute werden auf der Instanz-Ebene definiert, d.h., jedes Objekt hat seine eigenen Werte für die Attribute. Manchmal ist es aber sinnvoll Attribute auch auf der Klassenebene zu definieren:
 
-# %%
+# %% {{ doc.codealong() }}
 class CountedAdder:
     # Attribut der Klasse, wird von allen Instanzen geteilt
     num_counters = 0
@@ -155,89 +161,77 @@ class CountedAdder:
         return self.value + n
 
 
-
-# %%
+# %% {{ doc.codealong() }}
 print(CountedAdder.num_counters)
 a1 = CountedAdder(10)
 print(CountedAdder.num_counters)
 a2 = CountedAdder(20)
 print(CountedAdder.num_counters)
 
-
-# %%
+# %% {{ doc.codealong() }}
 print(a1.add(1))
 print(a2.add(2))
 
-
-# %%
+# %% {{ doc.codealong() }}
 a1.describe()
 a2.describe()
 
-
-# %%
+# %% {{ doc.codealong() }}
 print(CountedAdder.num_counters)
 print(a1.num_counters)
 print(a2.num_counters)
 
-
-# %%
+# %% {{ doc.codealong() }}
 print(CountedAdder.add)
 print(a1.add)
 print(a2.add)
 
+
 # ## Vererbung
 
 
-# %%
+# %% {{ doc.codealong() }}
 class LoggingAdder(CountedAdder):
     def add(self, n):
         print(f"Adding {self.value} to {n}")
         return self.value + n
 
 
-
-# %%
+# %% {{ doc.codealong() }}
 a3 = LoggingAdder(30)
 print(a3.add(3))
 print(a3.num_counters)
 
-
-# %%
+# %% {{ doc.codealong() }}
 a1.describe()
 a2.describe()
 a3.describe()
 
-
-# %%
+# %% {{ doc.codealong() }}
 # Method Resolution Order:
 LoggingAdder.mro()
 
-
-# %%
+# %% {{ doc.codealong() }}
 print(CountedAdder.add)
 print(a1.add)
 print(a2.add)
 print(LoggingAdder.add)
 print(a3.add)
 
-
-# %%
+# %% {{ doc.codealong() }}
 print(CountedAdder.add)
 print(a1.add.__func__)
 print(a2.add.__func__)
 print(LoggingAdder.add)
 print(a3.add.__func__)
 
-
-# %%
+# %% {{ doc.codealong() }}
 a1.__dict__["value"] = 15
 
-
-# %%
+# %% {{ doc.codealong() }}
 a1.add(0)
 
-
-# %%
+# %% {{ doc.codealong() }}
 LoggingAdder.__dict__
 
 
@@ -298,13 +292,11 @@ class LoggingDescriptor:
         return instance.__dict__.get(self.name, "nothing")
 
 
-
 # %%
 class OverridingLoggingDescriptor(LoggingDescriptor):
     def __set__(self, instance, value):
         print(f"__set__({self}, {instance}, {value}")
         instance.__dict__[self.name] = value
-
 
 
 # %%
@@ -313,16 +305,13 @@ class YourClass:
     g = OverridingLoggingDescriptor("g")
 
 
-
 # %%
 yc = YourClass()
 print(yc.f, yc.g)
 
-
 # %%
 yc.f = 234
 yc.g = 345
-
 
 # %%
 print(yc.f, yc.g)
@@ -338,21 +327,17 @@ def f(x, y):
     print(x, y)
 
 
-
 # %%
 mc = MyClass()
 print(mc.__class__)
-
 
 # %%
 print(MyClass.g)
 print(mc.g.__qualname__)
 print(mc.g.__get__)
 
-
 # %%
 print(f.__get__)
-
 
 # %%
 bound_f = f.__get__(mc, MyClass)
@@ -360,12 +345,10 @@ bound_g = mc.g
 print(bound_f)
 print(bound_g)
 
-
 # %%
 bound_f(3)
 bound_g(3)
 mc.g(3)
-
 
 # %% [markdown]
 #
@@ -395,10 +378,8 @@ mc.g(3)
 # %%
 entry = ["0713", "Netzkabel", 3.49, 2, 6.98]
 
-
 # %%
 entry
-
 
 # %% [markdown]
 #
@@ -411,12 +392,11 @@ entry
 
 # %%
 entry = {
-    "article_number": "0713",
-    "article_name": "Netzkabel",
+    "article_number":  "0713",
+    "article_name":    "Netzkabel",
     "price_per_item:": 3.49,
-    "total_price": 6.98,
+    "total_price":     6.98,
 }
-
 
 # %%
 entry
@@ -448,39 +428,31 @@ class ShoppingCartEntryV0:
     pass
 
 
-
 # %%
 shopping_cart_entry_1 = ShoppingCartEntryV0()
 shopping_cart_entry_1
 
-
 # %%
 type(shopping_cart_entry_1)
-
 
 # %%
 shopping_cart_entry_1.article_number = "9343"
 shopping_cart_entry_1.article_name = "Strawberries"
 shopping_cart_entry_1.price_per_item = 2.99
 
-
 # %%
 shopping_cart_entry_1.article_number
-
 
 # %%
 shopping_cart_entry_1.article_name
 
-
 # %%
 shopping_cart_entry_1.price_per_item
-
 
 # %%
 shopping_cart_entry_2 = ShoppingCartEntryV0()
 shopping_cart_entry_2.article_number = "3742"
 shopping_cart_entry_2.article_name = "Cream"
-
 
 # %%
 print(
@@ -523,13 +495,13 @@ print(
 
 # %%
 class ShoppingCartEntryV1:
-    def __init__(self, article_number, article_name, price_per_item, number_of_items):
+    def __init__(self, article_number, article_name, price_per_item,
+                 number_of_items):
         self.article_number = article_number
         self.article_name = article_name
         self.price_per_item = price_per_item
         self.number_of_items = number_of_items
         self.total_price = price_per_item * number_of_items
-
 
 
 # %% [markdown]
@@ -544,10 +516,8 @@ class ShoppingCartEntryV1:
 entry = ShoppingCartEntryV1("0713", "Netzkabel", 3.49, 2)
 entry
 
-
 # %%
 entry.article_number, entry.article_name, entry.price_per_item, entry.number_of_items, entry.total_price
-
 
 # %%
 # Fehler!
@@ -556,10 +526,11 @@ entry.article_number, entry.article_name, entry.price_per_item, entry.number_of_
 
 # %%
 shopping_cart = [
-    ShoppingCartEntryV1("9343", "Strawberries", price_per_item=2.99, number_of_items=2),
-    ShoppingCartEntryV1("3742", "Cream", price_per_item=1.99, number_of_items=1),
+    ShoppingCartEntryV1("9343", "Strawberries", price_per_item=2.99,
+                        number_of_items=2),
+    ShoppingCartEntryV1("3742", "Cream", price_per_item=1.99,
+                        number_of_items=1),
 ]
-
 
 # %% [markdown]
 #
@@ -568,7 +539,6 @@ shopping_cart = [
 
 # %%
 shopping_cart
-
 
 # %% [markdown]
 #
@@ -584,7 +554,6 @@ def total_price_of_shopping_cart(shopping_cart):
     for entry in shopping_cart:
         result += entry.total_price
     return result
-
 
 
 # %%
@@ -604,7 +573,6 @@ class ShoppingCartV0:
         self.entries = entries
 
 
-
 # %%
 shopping_cart_entry_1 = ShoppingCartEntryV1("9343", "Strawberries", 2.99, 2)
 shopping_cart_entry_2 = ShoppingCartEntryV1("3742", "Cream", 1.99, 1)
@@ -617,7 +585,6 @@ def total_price_of_shopping_cart(shopping_cart):
     for entry in shopping_cart.entries:
         result += entry.total_price
     return result
-
 
 
 # %%
@@ -660,10 +627,8 @@ class ShoppingCartV1:
         return result
 
 
-
 # %%
 shopping_cart = ShoppingCartV1([shopping_cart_entry_1, shopping_cart_entry_2])
-
 
 # %% [markdown]
 #
@@ -680,7 +645,6 @@ shopping_cart = ShoppingCartV1([shopping_cart_entry_1, shopping_cart_entry_2])
 # %%
 shopping_cart.get_total_price()
 
-
 # %% [markdown]
 #
 #  Eine Methode wird durch die `object.`-Operation an `object` *gebunden*, d.h.,
@@ -693,7 +657,6 @@ my_method = shopping_cart.get_total_price
 print(shopping_cart)
 print(my_method)
 print(my_method())
-
 
 # %% [markdown]
 #
@@ -739,12 +702,10 @@ class ShoppingCartV2:
         return result
 
 
-
 # %%
 shopping_cart = ShoppingCartV2([shopping_cart_entry_1, shopping_cart_entry_2])
 print(shopping_cart_entry_1.total_price)
 print(shopping_cart.total_price)
-
 
 # %% [markdown]
 #
@@ -755,17 +716,14 @@ print(shopping_cart.total_price)
 # %%
 print(str("Foo"))
 
-
 # %%
 print(repr("Foo"))
-
 
 # %%
 foo = "Foo"
 print(f"{foo}")
 print(f"{foo!s}")
 print(f"{foo!r}")
-
 
 # %%
 print(f"{shopping_cart}")
@@ -793,10 +751,10 @@ class ShoppingCart:
         return f"Shopping Cart: {', '.join(str(e) for e in self.entries)}"
 
 
-
 # %%
 class ShoppingCartEntry:
-    def __init__(self, article_number, article_name, price_per_item, number_of_items):
+    def __init__(self, article_number, article_name, price_per_item,
+                 number_of_items):
         self.article_number = article_number
         self.article_name = article_name
         self.price_per_item = price_per_item
@@ -813,7 +771,6 @@ class ShoppingCartEntry:
         return f"{self.article_name}"
 
 
-
 # %%
 shopping_cart = ShoppingCart(
     [
@@ -822,20 +779,16 @@ shopping_cart = ShoppingCart(
     ]
 )
 
-
 # %%
 shopping_cart
 
-
 # %%
 print(shopping_cart)
-
 
 # %%
 print(f"{shopping_cart}")
 print(f"{shopping_cart!s}")
 print(f"{shopping_cart!r}")
-
 
 # %% [markdown]
 #
@@ -845,8 +798,6 @@ print(f"{shopping_cart!r}")
 sce1 = ShoppingCartEntry("1", "Item 1", 1.0, 1)
 sce2 = ShoppingCartEntry("1", "Item 1", 1.0, 1)
 sce1 == sce2
-
-
 
 # %% [markdown]
 #

@@ -23,11 +23,11 @@
 # Die einfachste Varianten Daten zu persistieren ist sie in einer Datei zu speichern:
 
 
-# %%
+# %% {{ doc.codealong() }}
 import os
 
 
-# %%
+# %% {{ doc.codealong() }}
 os.getcwd()
 
 

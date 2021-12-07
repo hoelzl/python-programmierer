@@ -2,7 +2,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py:percent
+#     formats: py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -14,6 +14,7 @@
 #     name: python3
 # ---
 
+# j2 import 'macros.j2' as doc
 # %% [markdown]
 # ## Worthäufigkeiten
 #
@@ -45,7 +46,7 @@
 # - Sie können einen String mit der Methode `string.lower()` in einen String
 #   umwandeln, der nur aus Kleinbuchstaben besteht.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def zähle_worte(text: str) -> dict:
     words = text.lower().split()
     result = {}
@@ -58,18 +59,18 @@ def zähle_worte(text: str) -> dict:
 # %% [markdown]
 # Testen Sie Ihre Implementierung mit dem folgenden String:
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 dickens = "It was the best of times it was the worst of times"
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 zähle_worte(dickens)
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 from pprint import pprint
 
 pprint(zähle_worte(dickens), width=30)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 help(pprint)
 
 # %%

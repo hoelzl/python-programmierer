@@ -2,7 +2,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py:percent
+#     formats: py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -14,6 +14,7 @@
 #     name: python3
 # ---
 
+# j2 import 'macros.j2' as doc
 # %% [markdown]
 # # TODO-Liste Version 0
 #
@@ -36,16 +37,16 @@
 # - Titel: Gemüse einkaufen, Priorität 2, nicht erledigt
 # - Titel: Hans anrufen, Priorität 5, erledigt
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 todos = [dict(title='Python lernen', priority=3, is_completed=False)]
 todos
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 todos = [{'title': 'Python lernen', 'priority': 3, 'is_completed': False},
          {'title': 'Gemüse einkaufen', 'priority': 2, 'is_completed': False},
          {'title': 'Hans anrufen', 'priority': 5, 'is_completed': True}]
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 todos
 
 
@@ -53,7 +54,7 @@ todos
 # Schreiben Sie eine Funktion `add_todo_item(todo_list, title, priority)`,
 # die ein neues Todo-Item zu `todo_list` hinzufügt.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def add_todo_item(todo_list, title, priority):
     todo_list.append({'title':        title,
                       'priority':     priority,
@@ -64,10 +65,10 @@ def add_todo_item(todo_list, title, priority):
 # Fügen Sie ein neues Todo-Item mit Titel "Schnee schaufeln" und Priorität 5
 #  in die Liste `todos` ein.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 add_todo_item(todos, "Schnee schaufeln", 5)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 todos
 
 
@@ -76,7 +77,7 @@ todos
 # die das erste in der Liste `todo_list` vorkommende Todo-Item mit Titel
 #  `title`, das noch nicht bearbeitet ist, als bearbeitet markiert.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def mark_todo_item_done(todo_list, title):
     for item in todo_list:
         if item['title'] == title and not item['is_completed']:
@@ -87,38 +88,38 @@ def mark_todo_item_done(todo_list, title):
 # %% [markdown]
 # Markieren Sie das Todo-Item `Schnee schaufeln` als bearbeitet.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 mark_todo_item_done(todos, "Schnee schaufeln")
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 todos
 
 # %% [markdown]
 # Fügen Sie zwei Todo-Items mit Text "Python lernen" und Priorität 1 und 6
 #  zur Todo-Liste hinzu.
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 add_todo_item(todos, "Python lernen", 1)
 add_todo_item(todos, "Python lernen", 6)
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 todos
 
 # %% [markdown]
 # Markieren Sie ein Todo-Item "Python lernen" als erledigt. Wie sieht jetzt
 #  Ihre Liste aus?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 mark_todo_item_done(todos, "Python lernen")
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 todos
 
 # %% [markdown]
 # Markieren Sie noch ein Todo-Item "Python lernen" als erledigt. Wie sieht
 #  jetzt Ihre Liste aus?
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 mark_todo_item_done(todos, "Python lernen")
 todos
 
@@ -132,7 +133,7 @@ todos
 # *Vorsicht: Sie sollten während Sie über eine Liste iterieren keine Einträge
 # entfernen oder einfügen!*
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def delete_todo_item(todo_list, title):
     index_to_delete = -1
     for index, item in enumerate(todo_list):
@@ -146,7 +147,7 @@ def delete_todo_item(todo_list, title):
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # Löschen Sie ein item `Python lernen` aus `todo_list`
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 delete_todo_item(todos, "Python lernen")
 todos
 
@@ -161,7 +162,7 @@ todos
 # löschen! Eine elegantere Methode ist eine List Comprehension und Zuweisung
 # an ein Slice zu verwenden.*
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def delete_all_completed_todo_items(todo_list):
     indices_to_delete = []
     for index, item in enumerate(todo_list):
@@ -171,19 +172,19 @@ def delete_all_completed_todo_items(todo_list):
         del todo_list[index]
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 # delete_all_completed_todo_items(todos)
 todos
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 def delete_all_completed_todo_items_v2(todo_list):
     todo_list[:] = [item
                     for item in todo_list
                     if not item['is_completed']]
 
 
-# %% {{ solution() }}
+# %% {{ doc.solution() }}
 delete_all_completed_todo_items_v2(todos)
 todos
 

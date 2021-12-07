@@ -2,7 +2,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py:percent
+#     formats: py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -14,6 +14,7 @@
 #     name: python3
 # ---
 
+# j2 import 'macros.j2' as doc
 # %% [markdown]
 # # Quiz
 #
@@ -35,7 +36,7 @@
 #   eine korrekte Antwort auf die Frage ist.
 # - `correct_answer(self)`: Gibt eine der korrekten Antworten zurück.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 class Question:
     def __init__(self, text, answers):
         self.text = text
@@ -59,7 +60,7 @@ class Question:
 # Testen Sie die Klasse (interaktiv falls Sie die Aufgabe im Notebook
 # bearbeiten, sonst mit pytest)
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 questions = [
     Question("Wann wurde Napoleon geboren?", ["15. August 1769", "1769"]),
     Question("Wann wurde Python erfunden?", ["1991"]),
@@ -67,10 +68,10 @@ questions = [
              ["Guido van Rossum", "Guido v. Rossum"])]
 questions
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 questions[0].is_answer_correct('15. August 1769')
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 questions[0].correct_answer()
 
 # %% [markdown]
@@ -111,7 +112,7 @@ questions[0].correct_answer()
 # - `print_reply()` gibt eine Antwort basierend auf der Frage und dem
 #   "Statuscode" zurück.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 from random import choice
 
 
@@ -193,14 +194,14 @@ class TriviaGame:
                 break
 
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 my_game = TriviaGame(questions)
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 my_game.pick_random_question()
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 # my_game.process_answer(my_game.pick_random_question())
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 # my_game.run()

@@ -2,7 +2,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py:percent
+#     formats: py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -14,6 +14,7 @@
 #     name: python3
 # ---
 
+# j2 import 'macros.j2' as doc
 # %% [markdown]
 # # Todo-Liste
 #
@@ -28,7 +29,7 @@
 #
 # Definieren Sie eine Klasse `TodoItem`, die diese Daten kapselt.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 class TodoItem:
     def __init__(self, title, priority, is_completed):
         self.title = title
@@ -42,7 +43,7 @@ class TodoItem:
 # - Priorität 3
 # - nicht erledigt
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 todo_item = TodoItem('Python lernen', 3, False)
 todo_item
 
@@ -53,13 +54,13 @@ todo_item
 # Todo-Item in einen String umwandelt, der Information über die Bestandteile
 # enthält.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def todo_item_as_string(item):
     return f"{item.title}, priority {item.priority}" \
            + ("" if not item.is_completed else ", done")
 
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 print(todo_item_as_string(todo_item))
 print(todo_item_as_string(TodoItem("Buy food", 2, True)))
 
@@ -67,7 +68,7 @@ print(todo_item_as_string(TodoItem("Buy food", 2, True)))
 # %% [markdown]
 # Definieren Sie eine Klasse `TodoList`, die eine Todo-Liste repräsentiert.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 class TodoList:
     def __init__(self, items):
         self.items = items
@@ -81,7 +82,7 @@ class TodoList:
 # die eine Todo-Liste in einen String umwandelt, der Information über ihre
 # Bestandteile enthält.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def todo_list_as_string(todo_list):
     from io import StringIO
     result = StringIO()
@@ -99,12 +100,12 @@ def todo_list_as_string(todo_list):
 # - Titel: Gemüse einkaufen, Priorität 2, nicht erledigt
 # - Titel: Hans anrufen, Priorität 5, erledigt
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 todos = TodoList([TodoItem('Python lernen', 3, False),
                   TodoItem('Gemüse einkaufen', 2, False),
                   TodoItem('Hans anrufen', 5, True)])
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 print(todo_list_as_string(todos))
 
 
@@ -112,7 +113,7 @@ print(todo_list_as_string(todos))
 # Schreiben Sie eine Funktion `add_todo_item(todo_list, title, priority)`,
 # die ein neues Todo-Item zu `todo_list` hinzufügt.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def add_todo_item(todo_list, title, priority):
     todo_list.items.append(TodoItem(title, priority, False))
 
@@ -121,10 +122,10 @@ def add_todo_item(todo_list, title, priority):
 # Fügen Sie ein neues Todo-Item mit Titel "Schnee schaufeln" und Priorität 5
 # in die Liste `todos` ein.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 add_todo_item(todos, "Schnee schaufeln", 5)
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 print(todo_list_as_string(todos))
 
 
@@ -134,7 +135,7 @@ print(todo_list_as_string(todos))
 # die das erste in der Liste `todo_list` vorkommende Todo-Item mit Titel
 # `title`, das noch nicht bearbeitet ist, als bearbeitet markiert.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def mark_todo_item_done(todo_list, title):
     for item in todo_list.items:
         if item.title == title and not item.is_completed:
@@ -145,42 +146,42 @@ def mark_todo_item_done(todo_list, title):
 # %% [markdown]
 # Markieren Sie das Todo-Item `Schnee schaufeln` als bearbeitet.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 mark_todo_item_done(todos, "Schnee schaufeln")
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 print(todo_list_as_string(todos))
 
 # %% [markdown]
 # Fügen Sie zwei Todo-Items mit Text "Python lernen" und Priorität 1 und 6
 # zur Todo-Liste hinzu.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 add_todo_item(todos, "Python lernen", 1)
 add_todo_item(todos, "Python lernen", 6)
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 print(todo_list_as_string(todos))
 
 # %% [markdown]
 # Markieren Sie ein Todo-Item "Python lernen" als erledigt.
 # Wie sieht jetzt Ihre Liste aus?
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 mark_todo_item_done(todos, "Python lernen")
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 print(todo_list_as_string(todos))
 
 # %% [markdown]
 # Markieren Sie noch zwei Todo-Items `Python lernen` als erledigt.
 # Wie sieht jetzt Ihre Liste aus?
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 mark_todo_item_done(todos, "Python lernen")
 print(todo_list_as_string(todos))
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 mark_todo_item_done(todos, "Python lernen")
 print(todo_list_as_string(todos))
 
@@ -193,7 +194,7 @@ print(todo_list_as_string(todos))
 # *Vorsicht: Sie sollten während Sie über eine Liste iterieren keine Einträge
 # entfernen oder einfügen!*
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def delete_todo_item(todo_list, title):
     index_to_delete = -1
     for index, item in enumerate(todo_list.items):
@@ -207,22 +208,22 @@ def delete_todo_item(todo_list, title):
 # %% [markdown]
 # Entfernen Sie eines der Items `Python lernen`.
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 delete_todo_item(todos, "Python lernen")
 print(todo_list_as_string(todos))
 
 # %% [markdown]
 # Entfernen Sie dreimal ein Item `Python lernen`. Was erwarten Sie als Ergebnis?
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 delete_todo_item(todos, "Python lernen")
 print(todo_list_as_string(todos))
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 delete_todo_item(todos, "Python lernen")
 print(todo_list_as_string(todos))
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 delete_todo_item(todos, "Python lernen")
 print(todo_list_as_string(todos))
 
@@ -234,7 +235,7 @@ print(todo_list_as_string(todos))
 # *Hinweis: Sie benötigen dazu wahrscheinlich zwei aufeinanderfolgende
 # `for`-Schleifen: eine um die Indizes zu bestimmen und eine um sie zu löschen*
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 def delete_all_completed_todo_items(todo_list):
     indices_to_delete = []
     for index, item in enumerate(todo_list.items):
@@ -244,7 +245,7 @@ def delete_all_completed_todo_items(todo_list):
         del todo_list.items[index]
 
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 delete_all_completed_todo_items(todos)
 print(todo_list_as_string(todos))
 
@@ -252,12 +253,12 @@ print(todo_list_as_string(todos))
 # Testen Sie Ihre Implementierung von `delete_all_completed_todo_items()` mit
 # der folgenden Liste:
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 todo_list_2 = TodoList([TodoItem(f'Item {n}', 1, n % 2 == 0)
                         for n in range(10)])
 print(todo_list_as_string(todo_list_2))
 
-# %%  {{ solution() }}
+# %%  {{ doc.solution() }}
 delete_all_completed_todo_items(todo_list_2)
 print(todo_list_as_string(todo_list_2))
 
