@@ -41,7 +41,7 @@
 #
 # <img src="img/jupyter-notebook.svg" style="width:60%;margin:auto"/>
 
-# %% [markdown] {{ doc.subslide() }}
+# %% {{ doc.subslide() }}
 import numpy as np
 import matplotlib.pyplot as plt
 
