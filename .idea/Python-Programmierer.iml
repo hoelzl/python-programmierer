@@ -22,6 +22,11 @@
       <excludeFolder url="file://$MODULE_DIR$/Examples/MessageQueueDist/build" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/MessageQueueDist/dist" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/MessageQueueDist/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/Examples/MessageQueueDist/msgqueue.egg-info" />
+      <excludeFolder url="file://$MODULE_DIR$/Old/Notebooks/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/Old/Notebooks-V2/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/Old/Notebooks-V3/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/Old/Workbooks/.ipynb_checkpoints" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.9 (cam)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
