@@ -1,6 +1,8 @@
 from pathlib import Path
-
 from jinja2 import Environment, FileSystemLoader
+
+ROOT_PATH = Path(
+    r"C:\Users\tc\Programming\Python\Courses\Own\python-programmierer")
 
 
 def convert_template(jinja_env: Environment, template_name: str,
@@ -13,18 +15,41 @@ def convert_template(jinja_env: Environment, template_name: str,
 
 
 def convert_all_python_templates(jinja_env: Environment, template_dir: Path,
-                                 output_dir: Path):
-    output_dir.mkdir(exist_ok=True)
-    for file in template_dir.glob("*.py"):
+                                 output_dir: Path, glob_pattern="*.py"):
+    output_dir.mkdir(exist_ok=True, parents=True)
+    for file in template_dir.glob(glob_pattern):
         convert_template(jinja_env, file.name, output_dir)
 
 
-if __name__ == "__main__":
-    _root_path = Path(
-        r"C:\Users\tc\Programming\Python\Courses\Own\python-programmierer")
-    _template_path = _root_path / "Notebooks-V3/templates/"
-    _output_path = _root_path / "Tmp"
+def convert_slide_templates():
+    template_path = ROOT_PATH / "Templates/"
+    output_path = ROOT_PATH / "Slides"
 
-    _jinja_env = Environment(line_statement_prefix="# j2",
-                             loader=FileSystemLoader(_template_path))
-    convert_all_python_templates(_jinja_env, _template_path, _output_path)
+    jinja_env = Environment(line_statement_prefix="# j2",
+                            loader=FileSystemLoader(template_path))
+    convert_all_python_templates(jinja_env, template_path, output_path,
+                                 glob_pattern="topic*.py")
+
+
+def convert_workshop_templates_to_solutions():
+    template_path = ROOT_PATH / "Templates/"
+    output_path = ROOT_PATH / "Workshops/Solutions"
+
+    jinja_env = Environment(line_statement_prefix="# j2",
+                            loader=FileSystemLoader(template_path))
+    convert_all_python_templates(jinja_env, template_path, output_path,
+                                 glob_pattern="workshop*.py")
+
+
+def convert_workshop_templates_to_exercises():
+    template_path = ROOT_PATH / "Templates/"
+    output_path = ROOT_PATH / "Workshops/Exercises"
+
+    jinja_env = Environment(line_statement_prefix="# j2",
+                            loader=FileSystemLoader(template_path))
+    convert_all_python_templates(jinja_env, template_path, output_path,
+                                 glob_pattern="workshop*.py")
+
+
+if __name__ == "__main__":
+    convert_slide_templates()

@@ -11,8 +11,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Examples/TriviaGame" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/SimpleExamples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/RpgDice" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Notebooks" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/HttpServer" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Old/Notebooks" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/NameGenerator/build" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/ShoppingCart/.pytest_cache" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/ShoppingCart/build" />
@@ -25,5 +25,8 @@
     </content>
     <orderEntry type="jdk" jdkName="Python 3.9 (cam)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="PyDocumentationSettings">
+    <option name="renderExternalDocumentation" value="true" />
   </component>
 </module>

@@ -1,0 +1,26 @@
+{% macro header(title) -%}
+<img src="img/python-logo-notext.svg"
+#      style="display:block;margin:auto;width:10%"/>
+# <h1 style="text-align:center;">{{ title }}</h1>
+# <br/>
+# <div style="text-align:center;">Dr. Matthias Hölzl</div>
+{%- endmacro %}
+
+{% macro slide() -%}
+slideshow={"slide_type": "slide"}
+{%- endmacro %}
+
+{% macro subslide() -%}
+slideshow={"slide_type": "subslide"}
+{%- endmacro %}
+
+{% macro codealong() -%}
+tags=["code-along"]
+{%- endmacro %}
+
+{% macro solution() -%}
+tags=["solution"]
+{%- endmacro %}
+
+# {{ header("My Header") }}
+# {{ slide() }}

@@ -139,5 +139,5 @@ dmypy.json
 
 # Various files
 notes.md
-Notebooks/my_private_file.txt
+Old/Notebooks/my_private_file.txt
 Tmp/
