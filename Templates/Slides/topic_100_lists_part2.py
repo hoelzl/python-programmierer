@@ -30,8 +30,38 @@
 # %%
 ['a', 'b', 'c']
 
-# %%  {{ doc.codealong() }}
+# %% {{ doc.codealong() }}
+list('abcde')
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
+# ## Simulation der klassischen `for`-Schleife
+#
+# Iteration mit einer `for`-Schleife ist auch über andere Datenstrukturen als Listen möglich.
+#
+# In Python stellt der Typ `range` eine Folge von ganzen Zahlen dar:
+#
+# - `range(n)` erzeugt das ganzzahlige Interval von $0$ bis $n-1$
+# - `range(m, n)` erzeugt das ganzzahlige Interval von $m$ bis $n-1$
+# - `range(m, n, k)` erzeugt die ganzzahlige Sequenz $m, m+k, m+2k, ..., p$, wobei $p$ die größte Zahl der Form $m + jk$ mit $j \geq 0$ und $p < n$ ist
+
+# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+range(3)
+
+# %% {{ doc.codealong() }}
 list(range(3))
+
+# %% {{ doc.codealong() }}
+list(range(3, 23, 5))
+
+# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+for i in range(3):
+    print(i)
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
+# ## Mini-Workshop
+#
+# - Notebook `workshop_060_introduction_part2`
+# - Abschnitt "Ausgabe von Quadratzahlen"
 
 
 # %% [markdown] slideshow={"slide_type": "subslide"}

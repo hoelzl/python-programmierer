@@ -143,7 +143,7 @@ print(text)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 #
-# Die `lower()` Methode führr nicht immer die gewünschten Umwandlungen durch.
+# Die `lower()` Methode führt nicht immer die gewünschten Umwandlungen durch.
 # Die `casefold` Methode is dafür manchmal nützlich:
 
 # %% {{ doc.codealong() }}

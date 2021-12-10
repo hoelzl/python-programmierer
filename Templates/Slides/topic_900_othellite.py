@@ -1,3 +1,25 @@
+# -*- coding: utf-8 -*-
+# ---
+# jupyter:
+#   jupytext:
+#     cell_metadata_json: true
+#     formats: py:percent
+#     text_representation:
+#       extension: .py
+#       format_name: percent
+#       format_version: '1.3'
+#       jupytext_version: 1.13.2
+#   kernelspec:
+#     display_name: Python 3 (ipykernel)
+#     language: python
+#     name: python3
+# ---
+
+# j2 import 'macros.j2' as doc
+# %% [markdown] {{ doc.slide() }}
+# {{ doc.header("Case Study: Othellite") }}
+
+
 # %%
 from collections import Sequence
 from enum import Enum
@@ -12,7 +34,7 @@ except ModuleNotFoundError:
     print("NumPy not found, some (minor) examples may not work")
 
 
-# %% [md]
+# %% [markdown]
 #
 # # Othellite
 #
@@ -23,12 +45,12 @@ except ModuleNotFoundError:
 # [im Wikipedia Artikel](https://de.wikipedia.org/wiki/Othello_(Spiel))
 # beschrieben.
 
-# %% [md]
+# %% [markdown]
 #
 # Wir definieren eine Enumeration, die den Zustand eines einzelnen Feldes auf
 # dem Brett beschreibt:
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 class Field(Enum):
     EMPTY = "\N{Open Box}"
     LIGHT = "\N{Medium White Circle}"
@@ -44,7 +66,7 @@ print("Light field value:", Field.LIGHT.value)
 print("Light field name: ", Field.LIGHT.name)
 
 
-# %% [md]
+# %% [markdown]
 #
 # ## Micro-Workshop
 #
@@ -63,7 +85,7 @@ assert is_occupied(Field.LIGHT)
 assert not is_occupied(Field.EMPTY)
 
 
-# %% [md]
+# %% [markdown]
 #
 # ## Micro-Workshop
 #
@@ -72,13 +94,13 @@ assert not is_occupied(Field.EMPTY)
 # sowie Value und Namen für einen Enum-Wert aus.
 
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 class Player(Enum):
     LIGHT = 0
     DARK = 1
 
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 print("Players:           ", list(Player))
 print("Light player:      ", Player.LIGHT)
 print("Dark player:       ", Player.DARK)
@@ -86,7 +108,7 @@ print("Light player value:", Player.LIGHT.value)
 print("Light player name: ", Player.LIGHT.name)
 
 
-# %% [md]
+# %% [markdown]
 #
 # ## Micro-Workshop
 #
@@ -100,7 +122,7 @@ print("Light player name: ", Player.LIGHT.name)
 #
 # Implementieren Sie eine entsprechende Methode `is_field_owned_by_player()`.
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 def is_field_owned_by_opponent(p: Player, f: Field) -> bool:
     if p is Player.DARK:
         return f is Field.LIGHT
@@ -117,7 +139,7 @@ assert not is_field_owned_by_opponent(Player.LIGHT, Field.LIGHT)
 assert not is_field_owned_by_opponent(Player.LIGHT, Field.EMPTY)
 
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 def is_field_owned_by_player(p: Player, f: Field) -> bool:
     if p is Player.DARK:
         return f is Field.DARK
@@ -134,7 +156,7 @@ assert not is_field_owned_by_player(Player.LIGHT, Field.DARK)
 assert not is_field_owned_by_player(Player.LIGHT, Field.EMPTY)
 
 
-# %% [md]
+# %% [markdown]
 #
 # Wir wollen auf die einzelnen Felder eines 8x8 Spielfelds mittels eines
 # zweidimensionalen Index-Werts zugreifen: `board[0, 0]` steht für das linke
@@ -159,7 +181,7 @@ assert not is_field_owned_by_player(Player.LIGHT, Field.EMPTY)
 # to the NumPy array:
 # -->
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 @dataclass()
 class NumPyBoard:
     _fields: np.array = field(
@@ -195,13 +217,13 @@ class NumPyBoard:
         return result
 
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 npb = NumPyBoard()
 npb[0, 0] = Field.DARK
 npb[0, 1] = Field.LIGHT
 print(npb)
 
-# %% [md]
+# %% [markdown]
 #
 # Dadurch, dass der Index an das NumPy Array weitergereicht wird, stehen auch
 # mächtigere Zugriffsvarianten, wie z.B. Slicing zur Verfügung:
@@ -244,7 +266,7 @@ def compute_linear_index(index):
         return index
 
 
-# %% [md]
+# %% [markdown]
 #
 # ## Mini-Workshop
 #
@@ -255,7 +277,7 @@ def compute_linear_index(index):
 # verwenden.
 
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 @dataclass(repr=False)
 class Board:
     _fields: list[Field] = field(
@@ -291,7 +313,7 @@ class Board:
         return result
 
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 board = Board()
 board[0, 0] = Field.DARK
 board[0, 2] = Field.DARK
@@ -300,7 +322,7 @@ print(str(board))
 board[:3]
 
 
-# %% [md]
+# %% [markdown]
 #
 # Wir definieren eine weitere Enumeration für "Himmelsrichtungen". Die
 # Schlüssel der Enumeration sollen Abkürzungen für die Kompassrichtungen (N,
@@ -331,13 +353,13 @@ board[:3]
 # - `(1, -1` for moving south-west.
 # -->
 
-# %% [md]
+# %% [markdown]
 #
 # ## Micro-Workshop
 #
 # Definieren Sie eine Enumeration `Directions`, wie gerade beschrieben.
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 class DirectionV0(Enum):
     N = (-1, 0)
     NE = (-1, 1)
@@ -349,7 +371,7 @@ class DirectionV0(Enum):
     NW = (-1, -1)
 
 
-# %% [md]
+# %% [markdown]
 # Es ist bei Enumerationen möglich, mehrere Schlüssel für den gleichen Wert
 # zu definieren (also gewissermaßen Synonyme anzugeben).
 
@@ -369,14 +391,14 @@ print(Synonyms.BIG is Synonyms.LARGE)
 print(Synonyms.BIG is not Synonyms.SMALL)
 
 
-# %% [md]
+# %% [markdown]
 #
 # Erweitern Sie die Enumeration `Directions` so, dass auch die vollständigen
 # Namen der Kompassrichtungen (`NORTH`, `NORTH_EAST`, ...) verwendet werden
 # können.
 
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 class Direction(Enum):
     # Abbreviated names
     N = (-1, 0)
@@ -398,7 +420,7 @@ class Direction(Enum):
     NORTH_WEST = (-1, -1)
 
 
-# %% [md]
+# %% [markdown]
 #
 # ## Micro-Workshop
 #
@@ -409,7 +431,7 @@ class Direction(Enum):
 # same values.
 # -->
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 assert Direction.N is Direction.NORTH
 assert Direction.NE is Direction.NORTH_EAST
 assert Direction.E is Direction.EAST
@@ -419,7 +441,7 @@ assert Direction.SW is Direction.SOUTH_WEST
 assert Direction.W is Direction.WEST
 assert Direction.NW is Direction.NORTH_WEST
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 print("Direction[0:3]: ", list(Direction)[:3])
 print("Direction values:", [d.value for d in Direction])
 print("Direction names: ", [d.name for d in Direction])
@@ -428,7 +450,7 @@ print("Direction names: ", [d.name for d in Direction])
 Index = tuple[int, int]
 
 
-# %% [md]
+# %% [markdown]
 #
 # Micro-Workshop
 #
@@ -437,7 +459,7 @@ Index = tuple[int, int]
 # ein Othellite Brett ist, andernfalls `False`. Überprüfen Sie, ob Ihre
 # Implementierung die Assertions erfüllt
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 def is_valid_index(index: Index) -> bool:
     row, column = index
     return 0 <= row < 8 and 0 <= column < 8
@@ -451,7 +473,7 @@ assert not is_valid_index((6, -1))
 assert not is_valid_index((-2, 4))
 
 
-# %% [md]
+# %% [markdown]
 # ## Micro-Workshop
 #
 # Schreiben Sie eine Funktion
@@ -462,7 +484,7 @@ assert not is_valid_index((-2, 4))
 # verschiedene Fehlerfälle eine Exception auslöst.
 
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 def assert_valid_index(index: Index) -> None:
     def assert_component_in_range(value: int, component: str):
         if value < 0 or value >= 8:
@@ -474,23 +496,23 @@ def assert_valid_index(index: Index) -> None:
     assert_component_in_range(y, "Second")
 
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 assert_valid_index((2, 0))
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 try:
     assert_valid_index((-1, 3))
 except IndexError as err:
     print(err)
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 try:
     assert_valid_index((1, 8))
 except IndexError as err:
     print(err)
 
 
-# %% [md]
+# %% [markdown]
 #
 # Schreiben Sie eine Funktion
 # `next_index_in_direction(index: Index, direction: Direction)`,
@@ -506,7 +528,7 @@ except IndexError as err:
 # Überprüfen Sie, ob Ihre Implementierung die angegebenen Assertions erfüllt.
 
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 def next_index_in_direction(index: Index, direction: Direction):
     assert_valid_index(index)
     row, column = index
@@ -552,7 +574,7 @@ except IndexError as err:
     print(err)
 
 
-# %% [md]
+# %% [markdown]
 #
 # Wir wollen unsere Klasse `Board` jetzt um eine Methode
 #
@@ -564,7 +586,7 @@ except IndexError as err:
 # erweitern, die die Indizes aller Felder zurückgibt, die der Spieler ausgehend
 # vom Feld `index` in Richtung `d` umdrehen kann.
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 # This is very specific to the use in `Board`...
 def _find_rightmost(seq: Sequence):
     for i in range(len(seq) - 1, -1, -1):
@@ -578,7 +600,7 @@ assert _find_rightmost([True, False, True, False]) == 2
 assert _find_rightmost([False, False, False]) == 0
 
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 @dataclass(repr=False)
 class Board:
     _fields: list[Field] = field(
@@ -613,8 +635,8 @@ class Board:
             prefix = '\n|'
         return result
 
-    def _fields_that_can_be_flipped(self, player: Player,
-                                    occupied_indices: list[Index]) \
+    def _indices_that_can_be_flipped(self, player: Player,
+                                     occupied_indices: list[Index]) \
             -> set[Index]:
         is_self_owned_field = [is_field_owned_by_player(player, self[index])
                                for index in occupied_indices]
@@ -632,7 +654,7 @@ class Board:
                 break
             occupied_indices.append(next_index)
             next_index, is_valid = next_index_in_direction(next_index, d)
-        return self._fields_that_can_be_flipped(p, occupied_indices)
+        return self._indices_that_can_be_flipped(p, occupied_indices)
 
 
 # %%
@@ -674,7 +696,7 @@ assert_flips_direction(Player.DARK, (5, 4), set())
 assert_flips_direction(Player.DARK, (6, 4), set())
 
 
-# %% [md]
+# %% [markdown]
 #
 # ## Mini-Workshop
 #
@@ -688,7 +710,7 @@ assert_flips_direction(Player.DARK, (6, 4), set())
 # - Mindestens ein Stein des Gegenspielers durch den Zug umgedreht wird
 #
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 @dataclass(repr=False)
 class Board:
     _fields: list[Field] = field(
@@ -723,8 +745,8 @@ class Board:
             prefix = '\n|'
         return result
 
-    def _fields_that_can_be_flipped(self, player: Player,
-                                    occupied_indices: list[Index]) \
+    def _indices_that_can_be_flipped(self, player: Player,
+                                     occupied_indices: list[Index]) \
             -> set[Index]:
         is_self_owned_field = [is_field_owned_by_player(player, self[index])
                                for index in occupied_indices]
@@ -742,7 +764,7 @@ class Board:
                 break
             occupied_indices.append(next_index)
             next_index, is_valid = next_index_in_direction(next_index, d)
-        return self._fields_that_can_be_flipped(p, occupied_indices)
+        return self._indices_that_can_be_flipped(p, occupied_indices)
 
     def is_valid_move(self, player: Player, index: Index) -> bool:
         if is_occupied(self[index]):
@@ -778,7 +800,7 @@ valid_move_for_dark_player = {(2, 4), (3, 5), (4, 2), (5, 3)}
 assert_valid_moves(Player.DARK, valid_move_for_dark_player)
 
 
-# %% [md]
+# %% [markdown]
 #
 # ## Mini-Workshop
 #
@@ -790,7 +812,7 @@ assert_valid_moves(Player.DARK, valid_move_for_dark_player)
 # Erzeugen Sie alle möglichen Züge und testen Sie dann für jeden Zug, ob
 # er möglich ist.
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 @dataclass(repr=False)
 class Board:
     _fields: list[Field] = field(
@@ -825,8 +847,8 @@ class Board:
             prefix = '\n|'
         return result
 
-    def _fields_that_can_be_flipped(self, player: Player,
-                                    occupied_indices: list[Index]) \
+    def _indices_that_can_be_flipped(self, player: Player,
+                                     occupied_indices: list[Index]) \
             -> set[Index]:
         is_self_owned_field = [is_field_owned_by_player(player, self[index])
                                for index in occupied_indices]
@@ -844,7 +866,7 @@ class Board:
                 break
             occupied_indices.append(next_index)
             next_index, is_valid = next_index_in_direction(next_index, d)
-        return self._fields_that_can_be_flipped(p, occupied_indices)
+        return self._indices_that_can_be_flipped(p, occupied_indices)
 
     def is_valid_move(self, player: Player, index: Index) -> bool:
         if is_occupied(self[index]):
@@ -870,7 +892,7 @@ assert board.find_valid_moves(Player.LIGHT) == valid_moves_for_light_player
 assert board.find_valid_moves(Player.DARK) == valid_move_for_dark_player
 
 
-# %% [md]
+# %% [markdown]
 #
 # ## Mini-Workshop
 #
@@ -885,7 +907,7 @@ assert board.find_valid_moves(Player.DARK) == valid_move_for_dark_player
 # viele Verantwortlichkeiten hat.
 
 
-# %% {{ codealong() }}
+# %% {{ doc.codealong() }}
 @dataclass(repr=False)
 class Board:
     _fields: list[Field] = field(
@@ -920,8 +942,8 @@ class Board:
             prefix = '\n|'
         return result
 
-    def _fields_that_can_be_flipped(self, player: Player,
-                                    occupied_indices: list[Index]) \
+    def _indices_that_can_be_flipped(self, player: Player,
+                                     occupied_indices: list[Index]) \
             -> set[Index]:
         is_self_owned_field = [is_field_owned_by_player(player, self[index])
                                for index in occupied_indices]
@@ -939,7 +961,7 @@ class Board:
                 break
             occupied_indices.append(next_index)
             next_index, is_valid = next_index_in_direction(next_index, d)
-        return self._fields_that_can_be_flipped(p, occupied_indices)
+        return self._indices_that_can_be_flipped(p, occupied_indices)
 
     def is_valid_move(self, player: Player, index: Index) -> bool:
         if is_occupied(self[index]):

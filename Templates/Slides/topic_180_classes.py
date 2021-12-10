@@ -139,7 +139,9 @@ print("Set radius to 10:", p)
 #
 #  ## Attribute von Klassen
 #  
-# Die meisten Attribute werden auf der Instanz-Ebene definiert, d.h., jedes Objekt hat seine eigenen Werte für die Attribute. Manchmal ist es aber sinnvoll Attribute auch auf der Klassenebene zu definieren:
+# Die meisten Attribute werden auf der Instanz-Ebene definiert, d.h.,
+# jedes Objekt hat seine eigenen Werte für die Attribute. Manchmal ist es
+# aber sinnvoll Attribute auch auf der Klassenebene zu definieren:
 
 # %% {{ doc.codealong() }}
 class CountedAdder:

@@ -30,6 +30,7 @@
 #     - lokale Variablen
 #
 # Der Namensraum einer Funktion "verschwindet" am Ende des Rumpfs.
+# @formatter:off
 
 # %% {"slideshow": {"slide_type": "subslide"}}
 # Ohne Angabe der Namensräume, siehe nächste Folie
@@ -61,6 +62,129 @@ f2()
 print(a)
 a = 5
 print(a)
+# @formatter:on
+
+# %% {{ doc.codealong() }}
+from dis import dis
+
+# %% {{ doc.codealong() }}
+dis(f)
+
+# %% {{ doc.codealong() }}
+dis(f2)
+
+# %% {{ doc.codealong() }}
+a = 1
+
+
+def f_broken():
+    # noinspection PyUnresolvedReferences
+    print(a)
+    a = 2
+
+
+# %% {{ doc.codealong() }}
+dis(f_broken)
+
+
+# %% [markdown]
+#
+# ## Closures
+#
+# In Python ist es möglich Funktionen innerhalb von anderen Funktionen zu
+# definieren. Diese können auf die Variablen der äußeren Funktion zugreifen.
+
+# %% {{ doc.codealong() }}
+def make_closure_1():
+    from random import randint
+    initial_value = randint(1, 10)
+
+    def read_value():
+        return initial_value
+
+    return read_value()
+
+
+# %% {{ doc.codealong() }}
+make_closure_1()
+
+# %% {{ doc.codealong() }}
+dis(make_closure_1)
+
+
+# %% {{ doc.codealong() }}
+def make_closure_2():
+    from random import randint
+    initial_value = randint(1, 10)
+
+    def read_value():
+        return initial_value
+
+    return read_value
+
+
+# %% {{ doc.codealong() }}
+make_closure_2()
+
+# %% {{ doc.codealong() }}
+dis(make_closure_2)
+
+# %% {{ doc.codealong() }}
+reader = make_closure_2()
+reader()
+
+
+# %% {{ doc.codealong() }}
+def make_mean_fun_1():
+    values: list[int] = []
+
+    def compute_mean(new_value: int):
+        values.append(new_value)
+        return sum(values) / len(values)
+
+    return compute_mean
+
+
+# %% {{ doc.codealong() }}
+my_mean = make_mean_fun_1()
+your_mean = make_mean_fun_1()
+
+# %% {{ doc.codealong() }}
+print(my_mean(10))
+print(my_mean(20))
+print(your_mean(1))
+print(your_mean(2))
+print(my_mean(30))
+
+
+# %% {{ doc.codealong() }}
+def make_mean_fun_2():
+    sum_of_values: int = 0
+    num_values: int = 0
+
+    def compute_mean(new_value: int):
+        nonlocal sum_of_values, num_values
+        sum_of_values += new_value
+        num_values += 1
+        return sum_of_values / num_values
+
+    return compute_mean
+
+
+# %% {{ doc.codealong() }}
+my_mean = make_mean_fun_2()
+your_mean = make_mean_fun_2()
+
+# %% {{ doc.codealong() }}
+print(my_mean(10))
+print(my_mean(20))
+print(your_mean(1))
+print(your_mean(2))
+print(my_mean(30))
+
+
+# %% {{ doc.codealong() }}
+dis(make_mean_fun_2)
 
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
