@@ -92,8 +92,9 @@ klassifiziere_zahl(12, 12)
 # else:
 #     Rumpf, der ausgeführt wird, wenn keine der Bedingungen wahr ist
 # ```
-#  - Nur das `if` und der erste Rumpf sind notwendig
-#  - Falls ein `elif` oder ein `else` vorhanden ist, so darf der entsprechende Rumpf nicht leer sein
+# - Nur das `if` und der erste Rumpf sind notwendig
+# - Falls ein `elif` oder ein `else` vorhanden ist, so darf der entsprechende
+#   Rumpf nicht leer sein
 
 # %% [markdown]
 #
@@ -208,18 +209,19 @@ def query_name():
 #
 #  ## Beispiel: Konvertierung von Temperaturen
 #
-#  Wir wollen eine Anwendung schreiben, die den Benutzer nach einer Temperatur in
-#  Fahrenheit fragt und die entsprechende Temperatur in Grad Celsius zurückgibt.
+# Wir wollen eine Anwendung schreiben, die den Benutzer nach einer Temperatur
+# in Fahrenheit fragt und die entsprechende Temperatur in Grad Celsius
+# zurückgibt.
 
 # %% {{ doc.codealong() }}
 def konvertiere_fahrenheit_nach_celsius(fahrenheit):
     return (fahrenheit - 32) * 5 / 9
 
 
-# %%
+# %% {{ doc.codealong() }}
 konvertiere_fahrenheit_nach_celsius(32)
 
-# %%
+# %% {{ doc.codealong() }}
 konvertiere_fahrenheit_nach_celsius(90)
 
 
@@ -281,7 +283,8 @@ def temperaturkonverter_3():
 #
 #  # Wahrheitswerte: Truthiness
 #
-#  Die `if`-Anweisung kann als Argument beliebige Python-Werte bekommen, nicht nur Boole'sche Werte.
+# Die `if`-Anweisung kann als Argument beliebige Python-Werte bekommen,
+# nicht nur Boole'sche Werte.
 #
 #  Folgende Werte gelten als *nicht wahr*
 #
@@ -380,7 +383,9 @@ print("Wir haben einen erfolgreichen Versuch ausgeführt.")
 #
 #  ## Beenden von Schleifen
 #
-#  Manchmal ist es leichter, die Abbruchbedingung einer Schleife im Rumpf zu bestimmen, statt am Anfang. Mit der Anweisung `break` kann man eine Schleife vorzeitig beenden:
+# Manchmal ist es leichter, die Abbruchbedingung einer Schleife im Rumpf zu
+# bestimmen, statt am Anfang. Mit der Anweisung `break` kann man eine
+# Schleife vorzeitig beenden:
 
 # %%
 i = 1
@@ -401,7 +406,7 @@ def annoy_user():
         else:
             print("You chose", text)
 
-# %%
+# %% {{ doc.codealong() }}
 # annoy_user()
 
 

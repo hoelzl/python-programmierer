@@ -93,7 +93,7 @@ sorted(strings, key=len)
 # Das Standard Modul in Python ist `locale`; das auf die Locale-Settings des
 # Betriebssystems zurückgreift:
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {{ doc.codealong() }}
 import locale
 
 locale.getlocale()
@@ -327,7 +327,9 @@ print(ausgabe)
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # ## Finden in Strings
 #
-# Der `in` Operator funktioniert auch mit Strings als Argument. Um den Index eines Substrings in einem String zu finden kann man die `index()`-Methode verwenden.
+# Der `in` Operator funktioniert auch mit Strings als Argument. Um den Index
+# eines Substrings in einem String zu finden kann man die `index()`-Methode
+# verwenden.
 
 # %% {{ doc.codealong() }}
 "a" in "abc"
@@ -341,13 +343,13 @@ print(ausgabe)
 # %% {{ doc.codealong() }}
 "cb" in "abc"
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {{ doc.codealong() }}
 "Halloween".index("Hallo")
 
 # %% {{ doc.codealong() }}
 "Halloween".index("we")
 
-# %%
+# %% {{ doc.codealong() }}
 # "Team".index("I")
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}

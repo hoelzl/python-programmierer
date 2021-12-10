@@ -53,7 +53,7 @@ list(range(3))
 # %% {{ doc.codealong() }}
 list(range(3, 23, 5))
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {{ doc.codealong() }}
 for i in range(3):
     print(i)
 
@@ -89,7 +89,6 @@ stringliste[-1]
 
 # %% {{ doc.codealong() }}
 2 in [1, 2, 3]
-
 
 # %% {{ doc.codealong() }}
 not (2 in [1, 3, 5])
@@ -247,7 +246,8 @@ stringliste
 # %% [markdown] slideshow={"slide_type": "slide"}
 # ## Erzeugen von Listen
 #
-# Durch den Multiplikationsoperator `*` können die Elemente einer Liste wiederholt werden:
+# Durch den Multiplikationsoperator `*` können die Elemente einer Liste
+# wiederholt werden:
 
 # %% {{ doc.codealong() }}
 [1, 2] * 3
@@ -261,7 +261,8 @@ stringliste
 # %% [markdown] slideshow={"slide_type": "slide"}
 # ## Slicing
 #
-# Mit der Notation `liste[m:n]` kann man eine "Teilliste" von `liste` extrahieren.
+# Mit der Notation `liste[m:n]` kann man eine "Teilliste" von `liste`
+# extrahieren.
 #
 # - Das erste Element ist `liste[m]`
 # - Das letzte Element ist `liste[n-1]`
@@ -327,13 +328,18 @@ liste
 
 # %% slideshow={"slide_type": "-"}
 my_list = [1, 2, 3, 4, 5, 6]
-my_slice = slice(2, 4)
 print(my_list[2:4])
+
+
+# %% {{ doc.codealong() }}
+my_slice = slice(2, 4)
 print(my_list[my_slice])
 
 # %% slideshow={"slide_type": "subslide"}
-my_slice = slice(None, 3)
 print(my_list[:3])
+
+# %% {{ doc.codealong() }}
+my_slice = slice(None, 3)
 print(my_list[my_slice])
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
@@ -341,8 +347,9 @@ print(my_list[my_slice])
 # Die `indices()`-Methode eines Slice-Objekts kann dazu verwendet werden zu
 # bestimmen, welche Indizes das Slice enthält:
 
-# %%
+# %% my_slice = slice(None, 3)
 print(my_slice.indices(len(my_list)))
+
 
 # %% [markdown]
 #
@@ -350,8 +357,8 @@ print(my_slice.indices(len(my_list)))
 # durch einen Wert ersetzt:
 
 # %% slideshow={"slide_type": "subslide"}
-import math
 def replace_with(my_list, my_slice, value):
+    import math
     start, stop, stride = my_slice.indices(len(my_list))
     num_values = math.ceil((stop - start) / stride)
     my_list[my_slice] = [value] * num_values

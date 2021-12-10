@@ -48,7 +48,7 @@ def add_more_than_two(x, y, *more_args):
     return result
 
 
-# %% {"slideshow": {"slide_type": "slide"}} {{ doc.codealong() }}
+# %% {{ doc.codealong() }}
 add_more_than_two(1, 2, 3, 4, 5, 6)
 
 # %% {{ doc.codealong() }}
@@ -151,7 +151,7 @@ print(erster_wert)
 print(zweiter_wert)
 
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {{ doc.codealong() }}
 def division_mit_rest(m, n):
     ergebnis = m // n
     rest = m % n
@@ -164,7 +164,7 @@ print(e)
 print(r)
 
 
-# %% {"slideshow": {"slide_type": ""}} {{ doc.codealong() }}
+# %% {{ doc.codealong() }}
 # Kürzer
 def division_mit_rest_2(m, n):
     return m // n, m % n

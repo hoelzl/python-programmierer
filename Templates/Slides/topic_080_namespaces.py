@@ -210,13 +210,13 @@ slow_value = slow_computation()
 # %% {{ doc.codealong() }}
 "slow_value" in globals()
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {{ doc.codealong() }}
 del slow_value
 
 # %% {{ doc.codealong() }}
 "slow_value" in globals()
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {{ doc.codealong() }}
 if "slow_value" not in globals():
     slow_value = slow_computation()
 

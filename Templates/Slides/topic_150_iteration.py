@@ -186,12 +186,14 @@ result
 
 # %% [markdown]
 #
-#  ## Mini-Workshop
+# ## Mini-Workshop
 #
-#  - Notebook `030x-Workshop Listen und For-Schleifen`
-#  - Abschnitt "Quadratzahlen"
-#
-#  # Filtern von Listen
+# - Notebook `030x-Workshop Listen und For-Schleifen`
+# - Abschnitt "Quadratzahlen"
+
+
+# %% [markdown]
+# # Filtern von Listen
 
 # %% {{ doc.codealong() }}
 result = []
