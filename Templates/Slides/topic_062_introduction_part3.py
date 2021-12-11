@@ -37,6 +37,28 @@ def my_add(*args):
 my_add(1, 2, 3, 4, 5, 6)
 
 
+# %% [markdown]
+#
+# ## Micro-Workshop
+#
+# Schreiben Sie eine Funktion `print_lines(*args)`, die beliebig viele
+# Argumente bekommt und ein Argument pro Zeile ausgibt:
+# ```
+# >>> print_lines("hey", "you")
+# hey
+# you
+# ```
+
+# %% {{ doc.codealong() }}
+def print_lines(*args):
+    for arg in args:
+        print(arg)
+
+
+# %% {{ doc.codealong() }}
+print_lines("hey", "you")
+
+
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # Das kann auch mit anderen Argumenten kombiniert werden:
 
@@ -83,6 +105,29 @@ def takes_arbitrary_args(*args, **kwargs):
 
 # %% {{ doc.codealong() }}
 takes_arbitrary_args(1, "foo", a="alpha", b="beta")
+
+
+# %% [markdown]
+#
+# ## Micro-Workshop
+#
+# Schreiben Sie eine Funktion `print_named_lines(**kwargs)`, die beliebig viele
+# Keyword-Argumente bekommt und sie in folgender Form auf dem Bildschirm
+# ausgibt:
+# >>> print_named_lines(foo="My Foo", bar="My Bar", quux="My Quux")
+# Key: foo -- value: My Foo
+# Key: bar -- value: My Bar
+# Key: quux -- value: My Quux
+
+
+# %% {{ doc.codealong() }}
+def print_named_lines(**kwargs):
+    for k, v in kwargs.items():
+        print("Key:", k, "-- value:", v)
+
+
+# %% {{ doc.codealong() }}
+print_named_lines(foo="My Foo", bar="My Bar", quux="My Quux")
 
 
 # %% [markdown]
@@ -318,7 +363,6 @@ not (1 < 2)
 # %% {{ doc.codealong() }}
 # noinspection PyChainedComparisons
 1 < 3 and 3 <= 2
-
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
