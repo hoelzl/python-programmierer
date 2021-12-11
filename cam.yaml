@@ -9,8 +9,11 @@ dependencies:
   - cudatoolkit===11.1
   - cudnn
   - autopep8
+  - black
   - datasets
+  - fastapi
   - ipykernel
+  - kivy
   - mypy
   - jinja2
   - jupyter
