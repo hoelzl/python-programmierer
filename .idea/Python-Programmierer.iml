@@ -13,6 +13,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Examples/RpgDice" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/HttpServer" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Old/Notebooks" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/Othellite" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/SimplePackaging" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/NameGenerator/build" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/ShoppingCart/.pytest_cache" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/ShoppingCart/build" />
