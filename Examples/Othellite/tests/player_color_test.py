@@ -14,5 +14,5 @@ def test_other_color():
 
 
 def test_field():
-    assert PlayerColor.LIGHT.field == Field.DARK
-    assert PlayerColor.DARK.field == Field.LIGHT
+    assert PlayerColor.LIGHT.field == Field.LIGHT
+    assert PlayerColor.DARK.field == Field.DARK

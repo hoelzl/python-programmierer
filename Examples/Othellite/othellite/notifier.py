@@ -21,7 +21,9 @@ class Notifier:
         print(board)
 
     def note_move(self, player: Player, pos: Position, board: Board):
-        print(f"{player.name} ({player.color.name}) plays {pos}.")
+        print(
+            f"{player.name} ({player.color.name}) plays {(pos.row + 1, pos.column + 1)}."
+        )
         print(board)
 
     def note_result(self, result: Optional[GameResult]):

@@ -18,8 +18,8 @@ class InteractivePlayer(Player):
         return Position(-1, -1)
 
     def build_move_dict(self, board) -> dict[int, Position]:
-        moves = board.find_valid_moves(self.color)
-        return {i: move for i, move in enumerate(moves)}
+        moves = sorted(board.find_valid_moves(self.color))
+        return {i + 1: move for i, move in enumerate(moves)}
 
     def print_move_menu(self, move_dict):
         move_prompt = self.build_move_prompt(move_dict)
@@ -30,7 +30,10 @@ class InteractivePlayer(Player):
 
     @staticmethod
     def build_move_prompt(move_dict: dict[int, Position]) -> str:
-        lines = [f"{i:>4}: {tuple(move)}" for i, move in sorted(move_dict.items())]
+        lines = [
+            f"{i:>6}: {(move.row + 1, move.column + 1)}"
+            for i, move in sorted(move_dict.items())
+        ]
         return "\n".join(lines)
 
     @staticmethod

@@ -7,8 +7,8 @@ if TYPE_CHECKING:
 
 class Field(Enum):
     EMPTY = "\N{Open Box}"
-    LIGHT = "\N{Medium White Circle}"
-    DARK = "\N{Medium Black Circle}"
+    LIGHT = "\N{White Circle}"
+    DARK = "\N{Black Circle}"
 
     @staticmethod
     def for_player_color(pc: "PlayerColor"):

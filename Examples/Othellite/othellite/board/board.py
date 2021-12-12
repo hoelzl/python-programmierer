@@ -133,8 +133,8 @@ class Board(ABC):
 
 
 class BoardReader:
-    remove_chars_pattern = re.compile(r"[^⚫bd⚪wl␣e ]", re.IGNORECASE)
-    normalize_chars_table = str.maketrans("⚫bdBD⚪wlWL␣eE ", "⚫⚫⚫⚫⚫⚪⚪⚪⚪⚪␣␣␣␣")
+    remove_chars_pattern = re.compile(r"[^●bd○wl␣e ]", re.IGNORECASE)
+    normalize_chars_table = str.maketrans("●bdBD○wlWL␣eE ", "●●●●●○○○○○␣␣␣␣")
 
     @classmethod
     def board_from_string(cls, board_cls: type, string: str):

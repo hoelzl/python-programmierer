@@ -11,7 +11,7 @@ class DirectionProtocol(Protocol):
         ...
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, order=True)
 class Position:
     row: int
     column: int

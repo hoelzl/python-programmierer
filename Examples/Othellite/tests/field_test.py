@@ -4,8 +4,8 @@ from othellite.player_color import PlayerColor
 
 def test_value():
     assert Field.EMPTY.value == "␣"
-    assert Field.LIGHT.value == "⚪"
-    assert Field.DARK.value == "⚫"
+    assert Field.LIGHT.value == "○"
+    assert Field.DARK.value == "●"
 
 
 def test_is_empty():
