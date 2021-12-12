@@ -1,19 +1,18 @@
-from .array_based_board import FieldBasedBoard
+from .field_based_board import FieldBasedBoard
 from dataclasses import dataclass
 import dataclasses
-import numpy as np
-
-from .board import Board
 from .field import Field
-from .index import Index
+from .position import Position
 
 
-@dataclass()
+@dataclass(repr=False)
 class ListBoard(FieldBasedBoard):
     _fields: list[Field] = dataclasses.field(default_factory=lambda: [Field.EMPTY] * 64)
 
-    def resolve_index(self, index):
-        if isinstance(index, Index):
-            return index.to_2d_index()
+    def resolve_position(self, pos):
+        if isinstance(pos, tuple):
+            return Position(*pos).to_linear_index()
+        elif isinstance(pos, Position):
+            return pos.to_linear_index()
         else:
-            return index
+            return pos

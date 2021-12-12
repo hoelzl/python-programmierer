@@ -7,6 +7,13 @@ class Field(Enum):
     LIGHT = "\N{Medium White Circle}"
     DARK = "\N{Medium Black Circle}"
 
+    @staticmethod
+    def for_player(player: Player):
+        if player is Player.LIGHT:
+            return Field.LIGHT
+        else:
+            return Field.DARK
+
     @property
     def is_empty(self) -> bool:
         return self is Field.EMPTY
