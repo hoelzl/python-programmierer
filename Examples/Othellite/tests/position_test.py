@@ -60,7 +60,15 @@ def test_to_linear_index():
             expected = np.ravel_multi_index((row, col), (8, 8))
             assert Position(row, col).to_linear_index() == expected
 
+        for pos in [(-1, 3), (6, -1), (2, 8), (8, 7)]:
+            with pytest.raises(ValueError):
+                Position(*pos).to_linear_index()
+
 
 def test_to_2d_index():
     assert Position(1, 3).to_2d_index() == (1, 3)
     assert Position(row=5, column=2).to_2d_index() == (5, 2)
+
+    for pos in [(-1, 3), (6, -1), (2, 8), (8, 7)]:
+        with pytest.raises(ValueError):
+            Position(*pos).to_2d_index()

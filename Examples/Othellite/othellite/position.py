@@ -41,6 +41,10 @@ class Position:
         """
         return 0 <= self.row < 8 and 0 <= self.column < 8
 
+    def _raise_if_invalid(self, what="perform operation"):
+        if not self.is_valid:
+            raise ValueError(f"Cannot {what} on invalid position {self}.")
+
     def next_in_direction(self, direction: DirectionProtocol) -> "Position":
         """
         Computes the next position in a given direction.
@@ -50,10 +54,7 @@ class Position:
         :param direction: The movement direction
         :return: The new position
         """
-        if not self.is_valid:
-            raise ValueError(
-                f"Cannot call next_in_direction() on invalid position {self}."
-            )
+        self._raise_if_invalid("call next_in_direction()")
         d_row, d_column = direction.value
         return Position(self.row + d_row, self.column + d_column)
 
@@ -64,13 +65,23 @@ class Position:
         We assume the usual conventions for multidimensional indexing, i.e., the first
         pos is the row, the second pos the column. In other words, this function
         should return the same value as
+
         `numpy.ravel_multi_index((self.row, self.column), (8, 8))`.
+
+        Raises a ValueError if called on an invalid position.
+
+        :return: The index into a list that corresponds to this position
         """
+        self._raise_if_invalid("compute linear index")
         return self.row * 8 + self.column
 
     def to_2d_index(self) -> tuple[int, int]:
         """
         Compute the 2d index corresponding to this position.
+
+        Raises a ValueError if called on an invalid position.
+
         :return: The position's row and column
         """
+        self._raise_if_invalid("compute 2d index")
         return self.row, self.column
