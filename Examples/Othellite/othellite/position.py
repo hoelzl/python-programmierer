@@ -19,6 +19,9 @@ class Position:
     # Save some storage by not allocating a dict for attributes.
     __slots__: ClassVar[tuple[str, str]] = ("row", "column")
 
+    def __iter__(self):
+        return (coord for coord in (self.row, self.column))
+
     # The following would be a possible optimization if we want to avoid excessive
     # garbage. It avoids allocating new objects, but still calls the __init__()
     # method every time a Position instance is created.

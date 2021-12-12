@@ -7,6 +7,7 @@ from typing import Optional
 from .board import Board, ListBoard
 from .field import Field
 from .game_result import GameResult, WinReason
+from .notifier import Notifier
 from .player.player import Player
 from .player_color import PlayerColor
 from .position import Position
@@ -53,17 +54,6 @@ class GameState(Enum):
     FINISHED = auto()
 
 
-# noinspection PyMethodMayBeStatic
-@dataclass(frozen=True)
-class Notifier:
-    def notify(self, message):
-        print(message)
-
-    def note_move(self, pc: PlayerColor, pos: Position, board: Board):
-        print(f"{pc} plays {pos}.")
-        print(board)
-
-
 @dataclass()
 class GameImplementation(Game):
     players: tuple[Player, Player]
@@ -101,6 +91,8 @@ class GameImplementation(Game):
         assert player_1.color == PlayerColor.DARK, "Player 1 must play dark pieces."
         assert player_2.color == PlayerColor.LIGHT, "Player 2 must play light pieces."
 
+        self.notifier.note_new_game(self.players, self.board)
+
     def set_internal_state_for_new_game(self):
         self.board.initialize()
         self.current_player = None
@@ -123,7 +115,8 @@ class GameImplementation(Game):
                 self.allow_current_player_to_move()
             else:
                 self.set_result_from_score()
-        self.notify_players()
+        self.inform_players_about_game_over()
+        self.notifier.note_result(self.result)
 
     def pick_next_player(self) -> None:
         """
@@ -145,7 +138,7 @@ class GameImplementation(Game):
         move = self.current_player.pick_move(self.board)
         if move in self.valid_moves_for_current_player():
             self.board.play_move(self.current_player.color, move)
-            self.notifier.note_move(self.current_player.color, move, self.board)
+            self.notifier.note_move(self.current_player, move, self.board)
         else:
             self.disqualify_current_player()
 
@@ -154,7 +147,11 @@ class GameImplementation(Game):
         score = self.board.score
         reason, winner = self.compute_win_reason_and_winner_from_score(score)
         self.result = GameResult(
-            score=score, winner=winner, reason=reason, board=self.board
+            score=score,
+            winner=winner,
+            loser=self.other_player(winner),
+            reason=reason,
+            board=self.board,
         )
 
     def compute_win_reason_and_winner_from_score(self, score):
@@ -181,6 +178,7 @@ class GameImplementation(Game):
         self.result = GameResult(
             score=self.board.score,
             winner=self.other_player(self.current_player),
+            loser=self.current_player,
             reason=WinReason.INVALID_MOVE_FROM_OPPONENT,
             board=self.board,
         )
@@ -191,6 +189,6 @@ class GameImplementation(Game):
         else:
             self.current_player = self.other_player(self.current_player)
 
-    def notify_players(self):
+    def inform_players_about_game_over(self):
         for player in self.players:
             player.game_over(self.result)

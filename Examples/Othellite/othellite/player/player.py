@@ -7,6 +7,7 @@ from ..position import Position
 
 
 class Player(ABC):
+    name: str = "A Player"
     color: PlayerColor = PlayerColor.LIGHT
 
     def start_game(self, pc: PlayerColor) -> None:
