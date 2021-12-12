@@ -1,3 +1,5 @@
+from collections import Counter, Mapping
+
 from othellite.position import Position
 from othellite.field import Field
 from othellite.player_color import PlayerColor
@@ -49,6 +51,14 @@ class Board(ABC):
             for row in range(Board.NUM_ROWS)
             for col in range(Board.NUM_COLS)
         )
+
+    def initialize(self) -> None:
+        """
+        Sets all fields to Empty and the center fields to their initial values.
+        """
+        for pos in self.positions():
+            self[pos] = Field.EMPTY
+        self.initialize_center_fields()
 
     def initialize_center_fields(self) -> None:
         """
@@ -108,6 +118,18 @@ class Board(ABC):
         :param pos: The position on which the disk is placed
         """
         ...
+
+    @property
+    def score(self) -> Mapping[Field, int]:
+        """
+        Compute the current score for both players.
+
+        :return: A counter indexed by field values.
+        """
+        counter: Mapping[Field, int] = Counter()
+        for field in self:
+            counter[field] += 1
+        return counter
 
 
 class BoardReader:

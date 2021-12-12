@@ -1,5 +1,3 @@
-from abc import ABC, abstractmethod
-
 import pytest
 
 from othellite.board import Board, BoardReader
@@ -64,6 +62,22 @@ class BoardTests:
         assert str(board) == (
             "|⚫|⚪|⚪|⚪|␣|␣|␣|␣|\n"
             "|␣|⚫|␣|␣|␣|␣|␣|␣|\n"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|\n"
+            "|␣|␣|␣|⚫|⚪|␣|␣|␣|\n"
+            "|␣|␣|␣|⚪|⚫|␣|␣|␣|\n"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|\n"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|\n"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+        )
+
+    def test_initialize(self, board: Board):
+        # Checkt that board is not the default board:
+        assert board[0, 0] == Field.DARK
+
+        board.initialize()
+        assert str(board) == (
+            "|␣|␣|␣|␣|␣|␣|␣|␣|\n"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|\n"
             "|␣|␣|␣|␣|␣|␣|␣|␣|\n"
             "|␣|␣|␣|⚫|⚪|␣|␣|␣|\n"
             "|␣|␣|␣|⚪|⚫|␣|␣|␣|\n"
@@ -263,6 +277,16 @@ class BoardTests:
             "|␣|␣|␣|␣|␣|␣|␣|␣|"
         )
         assert board == expected
+
+    def test_score_for_initial_board(self, initial_board: Board):
+        assert initial_board.score[Field.DARK] == 2
+        assert initial_board.score[Field.LIGHT] == 2
+        assert initial_board.score[Field.EMPTY] == 60
+
+    def test_score_for_board(self, board: Board):
+        assert board.score[Field.DARK] == 4
+        assert board.score[Field.LIGHT] == 5
+        assert board.score[Field.EMPTY] == 55
 
 
 # noinspection PyMethodMayBeStatic

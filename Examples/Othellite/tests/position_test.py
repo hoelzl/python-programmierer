@@ -53,8 +53,6 @@ def test_next_in_direction_for_invalid_position():
 
 
 def test_to_linear_index():
-    from numpy import ravel_multi_index
-
     for row in range(8):
         for col in range(8):
             expected = np.ravel_multi_index((row, col), (8, 8))
