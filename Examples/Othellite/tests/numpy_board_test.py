@@ -1,7 +1,7 @@
 import pytest
 
 from othellite.numpy_board import NumPyBoard
-from board_test import AbstractBoardTests, setup_board_for_tests
+from board_test import BoardTests, BoardReaderTests, setup_board_for_tests
 
 
 @pytest.fixture
@@ -16,5 +16,9 @@ def board():
     return result
 
 
-class TestNumPyBoard(AbstractBoardTests):
+class TestNumPyBoard(BoardTests):
+    pass
+
+
+class TestNumPyBoardReader(BoardReaderTests):
     pass

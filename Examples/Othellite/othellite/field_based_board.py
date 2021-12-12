@@ -1,4 +1,3 @@
-import reprlib
 from dataclasses import dataclass
 from abc import abstractmethod
 from typing import MutableSequence
@@ -37,7 +36,7 @@ class FieldBasedBoard(Board):
 
     def __repr__(self):
         name = type(self).__name__
-        return f"{name}({reprlib.repr(list(f.value for f in self))})"
+        return f"{name}({''.join(f.value for f in self)!r})"
 
     def __str__(self) -> str:
         result = ""

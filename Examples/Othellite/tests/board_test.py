@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 import pytest
 
-from othellite.board import Board
+from othellite.board import Board, BoardReader
 from othellite.field import Field
 from othellite.player_color import PlayerColor
 from othellite.position import Position
@@ -24,7 +24,7 @@ def setup_board_for_tests(board) -> None:
 
 
 # noinspection PyMethodMayBeStatic
-class AbstractBoardTests:
+class BoardTests:
     def test_2d_indexing_with_tuples(self, board: Board):
         assert board[0, 0] == Field.DARK
         assert board[0, 1] == Field.LIGHT
@@ -141,7 +141,150 @@ class AbstractBoardTests:
         assert initial_board.find_valid_moves(PlayerColor.LIGHT) == light_moves
         assert initial_board.find_valid_moves(PlayerColor.DARK) == dark_moves
 
-    def test_play_move_white_2_3_against_initial_board(self, initial_board: Board):
-        # TODO: Implement a nice way to input boards in different configurations.
-        # Otherwise these tests will be pretty unreadable.
-        pass
+    def test_find_valid_moves_against_board(self, board: Board):
+        light_moves = set(
+            Position(*pos) for pos in {(2, 0), (2, 1), (2, 3), (3, 2), (4, 5), (5, 4)}
+        )
+        dark_moves = set(
+            Position(*pos) for pos in {(0, 4), (2, 4), (3, 5), (4, 2), (5, 3)}
+        )
+
+        assert board.find_valid_moves(PlayerColor.LIGHT) == light_moves
+        assert board.find_valid_moves(PlayerColor.DARK) == dark_moves
+
+    def test_play_move_light_2_3_against_initial_board(self, initial_board: Board):
+        initial_board.play_move(PlayerColor.LIGHT, Position(2, 3))
+        expected = type(initial_board).from_string(
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|⚪|␣|␣|␣|␣|"
+            "|␣|␣|␣|⚪|⚪|␣|␣|␣|"
+            "|␣|␣|␣|⚪|⚫|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+        )
+        assert initial_board == expected
+
+    def test_play_move_light_3_2_against_initial_board(self, initial_board: Board):
+        initial_board.play_move(PlayerColor.LIGHT, Position(3, 2))
+        expected = type(initial_board).from_string(
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|⚪|⚪|⚪|␣|␣|␣|"
+            "|␣|␣|␣|⚪|⚫|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+        )
+        assert initial_board == expected
+
+    def test_play_move_light_4_5_against_initial_board(self, initial_board: Board):
+        initial_board.play_move(PlayerColor.LIGHT, Position(4, 5))
+        expected = type(initial_board).from_string(
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|⚫|⚪|␣|␣|␣|"
+            "|␣|␣|␣|⚪|⚪|⚪|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+        )
+        assert initial_board == expected
+
+    def test_play_move_light_5_4_against_initial_board(self, initial_board: Board):
+        initial_board.play_move(PlayerColor.LIGHT, Position(5, 4))
+        expected = type(initial_board).from_string(
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|⚫|⚪|␣|␣|␣|"
+            "|␣|␣|␣|⚪|⚪|␣|␣|␣|"
+            "|␣|␣|␣|␣|⚪|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+        )
+        assert initial_board == expected
+
+    def test_play_move_dark_2_4_against_initial_board(self, initial_board: Board):
+        initial_board.play_move(PlayerColor.DARK, Position(2, 4))
+        expected = type(initial_board).from_string(
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|⚫|␣|␣|␣|"
+            "|␣|␣|␣|⚫|⚫|␣|␣|␣|"
+            "|␣|␣|␣|⚪|⚫|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+        )
+        assert initial_board == expected
+
+    def test_play_move_light_2_0_against_board(self, board: Board):
+        board.play_move(PlayerColor.LIGHT, Position(2, 0))
+        expected = type(board).from_string(
+            "|⚫|⚪|⚪|⚪|␣|␣|␣|␣|"
+            "|␣|⚪|␣|␣|␣|␣|␣|␣|"
+            "|⚪|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|⚫|⚪|␣|␣|␣|"
+            "|␣|␣|␣|⚪|⚫|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+        )
+        assert board == expected
+
+    def test_play_move_light_2_1_against_board(self, board: Board):
+        board.play_move(PlayerColor.LIGHT, Position(2, 1))
+        expected = type(board).from_string(
+            "|⚫|⚪|⚪|⚪|␣|␣|␣|␣|"
+            "|␣|⚪|␣|␣|␣|␣|␣|␣|"
+            "|␣|⚪|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|⚫|⚪|␣|␣|␣|"
+            "|␣|␣|␣|⚪|⚫|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+        )
+        assert board == expected
+
+    def test_play_move_dark_0_4_against_board(self, board: Board):
+        board.play_move(PlayerColor.DARK, Position(0, 4))
+        expected = type(board).from_string(
+            "|⚫|⚫|⚫|⚫|⚫|␣|␣|␣|"
+            "|␣|⚫|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|⚫|⚪|␣|␣|␣|"
+            "|␣|␣|␣|⚪|⚫|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+            "|␣|␣|␣|␣|␣|␣|␣|␣|"
+        )
+        assert board == expected
+
+
+# noinspection PyMethodMayBeStatic
+class BoardReaderTests:
+    def test_board_from_string_with_all_empty_board(self, board: Board):
+        board = BoardReader().board_from_string(type(board), "␣e E" * 16)
+        for field in board:
+            assert field == Field.EMPTY
+
+    def test_board_from_string_with_all_light_board(self, board: Board):
+        light_row = "⚪wlWL⚪⚪⚪\n"
+        board = BoardReader().board_from_string(type(board), light_row * 8)
+        for field in board:
+            assert field == Field.LIGHT
+
+    def test_board_from_string_with_all_dark_board(self, board: Board):
+        dark_row = "|⚫|b|d|⚫|B|D|⚫|⚫|\n"
+        board = BoardReader().board_from_string(type(board), dark_row * 8)
+        for field in board:
+            assert field == Field.DARK
+
+    def test_board_from_string_roundtrip(self, board: Board):
+        board_from_string = BoardReader().board_from_string(type(board), str(board))
+        for pos in board.positions():
+            assert board_from_string[pos] == board[pos]

@@ -3,11 +3,16 @@ from .field import Field
 from .player_color import PlayerColor
 from abc import ABC, abstractmethod
 from typing import overload, Iterable
+import re
 
 
 class Board(ABC):
     NUM_ROWS = 8
     NUM_COLS = 8
+
+    @classmethod
+    def from_string(cls, string: str):
+        return BoardReader().board_from_string(cls, string)
 
     @overload
     def __getitem__(self, index: Position) -> Field:
@@ -103,3 +108,28 @@ class Board(ABC):
         :param pos: The position on which the disk is placed
         """
         ...
+
+
+class BoardReader:
+    remove_chars_pattern = re.compile(r"[^⚫bd⚪wl␣e ]", re.IGNORECASE)
+    normalize_chars_table = str.maketrans("⚫bdBD⚪wlWL␣eE ", "⚫⚫⚫⚫⚫⚪⚪⚪⚪⚪␣␣␣␣")
+
+    @classmethod
+    def board_from_string(cls, board_cls: type, string: str):
+        board = board_cls()
+        cls._set_fields(board, string)
+        return board
+
+    @classmethod
+    def _set_fields(cls, board: Board, string: str):
+        board_string = cls.remove_chars_pattern.sub("", string)
+        board_string = board_string.translate(cls.normalize_chars_table)
+        if len(board_string) != 64:
+            raise ValueError("{string!r} does not represent a board")
+        field_values = cls._convert_to_fields(board_string)
+        for pos, field in zip(board.positions(), field_values):
+            board[pos] = field
+
+    @classmethod
+    def _convert_to_fields(cls, board_string: str):
+        return [Field(color) for color in board_string]

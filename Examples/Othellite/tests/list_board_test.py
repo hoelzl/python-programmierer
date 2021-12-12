@@ -1,7 +1,7 @@
 import pytest
 
 from othellite.list_board import ListBoard
-from board_test import AbstractBoardTests, setup_board_for_tests
+from board_test import BoardTests, BoardReaderTests, setup_board_for_tests
 
 
 @pytest.fixture
@@ -16,5 +16,9 @@ def board():
     return result
 
 
-class TestListBoard(AbstractBoardTests):
+class TestListBoard(BoardTests):
+    pass
+
+
+class TestListBoardReader(BoardReaderTests):
     pass
