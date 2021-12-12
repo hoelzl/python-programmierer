@@ -1,6 +1,6 @@
 from .position import Position
 from .field import Field
-from .player import Player
+from .player_color import PlayerColor
 from abc import ABC, abstractmethod
 from typing import overload, Iterable
 
@@ -75,31 +75,31 @@ class Board(ABC):
         return self[pos].is_occupied
 
     @abstractmethod
-    def is_valid_move(self, player: Player, pos: Position) -> bool:
+    def is_valid_move(self, pc: PlayerColor, pos: Position) -> bool:
         """
         Checks whether a move is valid.
 
-        :param player: The player performing the move.
+        :param pc: The color of the player performing the move.
         :param pos:
         :return:
         """
         ...
 
     @abstractmethod
-    def find_valid_moves(self, player: Player) -> set[Position]:
+    def find_valid_moves(self, pc: PlayerColor) -> set[Position]:
         """
-        Computes all valid moves for a player.
+        Computes all valid moves for a pc.
 
-        :param player: The player performing the move
-        :return: The set of all positions on which player could place a disk
+        :param pc: The color of the player performing the move
+        :return: The set of all positions on which pc could place a disk
         """
         ...
 
     @abstractmethod
-    def play_move(self, player: Player, pos: Position) -> None:
+    def play_move(self, pc: PlayerColor, pos: Position) -> None:
         """
         Places a disk at a given position, flips the captured disks.
-        :param player: The player performing the move
+        :param pc: The color of the player performing the move
         :param pos: The position on which the disk is placed
         """
         ...

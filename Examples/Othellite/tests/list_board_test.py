@@ -1,7 +1,5 @@
 import pytest
 
-from othellite.board import Board
-from othellite.field import Field
 from othellite.list_board import ListBoard
 from board_test import AbstractBoardTests, setup_board_for_tests
 

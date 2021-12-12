@@ -17,9 +17,11 @@ class NumPyBoard(FieldBasedBoard):
     )
 
     def resolve_position(self, pos):
-        # We convert to Position and back to 2d index if we are passed a tuple
-        # get error checking for negative indices. This makes NumPy boards consistent
-        # with boards that use linear indexing.
+        # If we are passed a tuple, we convert it into a Position and back to a 2d
+        # index to get error checking for out-of-bounds indices. Otherwise negative
+        # indices would index from the end of the array. This keeps NumPy boards
+        # consistent with boards that use linear indexing at the cost of a few
+        # more memory allocations.
         if isinstance(pos, tuple):
             return Position(*pos).to_2d_index()
         elif isinstance(pos, Position):

@@ -1,7 +1,5 @@
 import pytest
 
-from othellite.board import Board
-from othellite.field import Field
 from othellite.numpy_board import NumPyBoard
 from board_test import AbstractBoardTests, setup_board_for_tests
 

@@ -4,7 +4,7 @@ import pytest
 
 from othellite.board import Board
 from othellite.field import Field
-from othellite.player import Player
+from othellite.player_color import PlayerColor
 from othellite.position import Position
 
 
@@ -81,9 +81,9 @@ class AbstractBoardTests:
         assert not board[6, 6].is_occupied
 
     def test_is_valid_move_against_initial_board(self, initial_board: Board):
-        def assert_valid_moves(player, valid_positions):
+        def assert_valid_moves(pc, valid_positions):
             for pos in initial_board.positions():
-                result = initial_board.is_valid_move(player, pos)
+                result = initial_board.is_valid_move(pc, pos)
                 if pos.to_2d_index() in valid_positions:
                     assert result, f"Move {pos} should be valid."
                 else:
@@ -92,8 +92,8 @@ class AbstractBoardTests:
         light_moves = {(2, 3), (3, 2), (4, 5), (5, 4)}
         dark_moves = {(2, 4), (3, 5), (4, 2), (5, 3)}
 
-        assert_valid_moves(Player.LIGHT, light_moves)
-        assert_valid_moves(Player.DARK, dark_moves)
+        assert_valid_moves(PlayerColor.LIGHT, light_moves)
+        assert_valid_moves(PlayerColor.DARK, dark_moves)
 
     def test_is_valid_move_against_border_pieces(self, board: Board):
         """
@@ -104,7 +104,7 @@ class AbstractBoardTests:
           1 |␣|⚫|␣|␣|␣|
           2 |␣|␣|␣|␣|␣|
 
-          so the light player has moves (2, 0) and (2, 1), the dark player has move
+          so the light pc has moves (2, 0) and (2, 1), the dark pc has move
           (0, 4).
         """
 
@@ -114,30 +114,32 @@ class AbstractBoardTests:
         board[3, 4] = Field.EMPTY
 
         valid_moves = {
-            (Player.LIGHT, Position(2, 0)),
-            (Player.LIGHT, Position(2, 1)),
-            (Player.DARK, Position(0, 4)),
+            (PlayerColor.LIGHT, Position(2, 0)),
+            (PlayerColor.LIGHT, Position(2, 1)),
+            (PlayerColor.DARK, Position(0, 4)),
         }
 
         all_positions = set(Position(row, col) for row in range(3) for col in range(5))
         invalid_light_moves = all_positions - {Position(2, 0), Position(2, 1)}
         invalid_dark_moves = all_positions - {Position(0, 4)}
 
-        for player, pos in valid_moves:
-            assert board.is_valid_move(player, pos)
+        for pc, pos in valid_moves:
+            assert board.is_valid_move(pc, pos)
 
         for pos in invalid_light_moves:
-            assert not board.is_valid_move(Player.LIGHT, pos), f"Cannot play {pos}."
+            assert not board.is_valid_move(
+                PlayerColor.LIGHT, pos
+            ), f"Cannot play {pos}."
 
         for pos in invalid_dark_moves:
-            assert not board.is_valid_move(Player.DARK, pos), f"Cannot play {pos}."
+            assert not board.is_valid_move(PlayerColor.DARK, pos), f"Cannot play {pos}."
 
     def test_find_valid_moves_against_initial_board(self, initial_board: Board):
         light_moves = set(Position(*pos) for pos in {(2, 3), (3, 2), (4, 5), (5, 4)})
         dark_moves = set(Position(*pos) for pos in {(2, 4), (3, 5), (4, 2), (5, 3)})
 
-        assert initial_board.find_valid_moves(Player.LIGHT) == light_moves
-        assert initial_board.find_valid_moves(Player.DARK) == dark_moves
+        assert initial_board.find_valid_moves(PlayerColor.LIGHT) == light_moves
+        assert initial_board.find_valid_moves(PlayerColor.DARK) == dark_moves
 
     def test_play_move_white_2_3_against_initial_board(self, initial_board: Board):
         # TODO: Implement a nice way to input boards in different configurations.
