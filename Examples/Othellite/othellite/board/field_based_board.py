@@ -3,10 +3,10 @@ from abc import abstractmethod
 from typing import MutableSequence
 
 from .board import Board
-from .direction import Direction
-from .position import Position
-from .field import Field
-from .player_color import PlayerColor
+from ..direction import Direction
+from ..position import Position
+from ..field import Field
+from ..player_color import PlayerColor
 
 
 @dataclass(repr=False)

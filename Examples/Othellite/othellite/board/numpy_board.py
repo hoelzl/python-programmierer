@@ -1,11 +1,11 @@
-from .field_based_board import FieldBasedBoard
 from dataclasses import dataclass
 import dataclasses
 import numpy as np
 
+from .field_based_board import FieldBasedBoard
 from .board import Board
-from .field import Field
-from .position import Position
+from ..field import Field
+from ..position import Position
 
 
 @dataclass(repr=False, eq=False)
