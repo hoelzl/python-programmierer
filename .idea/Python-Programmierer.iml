@@ -29,6 +29,17 @@
       <excludeFolder url="file://$MODULE_DIR$/Old/Notebooks-V2/.ipynb_checkpoints" />
       <excludeFolder url="file://$MODULE_DIR$/Old/Notebooks-V3/.ipynb_checkpoints" />
       <excludeFolder url="file://$MODULE_DIR$/Old/Workbooks/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/Examples/NameGenerator/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/Examples/NameGenerator/namegenerator.egg-info" />
+      <excludeFolder url="file://$MODULE_DIR$/Examples/Othellite/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/Examples/Othellite/othellite.egg-info" />
+      <excludeFolder url="file://$MODULE_DIR$/Examples/SimplePackaging/src/example_pkg_hoelzl.egg-info" />
+      <excludeFolder url="file://$MODULE_DIR$/Examples/SimplePackaging/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/Slides/Code_Along/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/Slides/Completed/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/Templates/Slides/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/Workshops/Exercises/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/Workshops/Solutions/.ipynb_checkpoints" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.9 (cam)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

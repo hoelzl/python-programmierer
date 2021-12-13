@@ -2,6 +2,7 @@ import csv
 import pickle
 from collections import Mapping
 from io import StringIO
+from pathlib import Path
 
 from .shopping_cart_entry import ShoppingCartEntry
 
@@ -18,13 +19,17 @@ class ShoppingCart:
         or a sequence with these four entries in the given order.
         All fields are required
         """
-        self.entries = [(ShoppingCartEntry(**entry_spec)
-                         if isinstance(entry_spec, Mapping)
-                         else ShoppingCartEntry(*entry_spec))
-                        for entry_spec in entry_specs]
+        self.entries = [
+            (
+                ShoppingCartEntry(**entry_spec)
+                if isinstance(entry_spec, Mapping)
+                else ShoppingCartEntry(*entry_spec)
+            )
+            for entry_spec in entry_specs
+        ]
 
     @staticmethod
-    def from_csv(file):
+    def from_csv(path: Path):
         """
         Constructor for Shopping carts
 
@@ -36,8 +41,9 @@ class ShoppingCart:
         in this order.
         Returns a shopping cart containing these entries
         """
-        reader = csv.reader(file)
-        return ShoppingCart(iter(reader))
+        with path.open("r", encoding="utf-8") as file:
+            reader = csv.reader(file)
+            return ShoppingCart(iter(reader))
         # Alternative:
         # entries = [{'article_number': art_nr,
         #             'article_name': name,
@@ -66,22 +72,26 @@ class ShoppingCart:
         except ValueError:
             pass
 
-    def save_to_file(self, file):
-        pickle.dump(self, file)
+    def save_to_file(self, path: Path):
+        with path.open("wb") as file:
+            pickle.dump(self, file)
 
     @staticmethod
-    def load_from_file(file):
+    def load_from_file(path: Path):
         try:
-            return pickle.load(file)
+            with path.open("rb") as file:
+                return pickle.load(file)
         except (pickle.UnpicklingError, EOFError):
-            print("Could not load {file}.")
+            print(f"Could not load {path}.")
             return ShoppingCart([])
 
     def __str__(self):
         stream = StringIO()
-        print(f"Shopping cart with {len(self.entries)} "
-              f"{'entry' if len(self.entries) == 1 else 'entries'}:",
-              file=stream)
+        print(
+            f"Shopping cart with {len(self.entries)} "
+            f"{'entry' if len(self.entries) == 1 else 'entries'}:",
+            file=stream,
+        )
         for item in self.entries:
             print(f"  {item!s}", file=stream)
         print(f"Total: {self.total_price:.2f}", file=stream)
