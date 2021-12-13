@@ -134,4 +134,62 @@ with open("my-data-file.txt", "r+") as file:
 #  - Abschnitt "Lesen und Schreiben in Dateien"
 #
 
-# %%
+# %% [markdown]
+#
+# ## Objektorientierter Umgang mit Dateien: Pathlib
+#
+# Das `pathlib`-Modul bietet mit der Klasse `Path` einen sehr eleganten
+# objektorientierten Ansatz zum Umgang mit Dateien:
+
+# %% tags=["code-along"]
+from pathlib import Path
+
+# %% tags=["code-along"]
+my_path = Path()
+print("relative path:", my_path)
+print("absolute path:", my_path.absolute())
+my_path
+
+# %% tags=["code-along"]
+my_file = my_path / "README.md"
+print("Name:         ", my_file.name)
+print("Parent:       ", my_file.parent.absolute())
+print("Suffix:       ", my_file.suffix)
+print("Change suffix:", my_file.with_suffix(".txt"))
+print("Exists?       ", my_file.exists())
+
+# %% tags=["code-along"]
+tmp_dir = Path.home() / "Tmp"
+print(tmp_dir.absolute())
+print(tmp_dir.exists())
+
+# %% tags=["code-along"]
+assert not tmp_dir.exists()
+my_dir = tmp_dir / "subdir1/subdir2" / "subdir3"
+my_dir.mkdir(parents=True, exist_ok=False)
+my_dir.exists()
+
+# %% tags=["code-along"]
+my_file = my_dir / "test.txt"
+with my_file.open("w", encoding="utf-8") as file:
+    file.write("Hello, world")
+print("Exists?", my_file.exists())
+print(list(my_dir.glob("*")))
+my_file.unlink()
+print("Exists?", my_file.exists())
+print(list(my_dir.glob("*")))
+my_file.unlink(missing_ok=True)
+
+# %% tags=["code-along"]
+if my_dir.exists():
+    my_dir.rmdir()
+print("Exists?", my_dir.exists())
+
+# %% tags=["code-along"]
+import shutil
+
+shutil.rmtree(tmp_dir, ignore_errors=True)
+
+
+# %% tags=["code-along"]
+tmp_dir.exists()

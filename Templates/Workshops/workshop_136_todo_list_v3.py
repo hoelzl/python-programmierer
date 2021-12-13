@@ -25,7 +25,7 @@
 #
 # Es empfiehlt sich, diesen Workshop in einer IDE zu bearbeiten, da die
 # letzten Teilaufgaben in Notebooks nicht sinnvoll implementiert werden
-# können. Schreiben Sie Tests zu jeder implementierten Methode, entweder
+# können. **Schreiben Sie Tests zu jeder implementierten Methode,** entweder
 # indem Sie im TDD-Stil Test-First arbeiten oder indem Sie unmittlebar nach
 # der Implementierung einer Methode Unit-Tests dafür schreiben.
 #

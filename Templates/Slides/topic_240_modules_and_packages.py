@@ -6,9 +6,14 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.2
+#       jupytext_version: 1.13.3
+#   kernelspec:
+#     display_name: Python 3 (ipykernel)
+#     language: python
+#     name: python3
 # ---
 
+# %%
 # j2 import 'macros.j2' as doc
 # %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Module und Packages") }}
@@ -254,30 +259,6 @@ html.entities.entitydefs["Psi"]
 
 # %% [markdown]
 #
-#  ## Argparse: Verarbeiten von Command Line Arguments
-#
-#  - Für viele Anwendungsfälle ist eine Kommandozeilenanwendung ausreichend
-#  - Die manuelle Verarbeitung von Argumenten ist relativ aufwändig
-#  - Python bietet mit `argparse` eine sehr gute Bibliothek, die viele häufige Anwendungsfälle deutlich vereinfacht
-
-# %% [markdown]
-#
-#  ### Bestandteile von Argparse:
-#
-#  - Klasse `argparse.ArgumentParser` zum Erzeugen eines Kommandozeilen-Parsers
-#  - Methode `add_argument()` zum Definieren von Argumenten
-#    - Name, Varianten (z.B. `-l`, `--list`)
-#    - Argumente (z.B. `gcc -o myprog`)
-#    - Aktion, die ausgeführt werden soll
-#    - Hilfetext für die Dokumentation
-#    - usw.
-#  - Methode `parse_args()` zum Auswerten der Kommandozeile
-#  - Viele weiter Möglichkeiten:
-#    - Subkommandos (`git status`, `git push`, ...)
-#    - Sich gegenseitig ausschließende Argumente (`--case-fold`, `--no-case-fold`)
-
-# %% [markdown]
-#
 #  # Pytest: Testen in Python
 #
 #  - Python bietet mehrere eingebaute Pakete zum Schreiben von Unit-Tests und Dokumentationstests an (`unittest` und `doctest`).
@@ -314,20 +295,9 @@ html.entities.entitydefs["Psi"]
 #  Siehe `Examples/MessageQueueDist`
 
 # %% [markdown]
+# ## Workshop
 #
-#  # Setuptools: Distribution von Python Packeten
-#
-#  - Setuptools sind das Standard-Tool um installierbare Python-Pakete zu erzeugen.
-#  - Das Wort "Packages" ist in der Python Welt überladen:
-#      - Sammlung von Python Dateien wie in diesem Kapitel beschrieben
-#      - Distribution einer installierbaren Version einer Bibliothek ("wheel"), die dann importiert werden kann.
+# - `Workshop_136_todo_list_v3`
+# - Bis Abschnitt "Laden und Speichern"
 
-# %% [markdown]
-#
-#  ### Beispiel: Erstellen einer Anwendung mit Bibliothek
-#
-#  - Hinzufügen einer `setup.py`-Datei mit Information über die zu installierenden Packages und Skripte
-#  - Hinzufügen einiger Hilfsdateien (`README.md`, `LICENSE`)
-#  - Erstellen der Distribution mit `python setup.py bdist_wheel`
-#  - Installation mit `pip` und dem generierten Wheel
-#  - Installation während der Entwicklung: `pip install -e .`
+# %%

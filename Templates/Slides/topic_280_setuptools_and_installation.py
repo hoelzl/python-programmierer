@@ -12,10 +12,27 @@
 # %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Setuptools und Installation") }}
 
+# %% [markdown]
+#
+#  # Setuptools: Distribution von Python Packeten
+#
+#  - Setuptools sind das Standard-Tool um installierbare Python-Pakete zu erzeugen.
+#  - Das Wort "Packages" ist in der Python Welt überladen:
+#      - Sammlung von Python Dateien wie in diesem Kapitel beschrieben
+#      - Distribution einer installierbaren Version einer Bibliothek ("wheel"), die dann importiert werden kann.
 
 # %% [markdown]
 #
-#  ## Workshop
+#  ### Beispiel: Erstellen einer Anwendung mit Bibliothek
 #
-#  - Notebook `064x-Workshop Todo-Liste V2`
-#  - Abschnitt "Packaging"
+#  - Hinzufügen von `setup.cfg` und `pyproject.toml`-Dateien mit Information über die zu installierenden Packages und Skripte
+#  - Hinzufügen einiger Hilfsdateien (`README.md`, `LICENSE`)
+#  - Erstellen der Distribution mit `python -m build` (Benötigt das PyPA `build` [package](https://github.com/pypa/build))
+#  - Installation mit `pip` und dem generierten Wheel
+#  - Installation während der Entwicklung: `pip install -e .`
+
+# %% [markdown]
+# ## Workshop
+#
+# - `Workshop_136_todo_list_v3`
+# - Abschnitt "Packaging"
