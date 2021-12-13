@@ -1,45 +1,30 @@
-import argparse
+import typer
 
 from namegenerator.formatter.formatter import Formatter
 from namegenerator.formatter.abbreviated_formatter import AbbreviatedFormatter
-from namegenerator.formatter.last_name_first_formatter import \
-    LastNameFirstFormatter
+from namegenerator.formatter.last_name_first_formatter import LastNameFirstFormatter
 from namegenerator.names.generator import generate_name
 
-parser = argparse.ArgumentParser("Generate Names")
-parser.add_argument('n',
-                    type=int, nargs='?', default=1,
-                    help='the number of names to generate')
-
-gender = parser.add_mutually_exclusive_group()
-gender.add_argument('--male',
-                    dest='female', action='store_false',
-                    help='generate male names')
-gender.add_argument('--female',
-                    dest='female', action='store_true',
-                    help='generate female names (default)')
-
-parser.add_argument('--middle-initial',
-                    dest='middle_initial', action='store_true',
-                    help='generate a middle initial')
-parser.add_argument('--abbrev',
-                    dest='abbrev', action='store_true',
-                    help='print names in abbreviated form')
-parser.add_argument('--last-name-first',
-                    dest='last_name_first', default=False, action='store_true',
-                    help='print last names first')
+app = typer.Typer()
 
 
-def main():
-    args = vars(parser.parse_args())
-    if args['abbrev']:
+@app.command()
+def main(
+    count: int = typer.Option(
+        10, "--count", "-n", "-c", min=1, help="the number of names to generate"
+    ),
+    abbrev: bool = typer.Option(False, help="print names in abbreviated form"),
+    last_name_first: bool = typer.Option(False, help="print last names first"),
+    middle_initial: bool = typer.Option(False, help="generate a middle initial"),
+    female: bool = typer.Option(True, "--female/--male", help="generate female names"),
+):
+    if abbrev:
         Formatter.formatter_type = AbbreviatedFormatter
-    if args['last_name_first']:
+    if last_name_first:
         Formatter.formatter_type = LastNameFirstFormatter
-    for _ in range(args['n']):
-        print(generate_name(female_name=args['female'],
-                            add_middle_initial=args['middle_initial']))
+    for _ in range(count):
+        print(generate_name(female_name=female, add_middle_initial=middle_initial))
 
 
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    app()
