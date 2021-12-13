@@ -31,7 +31,7 @@ class ShoppingCart:
     @staticmethod
     def from_csv_path(path: Path):
         with path.open("r", encoding="utf-8") as file:
-            ShoppingCart.from_csv(file)
+            return ShoppingCart.from_csv(file)
 
     @staticmethod
     def from_csv(file):
@@ -78,7 +78,7 @@ class ShoppingCart:
 
     def save_to_path(self, path: Path):
         with path.open("wb") as file:
-            self.save_to_file(self, file)
+            self.save_to_file(file)
 
     def save_to_file(self, file):
         pickle.dump(self, file)
@@ -86,7 +86,7 @@ class ShoppingCart:
     @staticmethod
     def load_from_path(path: Path):
         with path.open("rb") as file:
-            ShoppingCart.load_from_file(file)
+            return ShoppingCart.load_from_file(file)
 
     @staticmethod
     def load_from_file(file):
