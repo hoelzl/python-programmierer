@@ -3,18 +3,23 @@
 An example program that simulates a very simple message queue to
 demonstrate Python packages, and the distribution of Python programs.
 
-Build source and binary distributions with the command
+## Installation
+
+To build the project use
 
 ```shell script
-python setup.py sdist bdist_wheel
+python -m build
 ```
-in the root directory (i.e., the directory where `setup.py` lives).
+in the root directory (i.e., the directory where `pyproject.toml` and `setup.cfg` live).
 
-To install the package, change into the `dist` directory and install it
-with pip:
-
+After building the package you can install it with pip:
 ```shell script
-cd dist
-pip install .\msgqueue-0.1-py3-none-any.whl
-cd ..
+pip install dist/msgqueue-0.0.1-py3-none-any.whl
 ```
+
+To install the package so that it can be used for development purposes
+install it with
+```shell script
+pip install -e .
+```
+in the root directory.

@@ -5,12 +5,12 @@ from ..middleware.log import log
 from ..middleware.timestamp import timestamp
 
 
-def configure_middleware(args: argparse.Namespace) -> list:
+def configure_middleware(config) -> list:
     middleware = []
-    if args.log:
+    if auth_token := config.get("auth_token"):
+        middleware.append(Authenticator(auth_token))
+    if config.get("log"):
         middleware.append(log)
-    if args.auth:
-        middleware.append(Authenticator(args.auth))
-    if args.timestamp:
+    if config.get("timestamp"):
         middleware.append(timestamp)
     return middleware
