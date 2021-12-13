@@ -7,15 +7,16 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.2
+#       jupytext_version: 1.13.3
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
+# %%
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # {{ doc.header("Identität von Objekten") }}
 
 # %% [markdown]
@@ -138,6 +139,7 @@ print(x is y)
 
 # %%
 import ctypes
+
 x_refcount = ctypes.c_long.from_address(id(x)).value
 x_int_value = ctypes.c_long.from_address(id(x) + 24).value
 
@@ -214,6 +216,7 @@ print(a, b)
 
 # %%
 import numpy as np
+
 a = np.array([1, 2, 3])
 b = a[1:2]
 b[0] = 4

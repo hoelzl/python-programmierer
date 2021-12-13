@@ -15,7 +15,7 @@ def create(file: Path = typer.Argument(..., help="the file to create")):
     """
     with file.open(mode="wb"):
         shopping_cart = ShoppingCart([])
-        shopping_cart.save_to_file(file)
+        shopping_cart.save_to_path(file)
 
 
 @app.command()
@@ -26,8 +26,8 @@ def import_csv(
     """
     Import a CSV file and save it to a shopping-cart file.
     """
-    shopping_cart = ShoppingCart.from_csv(csv_file)
-    shopping_cart.save_to_file(file)
+    shopping_cart = ShoppingCart.from_csv_path(csv_file)
+    shopping_cart.save_to_path(file)
 
 
 @app.command()
@@ -41,7 +41,7 @@ def add(
     """
     Add an item to the shopping cart.
     """
-    shopping_cart = ShoppingCart.load_from_file(file)
+    shopping_cart = ShoppingCart.load_from_path(file)
     shopping_cart.add(
         {
             "article_number": item_id,
@@ -50,7 +50,7 @@ def add(
             "number_of_items": num,
         }
     )
-    shopping_cart.save_to_file(file)
+    shopping_cart.save_to_path(file)
 
 
 @app.command()
@@ -64,7 +64,7 @@ def delete(
     """
     Delete an item from the shopping cart.
     """
-    shopping_cart = ShoppingCart.load_from_file(file)
+    shopping_cart = ShoppingCart.load_from_path(file)
     shopping_cart.delete(
         {
             "article_number": item_id,
@@ -73,7 +73,7 @@ def delete(
             "number_of_items": num,
         }
     )
-    shopping_cart.save_to_file(file)
+    shopping_cart.save_to_path(file)
 
 
 @app.command()
@@ -81,7 +81,7 @@ def list(file: Path = typer.Argument(..., help="a file containing the shopping c
     """
     Print the contents of the shopping cart.
     """
-    shopping_cart = ShoppingCart.load_from_file(file)
+    shopping_cart = ShoppingCart.load_from_path(file)
     print(shopping_cart)
 
 

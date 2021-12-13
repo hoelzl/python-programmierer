@@ -6,11 +6,16 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.2
+#       jupytext_version: 1.13.3
+#   kernelspec:
+#     display_name: Python 3 (ipykernel)
+#     language: python
+#     name: python3
 # ---
 
+# %%
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Dateien") }}
 
 
@@ -23,11 +28,11 @@
 # Die einfachste Varianten Daten zu persistieren ist sie in einer Datei zu speichern:
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 import os
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 os.getcwd()
 
 
@@ -125,6 +130,8 @@ with open("my-data-file.txt", "r+") as file:
 #
 #  ## Mini-Workshop
 #
-#  - Notebook `020x-Workshop Kontrollstrukturen`
-#  - Abschnitt "# Lesen und Schreiben in Dateien"
+#  - Notebook `workshop_190_inheritance`
+#  - Abschnitt "Lesen und Schreiben in Dateien"
 #
+
+# %%

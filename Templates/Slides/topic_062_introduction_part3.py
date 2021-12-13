@@ -16,7 +16,7 @@
 # ---
 
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Einführung in Python: Grundlagen Teil 3") }}
 
 
@@ -25,7 +25,7 @@
 #
 # Man kann Funktionen definieren, die beliebig viele Argumente bekommen können:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def my_add(*args):
     result = 0
     for i in args:
@@ -33,7 +33,7 @@ def my_add(*args):
     return result
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 my_add(1, 2, 3, 4, 5, 6)
 
 
@@ -49,20 +49,20 @@ my_add(1, 2, 3, 4, 5, 6)
 # you
 # ```
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def print_lines(*args):
     for arg in args:
         print(arg)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print_lines("hey", "you")
 
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # Das kann auch mit anderen Argumenten kombiniert werden:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def add_more_than_two(x, y, *more_args):
     result = x + y
     for i in more_args:
@@ -70,14 +70,14 @@ def add_more_than_two(x, y, *more_args):
     return result
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 add_more_than_two(1, 2, 3, 4, 5, 6)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 add_more_than_two(1, 2)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # add_more_than_two(1)
 
 # %% [markdown]
@@ -85,25 +85,25 @@ add_more_than_two(1, 2)
 #
 # Ebenso kann eine Funktion beliebig viele benannte Argumente haben:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def my_keys(**kwargs):
     print("Keyword arguments:", kwargs)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 my_keys(x=1, y=2)
 
 
 # %% [markdown]
 # Es ist möglich diese beiden Features zu kombinieren:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def takes_arbitrary_args(*args, **kwargs):
     print("Positional argsuments:", args)
     print("Keyword arguments:    ", kwargs)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 takes_arbitrary_args(1, "foo", a="alpha", b="beta")
 
 
@@ -120,13 +120,13 @@ takes_arbitrary_args(1, "foo", a="alpha", b="beta")
 # Key: quux -- value: My Quux
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def print_named_lines(**kwargs):
     for k, v in kwargs.items():
         print("Key:", k, "-- value:", v)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print_named_lines(foo="My Foo", bar="My Bar", quux="My Quux")
 
 
@@ -138,33 +138,33 @@ print_named_lines(foo="My Foo", bar="My Bar", quux="My Quux")
 # - Wenn man ein Dictionary `kwargs` hat, kann man die Key/Value-Paare mit der
 #   Syntax `**kwargs` als benannte Argumente übergeben:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def add(x, y):
     return x + y
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 my_list = [3, 4]
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # add(my_list)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 add(my_list[0], my_list[1])
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 add(*my_list)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 my_dict = {"a": "alpha", "b": "beta"}
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 takes_arbitrary_args(my_list, my_dict)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 takes_arbitrary_args(*my_list, **my_dict)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 takes_arbitrary_args(3, 4, a="alpha", b="beta")
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
@@ -172,10 +172,10 @@ takes_arbitrary_args(3, 4, a="alpha", b="beta")
 #
 # Wie oben gezeigt kann man mehrere Variablen in einem Schritt definieren:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 ergebnis, rest = 10, 2
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(ergebnis)
 print(rest)
 
@@ -185,37 +185,37 @@ print(rest)
 #   Werte berechnen.
 # - Man kann mit `return wert1, wert2` mehrere Werte zurückgeben
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def zwei_werte(a, b):
     return a + 1, b + 2
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 erster_wert, zweiter_wert = zwei_werte(1, 2)
 print(erster_wert)
 print(zweiter_wert)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def division_mit_rest(m, n):
     ergebnis = m // n
     rest = m % n
     return ergebnis, rest
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 e, r = division_mit_rest(17, 7)
 print(e)
 print(r)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Kürzer
 def division_mit_rest_2(m, n):
     return m // n, m % n
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 e, r = division_mit_rest_2(17, 7)
 print(e)
 print(r)
@@ -224,7 +224,7 @@ print(r)
 # (In Python gibt es die eingebaute Funktion `divmod`, die diese Berechnung
 # ausführt:)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 e, r = divmod(17, 7)
 print(e)
 print(r)
@@ -242,10 +242,10 @@ print(r)
 # %% [markdown]
 # Gleichheit von Werten wird mit `==` getestet:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 == 1
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 == 2
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -254,40 +254,40 @@ print(r)
 # - `True`
 # - `False`
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 type(True)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Gleichheit von Zahlen
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 == 1.0
 
 # %% [markdown]
 # Mit Unterstrichen lassen sich Zahlen übersichtlicher schreiben.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 0.000_000_1 * 10_000_000 == 1
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # Vorsicht: Rundungsfehler!
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 / 10
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 / 100
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 (1 / 10) * (1 / 10) == (1 / 100)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 0.1 * 0.1
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 0.1 - 0.01
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 100 * 1.1
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -295,28 +295,28 @@ type(True)
 #
 # Der Operator `!=` testet, ob zwei Zahlen verschieden sind
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 != 1.0
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 != 2
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Vergleich von Zahlen
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 < 2
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 < 1
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 <= 1
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 1 > 2
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 2 >= 1
 
 # %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}}
@@ -329,13 +329,13 @@ type(True)
 # ## Operatoren auf Boole'schen Werten
 #
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 < 2 and 3 < 2
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 < 2 or 3 < 2
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 not (1 < 2)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -350,17 +350,17 @@ not (1 < 2)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ### Verkettung von Vergleichen
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 < 2 < 3
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # noinspection PyChainedComparisons
 1 < 2 and 2 < 3
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 < 3 <= 2
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # noinspection PyChainedComparisons
 1 < 3 and 3 <= 2
 

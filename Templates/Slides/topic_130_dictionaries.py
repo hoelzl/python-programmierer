@@ -6,16 +6,17 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.2
+#       jupytext_version: 1.13.3
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
+# %%
 
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Dictionaries") }}
 
 
@@ -30,7 +31,7 @@
 #
 #  Elemente in einer Liste sind sortiert.
 
-# %% {{ doc.codealong() }}
+# %%
 non_sparse = [0] * 10
 non_sparse[0] = 1
 non_sparse[9] = 1
@@ -50,24 +51,24 @@ non_sparse
 #  Im Gegensatz zu Listen sind die Elemente in einem Dictionary nicht in einer
 #  bestimmten Reihenfolge angeordnet.
 
-# %% {{ doc.codealong() }}
+# %%
 sparse = {0: 1, 9: 1}
 
 
-# %% {{ doc.codealong() }}
+# %%
 sparse
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 sparse[0]
 
 
-# %%
+# %% tags=["code-along"]
 # Fehler
 # sparse[1]
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 sparse[12] = 3
 print(sparse[12])
 sparse
@@ -82,25 +83,25 @@ translations = {
 }
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(translations["snake"])
 print(translations.get("bat", "<unbekannt>"))
 print(translations.get("monkey", "Affe"))
 print(translations.get("tree"))
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Fehler:
 # translations['monkey']
 translations
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 translations["horse"] = "Pferd"
 translations["horse"]
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 del translations["bird"]
 print(translations.get("bird", "<unbekannt>"))
 print(translations.setdefault("bird", "Vogel"))
@@ -108,27 +109,27 @@ print(translations.setdefault("bird", "<auch unbekannt>"))
 print(translations.get("bird", "<unbekannt>"))
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 for key in translations:
     print(key, end=" ")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 for key in translations.keys():
     print(key, end=" ")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 for val in translations.values():
     print(val, end=" ")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 for item in translations.items():
     print(item, end=" ")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 for key, val in translations.items():
     print("Key:", key, "\tValue:", val)
 

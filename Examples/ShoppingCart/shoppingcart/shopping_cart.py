@@ -1,6 +1,6 @@
 import csv
 import pickle
-from collections import Mapping
+from collections.abc import Mapping
 from io import StringIO
 from pathlib import Path
 
@@ -29,7 +29,12 @@ class ShoppingCart:
         ]
 
     @staticmethod
-    def from_csv(path: Path):
+    def from_csv_path(path: Path):
+        with path.open("r", encoding="utf-8") as file:
+            ShoppingCart.from_csv(file)
+
+    @staticmethod
+    def from_csv(file):
         """
         Constructor for Shopping carts
 
@@ -41,9 +46,8 @@ class ShoppingCart:
         in this order.
         Returns a shopping cart containing these entries
         """
-        with path.open("r", encoding="utf-8") as file:
-            reader = csv.reader(file)
-            return ShoppingCart(iter(reader))
+        reader = csv.reader(file)
+        return ShoppingCart(iter(reader))
         # Alternative:
         # entries = [{'article_number': art_nr,
         #             'article_name': name,
@@ -72,17 +76,24 @@ class ShoppingCart:
         except ValueError:
             pass
 
-    def save_to_file(self, path: Path):
+    def save_to_path(self, path: Path):
         with path.open("wb") as file:
-            pickle.dump(self, file)
+            self.save_to_file(self, file)
+
+    def save_to_file(self, file):
+        pickle.dump(self, file)
 
     @staticmethod
-    def load_from_file(path: Path):
+    def load_from_path(path: Path):
+        with path.open("rb") as file:
+            ShoppingCart.load_from_file(file)
+
+    @staticmethod
+    def load_from_file(file):
         try:
-            with path.open("rb") as file:
-                return pickle.load(file)
+            return pickle.load(file)
         except (pickle.UnpicklingError, EOFError):
-            print(f"Could not load {path}.")
+            print(f"Could not load {file}.")
             return ShoppingCart([])
 
     def __str__(self):

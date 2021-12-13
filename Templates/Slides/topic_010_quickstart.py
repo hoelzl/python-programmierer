@@ -16,32 +16,32 @@
 # ---
 
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Quickstart") }}
 
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # # Python und Jupyter Notebooks
 #
 # Wir beginnen mit einer kurzen Einführung in die Arbeitsweise von Python und
 # Jupyter Notebooks.
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Compiler (C++)
 #
 # <img src="img/compiler.svg" style="width:60%;margin:auto"/>
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Interpreter (Python)
 #
 # <img src="img/interpreter.svg" style="width:60%;margin:auto"/>
 #
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Jupyter Notebooks
 #
 # <img src="img/jupyter-notebook.svg" style="width:60%;margin:auto"/>
 
-# %% {{ doc.subslide() }}
+# %% slideshow={"slide_type": "subslide"}
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -52,49 +52,49 @@ plt.figure(figsize=(12, 8))
 plt.scatter(page_load_time, purchase_amount)
 
 
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # ## Variablen und Datentypen
 #
 # Zahlen und Arithmetik:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 17 + 4 + 1
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1.5 + 7.4
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 + 2 * 3
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Zeichenketten
 
-# %% {{ doc.codealong() }}
-'This is a string'
+# %% tags=["code-along"]
+"This is a string"
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 "This is also a string"
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 str(1 + 2)
 
-# %% [markdown] {{ doc.subslide() }} {{ doc.codealong() }}
+# %% [markdown] slideshow={"slide_type": "subslide"} tags=["code-along"]
 "3" + "abc"
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 "literal strings " "can be concatenated " "by juxtaposition"
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Variablen
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 answer = 42
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 my_value = answer + 2
 
 
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # ## Jupyter Notebooks: Anzeige von Werten
 #
 # - Jupyter Notebooks geben den letzten Wert jeder Zelle auf dem Bildschirm aus
@@ -102,126 +102,126 @@ my_value = answer + 2
 #   - Wenn sie als Programme ausgeführt werden
 #   - Der interaktive Interpreter verhält sich ähnlich wie Notebooks
 
-# %% [markdown] {{ doc.subslide() }} {{ doc.codealong() }}
+# %% [markdown] slideshow={"slide_type": "subslide"} tags=["code-along"]
 123
 
 # %% [markdown]
 # Um die Ausgabe des letzten Wertes einer Zeile in Jupyter zu unterbinden
 # kann man die Zeile mit einem Strichpunkt beenden:
 
-# %% {{ doc.codealong() }}
-123;
+# %% tags=["code-along"]
+123
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # Jupyter zeigt auch den Wert von Variablen an:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 answer
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 my_value
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 answer
 my_value
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # Um mehrere Werte anzuzeigen kann man die `print()`-Funktion verwenden:
 #
 # `print(...)` gibt den in Klammern eingeschlossenen Text auf dem Bildschirm
 # aus.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(123)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(answer)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(my_value)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(answer)
 print(my_value)
 
 
-# %% {{ doc.subslide() }} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 print("Hello, world!")
 
 
 # %% [markdown]
 # Vergleichen Sie die Ausgabe mit der folgenden Zelle:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 "Hello, world!"
 
-# %% {{ doc.subslide() }} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 print("answer =", answer, "my_value =", my_value)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print("a", "b", "c", sep="-", end="+++")
 print("d", "e")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print("a", end=", ")
 print("b", end=", ")
 print("c")
 
-# %% [markdown] {{ doc.subslide() }} {{ doc.codealong() }}
+# %% [markdown] slideshow={"slide_type": "subslide"} tags=["code-along"]
 # ## Typen
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 type(123)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 type("Foo")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 answer = 42
 print(type(answer))
 answer = "Hallo!"
 print(type(answer))
 
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Vordefinierte Funktionen
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print("Hello, world!")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 int("123")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 int(3.8)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 round(4.4)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 round(4.6)
 
 # %%
 print(round(0.5), round(1.5), round(2.5), round(3.5))
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Funktionen
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def add_1(n):
     return n + 1
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 x = add_1(10)
 add_1(20) + x + x
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 add_1(5) + add_1(7)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def my_round(n):
     return int(n + 0.5)
 
@@ -229,7 +229,7 @@ def my_round(n):
 # %%
 print(my_round(0.5), my_round(1.5), my_round(2.5), my_round(3.5))
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Micro-Workshop
 #
 # Schreiben Sie eine Funktion `greeting(name)`, die eine Begrüßung in der Form
@@ -241,123 +241,123 @@ print(my_round(0.5), my_round(1.5), my_round(2.5), my_round(3.5))
 # ```
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def greeting(name):
     print("Hallo ", name, "!", sep="")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 greeting("Max")
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Methoden
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 "Foo".lower()
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # 5.bit_length()
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 number = 5
 number.bit_length()
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Mehrere Parameter, Default Argumente
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def add2(a, b):
     return a + b
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def add3(a, b=0, c=0):
     return a + b + c
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(add3(2))
 print(add3(2, 3))
 print(add3(2, 3, 4))
 print(add3(1, c=3))
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Verschachtelte Funktionsaufrufe
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 add3(add_1(2), add3(1, 2, add3(1, 2)))
 
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Typannotationen
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def mult(a: int, b: float):
     return a * b
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 mult(3, 2.0)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Typannotationen dienen lediglich zur Dokumentation und werden von Python
 # ignoriert:
 mult("a", 3)
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Listen und Tupel
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 numbers = [1, 2, 3, 4]
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(numbers)
 print(numbers[0], numbers[3])
 print("Länge:", len(numbers))
 
-# %% {{ doc.subslide() }}
+# %% slideshow={"slide_type": "subslide"}
 numbers + numbers
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 [1] * 3
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 5 in [5, 6, 7]
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 3 in [5, 6, 7]
 
-# %% {{ doc.subslide() }}
+# %% slideshow={"slide_type": "subslide"}
 my_list = [1, 2, 3]
 my_list[1] = 5
 my_list
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 my_list.append(7)
 my_list
 
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Boole'sche Werte und `if`-Anweisungen
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 True
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 False
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 value = False
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 if value:
     print("Wahr")
 else:
     print("Falsch")
 
 
-# %% {{ doc.subslide() }}
+# %% slideshow={"slide_type": "subslide"}
 def print_size(n):
     if n < 10:
         print("Very small")
@@ -369,13 +369,13 @@ def print_size(n):
         print("Large")
 
 
-# %% {{ doc.subslide() }}
+# %% slideshow={"slide_type": "subslide"}
 print_size(1)
 print_size(10)
 print_size(20)
 print_size(100)
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Micro-Workshop
 #
 # Schreiben Sie eine Funktion `fits_in_line(text: str, line_length: int = 72)`,
@@ -403,19 +403,19 @@ print_size(100)
 # ```
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def fits_in_line(text: str, line_length: int = 72):
     return len(text) <= line_length
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 fits_in_line("Hallo")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 fits_in_line("Hallo", 3)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def print_line(text: str, line_length: int = 72):
     if fits_in_line(text, line_length=line_length):
         print(text)
@@ -423,27 +423,27 @@ def print_line(text: str, line_length: int = 72):
         print("...")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print_line("Hallo")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print_line("Hallo", 3)
 
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ## `for`-Schleifen
 
-# %% {{ doc.subslide() }} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 for char in "abc":
     print(char, end="|")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 result = 0
 for n in [1, 2, 3, 4]:
     result += n
 result
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Micro-Workshop
 #
 # Schreiben Sie eine Funktion `print_all(items: list)`, die die Elemente der
@@ -460,27 +460,27 @@ result
 # z.B. `print_all("abc")`
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def print_all(items: list):
     for item in items:
         print(item)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print_all([1, 2, 3])
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print_all("abc")
 
-# %% {{ doc.subslide() }} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 for i in range(3):
     print(i, end=", ")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 for i in range(1, 6, 2):
     print(i, end=", ")
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ### Micro-Workshop
 #
 # Schreiben Sie eine Funktion `print_squares(n: int)`, die die Quadrate der
@@ -495,51 +495,51 @@ for i in range(1, 6, 2):
 # ```
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def print_squares(n: int):
-    for i in range(1, n+1):
-        print(i, "**2 = ", i*i, sep="")
+    for i in range(1, n + 1):
+        print(i, "**2 = ", i * i, sep="")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print_squares(3)
 
-# %% [markdown] {{ doc.subslide() }}
+# %% [markdown] slideshow={"slide_type": "subslide"}
 # ## Dictionaries
 
 # %%
 translations = {"snake": "Schlange", "bat": "Fledermaus", "horse": "Hose"}
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(translations["snake"])
 print(translations.get("bat", "<unbekannt>"))
 print(translations.get("monkey", "<unbekannt>"))
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Fehler:
 # translations['monkey']
 
-# %% {{ doc.subslide() }} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 translations["horse"] = "Pferd"
 translations["horse"]
 
-# %% {{ doc.subslide() }} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 for key in translations.keys():
     print(key, end=" ")
 
-# %% {{ doc.subslide() }} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 for key in translations:
     print(key, end=" ")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 for val in translations.values():
     print(val, end=" ")
 
-# %% {{ doc.subslide() }} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 for item in translations.items():
     print(item, end=" ")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 for key, val in translations.items():
     print("Key:", key, "\tValue:", val)
 

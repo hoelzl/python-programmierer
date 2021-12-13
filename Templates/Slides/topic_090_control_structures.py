@@ -15,7 +15,7 @@
 # ---
 
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Kontrollstrukturen") }}
 
 # %% [markdown]
@@ -61,13 +61,13 @@ def klassifiziere_zahl(geratene_zahl, lösung):
         print("Sie haben gewonnen!")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 klassifiziere_zahl(10, 12)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 klassifiziere_zahl(14, 12)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 klassifiziere_zahl(12, 12)
 
 
@@ -168,7 +168,7 @@ klassifiziere_zahl_3(100, 12)
 #  Die Zweige eines `if`-Statements können `return` Anweisungen enthalten um
 #  einen Wert aus einer Funktion zurückzugeben:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def ist_große_zahl(zahl):
     if zahl > 10:
         return True
@@ -196,7 +196,7 @@ def ist_große_zahl(zahl):
 # input("What is your name? ")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def query_name():
     name = input("What is your name? ")
     print(f"You entered {name}")
@@ -213,30 +213,30 @@ def query_name():
 # in Fahrenheit fragt und die entsprechende Temperatur in Grad Celsius
 # zurückgibt.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def konvertiere_fahrenheit_nach_celsius(fahrenheit):
     return (fahrenheit - 32) * 5 / 9
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 konvertiere_fahrenheit_nach_celsius(32)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 konvertiere_fahrenheit_nach_celsius(90)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def temperaturkonverter_1():
     fahrenheit = input("Bitte geben Sie die Temperatur in Fahrenheit ein: ")
     celsius = konvertiere_fahrenheit_nach_celsius(float(fahrenheit))
     print(f"{fahrenheit}F sind {celsius}°C")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 float("1.23")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # temperaturkonverter_1()
 
 # %% [markdown]
@@ -244,7 +244,7 @@ float("1.23")
 #  Wir können eine Meldung ausgeben, wenn der Benutzer nichts eingibt (und die
 #  Ausgabe etwas schöner gestalten):
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def temperaturkonverter_2():
     fahrenheit = input("Bitte geben Sie die Temperatur in Fahrenheit ein: ")
     if fahrenheit != "":
@@ -254,7 +254,7 @@ def temperaturkonverter_2():
         print("Bitte geben Sie eine gültige Temperatur ein.")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # temperaturkonverter_2()
 
 # %% [markdown]
@@ -265,7 +265,7 @@ def temperaturkonverter_2():
 #  - Abschnitt "Umrechnung in Meilen"
 #
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def temperaturkonverter_3():
     fahrenheit = input("Bitte geben Sie die Temperatur in Fahrenheit ein: ")
     if fahrenheit:
@@ -275,7 +275,7 @@ def temperaturkonverter_3():
         print("Bitte geben Sie eine gültige Temperatur ein.")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # temperaturkonverter_3()
 
 
@@ -348,7 +348,7 @@ else:
 #
 #  Wenn wir die Anzahl der Wiederholungen nicht von vornherein wissen, verwenden wir dafür in der Regel eine While-Schleife.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 number = 0
 while number < 3:
     print(f"Durchlauf {number}")
@@ -397,7 +397,7 @@ while i < 10:
 print("Nach der Schleife:", i)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def annoy_user():
     while True:
         text = input("Say hi! ")
@@ -406,7 +406,8 @@ def annoy_user():
         else:
             print("You chose", text)
 
-# %% {{ doc.codealong() }}
+
+# %% tags=["code-along"]
 # annoy_user()
 
 

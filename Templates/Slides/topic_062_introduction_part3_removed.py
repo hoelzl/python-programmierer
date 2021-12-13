@@ -16,9 +16,8 @@
 # ---
 
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Einführung in Python: Grundlagen Teil 3 - Gelöscht") }}
-
 
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
@@ -30,7 +29,7 @@
 #     - Alle anderen Zahlen sind es nicht.
 # - Wir benötigen dazu die `if`-Anweisung:
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def ist_glückszahl(zahl):
     print("Ist", zahl, "eine Glückszahl?")
 
@@ -42,10 +41,10 @@ def ist_glückszahl(zahl):
     print("Wir wünschen Ihnen alles Gute.")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 ist_glückszahl(1)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 ist_glückszahl(7)
 
 
@@ -60,10 +59,10 @@ def ist_glückszahl_2(zahl):
         print("Wir wünschen Ihnen trotzdem alles Gute.")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 ist_glückszahl_2(1)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 ist_glückszahl_2(7)
 
 
@@ -78,10 +77,10 @@ def einseitiges_if_1(zahl):
     print("Nachher")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 einseitiges_if_1(1)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 einseitiges_if_1(7)
 
 
@@ -92,12 +91,11 @@ def einseitiges_if_2(zahl):
     print(zahl)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 einseitiges_if_2(1)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 einseitiges_if_2(6)
-
 
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
@@ -109,7 +107,7 @@ warenkorb = ["Haferflocken", "Kaffeebohnen", "Orangenmarmelade"]
 # %% [markdown]
 # Der Typ von Listen ist `list`.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 type(warenkorb)
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
@@ -124,20 +122,20 @@ type(warenkorb)
 liste_1 = [1, 2, 3, 4, 5]
 liste_2 = ["string1", "another string"]
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(liste_1)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(liste_2)
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 liste_3 = []
 liste_4 = [1, 0.4, "ein String", True, None]
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(liste_3)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(liste_4)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -157,7 +155,7 @@ warenkorb
 # Nachdem eine Liste erzeugt ist hat sie keine Verbindung zu den Variablen, die
 # in ihrer Konstruktion verwendet wurden:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 produkt_1 = "Dinkelflocken"
 produkt_2 = "Teebeutel"
 warenkorb
@@ -170,13 +168,13 @@ warenkorb
 # Im Moment kennen wir nur Listen, Strings und Dictionaries als mögliche
 # Argumenttypen:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 list("abc")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 list([1, 2, 3])
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 list({"a": 1, "b": 2})
 
 # %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": ""}}
@@ -185,13 +183,13 @@ list({"a": 1, "b": 2})
 # %%
 zahlenliste = [0, 1, 2, 3]
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 zahlenliste[0]
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 zahlenliste[3]
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 zahlenliste[-1]
 
 # %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}}
@@ -200,24 +198,24 @@ zahlenliste[-1]
 # %%
 zahlenliste
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 len(zahlenliste)
 
 # %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}}
 # ## Modifikation von Listeneinträgen
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 zahlenliste[1] = 10
 zahlenliste
 
 # %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}}
 # ## Anhängen von Elementen an eine Liste
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 zahlenliste.append(40)
 zahlenliste
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 zahlenliste.extend([50, 60])
 zahlenliste
 
@@ -235,7 +233,7 @@ zahlenliste
 zahlenliste = [0, 1, 2, 3, 4]
 zahlenliste
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 for zahl in zahlenliste:
     print("Die Zahl ist:", zahl)
 
@@ -252,5 +250,3 @@ for zahl in zahlenliste:
 #
 # - Notebook `workshop_060_introduction_part2`
 # - Abschnitt "Einkaufsliste"
-
-

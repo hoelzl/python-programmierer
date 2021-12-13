@@ -21,7 +21,7 @@
 # Schreiben Sie eine Funktion `shout(text)`, die `text` in Großbuchstaben,
 # gefolgt von drei Außrufezeichen auf dem Bildschirm ausgibt.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def shout(text):
     print(f"{text.upper()}!!!")
 
@@ -29,7 +29,7 @@ def shout(text):
 # %% [markdown]
 # Testen Sie die Funktion mit Argument `"Hallo"`
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 shout("Hallo")
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
@@ -38,14 +38,14 @@ shout("Hallo")
 # %% [markdown]
 # Ist `Abc` kleiner als `aBC`?
 
-# %%  {{ doc.solution() }}
-'Abc' < 'aBC'
+# %%  tags=["solution"]
+"Abc" < "aBC"
 
 # %% [markdown]
 # Ist gleichzeitig `abc` kleiner als `abcd` und `abcd` kleiner als `abd`?
 
-# %%  {{ doc.solution() }}
-'abc' < 'abcd' < 'abd'
+# %%  tags=["solution"]
+"abc" < "abcd" < "abd"
 
 
 # %% [markdown]
@@ -61,14 +61,20 @@ shout("Hallo")
 # Verwenden Sie dazu die `print()`-Funktion mit einem Argument und
 # String-Konkatenation.
 
-# %%  {{ doc.solution() }}
+# %%  tags=["solution"]
 def drucke_begrüßung(name):
-    print('Hallo, ' + name + '!\n' +
-          'Schön Sie heute wieder bei uns begrüßen zu dürfen.\n' +
-          'Wir wünschen Ihnen viel Spaß, ' + name + '.')
+    print(
+        "Hallo, "
+        + name
+        + "!\n"
+        + "Schön Sie heute wieder bei uns begrüßen zu dürfen.\n"
+        + "Wir wünschen Ihnen viel Spaß, "
+        + name
+        + "."
+    )
 
 
-drucke_begrüßung('Hans')
+drucke_begrüßung("Hans")
 
 
 # %% [markdown]
@@ -77,11 +83,13 @@ drucke_begrüßung('Hans')
 # Schreiben Sie eine Funktion `drucke_begrüßung(name)`, die die
 # Funktionalität von `drucke_begrüßung(name)` mittels F-Strings implementiert.
 
-# %%  {{ doc.solution() }}
+# %%  tags=["solution"]
 def drucke_begrüßung_2(name):
-    print(f'Hallo, {name}!\n'
-          f'Schön Sie heute wieder bei uns begrüßen zu dürfen.'
-          f'Wir wünschen Ihnen viel Spaß, {name}.')
+    print(
+        f"Hallo, {name}!\n"
+        f"Schön Sie heute wieder bei uns begrüßen zu dürfen."
+        f"Wir wünschen Ihnen viel Spaß, {name}."
+    )
 
 
 drucke_begrüßung_2("Sepp")
@@ -114,35 +122,39 @@ def teile_beute_auf(dublonen, piraten):
     return dublonen_pro_pirat, dublonen_kapitän
 
 
-# %%  {{ doc.solution() }}
+# %%  tags=["solution"]
 def drucke_aufteilung_der_beute(dublonen, piraten):
     dublonen_pro_pirat, dublonen_kapitän = teile_beute_auf(dublonen, piraten)
     if dublonen_kapitän == 1:
-        print(f'Jeder der {piraten} Piraten erhält {dublonen_pro_pirat} '
-              f'der {dublonen} Golddublonen. '
-              f'Der Kapitän erhält extra 1 Golddublone.')
+        print(
+            f"Jeder der {piraten} Piraten erhält {dublonen_pro_pirat} "
+            f"der {dublonen} Golddublonen. "
+            f"Der Kapitän erhält extra 1 Golddublone."
+        )
     else:
-        print(f'Jeder der {piraten} Piraten erhält {dublonen_pro_pirat} '
-              f'der {dublonen} Golddublonen. '
-              f'Der Kapitän erhält extra {dublonen_kapitän} Golddublonen.')
+        print(
+            f"Jeder der {piraten} Piraten erhält {dublonen_pro_pirat} "
+            f"der {dublonen} Golddublonen. "
+            f"Der Kapitän erhält extra {dublonen_kapitän} Golddublonen."
+        )
 
 
-# %%  {{ doc.solution() }}
+# %%  tags=["solution"]
 drucke_aufteilung_der_beute(1000, 11)
 drucke_aufteilung_der_beute(17, 8)
 
 
-# %%  {{ doc.solution() }}
+# %%  tags=["solution"]
 def drucke_aufteilung_der_beute_v2(dublonen, piraten):
     dublonen_pro_pirat, dublonen_kapitän = teile_beute_auf(dublonen, piraten)
-    print(f'Jeder der {piraten} Piraten erhält {dublonen_pro_pirat} '
-          f'der {dublonen} Golddublonen. '
-          f'Der Kapitän erhält extra {dublonen_kapitän} Golddublone'
-          f'{"" if dublonen_kapitän == 1 else "n"}.')
+    print(
+        f"Jeder der {piraten} Piraten erhält {dublonen_pro_pirat} "
+        f"der {dublonen} Golddublonen. "
+        f"Der Kapitän erhält extra {dublonen_kapitän} Golddublone"
+        f'{"" if dublonen_kapitän == 1 else "n"}.'
+    )
 
 
-# %%  {{ doc.solution() }}
+# %%  tags=["solution"]
 drucke_aufteilung_der_beute_v2(1000, 11)
 drucke_aufteilung_der_beute_v2(17, 8)
-
-

@@ -36,7 +36,7 @@
 #   eine korrekte Antwort auf die Frage ist.
 # - `correct_answer(self)`: Gibt eine der korrekten Antworten zurück.
 
-# %%  {{ doc.solution() }}
+# %%  tags=["solution"]
 class Question:
     def __init__(self, text, answers):
         self.text = text
@@ -46,7 +46,7 @@ class Question:
         return f"{self.text!s}"
 
     def __repr__(self):
-        return F"Question({self.text!r}, {self.answers!r})"
+        return f"Question({self.text!r}, {self.answers!r})"
 
     def is_answer_correct(self, answer):
         return answer in self.answers
@@ -60,18 +60,21 @@ class Question:
 # Testen Sie die Klasse (interaktiv falls Sie die Aufgabe im Notebook
 # bearbeiten, sonst mit pytest)
 
-# %%  {{ doc.solution() }}
+# %%  tags=["solution"]
 questions = [
     Question("Wann wurde Napoleon geboren?", ["15. August 1769", "1769"]),
     Question("Wann wurde Python erfunden?", ["1991"]),
-    Question("Wer ist Pythons Benevolent Dictator For Life?",
-             ["Guido van Rossum", "Guido v. Rossum"])]
+    Question(
+        "Wer ist Pythons Benevolent Dictator For Life?",
+        ["Guido van Rossum", "Guido v. Rossum"],
+    ),
+]
 questions
 
-# %%  {{ doc.solution() }}
-questions[0].is_answer_correct('15. August 1769')
+# %%  tags=["solution"]
+questions[0].is_answer_correct("15. August 1769")
 
-# %%  {{ doc.solution() }}
+# %%  tags=["solution"]
 questions[0].correct_answer()
 
 # %% [markdown]
@@ -112,7 +115,7 @@ questions[0].correct_answer()
 # - `print_reply()` gibt eine Antwort basierend auf der Frage und dem
 #   "Statuscode" zurück.
 
-# %%  {{ doc.solution() }}
+# %%  tags=["solution"]
 from random import choice
 
 
@@ -176,14 +179,17 @@ class TriviaGame:
         """
         if answer_status == self.EXIT:
             print("Auf Wiedersehen!")
-            print(f"Sie haben {self.percentage_questions_answered_correctly}% "
-                  f"von {self.total_questions_answered} Fragen richtig "
-                  "beantwortet.")
+            print(
+                f"Sie haben {self.percentage_questions_answered_correctly}% "
+                f"von {self.total_questions_answered} Fragen richtig "
+                "beantwortet."
+            )
         elif answer_status == self.CORRECT_ANSWER:
             print("Hervorragend!")
         else:
             print(
-                f"Leider nein. Die richtige Antwort ist '{question.correct_answer()}''")
+                f"Leider nein. Die richtige Antwort ist '{question.correct_answer()}''"
+            )
 
     def run(self):
         while True:
@@ -194,14 +200,14 @@ class TriviaGame:
                 break
 
 
-# %%  {{ doc.solution() }}
+# %%  tags=["solution"]
 my_game = TriviaGame(questions)
 
-# %%  {{ doc.solution() }}
+# %%  tags=["solution"]
 my_game.pick_random_question()
 
-# %%  {{ doc.solution() }}
+# %%  tags=["solution"]
 # my_game.process_answer(my_game.pick_random_question())
 
-# %%  {{ doc.solution() }}
+# %%  tags=["solution"]
 # my_game.run()

@@ -9,7 +9,7 @@
 # ---
 
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Setuptools und Installation") }}
 
 

@@ -9,7 +9,7 @@
 # ---
 
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Kommandozeilenargumente") }}
 
 
@@ -19,4 +19,3 @@
 #
 # - Notebook `064x-Workshop Todo-Liste V2`
 # - Abschnitt "Kommandozeilenargumente"
-

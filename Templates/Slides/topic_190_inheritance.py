@@ -7,15 +7,16 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.2
+#       jupytext_version: 1.13.3
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
+# %%
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # {{ doc.header("Objektorientierung Teil 2: Vererbung") }}
 
 
@@ -29,7 +30,7 @@
 # %% [markdown]
 #  ## Vererbung
 
-# %% {{ doc.codealong() }}
+# %%
 import random
 from typing import Tuple
 
@@ -51,20 +52,23 @@ class Point:
         self.y = random.gauss(3, 2)
 
 
-# %% {{ doc.codealong() }}
+# %%
 p = Point(0, 0)
 p
 
-# %% {{ doc.codealong() }}
+# %%
 p.move(2, 3)
 p
 
-# %% {{ doc.codealong() }}
+# %%
 p.randomize()
 p
 
 
-# %% {{ doc.codealong() }}
+# %% [markdown]
+# Wie können wir farbige Punkte einführen, ohne die komplette Funktionalität von `Point` neu implementieren zu müssen?
+
+# %% {"tags": ["code-along"]}
 class ColorPoint(Point):
     def __init__(self, x=0, y=0, color="black"):
         super().__init__(x, y)
@@ -75,21 +79,20 @@ class ColorPoint(Point):
 
     def randomize(self):
         super().randomize()
-        self.color = random.choice(
-            ["black", "red", "green", "blue", "yellow", "white"])
+        self.color = random.choice(["black", "red", "green", "blue", "yellow", "white"])
 
 
-# %% {{ doc.codealong() }}
+# %% {"tags": ["code-along"]}
 cp = ColorPoint(2, 3, "red")
 # cp
 
 
-# %% {{ doc.codealong() }}
+# %% {"tags": ["code-along"]}
 cp.move(2, 3)
 # cp
 
 
-# %% {{ doc.codealong() }}
+# %% {"tags": ["code-along"]}
 cp.randomize()
 # cp
 
@@ -110,7 +113,7 @@ cp.randomize()
 #  - (Eigentlich ist eine Metaklasse verantwortlich)
 #  - `@abstractmethod` Dekorator
 
-# %% {{ doc.codealong() }}
+# %% {"tags": ["code-along"]}
 from abc import ABC, abstractmethod
 
 
@@ -120,7 +123,7 @@ class MyBase(ABC):
         print("HI!")
 
 
-# %% {{ doc.codealong() }}
+# %% {"tags": ["code-along"]}
 class MyClass(MyBase):
     pass
 
@@ -128,7 +131,7 @@ class MyClass(MyBase):
 # mc = MyClass()
 
 
-# %% {{ doc.codealong() }}
+# %% {"tags": ["code-along"]}
 class YourClass(MyBase):
     def my_method(self):
         super().my_method()

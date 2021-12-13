@@ -20,19 +20,19 @@
 #
 # Ist $2^{16}$ größer als $32\,000\,\,/\,\,2$?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 2 ** 16 > (32_000 / 2)
 
 # %% [markdown]
 # Ist $72$ ohne Rest durch $3$ teilbar?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 72 % 3 == 0
 
 # %% [markdown]
 # Ist $72$ eine gerade Zahl (d.h. ohne Rest durch 2 teilbar)?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 72 % 2 == 0
 
 
@@ -41,7 +41,7 @@
 # Schreiben Sie eine Funktion `ist_teilbar_durch(m, n)` die ( genau dann)
 # `True` zurückgibt, wenn `m` durch `n` teilbar ist
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def ist_teilbar_durch(m, n):
     return m % n == 0
 
@@ -54,12 +54,12 @@ ist_teilbar_durch(6, 2)
 # Schreiben Sie eine Funktion `ist_teilbar_durch_2_und_3(n)`, die genau dann
 # `True` zurückgibt, wenn `n` ohne Rest durch $2$ und durch $3$ teilbar ist.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def ist_teilbar_durch_2_und_3(n):
     return ist_teilbar_durch(n, 2) and ist_teilbar_durch(n, 3)
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def ist_teilbar_durch_2_und_3_v2(n):
     return n % 6 == 0
 
@@ -67,17 +67,17 @@ def ist_teilbar_durch_2_und_3_v2(n):
 # %% [markdown]
 # Testen Sie, ob $72$ durch $2$ und durch $3$ teilbar ist.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 ist_teilbar_durch_2_und_3(72)
 
 
-# %% [markdown] 
+# %% [markdown]
 # # Volljährig
 #
 # Schreiben Sie eine Funktion `drucke_volljährig(alter)`, die `Volljährig`
 # auf dem Bildschirm ausgibt, wenn `alter >= 18` ist und `Minderjährig` sonst.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def drucke_volljährig(alter):
     if alter < 18:
         print("Minderjährig")
@@ -88,7 +88,7 @@ def drucke_volljährig(alter):
 # %% [markdown]
 # Testen Sie `drucke_volljährig(alter)` mit den Werten 17 und 18.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 drucke_volljährig(17)
 drucke_volljährig(18)
 
@@ -101,7 +101,7 @@ drucke_volljährig(18)
 # - `eine_andere_einkaufsliste`, die ebenfalls eine Liste mit den Strings
 #   `Tee` und `Kaffee` enthält.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 meine_einkaufsliste = ["Tee", "Kaffee"]
 eine_andere_einkaufsliste = ["Tee", "Kaffee"]
 
@@ -117,7 +117,7 @@ eine_andere_einkaufsliste = ["Tee", "Kaffee"]
 #   Kaffee
 # ```
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def drucke_einkaufsliste(einkaufsliste):
     print("Einkaufsliste:")
     for item in einkaufsliste:
@@ -129,10 +129,10 @@ def drucke_einkaufsliste(einkaufsliste):
 # Testen Sie die Funktion `drucke_einkaufsliste(einkaufsliste)` mit beiden
 # Einkaufslisten.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 drucke_einkaufsliste(meine_einkaufsliste)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 drucke_einkaufsliste(eine_andere_einkaufsliste)
 
 
@@ -140,7 +140,7 @@ drucke_einkaufsliste(eine_andere_einkaufsliste)
 # Definieren Sie eine Funktion `kaufe(produkt, einkaufsliste)`, das `produkt`
 # zu  `einkaufsliste` hinzufügt.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def kaufe(produkt, einkaufsliste):
     einkaufsliste.append(produkt)
 
@@ -148,24 +148,24 @@ def kaufe(produkt, einkaufsliste):
 # %% [markdown]
 # Fügen Sie `Butter` und `Brot` zur Einkaufsliste `meine_einkaufsliste` hinzu.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 kaufe("Butter", meine_einkaufsliste)
 kaufe("Brot", meine_einkaufsliste)
 
 # %% [markdown]
 # Drucken Sie beide Einkauslisten nochmal aus.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 drucke_einkaufsliste(meine_einkaufsliste)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 drucke_einkaufsliste(eine_andere_einkaufsliste)
 
 # %% [markdown]
 # Was passiert, wenn Sie `Butter` und `Brot` nochmals zur Einkaufsliste
 # `meine_einkaufsliste` hinzufügen?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 kaufe("Butter", meine_einkaufsliste)
 kaufe("Brot", meine_einkaufsliste)
 drucke_einkaufsliste(meine_einkaufsliste)
@@ -183,7 +183,7 @@ drucke_einkaufsliste(meine_einkaufsliste)
 # Das Quadrat von 7 ist 49
 # ```
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def drucke_quadrate(m, n):
     for num in range(m, n + 1):
         print("Das Quadrat von", num, "ist", num ** 2)
@@ -192,7 +192,7 @@ def drucke_quadrate(m, n):
 # %% [markdown]
 # Testen Sie die Funktion mit Argumenten 5, 7
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 drucke_quadrate(5, 7)
 
 
@@ -208,9 +208,9 @@ drucke_quadrate(5, 7)
 # hat. `Item` soll eine `__repr__`-Methode haben, die das Item in einer
 # angemessenen Form darstellt.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 class Item:
-    def __init__(self, product, amount='1'):
+    def __init__(self, product, amount="1"):
         self.product = product
         self.amount = amount
 
@@ -218,14 +218,14 @@ class Item:
         return "Item(" + repr(self.product) + ", " + repr(self.amount) + ")"
 
 
-# %% [markdown] 
+# %% [markdown]
 # Erzeugen sie ein Item, das 500g Kaffee repräsentiert:
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 Item("Kaffee", "500g")
 
 
-# %% [markdown] 
+# %% [markdown]
 # Definieren Sie eine Klasse `ShoppingList`, die eine Liste von `Item`-Instanzen
 # beinhaltet:
 #
@@ -241,7 +241,7 @@ Item("Kaffee", "500g")
 # `ShoppingList` soll eine `__repr__`-Methode haben, die die Einkaufsliste in
 #   einer geeigneten Form darstellt.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 class ShoppingList:
     def __init__(self, items=[]):
         self.items = items
@@ -255,7 +255,7 @@ class ShoppingList:
     def print(self):
         print("Einkaufsliste")
         for item in self.items:
-            print("  ", item.product, " (", item.amount, ")", sep='')
+            print("  ", item.product, " (", item.amount, ")", sep="")
 
 
 # %% [markdown]
@@ -264,25 +264,24 @@ class ShoppingList:
 # - 2 Pakete Tee,
 # - 1 Paket Kaffee
 
-# %% {{ doc.solution() }}
-meine_einkaufsliste = ShoppingList([Item('Tee', '2 Pakete'),
-                                    Item('Kaffee', '1 Paket')])
+# %% tags=["solution"]
+meine_einkaufsliste = ShoppingList([Item("Tee", "2 Pakete"), Item("Kaffee", "1 Paket")])
 meine_einkaufsliste
 
 # %% [markdown]
 # Drucken Sie `meine_einkaufsliste` aus.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 meine_einkaufsliste.print()
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 drucke_einkaufsliste(eine_andere_einkaufsliste)
 
 # %% [markdown]
 # Fügen Sie  250 g Butter und  1 Laib Brot zur Einkaufsliste
 # `meine_einkaufsliste` hinzu.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 meine_einkaufsliste.add_item(Item("Butter", "250g"))
 meine_einkaufsliste.add_item(Item("Brot", "1 Laib"))
 meine_einkaufsliste
@@ -290,16 +289,16 @@ meine_einkaufsliste
 # %% [markdown]
 # Drucken Sie die Einkaufsliste nochmal aus.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 meine_einkaufsliste.print()
 
 # %% [markdown]
 # Was passiert, wenn Sie `Butter` und `Brot` nochmals zur Einkaufsliste
 # `meine_einkaufsliste` hinzufügen?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 meine_einkaufsliste.add_item(Item("Butter", "250g"))
 meine_einkaufsliste.add_item(Item("Brot", "1 Laib"))
 meine_einkaufsliste.print()
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]

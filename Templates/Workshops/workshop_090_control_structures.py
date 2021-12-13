@@ -21,19 +21,19 @@
 # Schreiben Sie eine Funktion `ist_gerade(zahl)`, die `True` zurückgibt,
 # falls `zahl` gerade ist und `False`, falls `zahl` ungerade ist.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def ist_gerade(zahl):
     return zahl % 2 == 0
 
 
 # %% [markdown]
-# Schreiben Sie eine Funktion `drucke_ist_gerade(zahl)`, die 
+# Schreiben Sie eine Funktion `drucke_ist_gerade(zahl)`, die
 #
 # - `{zahl} ist gerade.` auf dem Bildschirm ausgibt, falls `zahl` gerade ist und
 # - `{zahl} ist nicht gerade.` auf dem Bildschirm ausgibt, falls `zahl` nicht
 #   gerade ist.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def drucke_ist_gerade(zahl):
     if ist_gerade(zahl):
         print(f"{zahl} ist gerade.")
@@ -44,7 +44,7 @@ def drucke_ist_gerade(zahl):
 # %% [markdown]
 # Testen Sie `drucke_ist_gerade(zahl)` mit den Werten 0, 1 und 8.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 drucke_ist_gerade(0)
 drucke_ist_gerade(1)
 drucke_ist_gerade(8)
@@ -53,13 +53,13 @@ drucke_ist_gerade(8)
 # %% [markdown]
 # # Positiv / Negativ
 #
-# Schreiben Sie eine Funktion `drucke_ist_positiv(zahl)`, die 
+# Schreiben Sie eine Funktion `drucke_ist_positiv(zahl)`, die
 #
 # - `{zahl} ist positiv.` auf dem Bildschirm ausgibt, falls `zahl > 0` ist,
 # - `{zahl} ist Null.` auf dem Bildschirm ausgibt, falls `zahl == 0` ist,
 # - `{zahl} ist negativ.` auf dem Bildschirm ausgibt, falls `zahl < 0` ist.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def drucke_ist_positiv(zahl):
     if zahl > 0:
         print(f"{zahl} ist positiv.")
@@ -72,13 +72,13 @@ def drucke_ist_positiv(zahl):
 # %% [markdown]
 # Testen Sie `drucke_ist_positiv(zahl)` mit den Werten -3, 0 und 2.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 drucke_ist_positiv(-3)
 drucke_ist_positiv(0)
 drucke_ist_positiv(2)
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def klassifiziere_positiv_negativ(zahl):
     if zahl > 0:
         return f"{zahl} ist positiv."
@@ -92,7 +92,7 @@ def drucke_ist_positiv_2(zahl):
     print(klassifiziere_positiv_negativ(zahl))
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 drucke_ist_positiv_2(-3)
 drucke_ist_positiv_2(0)
 drucke_ist_positiv_2(2)
@@ -107,7 +107,7 @@ drucke_ist_positiv_2(2)
 # - 0 zurückgibt, falls `zahl == 0` ist,
 # - -1 zurückgibt, falls `zahl < 0` ist.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def signum(zahl):
     if zahl > 0:
         return 1
@@ -120,13 +120,13 @@ def signum(zahl):
 # %% [markdown]
 # Testen Sie die Funktion für repräsentative Werte.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 signum(-10)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 signum(0)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 signum(2)
 
 
@@ -140,7 +140,7 @@ signum(2)
 # *Hinweis:*
 # - Ein Kilometer entspricht $0,621371$ Meilen
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def konvertiere_km_nach_meilen(km):
     return km * 0.621371
 
@@ -148,10 +148,10 @@ def konvertiere_km_nach_meilen(km):
 # %% [markdown]
 # Testen Sie `konvertiere_km_nach_meilen(km)` für 1 und 5 km.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 konvertiere_km_nach_meilen(1)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 konvertiere_km_nach_meilen(5)
 
 
@@ -160,10 +160,10 @@ konvertiere_km_nach_meilen(5)
 # Schreiben Sie eine Funktion `meilen_app()`, die eine Länge in Kilometern
 # einliest und die äquivalente Entfernung in Meilen ausgibt.
 #
-# *Hinweise* 
+# *Hinweise*
 # - Ein String kann mit `float()` in einen Float-Wert umgewandelt werden.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def meilen_app():
     km = input("Bitte geben Sie eine Entfernung in km ein: ")
     if km != "":
@@ -173,7 +173,7 @@ def meilen_app():
         print("Bitte geben Sie eine gültige Entfernung in km ein.")
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 meilen_app()
 
 
@@ -183,7 +183,7 @@ meilen_app()
 # Schreiben Sie eine Funktion `meilen_app_2`, die sich wie `meilen_app`
 # verhält, aber Truthiness von Strings ausnutzt.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def meilen_app_2():
     km = input("Bitte geben Sie eine Entfernung in km ein: ")
     if km:
@@ -193,7 +193,7 @@ def meilen_app_2():
         print("Bitte geben Sie eine gültige Entfernung in km ein.")
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 # meilen_app_2()
 
 # %% [markdown]
@@ -210,9 +210,9 @@ def meilen_app_2():
 # Schreiben Sie eine Funktion `kinopreis(alter)`, die den Preis in
 # Abhängigkeit vom Alter berechnet und zurückgibt.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def kinopreis(alter):
-    if (alter < 2):
+    if alter < 2:
         return 0
     elif alter <= 12:
         return 2
@@ -227,19 +227,19 @@ def kinopreis(alter):
 # %% [markdown]
 # Testen Sie die Funktion `kinopreis()` für einige repräsentative Werte.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 kinopreis(1)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 kinopreis(7)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 kinopreis(15)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 kinopreis(25)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 kinopreis(70)
 
 
@@ -251,7 +251,7 @@ kinopreis(70)
 # Sie sind 15 Jahre alt. Ihr Preis beträgt 5 Euro.
 # ```
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def drucke_kinopreis(alter):
     preis = kinopreis(alter)
     if alter == 1:
@@ -263,7 +263,7 @@ def drucke_kinopreis(alter):
 # %% [markdown]
 # Testen Sie `drucke_kinopreis(alter)` für repräsentative Werte.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 drucke_kinopreis(1)
 drucke_kinopreis(7)
 drucke_kinopreis(15)
@@ -285,7 +285,7 @@ drucke_kinopreis(70)
 # Sie sind 12 Jahre alt. Ihr Preis beträgt 2 Euro.
 # ```
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def kino_app():
     alter = input("Wie alt sind Sie? ")
     if alter:
@@ -309,7 +309,7 @@ def kino_app():
 # Implementieren Sie eine Funktion `rate_wort(lösung)`, die den Benutzer so
 # lange nach einem Wort fragt, bis das eingegebene Wort der Lösung entspricht.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def rate_wort(lösung):
     geratenes_wort = input("Bitte geben Sie ein Wort ein: ")
     while geratenes_wort != lösung:
@@ -328,7 +328,7 @@ def rate_wort(lösung):
 # Eingabe soll dem Benutzer angezeigt werden, ob die eingegebene Zahl zu
 # groß, zu klein oder richtig ist.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def rate_zahl(lösung):
     geratene_zahl = input("Bitte geben Sie eine Zahl ein: ")
     while int(geratene_zahl) != lösung:
@@ -348,7 +348,7 @@ def rate_zahl(lösung):
 # Wie müssen Sie Ihre Lösung modifizieren, damit der Spieler durch Eingabe
 # einer leeren Zeichenkette das Spiel abbrechen kann?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def rate_zahl_1(lösung):
     geratene_zahl = input("Bitte geben Sie eine Zahl ein: ")
     while geratene_zahl and int(geratene_zahl) != lösung:
@@ -363,13 +363,13 @@ def rate_zahl_1(lösung):
         print("Aufgeben ist feige!")
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 # rate_zahl_1(23)
 
 # %% [markdown]
 # Lösung unter Zuhilfenahme der Funktion `klassifiziere_zahl`
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def klassifiziere_zahl(geratene_zahl, lösung):
     if geratene_zahl < lösung:
         return False, "Die geratene Zahl ist zu klein! "
@@ -379,7 +379,7 @@ def klassifiziere_zahl(geratene_zahl, lösung):
         return True, "Sie haben gewonnen!"
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def rate_zahl_2(lösung):
     geratene_zahl = input("Bitte geben Sie eine Zahl ein: ")
     erfolg, hinweis = klassifiziere_zahl(int(geratene_zahl), lösung)
@@ -389,7 +389,7 @@ def rate_zahl_2(lösung):
     print("Sie haben gewonnen!")
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 # rate_zahl_2(23)
 
 # %% [markdown]
@@ -421,7 +421,7 @@ def rate_zahl_2(lösung):
 # ungültig war. (Wenn beide Spieler eine ungültige Eingabe vorgenommen haben
 # kann ein beliebiger Spieler gespeichert werden.)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 class BadInputError(ValueError):
     def __init__(self, msg, invalid_player):
         super().__init__(msg)
@@ -459,35 +459,35 @@ def evaluiere_eine_runde_knobeln(spieler1, spieler2):
 # %% [markdown]
 # Testen Sie alle möglichen Pfade durch Ihre Funktion.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 assert evaluiere_eine_runde_knobeln("schere", "schere") == 0
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 assert evaluiere_eine_runde_knobeln("papier", "papier") == 0
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 assert evaluiere_eine_runde_knobeln("stein", "stein") == 0
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 assert evaluiere_eine_runde_knobeln("schere", "papier") == 1
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 assert evaluiere_eine_runde_knobeln("schere", "stein") == 2
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 assert evaluiere_eine_runde_knobeln("papier", "schere") == 2
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 assert evaluiere_eine_runde_knobeln("papier", "stein") == 1
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 assert evaluiere_eine_runde_knobeln("stein", "schere") == 1
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 assert evaluiere_eine_runde_knobeln("stein", "papier") == 2
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def assert_exception(lhs, rhs, invalid_player):
     try:
         evaluiere_eine_runde_knobeln(lhs, rhs)
@@ -496,19 +496,19 @@ def assert_exception(lhs, rhs, invalid_player):
         assert e.invalid_player == invalid_player, "Wrong invalid player"
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 assert_exception("eisen", "schere", 1)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 assert_exception("schere", "eisen", 2)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 assert_exception("papier", "eisen", 2)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 assert_exception("stein", "eisen", 2)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 assert_exception("eisen", "eisen", 1)
 
 
@@ -522,7 +522,7 @@ assert_exception("eisen", "eisen", 1)
 # - `Ungültiges Symbol von Spieler X!`, wenn Spieler X ein ungültiges Symbol
 #   eingegeben hat.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def vergleiche_symbole(spieler1, spieler2):
     try:
         ergebniss = evaluiere_eine_runde_knobeln(spieler1, spieler2)
@@ -537,31 +537,31 @@ def vergleiche_symbole(spieler1, spieler2):
 # %% [markdown]
 # Testen Sie `vergleiche_symbole` für geeignete Eingaben.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 vergleiche_symbole("papier", "papier")
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 vergleiche_symbole("schere", "papier")
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 vergleiche_symbole("papier", "stein")
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 vergleiche_symbole("stein", "schere")
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 vergleiche_symbole("papier", "schere")
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 vergleiche_symbole("stein", "papier")
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 vergleiche_symbole("schere", "stein")
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 vergleiche_symbole("computer", "papier")
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 vergleiche_symbole("papier", "computer")
 
 
@@ -574,7 +574,7 @@ vergleiche_symbole("papier", "computer")
 # (Das ist natürlich kein benutzbares Spiel, da Spieler 2 sehen kann,
 # was Spieler 1 gewählt hat.)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def spiele_eine_runde_knobeln():
     spieler1 = input("Auswahl von Spieler 1: ")
     spieler2 = input("Auswahl von Spieler 2: ")
@@ -584,7 +584,7 @@ def spiele_eine_runde_knobeln():
 # %% [markdown]
 # Testen Sie die Funktion `spiele_eine_runde_knobeln()` interaktiv.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 # spiele_eine_runde_knobeln()
 
 # %% [markdown]
@@ -594,7 +594,7 @@ def spiele_eine_runde_knobeln():
 # der andere (z.B. wenn der erste Spieler 2 Spiele gewonnen hat, der zweite
 # Spieler 5).
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def spiele_knobeln():
     gewinne1 = 0
     gewinne2 = 0
@@ -616,5 +616,5 @@ def spiele_knobeln():
     print(f"Spieler {1 if gewinne1 > gewinne2 else 2} gewinnt!")
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 # spiele_knobeln()

@@ -7,19 +7,20 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.0
+#       jupytext_version: 1.13.3
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
+# %%
 # j2 import 'macros.j2' as doc
 # %% [markdown]
 # ## Worthäufigkeiten
 #
 # Schreiben Sie eine Funktion `zähle_worte(text: str) -> dict`, die ein
-# Dictionary zurückgibt, das die Anzahl der Vorkommen aller Worte in `text`  
+# Dictionary zurückgibt, das die Anzahl der Vorkommen aller Worte in `text`
 # enthält. Zum Beispiel soll
 #
 # ```
@@ -40,13 +41,13 @@
 # ```
 # Beachten Sie, dass alle Wörter in Kleinbuchstaben umgewandelt wurden.
 #
-# ###  Hinweise  
+# ###  Hinweise
 # - Sie können einen String mit der Methode `string.split()` in eine
 #   Liste von Wörtern umwandeln
 # - Sie können einen String mit der Methode `string.lower()` in einen String
 #   umwandeln, der nur aus Kleinbuchstaben besteht.
 
-# %%  {{ doc.solution() }}
+# %% tags=["solution"]
 def zähle_worte(text: str) -> dict:
     words = text.lower().split()
     result = {}
@@ -59,18 +60,18 @@ def zähle_worte(text: str) -> dict:
 # %% [markdown]
 # Testen Sie Ihre Implementierung mit dem folgenden String:
 
-# %%  {{ doc.solution() }}
+# %% tags=["solution"]
 dickens = "It was the best of times it was the worst of times"
 
-# %%  {{ doc.solution() }}
+# %% tags=["solution"]
 zähle_worte(dickens)
 
-# %%  {{ doc.solution() }}
+# %% tags=["solution"]
 from pprint import pprint
 
 pprint(zähle_worte(dickens), width=30)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 help(pprint)
 
 # %%

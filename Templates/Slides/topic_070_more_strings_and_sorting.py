@@ -15,7 +15,7 @@
 # ---
 
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Vertiefung zu Strings") }}
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
@@ -58,28 +58,28 @@
 # %%
 numbers = [3, 8, -7, 1, 0, 2, -3, 3]
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 sorted(numbers)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 sorted(numbers, key=abs)
 
 # %% {"slideshow": {"slide_type": "subslide"}}
 strings = ["a", "ABC", "xy", "Asdfgh", "foo", "bar", "quux"]
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 sorted(strings)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def lower(my_string):
     return my_string.lower()
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 sorted(strings, key=lower)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 sorted(strings, key=len)
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
@@ -93,7 +93,7 @@ sorted(strings, key=len)
 # Das Standard Modul in Python ist `locale`; das auf die Locale-Settings des
 # Betriebssystems zurückgreift:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 import locale
 
 locale.getlocale()
@@ -101,28 +101,28 @@ locale.getlocale()
 # %%
 my_strings = ["o", "oa", "oe", "ö", "oz", "sa", "s", "ß", "ss", "sz"]
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 sorted(my_strings)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 sorted(my_strings, key=locale.strxfrm)
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 locale.setlocale(locale.LC_COLLATE, "de_DE.UTF-8")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 sorted(my_strings, key=locale.strxfrm)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 locale.setlocale(locale.LC_COLLATE, "C")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 sorted(my_strings, key=locale.strxfrm)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 #
 # Die Locale Settings sind global pro Prozess und deshalb hauptsächlich geeignet
-# um mit dem Benutzer zu interagieren. 
+# um mit dem Benutzer zu interagieren.
 #
 # Wenn man mit Strings in verschiedenen Sprachen umgehen muss empfiehlt sich die
 # Verwendung von Bibliotheken wie `PyUCA` (in Python geschrieben und daher
@@ -133,12 +133,12 @@ sorted(my_strings, key=locale.strxfrm)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Umwandeln eines Strings in Groß-/Kleinbuchstaben
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 text = "Das ist ein Text"
 print(text.lower())
 print(text)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 "Das ist ein Text".upper()
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -146,14 +146,14 @@ print(text)
 # Die `lower()` Methode führt nicht immer die gewünschten Umwandlungen durch.
 # Die `casefold` Methode is dafür manchmal nützlich:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 s1 = "daß er sehe"
 s1.upper()
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 s1.lower()
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 s1.casefold()
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -263,18 +263,19 @@ kann der Zeilenvorschub unterdrückt werden."""
 s1 = "café"
 s2 = "cafe\u0301"
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(s1, s2)
 s1 == s2
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 import unicodedata
+
 unicodedata.normalize("NFC", s1) == s1
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 unicodedata.normalize("NFC", s2) == s1
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 unicodedata.normalize("NFD", s1) == s2
 
 
@@ -283,7 +284,7 @@ unicodedata.normalize("NFD", s1) == s2
 #
 # Python bietet die Möglichkeit, Werte von Variablen in Strings einzusetzen:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 name = "Hans"
 zahl = 12
 f"Hallo, {name}, die Zahl ist {zahl + 1}"
@@ -331,25 +332,25 @@ print(ausgabe)
 # eines Substrings in einem String zu finden kann man die `index()`-Methode
 # verwenden.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 "a" in "abc"
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 "x" not in "abc"
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 "bc" in "abc"
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 "cb" in "abc"
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 "Halloween".index("Hallo")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 "Halloween".index("we")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # "Team".index("I")
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}

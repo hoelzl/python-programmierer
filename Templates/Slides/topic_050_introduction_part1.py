@@ -16,13 +16,13 @@
 # ---
 
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Einführung in Python: Grundlagen (Teil 1)") }}
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # # Woraus besteht ein Programm?
 #
-# Wir wollen ein Programm schreiben, das 
+# Wir wollen ein Programm schreiben, das
 #
 # ```
 # Hello, world!
@@ -35,7 +35,7 @@
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # Was benötigen wir dazu?
 #
-# - Daten 
+# - Daten
 #     - den Text `Hello, world!`
 # - Anweisungen
 #     - *Gib den folgenden Text auf dem Bildschirm aus*
@@ -60,23 +60,23 @@
 # - Zahlen: `123`, `3.141592`
 # - Text (Strings): `'Das ist ein Text'`, `"Hello, world!"`
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 # Die Zahl 123
 123
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Die Zahl Pi = 3.141592
 3.141592
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 # Der Text 'Das ist ein Text'
 "Das ist ein Text"
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Der Text 'Hello, world!'
 "Hello, world!"
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 """Auch ein Text.
 Der über mehrere Zeilen geht."""
 
@@ -93,24 +93,24 @@ Der über mehrere Zeilen geht."""
 # - Die Argumente werden durch Kommata getrennt
 # - Alle Argumente werden in einer Zeile ausgegeben, mit Leerzeichen zwischen den Argumenten.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print("Der Wert von 1 + 1 ist", 1 + 1, ".")
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # Durch Angabe eines *benannten Arguments* `sep=''` kann die Ausgabe der
 # Leerzeichen unterdrückt werden:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print("Der Wert von 1 + 1 ist", 1 + 1, ".", sep="")
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # Es sind auch beliebige andere Strings als Wert des Arguments `sep` zulässig:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # CSV (nicht empfehlenswert)
 print(1, 3, 7.5, 2, sep=",")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Uh, oh
 print(1, 3, 7.5, 2, "who, me?", sep=",")
 
@@ -119,7 +119,7 @@ print(1, 3, 7.5, 2, "who, me?", sep=",")
 #
 # - Ganze Zahlen: `1`, `837`, `-12`
 # - Gleitkommazahlen: `0.5`, `123.4`, `-0.01`
-# - Rechenoperationen: 
+# - Rechenoperationen:
 #     - Addition: `+`
 #     - Subtraktion: `-`
 #     - Multiplikation: `*`
@@ -128,10 +128,10 @@ print(1, 3, 7.5, 2, "who, me?", sep=",")
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ## Python als Taschenrechner
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 17 + 4
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1 + 4 * 4 + (3 - 1) * (1 + 1)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -142,22 +142,22 @@ print(1, 3, 7.5, 2, "who, me?", sep=",")
 #     - `1.0` ist eine Gleitkommazahl (`float`)
 # - Mit `type(...)` kann man den Typ des Arguments erfahren:
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 type(1)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 type(1.0)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 type("1")
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # Ganze Zahlen in Python haben keine (praktisch relevante) Obergrenze:
 
-# %% {"slideshow": {"slide_type": ""}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": ""}} tags=["code-along"]
 10000000000000000000000000000000000000000000000000 + 500
 
-# %% {"slideshow": {"slide_type": ""}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": ""}} tags=["code-along"]
 type(10000000000000000000000000000000000000000000000000)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -182,48 +182,48 @@ type(10000000000000000000000000000000000000000000000000)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ### Division
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 4 / 2
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 20 / 7
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 # // und % können zur Division mit Rest verwendet werden:
 20 // 7  # Wie oft geht 7 in 20?
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 20 % 7  # Welcher Rest bleibt dabei?
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 (20 // 7) * 7 + (20 % 7)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # `/` ist links-assoziativ (genau wie `//`, `%`, `+`, `-`, `*`)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 20 / 5 / 2
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Besser:
 (20 / 5) / 2
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 20 / (5 / 2)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ### Exponentiation (Potenz)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 2 ** 3
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 2 * 2 * 2
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 2 ** 4
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 2 * 2 * 2 * 2
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -232,13 +232,13 @@ type(10000000000000000000000000000000000000000000000000)
 # $2^{(2^3)} = 2^8 = 256 \qquad$
 # $(2^2)^3 = 4^3 = 64$
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 2 ** 2 ** 3
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 2 ** (2 ** 3)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 (2 ** 2) ** 3
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -248,13 +248,13 @@ type(10000000000000000000000000000000000000000000000000)
 # $\sqrt{9} = 9^{1/2} = 3\qquad$
 # $\sqrt{2} = 2^{1/2} \approx 1.4142\qquad$
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 4 ** 0.5
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 9 ** 0.5
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 2 ** 0.5
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
@@ -273,7 +273,7 @@ type(10000000000000000000000000000000000000000000000000)
 #
 # Wie lange muss unser Zaun sein?
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 20 + 30 + (20 ** 2 + 30 ** 2) ** 0.5
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -285,7 +285,7 @@ type(10000000000000000000000000000000000000000000000000)
 #
 # Wie lange muss unser Zaun sein?
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 länge_birkenweg = 20
 länge_fichtengasse = 30
 länge_hauptstr = (länge_birkenweg ** 2 + länge_fichtengasse ** 2) ** 0.5
@@ -315,7 +315,7 @@ ergebniss = länge_gesamt
 # Erzeugen und Ändern von Variablen<br/>
 # sind *Anweisungen*.
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 länge_birkenweg = 20
 print(länge_birkenweg)
 länge_birkenweg = 25
@@ -331,7 +331,7 @@ print(länge_birkenweg)
 # - Man kann Variablen neue Werte zuweisen
 #     - Dabei kann der *alte Wert* der Variablen auf der rechten Seite verwendet werden:<br/> `jobs = jobs + 1`
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 x = "Hallo!"
 print(x)
 x = 123
@@ -341,11 +341,11 @@ print(x)
 x += 1
 print(x)
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 # print(diese_variable_gibt_es_nicht)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # nonono = nonono + 1
 
 
@@ -359,7 +359,7 @@ print(x)
 #     - Es ist aber meist besser, das zu vermeiden...
 # - Groß- und Kleinschreibung wird unterschieden
 #     - `A` ist eine andere Variable als `a`
-#     
+#
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # ### Stil
@@ -374,15 +374,15 @@ print(x)
 #     - Normale benutzerdefinierte Variablen sollten nicht als Dunders benannt
 #       werden
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 print(__name__)
 print(type(__name__))
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Bitte nicht nachmachen, obwohl es möglich ist:
 __my_var__ = 123
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 __my_var__
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -393,10 +393,10 @@ __my_var__
 # - Die meisten Python-Projekte folgen den Konventionen in
 #   [PEP 8](https://www.python.org/dev/peps/pep-0008/#naming-conventions)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 _my_var = 234
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 _my_var
 
 # %% {"slideshow": {"slide_type": "subslide"}}
@@ -411,7 +411,7 @@ print(VARIABLE_1)
 print(Variable_1)
 print(variablE_1)
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 _my_var = 1
 print(_my_var)
 _my_var = _my_var + 5
@@ -449,7 +449,7 @@ print(Σ)
 # In Python können mehrere Variablen gleichzeitig definiert bzw. mit neuen
 # Werten versehen werden:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 a, b = 1, 2
 print(a)
 print(b)
@@ -480,16 +480,16 @@ print(länge_gesamt)
 #
 # Das können wir in Python durch eine *Funktion* ausdrücken:
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def pythagoras(a, b):
     c = (a ** 2 + b ** 2) ** 0.5
     return c
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 pythagoras(3, 4)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 pythagoras(1, 1)
 
 
@@ -504,7 +504,7 @@ pythagoras(1, 1)
 #     - Beendet die Funktion
 #     - Bestimmt welcher Wert zurückgegeben wird
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def pythagoras(a, b):
     quadratsumme = a ** 2 + b ** 2
     return quadratsumme ** 0.5
@@ -517,7 +517,7 @@ def pythagoras(a, b):
 # - Argumente des Aufrufs, in Klammern
 # - Ein Argument für jeden Parameter
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 pythagoras(3, 4)
 
 
@@ -527,7 +527,7 @@ pythagoras(3, 4)
 # - Wir haben bis jetzt die Länge der dritten Seite unseres Grundstücks berechnet.
 # - Wir brauchen noch eine Funktion, die die Gesamtlänge ausrechnet:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def gesamtlänge(x, y):
     z = pythagoras(x, y)
     länge = x + y + z
@@ -537,7 +537,7 @@ def gesamtlänge(x, y):
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # Damit können wir unser Problem vereinfachen:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 länge_a = 10  # Beispielwert
 länge_b = 40  # Beispielwert
 print(gesamtlänge(länge_a, länge_b))
@@ -556,25 +556,25 @@ print(gesamtlänge(länge_a, länge_b))
 # verfügbar sonder in Module (und Packages) ausgelagert. Mit der `import`
 # Anweisung kann man dises Funktionalität verfügbar machen:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Zusätzliche mathematische Funktionen:
 import math
 
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 # Auf die Funktionen aus dem `math` Modul kann man dann mit der Syntax
 # `math.floor` zugreifen:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 math.floor(2.5)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 math.floor(2.9)
 
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 # Die Funktion `pythagoras` steht im `math`-Modul unter dem Namen `hypot`
 # zur Verfügung:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 math.hypot(3, 4)
 
 
@@ -582,14 +582,14 @@ math.hypot(3, 4)
 # Damit können wir die Funktion `gesamtlänge` ohne die Hilfsfunktion
 # `pythagoras` schreiben:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def gesamtlänge(x, y):
     z = math.hypot(x, y)
     länge = x + y + z
     return länge
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 gesamtlänge(3, 4)
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
@@ -602,18 +602,18 @@ gesamtlänge(3, 4)
 # - Ganze Zahlen mit fixer Größe (z.B. mit `numpy`)
 # - Gleitkommazahlen mit unterschiedlicher Größe (`numpy`)
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 1.1 * 100
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 import decimal
 
 decimal.Decimal("1.1") * 100
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 (1 + 1j) * (1 + 1j)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1j * 1j
 
 
@@ -624,19 +624,19 @@ decimal.Decimal("1.1") * 100
 # - Sowohl bei der Definition, als auch beim Aufruf müssen die Klammern
 #   trotzdem angegeben werden.
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def null():
     return 0
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 null()
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Fehler: 'Aufruf' ohne Klammern
 null
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Fehler: 'Aufruf' ohne Klammern
 # plus_eins(null)
 
@@ -649,7 +649,7 @@ null
 # - Werte berechnen: `quadratsumme(3, 4)`
 # - Seiteneffekte haben: `print("Hans")`
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 type(print("Hans"))
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -658,13 +658,13 @@ type(print("Hans"))
 # Der Rückgabewert der Funktion `print()` ist der spezielle Wert `None`.
 # - Jupyter druckt `None` nicht als Wert einer Zelle aus:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 None
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(None)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(print("Hans"))
 
 
@@ -676,13 +676,13 @@ print(print("Hans"))
 #     - Oft ist das der spezielle Wert `None`
 #     - Wenn eine Funktion `None` zurückgibt brauchen wir keine explizite `return`-Anweisung
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def say_hello():
     print("Hello, world!")
     print("Today is a great day!")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 say_hello()
 
 
@@ -701,12 +701,12 @@ say_hello()
 # - Wird das entsprechende Argument nicht übergeben so wird der Default-Wert eingesetzt
 # - Hat ein Parameter einen Default-Wert, so müssen alle rechts davon stehenden Werte ebenfalls einen haben
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def add_weighted(a, b=0, c=0):
     return a + 2 * b + 3 * c
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(add_weighted(2))
 print(add_weighted(2, 3))
 print(add_weighted(2, 3, 4))
@@ -715,16 +715,16 @@ print(add_weighted(2, 3, 4))
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}
 # ## Vorsicht mit veränderlichen Default-Argumenten
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def append_value(value, my_list=[]):
     my_list.append(value)
     return my_list
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 append_value(1)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 append_value(2)
 
 
@@ -732,7 +732,7 @@ append_value(2)
 #
 # Lösung: verwende `Null` als Argument, erzeuge in jedem Aufruf eine neue Liste
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def append_value(value, my_list=None):
     if my_list is None:
         my_list = []
@@ -740,10 +740,10 @@ def append_value(value, my_list=None):
     return my_list
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 append_value(1)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 append_value(2)
 
 
@@ -756,28 +756,28 @@ append_value(2)
 # - Werden alle Parameter benannt, so wird der Aufruf unabhängig von der
 #   Parameterreihenfolge
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def say_hi(person, greeting="Hi"):
     print(greeting, " ", person, "!", sep="")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 say_hi("Jill")
 say_hi("Jack", "Good morning")
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 say_hi(greeting="Heya", person="Betty")
 
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def add_weighted(a, b=0, c=0):
     return a + 2 * b + 3 * c
 
 
-# %% {"slideshow": {"slide_type": ""}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": ""}} tags=["code-along"]
 add_weighted(c=2, a=1)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 add_weighted(5, c=7)
 
 
@@ -787,18 +787,18 @@ add_weighted(5, c=7)
 # Python erlaubt es die Typen von Funktionsargumenten und den Rückgabetyp einer
 # Funktion anzugeben:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def mult(a: int, b: float) -> float:
     return a * b
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 mult(3, 2.0)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # Typannotationen dienen lediglich zur Dokumentation und werden von Python ignoriert:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 mult("a", 3)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -806,7 +806,7 @@ mult("a", 3)
 # (*Hinweis:* in älteren Python Versionen kann `list` keine Typparameter
 # erhalten.)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 from typing import Optional
 
 
@@ -816,12 +816,12 @@ def my_append(lhs: list[int], rhs: Optional[int]):
         lhs.append(rhs)
 
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 my_list = [1, 2, 3]
 my_append(my_list, None)
 my_list
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 my_append(my_list, 4)
 my_list
 
@@ -833,7 +833,7 @@ my_list
 # erstes Element im Rumpf angegeben wird. Meistens wird dafür ein `"""`-String
 # verwendet:
 
-# %% {"slideshow": {"slide_type": "subslide"}} {{ doc.codealong() }}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def my_fun(x):
     """
     Zeigt dem Benutzer den Wert von x an
@@ -844,7 +844,7 @@ def my_fun(x):
     print("Das Argument x hat den Wert", x)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 my_fun(123)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -854,34 +854,34 @@ my_fun(123)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # Der Docstring einer Funktion kann mit `help()` ausgegeben werden:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 help(my_fun)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # In Jupyter kann man den Docstring einer Funktion durch ein vorangestelltes
 # oder nachgestelltes Fragezeichen anzeigen lassen:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # # ?my_fun
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # # my_fun?
 
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # Oft verwendet man statt dessen Shift-Tab:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 my_fun
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
 # Bei Funktionen mit langen Docstrings kann man durch zweimaliges Drücken von `Shift-Tab` auf die ausführliche Anzeigeform umschalten:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 my_fun
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}}
@@ -893,16 +893,15 @@ print
 # Jupyter zeigt u.a. die Signatur einer Funktion an, wenn man `Shift-Tab`
 # eingibt:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Shift-Tab zum Anzeigen der Signatur:
 say_hi
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def add_ints(m: int, n: int) -> int:
     return m + n
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 add_ints
-

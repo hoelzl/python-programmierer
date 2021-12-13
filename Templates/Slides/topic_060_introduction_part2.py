@@ -16,7 +16,7 @@
 # ---
 
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Einführung in Python: Grundlagen Teil 2") }}
 
 
@@ -29,18 +29,18 @@
 # - `repr` für eine "programmnahe" Darstellung (wie könnte der Wert im Programm erzeugt werden)
 # - `str` für eine "benutzerfreundliche" Darstellung
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(str("Hallo!"))
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(repr("Hallo!"))
 
 # %% [markdown] "slideshow": {"slide_type": "subslide"}}
 # Für manche Datentypen liefern `str` und `repr` den gleichen String zurück:
 
-# %% {{ doc.codealong() }}
-print(str(['a', 'b', 'c']))
-print(repr(['a', 'b', 'c']))
+# %% tags=["code-along"]
+print(str(["a", "b", "c"]))
+print(repr(["a", "b", "c"]))
 
 
 # %% [markdown] slideshow={"slide_type": "slide"}
@@ -48,7 +48,7 @@ print(repr(['a', 'b', 'c']))
 #
 # In Python können benutzerdefinierte Datentypen (Klassen) definiert werden:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 class PointV0:
     pass
 
@@ -64,18 +64,18 @@ class PointV0:
 # Klassennamen als Funktion aufruft.  Manche der Python Operatoren und
 # Funktionen können verwendet werden:
 
-# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 p1 = PointV0()
 p1
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(p1)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 p2 = PointV0()
 p1 == p2
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Fehler
 # p1 < p2
 
@@ -85,7 +85,7 @@ p1 == p2
 # benutzerdefinierten Datentypen neue *Attribute* zuweisen, allerdings verwendet
 # man die `.`-Notation statt der Indexing Notation `[]`:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Möglich, aber nicht gut...
 p1.x = 1.0
 p1.y = 2.0
@@ -93,7 +93,7 @@ print(p1.x)
 print(p1.y)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Fehler!
 # p2.x
 
@@ -107,27 +107,27 @@ print(p1.y)
 # über die `__init__()` Methode. Die `__init__()`-Methode hat immer
 # (mindestens) einen Parameter, der per Konvention `self` heißt:
 
-# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 class PointV1:
     def __init__(self):
         self.x = 0.0
         self.y = 0.0
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 p1 = PointV1()
 p2 = PointV1()
 print("p1: x =", p1.x, "y =", p1.y)
 print("p2: x =", p2.x, "y =", p2.y)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 p1 == p2
 
 # %% [markdown] slideshow={"slide_type": "subslide"}
 #
 # Die Werte von Attributen können verändert werden:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 p1.x = 1.0
 p1.y = 2.0
 print("p1: x =", p1.x, "y =", p1.y)
@@ -140,14 +140,14 @@ print("p2: x =", p2.x, "y =", p2.y)
 # die Attribute anzugeben. Das ist möglich, indem man der `__init__()`-Methode
 # zusätzliche Parameter gibt.
 
-# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 class PointV2:
     def __init__(self, x, y):
         self.x = x
         self.y = y
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 p1 = PointV2(2.0, 3.0)
 p2 = PointV2(0.0, 0.0)
 print("p1: x =", p1.x, "y =", p1.y)
@@ -171,7 +171,7 @@ print("p2: x =", p2.x, "y =", p2.y)
 # Per Konvention hat dieser Parameter den Namen `self`, wie bei der
 # `__init__()`-Methode.
 
-# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 class PointV3:
     def __init__(self, x, y):
         self.x = x
@@ -182,12 +182,12 @@ class PointV3:
         self.y += dy
 
 
-# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 p = PointV3(2, 3)
 print("x =", p.x)
 print("y =", p.y)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 p.move(3, 5)
 print("x =", p.x)
 print("y =", p.y)
@@ -205,7 +205,7 @@ print("y =", p.y)
 # Mit Dunder-Methoden können benutzerdefinierten Datentypen benutzerfreundlicher
 # gestaltet werden:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(str(p1))
 print(repr(p1))
 
@@ -216,7 +216,7 @@ print(repr(p1))
 # Funktionsaufruf `repr(x)` überprüft, ob `x` eine Methode `__repr__` hat und
 # ruft diese auf, falls sie existiert.
 
-# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 class PointV4:
     def __init__(self, x, y):
         self.x = x
@@ -230,7 +230,7 @@ class PointV4:
         self.y += dy
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 p1 = PointV4(2, 5)
 print(repr(p1))
 
@@ -238,7 +238,7 @@ print(repr(p1))
 # die Funktion `str` an `repr`, falls keine `__str__`-Methode definiert ist:
 #
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(str(p1))
 
 
@@ -247,7 +247,7 @@ print(str(p1))
 # [Python Datenmodell](https://docs.python.org/3/reference/datamodel.html)
 # in der Dokumentation
 
-# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 class Point:
     def __init__(self, x=0, y=0):
         self.x = x
@@ -278,31 +278,31 @@ class Point:
         self.y += dy
 
 
-# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 p1 = Point(1, 2)
 p2 = Point(2, 4)
 p3 = Point(2, 4)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 p1 == p2
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 p2 == p3
 
-# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 p3 = p1 + p2
 p3
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 p3 = p1 - Point(3, 2)
 p3
 
-# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 print(p1)
 print(p1 * 3)
 print(3 * p1)
 
-# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 print(p2)
 p2 += p1
 p2
@@ -320,7 +320,7 @@ p2
 #
 # Es ist möglich eigene Typen zu definieren, die sich wie Listen verhalten:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 class MyBadList:
     def __init__(self, elements=None):
         if elements is None:
@@ -340,7 +340,7 @@ class MyBadList:
         self.elements.append(element)
 
 
-# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 my_list_1 = MyBadList()
 my_list_2 = MyBadList()
 my_list_3 = MyBadList([1, 2, 3])
@@ -348,7 +348,7 @@ print(my_list_1)
 print(my_list_2)
 print(my_list_3)
 
-# %% slideshow={"slide_type": "subslide"} {{ doc.codealong() }}
+# %% slideshow={"slide_type": "subslide"} tags=["code-along"]
 my_list_1.append("a")
 my_list_1.append("b")
 my_list_1.append("c")
@@ -356,16 +356,16 @@ print(my_list_1)
 print(my_list_2)
 print(my_list_3)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(len(my_list_1))
 print(my_list_1[0])
 # print(my_list_1[10])
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 for elt in my_list_1:
     print(elt)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 my_list_1[1:]
 
 
@@ -378,7 +378,7 @@ my_list_1[1:]
 # Die [Dokumentation](https://docs.python.org/3/library/dataclasses.html)
 # beinhaltet weitere Möglichkeiten.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 from dataclasses import dataclass
 
 
@@ -388,18 +388,18 @@ class DataPoint:
     y: float
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 dp = DataPoint(2, 3)
 dp
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 dp1 = DataPoint(1, 1)
 dp2 = DataPoint(1, 1)
 print(dp1 == dp2)
 print(dp1 is dp2)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 @dataclass
 class Point3D:
     x: float
@@ -411,7 +411,7 @@ class Point3D:
         return Point3D(self.x + dx, self.y + dy, self.z + dz)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 p3d = Point3D(1.0, 2.0)
 print(p3d)
 print(p3d.move(dy=1.0, dz=5.0))
@@ -420,7 +420,7 @@ print(p3d.move(dy=1.0, dz=5.0))
 #
 # Dataclasses erzwingen, dass alle Default-Werte unveränderlich sind:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 from dataclasses import dataclass, field
 
 
@@ -430,11 +430,11 @@ class DefaultDemo:
     items: list = field(default_factory=list)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 d1 = DefaultDemo()
 d2 = DefaultDemo()
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 d1.items.append(1234)
 print(d1)
 print(d2)

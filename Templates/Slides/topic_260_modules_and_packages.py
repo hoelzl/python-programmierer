@@ -10,7 +10,7 @@
 # ---
 
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Module und Packages") }}
 
 
@@ -25,12 +25,12 @@
 #  - Durch *Module* und *Packages* kann diese Funktionalität bei Bedarf geladen
 #    werden.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Importieren eines Moduls/Packages
 import os
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Verwenden der Funktionalität
 os.getcwd()
 
@@ -48,14 +48,16 @@ os.getcwd()
 #
 #  [Hier](https://docs.python.org/3/py-modindex.html) ist eine vollständigere Liste.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 import os
-{'num-cpus': os.cpu_count(), 'pid': os.getpid()}
+
+{"num-cpus": os.cpu_count(), "pid": os.getpid()}
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 import ast
-ast.dump(ast.parse('print(123)'), False)
+
+ast.dump(ast.parse("print(123)"), False)
 
 
 # %% [markdown]
@@ -68,10 +70,10 @@ ast.dump(ast.parse('print(123)'), False)
 #  - Wenn sich ein Python-Modul im Suchpfad befindet, kann es mit `import` geladen werden.
 #  - Jupyter Notebooks lassen sich nicht (ohne zusätzliche Pakete) als Module laden.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Welche Python-Dateien gibt es im aktuellen Verzeichnis?
 for filename in os.listdir(os.getcwd()):
-    if filename[-3:] == '.py':
+    if filename[-3:] == ".py":
         print(filename)
 
 
@@ -80,11 +82,11 @@ for filename in os.listdir(os.getcwd()):
 # # %pycat my_test_module.py
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Andere Möglichkeit, den Inhalt von `my_test_module.py` anzuzeigen.
-with open('my_test_module.py', 'r') as file:
+with open("my_test_module.py", "r") as file:
     text = file.read()
-    
+
 print(text)
 
 
@@ -97,66 +99,66 @@ print(text)
 # get_ipython().run_line_magic('autoreload', '2')
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Top-level code wird NICHT mehr ausgeführt
 import my_test_module
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 my_test_module.add1(2)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # add1
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 import my_test_module as mm
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 mm.add1(1)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 mm.perform_complex_computation(17)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 from my_test_module import multiply_by_2
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 multiply_by_2(2)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 from my_test_module import multiply_by_2 as mult2
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 mult2(4)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Im Regelfall besser vermeiden:
 from my_test_module import *
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 multiply_by_2(3)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 add1(3)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Anzeigen aller definierten Namen:
 dir(my_test_module)
 
 
-# %% {{ doc.codealong() }}
-[name for name in dir(my_test_module) if name[0] != '_']
+# %% tags=["code-along"]
+[name for name in dir(my_test_module) if name[0] != "_"]
 
 
 # %% [markdown]
@@ -185,17 +187,17 @@ __name__
 #  - Ein Package ist eine Zusammenfassung von mehreren Modulen
 #  - `b` ist Sub-Package von `a`, `c` und `x` sind Submodule von `b`
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 from html.parser import HTMLParser
 import html.entities
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 HTMLParser()
 
 
-# %% {{ doc.codealong() }}
-html.entities.entitydefs['Psi']
+# %% tags=["code-along"]
+html.entities.entitydefs["Psi"]
 
 
 # %% [markdown]

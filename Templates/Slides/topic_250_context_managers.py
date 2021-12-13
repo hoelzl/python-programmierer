@@ -11,7 +11,7 @@
 
 
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Context Manager") }}
 
 
@@ -22,7 +22,7 @@
 #  Context Manager sind Objekte, die häufig verwendete `try-except-finally`
 #  Patterns für `with`-Blöcke kapseln.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 from contextlib import AbstractContextManager
 import sys
 
@@ -59,8 +59,7 @@ def progress(entry_message):
     return ProgressNotifier(entry_message)
 
 
-
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 import random
 
 
@@ -76,11 +75,9 @@ def download_items(n):
                 p.item_completed()
 
 
-
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 try:
     download_items(500)
     print("Finished successfully")
 except IOError:
     print("Caught IOError")
-

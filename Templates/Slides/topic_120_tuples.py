@@ -15,7 +15,7 @@
 # ---
 
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Tupel") }}
 
 # %% [markdown]
@@ -29,26 +29,26 @@
 # - In vielen Fällen müssen Tupel eingeklammert werden: `(1, 2, 3)`
 #
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 1, 2, 3
 
 
-# %% {{ doc.codealong() }}
-non_tuple = (1)
+# %% tags=["code-along"]
+non_tuple = 1
 print(non_tuple)
 type(non_tuple)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 singleton_tuple = (1,)
 print(singleton_tuple)
 type(singleton_tuple)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 x = "a", 1, True
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 type(x)
 
 
@@ -70,7 +70,7 @@ type(x)
 #  - Viele der Operationen auf Listen lassen sich auf Tupel anwenden.
 #  - Die Operationen, die Listen verändern sind nicht anwendbar.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 values = 1, 2, 3
 print(values + ("a", "b"))
 print(values[1])
@@ -78,23 +78,22 @@ print("Length:", len(values))
 values
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 for x in 1, 2, 3:
     print(x)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 x, y = 1, 2
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(x, y)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 (1, 2, 3).index(2)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 (1, 2, 3, 1, 2, 1, 2).count(1)
-

@@ -60,9 +60,9 @@
 # 31
 # ```
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def fizz_buzz(n):
-    for n in range(1, n+1):
+    for n in range(1, n + 1):
         if n % 15 == 0:
             print("FizzBuzz")
         elif n % 3 == 0:
@@ -73,5 +73,5 @@ def fizz_buzz(n):
             print(n)
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 fizz_buzz(31)

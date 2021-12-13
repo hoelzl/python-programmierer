@@ -10,7 +10,7 @@
 # ---
 
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Iteration") }}
 
 
@@ -22,13 +22,13 @@
 # bereits besprochene`for`-Schleife:
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 my_list = [1, 2, 3, 4]
 for n in my_list:
     print(f"Item {n}")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 index = 0
 while index < len(my_list):
     n = my_list[index]
@@ -40,7 +40,7 @@ while index < len(my_list):
 #
 #  ## Iteration über Listen von Listen
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 a, b = [1, 2]
 print(a)
 print(b)
@@ -50,12 +50,12 @@ print(b)
 my_list = [[1, 2], [3, 4], [5, 6]]
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 for m, n in my_list:
     print(f"Items {m} and {n}")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 index = 0
 while index < len(my_list):
     m, n = my_list[index]
@@ -78,20 +78,20 @@ while index < len(my_list):
 # %%
 my_list = ["a", "b", "c", "d", "e"]
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 enumerate(my_list)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 list(enumerate(my_list))
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 for index, element in enumerate(my_list):
     print(f"index = {index}, element = {element}")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def find(element, a_list):
     result = None
     for index, list_entry in enumerate(a_list):
@@ -101,23 +101,22 @@ def find(element, a_list):
     return result
 
 
-
 # %%
 my_list = ["a", "b", "c", "d", "a"]
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 find("a", my_list)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 find("d", my_list)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 assert find("x", my_list) == None
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Alternative Implementierung:
 def find_return(element, a_list):
     for index, list_entry in enumerate(a_list):
@@ -126,8 +125,7 @@ def find_return(element, a_list):
     return None
 
 
-
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Mit assert können Invarianten dokumentiert werden:
 assert find("a", my_list) == find_return("a", my_list)
 assert find("d", my_list) == find_return("d", my_list)
@@ -138,7 +136,7 @@ assert find("x", my_list) == find_return("x", my_list)
 #
 #  ## Mini-Workshop
 #
-#  - Notebook `030x-Workshop Listen und For-Schleifen`
+#  - Notebook `workshop_100_lists_part2`
 #  - Abschnitt "Finden in Listen"
 #
 
@@ -146,7 +144,7 @@ assert find("x", my_list) == find_return("x", my_list)
 #
 #  ## Aggregation von Listenelementen
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def summe(zahlen):
     ergebnis = 0
     for n in zahlen:
@@ -154,8 +152,7 @@ def summe(zahlen):
     return ergebnis
 
 
-
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 summe([1, 2, 3])
 
 
@@ -163,21 +160,21 @@ summe([1, 2, 3])
 #
 #  ## Mini-Workshop
 #
-#  - Notebook `030x-Workshop Listen und For-Schleifen`
+#  - Notebook `workshop_100_lists_part2`
 #  - Abschnitt "Mittelwert einer Liste"
 
 # %% [markdown]
 #
 #  ## Transformation von Listen
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 result = []
 for item in [1, 2, 3, 4]:
     result.append(item + 1)
 result
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 result = []
 for n in [1, 2, 3, 4]:
     result.append(f"Item {n}")
@@ -188,14 +185,14 @@ result
 #
 # ## Mini-Workshop
 #
-# - Notebook `030x-Workshop Listen und For-Schleifen`
+# - Notebook `workshop_100_lists_part2`
 # - Abschnitt "Quadratzahlen"
 
 
 # %% [markdown]
 # # Filtern von Listen
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 result = []
 for item in [1, 2, 3, 4, 5, 6]:
     if item % 2 == 0:
@@ -203,7 +200,7 @@ for item in [1, 2, 3, 4, 5, 6]:
 result
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 result = []
 for item in ["abc", "def", "asd", "qwe", "bab"]:
     if "ab" in item:
@@ -215,6 +212,6 @@ result
 #
 #  ## Mini-Workshop
 #
-#  - Notebook `030x-Workshop Listen und For-Schleifen`
+#  - Notebook `workshop_100_lists_part2`
 #  - Abschnitt "Filtern"
 #

@@ -23,7 +23,7 @@
 # Definieren Sie eine Klasse `Kfz`, deren Instanzen Kraftfahrzeuge beschreiben.
 # Jedes KFZ soll Attribute `hersteller` und `kennzeichen` haben.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 class Kfz:
     def __init__(self, hersteller, kennzeichen):
         self.hersteller = hersteller
@@ -37,7 +37,7 @@ class Kfz:
 # - einen VW mit Kennzeichen "WOB-VW 246"
 # und speichern Sie sie in Variablen `bmw` und `vw`
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 bmw = Kfz("BMW", "M-BW 123")
 vw = Kfz("VW", "WOB-VW 246")
 
@@ -46,7 +46,7 @@ vw = Kfz("VW", "WOB-VW 246")
 # Erzeugen Sie eine neue Instanz von `Kfz` mit Hersteller BMW und Kennzeichen
 # "M-BW 123" und speichern Sie sie in einer Variablen `bmw2`.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 bmw2 = Kfz("BMW", "M-BW 123")
 
 # %% [markdown]
@@ -54,10 +54,10 @@ bmw2 = Kfz("BMW", "M-BW 123")
 # Wie können Sie feststellen, ob `bmw` und `bmw2` (bzw. `bmw` und `vw`) das
 # gleiche Fahrzeug beschreiben?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 bmw.hersteller == bmw2.hersteller and bmw.kennzeichen == bmw2.kennzeichen
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 bmw.hersteller == vw.hersteller and bmw.kennzeichen == vw.kennzeichen
 
 
@@ -68,7 +68,7 @@ bmw.hersteller == vw.hersteller and bmw.kennzeichen == vw.kennzeichen
 # Erweitern Sie die Klasse `Kfz` um eine Methode `melde_um(self,
 # neues_kennzeichen)`, die das Kennzeichen des Fahrzeugs ändert.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 class Kfz:
     def __init__(self, hersteller, kennzeichen):
         self.hersteller = hersteller
@@ -83,7 +83,7 @@ class Kfz:
 # Erzeugen Sie neue Instanzen von `bmw`, `bmw2` und `vw` wie in der obigen
 # Aufgabe:
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 bmw = Kfz("BMW", "M-BW 123")
 bmw2 = Kfz("BMW", "M-BW 123")
 vw = Kfz("VW", "WOB-VW 246")
@@ -94,10 +94,10 @@ vw = Kfz("VW", "WOB-VW 246")
 # 9" hat. Wie können Sie feststellen ob das Ummelden die gewünschte Änderung
 # hatte?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 vw.melde_um("BGL-A 9")
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 # Z.B
 assert vw.kennzeichen == "BGL-A 9" and vw.hersteller == "VW"
 # Oder
@@ -108,7 +108,7 @@ print("Hersteller:", vw.hersteller, "\tKennzeichen:", vw.kennzeichen)
 # Melden Sie den in `bmw` gespeicherten BMW um (mit Kennzeichen "F-B 21"). Wirkt
 # sich die Änderung auf das in `bmw2` gespeicherte KFZ aus?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 bmw.melde_um("F-B 21")
 print("Hersteller:", bmw.hersteller, "\tKennzeichen:", bmw.kennzeichen)
 print("Hersteller:", bmw2.hersteller, "\tKennzeichen:", bmw2.kennzeichen)
@@ -123,7 +123,7 @@ print("Hersteller:", bmw2.hersteller, "\tKennzeichen:", bmw2.kennzeichen)
 # mit der verbesserten Klasse aus.
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 class Kfz:
     def __init__(self, hersteller, kennzeichen):
         self.hersteller = hersteller
@@ -148,14 +148,14 @@ bmw2
 vw = Kfz("VW", "WOB-VW 246")
 vw
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 vw.melde_um("BGL-A 9")
 vw
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 assert vw.kennzeichen == "BGL-A 9" and vw.hersteller == "VW"
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 bmw.melde_um("F-B 21")
 bmw
 
@@ -170,12 +170,12 @@ bmw2
 # ein Produkt und die davon benötigte Menge enthalten.
 #
 # Es sollen sowohl die Einkaufsliste selber als auch die Einträge durch
-# benutzerdefinierte Datentypen repräsentiert werden. 
+# benutzerdefinierte Datentypen repräsentiert werden.
 #
 # Definieren Sie zunächst eine Klasse `Item`, die Attribute `product` und
 # `amount` hat. Verwenden Sie dazu den `@dataclass` Decorator
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 from dataclasses import dataclass
 
 
@@ -188,7 +188,7 @@ class Item:
 # %% [markdown]
 # Erzeugen sie ein Item, das 500g Kaffee repräsentiert:
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 Item("Kaffee", "500g")
 
 # %% [markdown]
@@ -228,7 +228,7 @@ Item("Kaffee", "500g")
 # Einkaufsliste zurückgibt, und für `__getitem__()`, die den Zugriff auf
 # Einträge über ihren numerischen Index erlaubt.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 from dataclasses import field
 
 
@@ -259,9 +259,8 @@ class ShoppingList:
 # - 2 Pakete Tee,
 # - 1 Paket Kaffee
 
-# %% {{ doc.solution() }}
-meine_einkaufsliste = ShoppingList([Item('Tee', '2 Pakete'),
-                                    Item('Kaffee', '1 Paket')])
+# %% tags=["solution"]
+meine_einkaufsliste = ShoppingList([Item("Tee", "2 Pakete"), Item("Kaffee", "1 Paket")])
 print(str(meine_einkaufsliste))
 print(repr(meine_einkaufsliste))
 
@@ -269,7 +268,7 @@ print(repr(meine_einkaufsliste))
 #
 # Drucken Sie `meine_einkaufsliste` aus.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 print(meine_einkaufsliste)
 
 # %% [markdown]
@@ -277,19 +276,19 @@ print(meine_einkaufsliste)
 # Stellen Sie fest, wie lange `meine_einkaufsliste` ist und welches Element an
 # Index 1 ist:
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 print(len(meine_einkaufsliste))
 print(meine_einkaufsliste[0])
 
 # %% [markdown]
 #
 # Was ist der Effekt des follgenden Ausdrucks?
-# ```python 
+# ```python
 #   for item in meine_einkaufsliste:
 #       print(item)
 # ```
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 for item in meine_einkaufsliste:
     print(item)
 
@@ -298,7 +297,7 @@ for item in meine_einkaufsliste:
 # Fügen Sie  250 g Butter und  1 Laib Brot zur Einkaufsliste
 # `meine_einkaufsliste` hinzu.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 meine_einkaufsliste.add_item(Item("Butter", "250g"))
 meine_einkaufsliste.add_item(Item("Brot", "1 Laib"))
 meine_einkaufsliste
@@ -306,7 +305,7 @@ meine_einkaufsliste
 # %% [markdown]
 # Drucken Sie die Einkaufsliste nochmal aus.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 print(meine_einkaufsliste)
 
 # %% [markdown]
@@ -314,7 +313,7 @@ print(meine_einkaufsliste)
 # Was passiert, wenn Sie `Butter` und `Brot` nochmals zur Einkaufsliste
 # `meine_einkaufsliste` hinzufügen?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 meine_einkaufsliste.add_item(Item("Butter", "250g"))
 meine_einkaufsliste.add_item(Item("Brot", "1 Laib"))
 print(meine_einkaufsliste)

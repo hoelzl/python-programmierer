@@ -7,13 +7,14 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.0
+#       jupytext_version: 1.13.3
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
+# %%
 # j2 import 'macros.j2' as doc
 # %% [markdown]
 # # Vererbung
@@ -36,10 +37,10 @@
 # geeigneten Attributen und einer Methode `gehalt()`, die das Gehalt berechnet.
 #
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 from dataclasses import dataclass
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 @dataclass
 class Mitarbeiter:
     name: str
@@ -50,7 +51,7 @@ class Mitarbeiter:
         return 13 / 12 * self.grundgehalt
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 @dataclass
 class Arbeiter(Mitarbeiter):
     überstunden: float = 0.0
@@ -60,7 +61,7 @@ class Arbeiter(Mitarbeiter):
         return super().gehalt() + self.überstunden * self.stundensatz
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 @dataclass
 class Manager(Mitarbeiter):
     bonus: float
@@ -75,7 +76,7 @@ class Manager(Mitarbeiter):
 # Grundgehalt von  36000.0 Euro, der 3.5 Überstunden zu je 40.0 Euro gearbeit
 # hat. Drucken Sie das Gehalt aus.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 a = Arbeiter("Hans", "123", 36_000, 3.5, 40.0)
 print(a.gehalt())
 a
@@ -86,7 +87,7 @@ a
 # Grundgehalt von 60000.0 Euro und einen Bonus von 30000.0 Euro hat. Drucken Sie
 # das Gehalt aus.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 m = Manager("Sepp", "666", 60_000.0, 30_000.0)
 print(m.gehalt())
 m
@@ -95,7 +96,7 @@ m
 #
 # Lösung ohne Dataclasses:
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 class Mitarbeiter:
     def __init__(self, name, pers_nr, grundgehalt):
         self.name = name
@@ -106,7 +107,7 @@ class Mitarbeiter:
         return 13 / 12 * self.grundgehalt
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 class Arbeiter(Mitarbeiter):
     def __init__(self, name, pers_nr, grundgehalt, überstunden, stundensatz):
         super().__init__(name, pers_nr, grundgehalt)
@@ -116,32 +117,35 @@ class Arbeiter(Mitarbeiter):
     def __repr__(self):
         return (
             f"Arbeiter({self.name!r}, {self.pers_nr!r}, {self.grundgehalt}, "
-            f"{self.überstunden}, {self.stundensatz})")
+            f"{self.überstunden}, {self.stundensatz})"
+        )
 
     def gehalt(self):
         return super().gehalt() + self.überstunden * self.stundensatz
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 class Manager(Mitarbeiter):
     def __init__(self, name, pers_nr, grundgehalt, bonus):
         super().__init__(name, pers_nr, grundgehalt)
         self.bonus = bonus
 
     def __repr__(self):
-        return (f"Manager({self.name!r}, {self.pers_nr!r}, {self.grundgehalt}, "
-                f"{self.bonus})")
+        return (
+            f"Manager({self.name!r}, {self.pers_nr!r}, {self.grundgehalt}, "
+            f"{self.bonus})"
+        )
 
     def gehalt(self):
         return super().gehalt() + self.bonus
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 a = Arbeiter("Hans", 123, 36_000, 3, 40)
 print(a.gehalt())
 a
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 m = Manager("Sepp", 666, 60_000, 30_000)
 print(m.gehalt())
 m
@@ -165,8 +169,9 @@ m
 # - Wenn `withdraw` mit einem negativen Wert aufgerufen wird oder durch das
 #   Abheben des Betrags die `balance` des Kontos negativ werden würde.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 from dataclasses import dataclass
+
 
 @dataclass
 class BankAccount:
@@ -196,45 +201,46 @@ class BankAccount:
         else:
             raise ValueError(f"Cannot withdraw a negative amount: {amount}")
 
+
 # %% [markdown]
 #
 # Testen Sie die Funktionalität der Klasse sowohl für erfolgreiche
 # Transaktionen, als auch für Transaktionen, die Exceptions auslösen.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 BankAccount(100.0)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 try:
     BankAccount(-100)
 except ValueError as err:
     print("ERROR:", err)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 b = BankAccount(100.0)
 b
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 b.deposit(200.0)
 b
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 try:
     b.deposit(-100.0)
 except ValueError as err:
     print("ERROR:", err)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 b.withdraw(50.0)
 b
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 try:
     b.withdraw(-200.0)
 except ValueError as err:
     print("ERROR:", err)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 try:
     b.withdraw(1000.0)
 except ValueError as err:
@@ -253,9 +259,9 @@ except ValueError as err:
 # *Hinweis:*  Beachten Sie die möglichen Werte für das `mode` Argument von
 # `open()`.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def write_text_to_file(text, file_name):
-    with open(file_name, 'x') as file:
+    with open(file_name, "x") as file:
         file.write(text)
 
 
@@ -264,39 +270,39 @@ def write_text_to_file(text, file_name):
 # Testen Sie die Funktion, indem Sie zweimal hintereinander versuchen den Text
 # `Python 3.8` in die Datei `my-private-file.txt` zu schreiben.
 
-# %% {{ doc.solution() }}
-write_text_to_file('Python 3.8', 'my_private_file.txt')
+# %% tags=["solution"]
+write_text_to_file("Python 3.8", "my_private_file.txt")
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 # write_text_to_file('Python 3.8', 'my_private_file.txt')
 
 
 # %% [markdown]
 #
-#  Schreiben Sie eine Funktion `annotate_file(file_name: str) -> None`, die 
+#  Schreiben Sie eine Funktion `annotate_file(file_name: str) -> None`, die
 # - den Inhalt der Datei `file_name` gefolgt von dem Text `(annotated version)`
 #   auf dem Bildschirm ausgibt, falls sie existiert
 # - den Text `No file found, we will bill the time we spent searching.` ausgibt
 #   falls sie nicht existiert
 # - in beiden Fällen den Text `Our invoice will be sent by mail.` ausgibt.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def annotate_file(file_name):
     try:
-        with open(file_name, 'r') as file:
+        with open(file_name, "r") as file:
             print(file.read())
-            print('(annotated version)')
+            print("(annotated version)")
     except FileNotFoundError:
-        print('No file found, we will bill the time we spent searching.')
+        print("No file found, we will bill the time we spent searching.")
     finally:
-        print('Our invoice will be sent by mail.')
+        print("Our invoice will be sent by mail.")
 
 
-# %% {{ doc.solution() }}
-annotate_file('my_private_file.txt')
+# %% tags=["solution"]
+annotate_file("my_private_file.txt")
 
-# %% {{ doc.solution() }}
-annotate_file('does-not-exist.txt')
+# %% tags=["solution"]
+annotate_file("does-not-exist.txt")
 
 
 # %%

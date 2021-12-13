@@ -26,9 +26,9 @@
 # *Hinweis:*  Beachten Sie die möglichen Werte für das `mode` Argument von
 # `open()`.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def write_text_to_file(text, file_name):
-    with open(file_name, 'x') as file:
+    with open(file_name, "x") as file:
         file.write(text)
 
 
@@ -37,11 +37,11 @@ def write_text_to_file(text, file_name):
 # Testen Sie die Funktion, indem Sie zweimal hintereinander versuchen den
 # Text `Python 3.8` in die Datei `my-private-file.txt` zu schreiben.
 
-# %% {{ doc.solution() }}
-write_text_to_file('Python 3.8', 'my_private_file.txt')
+# %% tags=["solution"]
+write_text_to_file("Python 3.8", "my_private_file.txt")
 
-# %% {{ doc.solution() }}
-write_text_to_file('Python 3.8', 'my_private_file.txt')
+# %% tags=["solution"]
+write_text_to_file("Python 3.8", "my_private_file.txt")
 
 
 # %% [markdown]
@@ -52,20 +52,20 @@ write_text_to_file('Python 3.8', 'my_private_file.txt')
 #   falls sie nicht existiert
 # - in beiden Fällen den Text `Our invoice will be sent by mail.` ausgibt.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def annotate_file(file_name):
     try:
-        with open(file_name, 'r') as file:
+        with open(file_name, "r") as file:
             print(file.read())
-            print('(annotated version)')
+            print("(annotated version)")
     except FileNotFoundError:
-        print('No file found, we will bill the time we spent searching.')
+        print("No file found, we will bill the time we spent searching.")
     finally:
-        print('Our invoice will be sent by mail.')
+        print("Our invoice will be sent by mail.")
 
 
-# %% {{ doc.solution() }}
-annotate_file('my_private_file.txt')
+# %% tags=["solution"]
+annotate_file("my_private_file.txt")
 
-# %% {{ doc.solution() }}
-annotate_file('does-not-exist.txt')
+# %% tags=["solution"]
+annotate_file("does-not-exist.txt")

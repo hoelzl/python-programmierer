@@ -81,7 +81,7 @@
 # Please enter your guess: QUIT
 # QUIT
 # ....
-# Please enter your guess: 
+# Please enter your guess:
 #
 #
 # Please enter your guess: HOW DO I QUIT THIS STUPID GAME!!!!!
@@ -116,11 +116,11 @@
 # - Was passiert bei Ihrer Lösung, wenn der Benutzer ein Wort eingibt, das
 #  länger oder kürzer ist als die Lösung?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 import random
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def match_char(char, index, solution):
     """
     Checks whether `char` is a perfect match for position `index` in `solution`.
@@ -128,93 +128,95 @@ def match_char(char, index, solution):
     position in `solution` and `'.'` otherwise.
     """
     if index >= len(solution):
-        return ''
+        return ""
     elif solution[index] == char:
-        return '+'
+        return "+"
     elif char in solution:
-        return '-'
+        return "-"
     else:
-        return '.'
+        return "."
 
 
-# %% {{ doc.solution() }}
-match_char('b', 1, 'abc')
+# %% tags=["solution"]
+match_char("b", 1, "abc")
 
-# %% {{ doc.solution() }}
-match_char('a', 1, 'abc')
+# %% tags=["solution"]
+match_char("a", 1, "abc")
 
-# %% {{ doc.solution() }}
-match_char('x', 1, 'abc')
+# %% tags=["solution"]
+match_char("x", 1, "abc")
 
-# %% {{ doc.solution() }}
-match_char('x', 10, 'abc')
+# %% tags=["solution"]
+match_char("x", 10, "abc")
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def match_chars(chars, solution):
     return [match_char(char, index, solution) for index, char in enumerate(chars)]
 
 
-# %% {{ doc.solution() }}
-match_chars('cbx', 'abc')
+# %% tags=["solution"]
+match_chars("cbx", "abc")
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def evaluate_guess(guess, solution):
-    return ''.join(match_chars(guess, solution))
+    return "".join(match_chars(guess, solution))
 
 
-# %% {{ doc.solution() }}
-evaluate_guess('cbx', 'abc')
+# %% tags=["solution"]
+evaluate_guess("cbx", "abc")
 
-# %% {{ doc.solution() }}
-evaluate_guess('b', 'abc')
+# %% tags=["solution"]
+evaluate_guess("b", "abc")
 
-# %% {{ doc.solution() }}
-evaluate_guess('bbcdea', 'abc')
+# %% tags=["solution"]
+evaluate_guess("bbcdea", "abc")
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def is_perfect_result(result):
-    if result == '':
+    if result == "":
         return False
     for c in result:
-        if c != '+':
+        if c != "+":
             return False
     return True
 
 
-# %% {{ doc.solution() }}
-is_perfect_result('+++')
+# %% tags=["solution"]
+is_perfect_result("+++")
 
-# %% {{ doc.solution() }}
-is_perfect_result('+++-+')
+# %% tags=["solution"]
+is_perfect_result("+++-+")
 
-# %% {{ doc.solution() }}
-is_perfect_result('')
+# %% tags=["solution"]
+is_perfect_result("")
 
-# %% {{ doc.solution() }}
-dictionary = ['game', 'gate', 'teatime', 'python']
+# %% tags=["solution"]
+dictionary = ["game", "gate", "teatime", "python"]
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def print_header(word):
-    print(f"""Guess the word!
-The word to guess has {len(word)} characters.""")
+    print(
+        f"""Guess the word!
+The word to guess has {len(word)} characters."""
+    )
 
 
-# %% {{ doc.solution() }}
-print_header('foo')
+# %% tags=["solution"]
+print_header("foo")
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def ox():
     word = random.choice(dictionary)
     has_won = False
     print_header(word)
     for _ in range(10):
         if not has_won:
-            guess = input('Please enter your guess: ')
+            guess = input("Please enter your guess: ")
             result = evaluate_guess(guess, word)
             print(guess)
             print(result)
@@ -226,5 +228,5 @@ def ox():
         print(f"Better luck next time. The word was {word}.")
 
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 ox()

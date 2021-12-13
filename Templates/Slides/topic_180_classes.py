@@ -6,15 +6,16 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.2
+#       jupytext_version: 1.13.3
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
+# %%
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Objektorientierung Teil 1: Klassen") }}
 
 
@@ -24,7 +25,7 @@
 # Wie können wir es ermöglichen auf einen Punkt sowohl mittels der `x` und
 # `y`-Koordinaten zuzugreifen, als auch mittels Radius und Winkel?
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 import math
 
 
@@ -43,24 +44,24 @@ class GeoPointV0:
         return f"GeoPointV0({self.x:.1f}, {self.y:.1f}, r={self.get_radius():.2f}, θ={self.get_angle():.2f})"
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 GeoPointV0()
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 GeoPointV0(1.0, 0.0)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 GeoPointV0(0.0, 2.0)
 
 # %% [markdown]
 # Es ist unschön, dass bei der Verwendung von `GeoPointV0` die Attribute `x`
 # und `y` anders behandelt werden müsseen als `radius` und `angle`:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 p = GeoPointV0(1.0, 1.0)
 print(p.x, p.y, p.get_radius(), p.get_angle())
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 import math
 
 
@@ -81,16 +82,16 @@ class GeoPointV1:
         return f"GeoPointV1({self.x:.1f}, {self.y:.1f}, r={self.radius:.2f}, θ={self.angle:.2f})"
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 GeoPointV1()
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 GeoPointV1(1.0, 0.0)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 GeoPointV1(0.0, 2.0)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 p = GeoPointV1(1.0, 1.0)
 print(p.x, p.y, p.radius, p.angle)
 
@@ -100,7 +101,7 @@ print(p.x, p.y, p.radius, p.angle)
 #
 # Properties können auch modifiziert werden:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 import math
 
 
@@ -128,7 +129,7 @@ class GeoPointV2:
         return f"GeoPointV1({self.x:.1f}, {self.y:.1f}, r={self.radius:.2f}, θ={self.angle:.2f})"
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 p = GeoPointV2(3.0, 4.0)
 print("Original point:  ", p)
 p.radius = 10.0
@@ -138,12 +139,12 @@ print("Set radius to 10:", p)
 # %% [markdown]
 #
 #  ## Attribute von Klassen
-#  
+#
 # Die meisten Attribute werden auf der Instanz-Ebene definiert, d.h.,
 # jedes Objekt hat seine eigenen Werte für die Attribute. Manchmal ist es
 # aber sinnvoll Attribute auch auf der Klassenebene zu definieren:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 class CountedAdder:
     # Attribut der Klasse, wird von allen Instanzen geteilt
     num_counters = 0
@@ -163,27 +164,27 @@ class CountedAdder:
         return self.value + n
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(CountedAdder.num_counters)
 a1 = CountedAdder(10)
 print(CountedAdder.num_counters)
 a2 = CountedAdder(20)
 print(CountedAdder.num_counters)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(a1.add(1))
 print(a2.add(2))
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 a1.describe()
 a2.describe()
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(CountedAdder.num_counters)
 print(a1.num_counters)
 print(a2.num_counters)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(CountedAdder.add)
 print(a1.add)
 print(a2.add)
@@ -192,48 +193,48 @@ print(a2.add)
 # ## Vererbung
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 class LoggingAdder(CountedAdder):
     def add(self, n):
         print(f"Adding {self.value} to {n}")
         return self.value + n
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 a3 = LoggingAdder(30)
 print(a3.add(3))
 print(a3.num_counters)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 a1.describe()
 a2.describe()
 a3.describe()
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # Method Resolution Order:
 LoggingAdder.mro()
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(CountedAdder.add)
 print(a1.add)
 print(a2.add)
 print(LoggingAdder.add)
 print(a3.add)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print(CountedAdder.add)
 print(a1.add.__func__)
 print(a2.add.__func__)
 print(LoggingAdder.add)
 print(a3.add.__func__)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 a1.__dict__["value"] = 15
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 a1.add(0)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 LoggingAdder.__dict__
 
 
@@ -283,7 +284,7 @@ LoggingAdder.__dict__
 #
 #  Dieser Prozess kann durch die `__getattribute__` Methode überschrieben werden.
 
-# %%
+# %% tags=["code-along"]
 class LoggingDescriptor:
     def __init__(self, name):
         self.name = name
@@ -294,32 +295,32 @@ class LoggingDescriptor:
         return instance.__dict__.get(self.name, "nothing")
 
 
-# %%
+# %% tags=["code-along"]
 class OverridingLoggingDescriptor(LoggingDescriptor):
     def __set__(self, instance, value):
         print(f"__set__({self}, {instance}, {value}")
         instance.__dict__[self.name] = value
 
 
-# %%
+# %% tags=["code-along"]
 class YourClass:
     f = LoggingDescriptor("f")
     g = OverridingLoggingDescriptor("g")
 
 
-# %%
+# %% tags=["code-along"]
 yc = YourClass()
 print(yc.f, yc.g)
 
-# %%
+# %% tags=["code-along"]
 yc.f = 234
 yc.g = 345
 
-# %%
+# %% tags=["code-along"]
 print(yc.f, yc.g)
 
 
-# %%
+# %% tags=["code-along"]
 class MyClass:
     def g(self, x):
         print(self, x)
@@ -329,33 +330,32 @@ def f(x, y):
     print(x, y)
 
 
-# %%
+# %% tags=["code-along"]
 mc = MyClass()
 print(mc.__class__)
 
-# %%
+# %% tags=["code-along"]
 print(MyClass.g)
 print(mc.g.__qualname__)
 print(mc.g.__get__)
 
-# %%
+# %% tags=["code-along"]
 print(f.__get__)
 
-# %%
+# %% tags=["code-along"]
 bound_f = f.__get__(mc, MyClass)
 bound_g = mc.g
 print(bound_f)
 print(bound_g)
 
-# %%
+# %% tags=["code-along"]
 bound_f(3)
 bound_g(3)
 mc.g(3)
 
 # %% [markdown]
+# # Ende der Folien
 #
-# ** Ende der Folien**
-
 # Der Rest der Folien kann weitgehend entfallen, da Klassen jetzt in
 # `introduction_part2` eingeführt werden.
 #
@@ -394,10 +394,10 @@ entry
 
 # %%
 entry = {
-    "article_number":  "0713",
-    "article_name":    "Netzkabel",
+    "article_number": "0713",
+    "article_name": "Netzkabel",
     "price_per_item:": 3.49,
-    "total_price":     6.98,
+    "total_price": 6.98,
 }
 
 # %%
@@ -497,8 +497,7 @@ print(
 
 # %%
 class ShoppingCartEntryV1:
-    def __init__(self, article_number, article_name, price_per_item,
-                 number_of_items):
+    def __init__(self, article_number, article_name, price_per_item, number_of_items):
         self.article_number = article_number
         self.article_name = article_name
         self.price_per_item = price_per_item
@@ -528,10 +527,8 @@ entry.article_number, entry.article_name, entry.price_per_item, entry.number_of_
 
 # %%
 shopping_cart = [
-    ShoppingCartEntryV1("9343", "Strawberries", price_per_item=2.99,
-                        number_of_items=2),
-    ShoppingCartEntryV1("3742", "Cream", price_per_item=1.99,
-                        number_of_items=1),
+    ShoppingCartEntryV1("9343", "Strawberries", price_per_item=2.99, number_of_items=2),
+    ShoppingCartEntryV1("3742", "Cream", price_per_item=1.99, number_of_items=1),
 ]
 
 # %% [markdown]
@@ -755,8 +752,7 @@ class ShoppingCart:
 
 # %%
 class ShoppingCartEntry:
-    def __init__(self, article_number, article_name, price_per_item,
-                 number_of_items):
+    def __init__(self, article_number, article_name, price_per_item, number_of_items):
         self.article_number = article_number
         self.article_name = article_name
         self.price_per_item = price_per_item

@@ -20,26 +20,26 @@
 #
 # Wie können Sie den String `Hello, world!` in Python darstellen?
 
-# %% {{ doc.solution() }}
-'Hello, world!'
+# %% tags=["solution"]
+"Hello, world!"
 
 # %% [markdown]
 # Wie können Sie Ihren Namen als Text (String) in Python darstellen?
 
-# %% {{ doc.solution() }}
-'Matthias'
+# %% tags=["solution"]
+"Matthias"
 
 # %% [markdown]
 # Wie können Sie den String `Hello, World!` auf dem Bildschirm ausgeben?
 
-# %% {{ doc.solution() }}
-print('Hello, World!')
+# %% tags=["solution"]
+print("Hello, World!")
 
 # %% [markdown]
 # Wie können Sie Ihren Namen auf dem Bildschirm ausgeben?
 
-# %% {{ doc.solution() }}
-print('Matthias')
+# %% tags=["solution"]
+print("Matthias")
 
 # %% [markdown]
 # Wie können Sie
@@ -53,81 +53,80 @@ print('Matthias')
 #
 # auf dem Bildschirm ausgeben?
 
-# %% {{ doc.solution() }}
-print('130 g   Mehl')
-print('250 ml  Milch')
-print('1 EL    Vanillezucker')
-print('1 Prise Salz')
+# %% tags=["solution"]
+print("130 g   Mehl")
+print("250 ml  Milch")
+print("1 EL    Vanillezucker")
+print("1 Prise Salz")
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 # Alternativ:
-print("""130 g   Mehl
+print(
+    """130 g   Mehl
 250 ml  Milch
 1 EL    Vanillezucker
-1 Prise Salz""")
+1 Prise Salz"""
+)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 # Alternativ:
-print("130 g   Mehl\n"
-      "250 ml  Milch\n"
-      "1 EL    Vanillezucker\n"
-      "1 Prise Salz")
+print("130 g   Mehl\n" "250 ml  Milch\n" "1 EL    Vanillezucker\n" "1 Prise Salz")
 
 # %% [markdown]
 # # Zahlen und Mathematik
 #
 # Wie können Sie die Zahl `32` in Python darstellen?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 32
 
 # %% [markdown]
 # Wie können Sie den Datentyp von `14` in Python feststellen?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 type(14)
 
 # %% [markdown]
 # Wie können Sie den Datentyp von `14.0` in Python feststellen?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 type(14.0)
 
 # %% [markdown]
 # Wie können Sieden Datentyp von `'14'` in Python feststellen?
 
-# %% {{ doc.solution() }}
-type('14')
+# %% tags=["solution"]
+type("14")
 
 # %% [markdown]
 # Was ist der Wert von `1 + 2 * 3`?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 1 + 2 * 3
 
 # %% [markdown]
 # Was ist der Datentyp von `1 + 2 * 3` in Python?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 type(1 + 2 * 3)
 
 # %% [markdown]
 # Was ist der Wert von `4 / 2` in Python?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 4 / 2
 
 # %% [markdown]
 # Was ist der Datentyp von `4 / 2` in Python?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 type(4 / 2)
 
 # %% [markdown]
 # Was sind Wert und Datentyp von `1 + 1.0` in Python? Können Sie den Datentyp
 # ohne Verwendung von `type` feststellen?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 1 + 1.0  # Typ ist float, da Ausgabe Nachkommastellen hat
 
 # %% [markdown]
@@ -142,7 +141,7 @@ type(4 / 2)
 #
 # (Verwenden Sie Variablen um die Berechnung klarer zu machen.)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 anzahl_piraten = 8
 beute_gesamt = 1000
 beute_pro_pirat = beute_gesamt // anzahl_piraten
@@ -151,7 +150,7 @@ beute_pro_pirat
 # %% [markdown]
 # Wie viele Golddublonen erhält der Kapitän extra?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 # noinspection NonAsciiCharacters
 beute_kapitän = beute_gesamt % anzahl_piraten
 beute_kapitän
@@ -164,7 +163,7 @@ beute_kapitän
 # (Verwenden Sie Zuweisungen an die existierenden Variablen um das Problem zu
 # lösen.)
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 # anzahl_piraten += 3 # anzahl_piraten = anzahl_piraten + 3
 anzahl_piraten = 11  # besser, falls die Zelle evtl. mehrmals ausgewertet wird
 beute_pro_pirat = beute_gesamt // anzahl_piraten
@@ -173,7 +172,7 @@ beute_pro_pirat
 # %% [markdown]
 # Wie viele Golddublonen erhält der Kapitän in diesem Fall zusätzlich?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 beute_kapitän = beute_gesamt % anzahl_piraten
 beute_kapitän
 
@@ -188,7 +187,7 @@ beute_kapitän
 # Schreiben Sie eine Python Funktion `effektive_spende(n)`, die berechnet,
 # welcher Betrag effektiv gespendet wird, wenn ein Zuschauer $N$ Euro spendet.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def effektive_spende(spende):
     return 2 * spende + 10
 
@@ -196,7 +195,7 @@ def effektive_spende(spende):
 # %% [markdown]
 # Wie hoch ist die effektive Spende, wenn ein Zuschauer 20 Euro spendet?
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 effektive_spende(20)
 
 # %% [markdown]
@@ -211,7 +210,7 @@ effektive_spende(20)
 #
 # eingeben bevor Sie die Argumente eintippen.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 print(effektive_spende(10))
 print(effektive_spende(25))
 print(effektive_spende(50))
@@ -236,14 +235,14 @@ print(effektive_spende(1000))
 # Kapitän erhält extra: 1 Golddublone(n)
 # ```
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def drucke_aufteilung_der_beute(dublonen, piraten):
     dublonen_pro_pirat = dublonen // piraten
     dublonen_kapitän = dublonen % piraten
-    print('Piraten:', piraten)
-    print('Golddublonen:', dublonen)
-    print('Jeder Pirat erhält:', dublonen_pro_pirat, 'Golddublone(n)')
-    print('Kapitän erhält extra:', dublonen_kapitän, 'Golddublone(n)')
+    print("Piraten:", piraten)
+    print("Golddublonen:", dublonen)
+    print("Jeder Pirat erhält:", dublonen_pro_pirat, "Golddublone(n)")
+    print("Kapitän erhält extra:", dublonen_kapitän, "Golddublone(n)")
 
 
 drucke_aufteilung_der_beute(17, 8)
@@ -259,7 +258,7 @@ drucke_aufteilung_der_beute(17, 8)
 # Beuteanteil jedes Piraten und die Extra-Beute des Kapitäns als zwei Werte
 # zurückgibt.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def teile_beute_auf(dublonen, piraten):
     dublonen_pro_pirat = dublonen // piraten
     dublonen_kapitän = dublonen % piraten
@@ -272,13 +271,13 @@ def teile_beute_auf(dublonen, piraten):
 # `drucke_aufteilung_der_beute()`, die `teile_beute_auf()` als Hilfsfunktion
 # verwendet.
 
-# %% {{ doc.solution() }}
+# %% tags=["solution"]
 def drucke_aufteilung_der_beute(dublonen, piraten):
     dublonen_pro_pirat, dublonen_kapitän = teile_beute_auf(dublonen, piraten)
-    print('Piraten:', piraten)
-    print('Golddublonen:', dublonen)
-    print('Jeder Pirat erhält:', dublonen_pro_pirat, 'Golddublone(n)')
-    print('Kapitän erhält extra:', dublonen_kapitän, 'Golddublone(n)')
+    print("Piraten:", piraten)
+    print("Golddublonen:", dublonen)
+    print("Jeder Pirat erhält:", dublonen_pro_pirat, "Golddublone(n)")
+    print("Kapitän erhält extra:", dublonen_kapitän, "Golddublone(n)")
 
 
 drucke_aufteilung_der_beute(1000, 11)

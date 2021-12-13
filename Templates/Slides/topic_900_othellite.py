@@ -16,7 +16,7 @@
 # ---
 
 # j2 import 'macros.j2' as doc
-# %% [markdown] {{ doc.slide() }}
+# %% [markdown] slideshow={"slide_type": "slide"}
 # {{ doc.header("Case Study: Othellite") }}
 
 
@@ -50,7 +50,7 @@ except ModuleNotFoundError:
 # Wir definieren eine Enumeration, die den Zustand eines einzelnen Feldes auf
 # dem Brett beschreibt:
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 class Field(Enum):
     EMPTY = "\N{Open Box}"
     LIGHT = "\N{Medium White Circle}"
@@ -94,13 +94,13 @@ assert not is_occupied(Field.EMPTY)
 # sowie Value und Namen für einen Enum-Wert aus.
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 class Player(Enum):
     LIGHT = 0
     DARK = 1
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print("Players:           ", list(Player))
 print("Light player:      ", Player.LIGHT)
 print("Dark player:       ", Player.DARK)
@@ -122,7 +122,7 @@ print("Light player name: ", Player.LIGHT.name)
 #
 # Implementieren Sie eine entsprechende Methode `is_field_owned_by_player()`.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def is_field_owned_by_opponent(p: Player, f: Field) -> bool:
     if p is Player.DARK:
         return f is Field.LIGHT
@@ -139,7 +139,7 @@ assert not is_field_owned_by_opponent(Player.LIGHT, Field.LIGHT)
 assert not is_field_owned_by_opponent(Player.LIGHT, Field.EMPTY)
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def is_field_owned_by_player(p: Player, f: Field) -> bool:
     if p is Player.DARK:
         return f is Field.DARK
@@ -181,11 +181,10 @@ assert not is_field_owned_by_player(Player.LIGHT, Field.EMPTY)
 # to the NumPy array:
 # -->
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 @dataclass()
 class NumPyBoard:
-    _fields: np.array = field(
-        default_factory=lambda: np.array([[Field.EMPTY] * 8] * 8))
+    _fields: np.array = field(default_factory=lambda: np.array([[Field.EMPTY] * 8] * 8))
 
     def __post_init__(self):
         self[3, 3] = Field.DARK
@@ -207,17 +206,17 @@ class NumPyBoard:
         return f"{name}({reprlib.repr(self._fields)})"
 
     def __str__(self) -> str:
-        result = ''
-        prefix = '|'
+        result = ""
+        prefix = "|"
         for row_index in range(8):
             result += prefix
             for col in range(8):
                 result += str(self[row_index, col].value) + "|"
-            prefix = '\n|'
+            prefix = "\n|"
         return result
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 npb = NumPyBoard()
 npb[0, 0] = Field.DARK
 npb[0, 1] = Field.LIGHT
@@ -235,11 +234,21 @@ print(npb)
 
 
 # %%
+# ## Mini-Workshop Compute Linear Index
+#
 # Wenn wir eine Python Liste als Speicher für das Spielfeld verwenden wollen,
 # müssen wir die Umrechnung von zweidimensionalen Index-Werten in einen
-# eindimensionalen Index selber vornehmen:
+# eindimensionalen Index selber vornehmen.
+#
+# Das geht indem wir für eine Position `(r, c)` den Wert `r * 8 + c` berechnen.
+# Für den Fall, dass einer der Indices nicht `>= 0` und `< 8` ist soll eine
+# geeignete Exception ausgelöst werden.
+#
+# Implementieren Sie eine Funktion `compute_linear_index()` die diese Aufgabe
+# übernimmt.
 
-# %%
+
+# %% tags=["code-along"]
 def compute_linear_index(index):
     """
     Compute the linear index for the given (possibly complex) index.
@@ -259,9 +268,11 @@ def compute_linear_index(index):
     """
     try:
         row, column = index
-        assert 0 <= row <= 7, "Row index out of range."
-        assert 0 <= column <= 7, "Column index out of range."
-        return row + 8 * column
+        if 0 <= row <= 7:
+            raise ValueError(f"Row index {row} out of range.")
+        if 0 <= column <= 7:
+            raise ValueError("Column index out of range.")
+        return row * 8 + column
     except TypeError:
         return index
 
@@ -277,11 +288,10 @@ def compute_linear_index(index):
 # verwenden.
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 @dataclass(repr=False)
 class Board:
-    _fields: list[Field] = field(
-        default_factory=lambda: [Field.EMPTY] * 64)
+    _fields: list[Field] = field(default_factory=lambda: [Field.EMPTY] * 64)
 
     def __post_init__(self):
         self[3, 3] = Field.DARK
@@ -303,17 +313,17 @@ class Board:
         return f"{name}({reprlib.repr(self._fields)})"
 
     def __str__(self) -> str:
-        result = ''
-        prefix = '|'
+        result = ""
+        prefix = "|"
         for row in range(8):
             result += prefix
             for col in range(8):
                 result += str(self[row, col].value) + "|"
-            prefix = '\n|'
+            prefix = "\n|"
         return result
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 board = Board()
 board[0, 0] = Field.DARK
 board[0, 2] = Field.DARK
@@ -359,7 +369,7 @@ board[:3]
 #
 # Definieren Sie eine Enumeration `Directions`, wie gerade beschrieben.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 class DirectionV0(Enum):
     N = (-1, 0)
     NE = (-1, 1)
@@ -374,6 +384,7 @@ class DirectionV0(Enum):
 # %% [markdown]
 # Es ist bei Enumerationen möglich, mehrere Schlüssel für den gleichen Wert
 # zu definieren (also gewissermaßen Synonyme anzugeben).
+
 
 class Synonyms(Enum):
     DRINK = 0
@@ -398,7 +409,7 @@ print(Synonyms.BIG is not Synonyms.SMALL)
 # können.
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 class Direction(Enum):
     # Abbreviated names
     N = (-1, 0)
@@ -431,7 +442,7 @@ class Direction(Enum):
 # same values.
 # -->
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 assert Direction.N is Direction.NORTH
 assert Direction.NE is Direction.NORTH_EAST
 assert Direction.E is Direction.EAST
@@ -441,7 +452,7 @@ assert Direction.SW is Direction.SOUTH_WEST
 assert Direction.W is Direction.WEST
 assert Direction.NW is Direction.NORTH_WEST
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 print("Direction[0:3]: ", list(Direction)[:3])
 print("Direction values:", [d.value for d in Direction])
 print("Direction names: ", [d.name for d in Direction])
@@ -459,7 +470,7 @@ Index = tuple[int, int]
 # ein Othellite Brett ist, andernfalls `False`. Überprüfen Sie, ob Ihre
 # Implementierung die Assertions erfüllt
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def is_valid_index(index: Index) -> bool:
     row, column = index
     return 0 <= row < 8 and 0 <= column < 8
@@ -484,28 +495,27 @@ assert not is_valid_index((-2, 4))
 # verschiedene Fehlerfälle eine Exception auslöst.
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def assert_valid_index(index: Index) -> None:
     def assert_component_in_range(value: int, component: str):
         if value < 0 or value >= 8:
-            raise IndexError(
-                f"{component} component of index {index} out or range.")
+            raise IndexError(f"{component} component of index {index} out or range.")
 
     x, y = index
     assert_component_in_range(x, "First")
     assert_component_in_range(y, "Second")
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 assert_valid_index((2, 0))
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 try:
     assert_valid_index((-1, 3))
 except IndexError as err:
     print(err)
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 try:
     assert_valid_index((1, 8))
 except IndexError as err:
@@ -528,7 +538,7 @@ except IndexError as err:
 # Überprüfen Sie, ob Ihre Implementierung die angegebenen Assertions erfüllt.
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 def next_index_in_direction(index: Index, direction: Direction):
     assert_valid_index(index)
     row, column = index
@@ -586,7 +596,7 @@ except IndexError as err:
 # erweitern, die die Indizes aller Felder zurückgibt, die der Spieler ausgehend
 # vom Feld `index` in Richtung `d` umdrehen kann.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 # This is very specific to the use in `Board`...
 def _find_rightmost(seq: Sequence):
     for i in range(len(seq) - 1, -1, -1):
@@ -600,11 +610,10 @@ assert _find_rightmost([True, False, True, False]) == 2
 assert _find_rightmost([False, False, False]) == 0
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 @dataclass(repr=False)
 class Board:
-    _fields: list[Field] = field(
-        default_factory=lambda: [Field.EMPTY] * 64)
+    _fields: list[Field] = field(default_factory=lambda: [Field.EMPTY] * 64)
 
     def __post_init__(self):
         self[3, 3] = Field.DARK
@@ -626,27 +635,31 @@ class Board:
         return f"{name}({reprlib.repr(self._fields)})"
 
     def __str__(self) -> str:
-        result = ''
-        prefix = '|'
+        result = ""
+        prefix = "|"
         for row in range(8):
             result += prefix
             for col in range(8):
                 result += str(self[row, col].value) + "|"
-            prefix = '\n|'
+            prefix = "\n|"
         return result
 
-    def _indices_that_can_be_flipped(self, player: Player,
-                                     occupied_indices: list[Index]) \
-            -> set[Index]:
-        is_self_owned_field = [is_field_owned_by_player(player, self[index])
-                               for index in occupied_indices]
+    def _indices_that_can_be_flipped(
+        self, player: Player, occupied_indices: list[Index]
+    ) -> set[Index]:
+        is_self_owned_field = [
+            is_field_owned_by_player(player, self[index]) for index in occupied_indices
+        ]
         stop_index = _find_rightmost(is_self_owned_field)
-        return set(index
-                   for index in occupied_indices[:stop_index]
-                   if is_field_owned_by_opponent(player, self[index]))
+        return set(
+            index
+            for index in occupied_indices[:stop_index]
+            if is_field_owned_by_opponent(player, self[index])
+        )
 
-    def _indices_to_flip_in_direction(self, p: Player, index: Index,
-                                      d: Direction) -> set[Index]:
+    def _indices_to_flip_in_direction(
+        self, p: Player, index: Index, d: Direction
+    ) -> set[Index]:
         next_index, is_valid = next_index_in_direction(index, d)
         occupied_indices = []
         while is_valid:
@@ -710,11 +723,10 @@ assert_flips_direction(Player.DARK, (6, 4), set())
 # - Mindestens ein Stein des Gegenspielers durch den Zug umgedreht wird
 #
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 @dataclass(repr=False)
 class Board:
-    _fields: list[Field] = field(
-        default_factory=lambda: [Field.EMPTY] * 64)
+    _fields: list[Field] = field(default_factory=lambda: [Field.EMPTY] * 64)
 
     def __post_init__(self):
         self[3, 3] = Field.DARK
@@ -736,27 +748,31 @@ class Board:
         return f"{name}({reprlib.repr(self._fields)})"
 
     def __str__(self) -> str:
-        result = ''
-        prefix = '|'
+        result = ""
+        prefix = "|"
         for row in range(8):
             result += prefix
             for col in range(8):
                 result += str(self[row, col].value) + "|"
-            prefix = '\n|'
+            prefix = "\n|"
         return result
 
-    def _indices_that_can_be_flipped(self, player: Player,
-                                     occupied_indices: list[Index]) \
-            -> set[Index]:
-        is_self_owned_field = [is_field_owned_by_player(player, self[index])
-                               for index in occupied_indices]
+    def _indices_that_can_be_flipped(
+        self, player: Player, occupied_indices: list[Index]
+    ) -> set[Index]:
+        is_self_owned_field = [
+            is_field_owned_by_player(player, self[index]) for index in occupied_indices
+        ]
         stop_index = _find_rightmost(is_self_owned_field)
-        return set(index
-                   for index in occupied_indices[:stop_index]
-                   if is_field_owned_by_opponent(player, self[index]))
+        return set(
+            index
+            for index in occupied_indices[:stop_index]
+            if is_field_owned_by_opponent(player, self[index])
+        )
 
-    def _indices_to_flip_in_direction(self, p: Player, index: Index,
-                                      d: Direction) -> set[Index]:
+    def _indices_to_flip_in_direction(
+        self, p: Player, index: Index, d: Direction
+    ) -> set[Index]:
         next_index, is_valid = next_index_in_direction(index, d)
         occupied_indices = []
         while is_valid:
@@ -812,11 +828,10 @@ assert_valid_moves(Player.DARK, valid_move_for_dark_player)
 # Erzeugen Sie alle möglichen Züge und testen Sie dann für jeden Zug, ob
 # er möglich ist.
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 @dataclass(repr=False)
 class Board:
-    _fields: list[Field] = field(
-        default_factory=lambda: [Field.EMPTY] * 64)
+    _fields: list[Field] = field(default_factory=lambda: [Field.EMPTY] * 64)
 
     def __post_init__(self):
         self[3, 3] = Field.DARK
@@ -838,27 +853,31 @@ class Board:
         return f"{name}({reprlib.repr(self._fields)})"
 
     def __str__(self) -> str:
-        result = ''
-        prefix = '|'
+        result = ""
+        prefix = "|"
         for row in range(8):
             result += prefix
             for col in range(8):
                 result += str(self[row, col].value) + "|"
-            prefix = '\n|'
+            prefix = "\n|"
         return result
 
-    def _indices_that_can_be_flipped(self, player: Player,
-                                     occupied_indices: list[Index]) \
-            -> set[Index]:
-        is_self_owned_field = [is_field_owned_by_player(player, self[index])
-                               for index in occupied_indices]
+    def _indices_that_can_be_flipped(
+        self, player: Player, occupied_indices: list[Index]
+    ) -> set[Index]:
+        is_self_owned_field = [
+            is_field_owned_by_player(player, self[index]) for index in occupied_indices
+        ]
         stop_index = _find_rightmost(is_self_owned_field)
-        return set(index
-                   for index in occupied_indices[:stop_index]
-                   if is_field_owned_by_opponent(player, self[index]))
+        return set(
+            index
+            for index in occupied_indices[:stop_index]
+            if is_field_owned_by_opponent(player, self[index])
+        )
 
-    def _indices_to_flip_in_direction(self, p: Player, index: Index,
-                                      d: Direction) -> set[Index]:
+    def _indices_to_flip_in_direction(
+        self, p: Player, index: Index, d: Direction
+    ) -> set[Index]:
         next_index, is_valid = next_index_in_direction(index, d)
         occupied_indices = []
         while is_valid:
@@ -907,11 +926,10 @@ assert board.find_valid_moves(Player.DARK) == valid_move_for_dark_player
 # viele Verantwortlichkeiten hat.
 
 
-# %% {{ doc.codealong() }}
+# %% tags=["code-along"]
 @dataclass(repr=False)
 class Board:
-    _fields: list[Field] = field(
-        default_factory=lambda: [Field.EMPTY] * 64)
+    _fields: list[Field] = field(default_factory=lambda: [Field.EMPTY] * 64)
 
     def __post_init__(self):
         self[3, 3] = Field.DARK
@@ -933,27 +951,31 @@ class Board:
         return f"{name}({reprlib.repr(self._fields)})"
 
     def __str__(self) -> str:
-        result = ''
-        prefix = '|'
+        result = ""
+        prefix = "|"
         for row in range(8):
             result += prefix
             for col in range(8):
                 result += str(self[row, col].value) + "|"
-            prefix = '\n|'
+            prefix = "\n|"
         return result
 
-    def _indices_that_can_be_flipped(self, player: Player,
-                                     occupied_indices: list[Index]) \
-            -> set[Index]:
-        is_self_owned_field = [is_field_owned_by_player(player, self[index])
-                               for index in occupied_indices]
+    def _indices_that_can_be_flipped(
+        self, player: Player, occupied_indices: list[Index]
+    ) -> set[Index]:
+        is_self_owned_field = [
+            is_field_owned_by_player(player, self[index]) for index in occupied_indices
+        ]
         stop_index = _find_rightmost(is_self_owned_field)
-        return set(index
-                   for index in occupied_indices[:stop_index]
-                   if is_field_owned_by_opponent(player, self[index]))
+        return set(
+            index
+            for index in occupied_indices[:stop_index]
+            if is_field_owned_by_opponent(player, self[index])
+        )
 
-    def _indices_to_flip_in_direction(self, p: Player, index: Index,
-                                      d: Direction) -> set[Index]:
+    def _indices_to_flip_in_direction(
+        self, p: Player, index: Index, d: Direction
+    ) -> set[Index]:
         next_index, is_valid = next_index_in_direction(index, d)
         occupied_indices = []
         while is_valid:
