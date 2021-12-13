@@ -14,8 +14,8 @@ def create(file: Path = typer.Argument(..., help="the file to create")):
     Create an empty shopping cart file.
     """
     with file.open(mode="wb"):
-        # No need to do anything, file will be created.
-        pass
+        shopping_cart = ShoppingCart([])
+        shopping_cart.save_to_file(file)
 
 
 @app.command()
