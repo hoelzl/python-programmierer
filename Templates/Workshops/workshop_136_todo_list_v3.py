@@ -292,8 +292,14 @@ class TodoList:
 # Beispielaufrufe:
 #
 # ```shell
-# $ python -m todos add .\my-todos.json 'Kaufe Äpfel' 1
-# $ python -m todos add .\my-todos.json list
+# $ python -m todos create my-todos.pkl
+# $ python -m todos add my-todos.pkl 'Kaufe Äpfel' --priority 1
+# $ python -m todos list my-todos.pkl
+# Todo List:
+#   Kaufe Äpfel, priority 1
+# $ python -m todos add my-todos.pkl 'Lese Zeitung' --priority 2
+# $ python -m todos mark-completed my-todos.pkl 'Lese Zeitung'
+# $ python -m todos list my-todos.pkl
 # ```
 #
 # Die vorgenommenen Änderungen sollen von jedem Kommando in `file` gespeichert werden.

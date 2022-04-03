@@ -1,4 +1,5 @@
-from collections import Counter, Mapping
+from collections.abc import Mapping
+from collections import Counter
 
 from othellite.position import Position
 from othellite.field import Field

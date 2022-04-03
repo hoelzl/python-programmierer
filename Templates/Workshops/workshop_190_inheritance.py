@@ -47,6 +47,7 @@ class Mitarbeiter:
     pers_nr: str
     grundgehalt: float
 
+    @property
     def gehalt(self):
         return 13 / 12 * self.grundgehalt
 
@@ -57,8 +58,9 @@ class Arbeiter(Mitarbeiter):
     überstunden: float = 0.0
     stundensatz: float = 0.0
 
+    @property
     def gehalt(self):
-        return super().gehalt() + self.überstunden * self.stundensatz
+        return super().gehalt + self.überstunden * self.stundensatz
 
 
 # %% tags=["solution"]
@@ -66,8 +68,9 @@ class Arbeiter(Mitarbeiter):
 class Manager(Mitarbeiter):
     bonus: float
 
+    @property
     def gehalt(self):
-        return super().gehalt() + self.bonus
+        return super().gehalt + self.bonus
 
 
 # %% [markdown]
@@ -78,7 +81,7 @@ class Manager(Mitarbeiter):
 
 # %% tags=["solution"]
 a = Arbeiter("Hans", "123", 36_000, 3.5, 40.0)
-print(a.gehalt())
+print(a.gehalt)
 a
 
 # %% [markdown]
@@ -89,7 +92,7 @@ a
 
 # %% tags=["solution"]
 m = Manager("Sepp", "666", 60_000.0, 30_000.0)
-print(m.gehalt())
+print(m.gehalt)
 m
 
 # %% [markdown]
@@ -103,6 +106,7 @@ class Mitarbeiter:
         self.pers_nr = pers_nr
         self.grundgehalt = grundgehalt
 
+    @property
     def gehalt(self):
         return 13 / 12 * self.grundgehalt
 
@@ -120,8 +124,9 @@ class Arbeiter(Mitarbeiter):
             f"{self.überstunden}, {self.stundensatz})"
         )
 
+    @property
     def gehalt(self):
-        return super().gehalt() + self.überstunden * self.stundensatz
+        return super().gehalt + self.überstunden * self.stundensatz
 
 
 # %% tags=["solution"]
@@ -136,18 +141,19 @@ class Manager(Mitarbeiter):
             f"{self.bonus})"
         )
 
+    @property
     def gehalt(self):
-        return super().gehalt() + self.bonus
+        return super().gehalt + self.bonus
 
 
 # %% tags=["solution"]
 a = Arbeiter("Hans", 123, 36_000, 3, 40)
-print(a.gehalt())
+print(a.gehalt)
 a
 
 # %% tags=["solution"]
 m = Manager("Sepp", 666, 60_000, 30_000)
-print(m.gehalt())
+print(m.gehalt)
 m
 
 

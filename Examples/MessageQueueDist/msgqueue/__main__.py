@@ -19,7 +19,8 @@ def main(
     timestamp: bool = typer.Option(False, help="add a timestamp to the messages"),
 ):
     """
-    Process messages in JSON format.
+    Process messages in JSON format.\n
+    Now better and improved!!!
     """
     middleware = configure_middleware(
         {"auth_token": auth, "log": log, "timestamp": timestamp}
