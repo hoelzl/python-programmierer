@@ -4,8 +4,7 @@ from jinja2 import Environment, FileSystemLoader
 import jupytext
 
 # %%
-ROOT_PATH = Path(
-    r"C:\Users\tc\Programming\Python\Courses\Own\python-programmierer")
+ROOT_PATH = Path(r"C:\Users\tc\Programming\Python\Courses\Own\python-programmierer")
 MACRO_PATH = ROOT_PATH / "Templates/Macros"
 
 # %%
@@ -28,8 +27,13 @@ def process_cell(cell, tags_to_remove=None, language=None):
 
 
 # %%
-def convert_template(jinja_env: Environment, template_name: str,
-                     output_path: Path, tags_to_remove=None, language=None):
+def convert_template(
+    jinja_env: Environment,
+    template_name: str,
+    output_path: Path,
+    tags_to_remove=None,
+    language=None,
+):
     template = jinja_env.get_template(template_name)
     result = template.render()
     output_file = output_path / template_name
@@ -44,14 +48,19 @@ def convert_template(jinja_env: Environment, template_name: str,
                 indices_to_remove.append(index)
         for index in reversed(indices_to_remove):
             del notebook.cells[index]
-            
+
     jupytext.write(notebook, output_file.with_suffix(".ipynb"), fmt="ipynb")
 
 
 # %%
-def convert_all_python_templates(jinja_env: Environment, template_dir: Path,
-                                 output_dir: Path, glob_pattern="*.py",
-                                 tags_to_remove=None, language=None):
+def convert_all_python_templates(
+    jinja_env: Environment,
+    template_dir: Path,
+    output_dir: Path,
+    glob_pattern="*.py",
+    tags_to_remove=None,
+    language=None,
+):
     output_dir.mkdir(exist_ok=True, parents=True)
     for file in template_dir.glob(glob_pattern):
         convert_template(jinja_env, file.name, output_dir, tags_to_remove, language)
@@ -64,11 +73,17 @@ def convert_slide_templates(language=None):
     if language:
         output_path = output_path / language.title()
 
-    jinja_env = Environment(line_statement_prefix="# j2",
-                            loader=FileSystemLoader(
-                                [MACRO_PATH, template_path]))
-    convert_all_python_templates(jinja_env, template_path, output_path,
-                                 glob_pattern="topic*.py", language=language)
+    jinja_env = Environment(
+        line_statement_prefix="# j2",
+        loader=FileSystemLoader([MACRO_PATH, template_path]),
+    )
+    convert_all_python_templates(
+        jinja_env,
+        template_path,
+        output_path,
+        glob_pattern="topic*.py",
+        language=language,
+    )
 
 
 # %%
@@ -78,13 +93,18 @@ def convert_slide_templates_to_codealongs(language=None):
     if language:
         output_path = output_path / language.title()
 
-    jinja_env = Environment(line_statement_prefix="# j2",
-                            loader=FileSystemLoader(
-                                [MACRO_PATH, template_path]))
-    convert_all_python_templates(jinja_env, template_path, output_path,
-                                 glob_pattern="topic*.py",
-                                 tags_to_remove=("code-along",),
-                                 language=language)
+    jinja_env = Environment(
+        line_statement_prefix="# j2",
+        loader=FileSystemLoader([MACRO_PATH, template_path]),
+    )
+    convert_all_python_templates(
+        jinja_env,
+        template_path,
+        output_path,
+        glob_pattern="topic*.py",
+        tags_to_remove=("code-along",),
+        language=language,
+    )
 
 
 # %%
@@ -94,11 +114,17 @@ def convert_workshop_templates_to_solutions(language=None):
     if language:
         output_path = output_path / language.title()
 
-    jinja_env = Environment(line_statement_prefix="# j2",
-                            loader=FileSystemLoader(
-                                [MACRO_PATH, template_path]))
-    convert_all_python_templates(jinja_env, template_path, output_path,
-                                 glob_pattern="workshop*.py", language=language)
+    jinja_env = Environment(
+        line_statement_prefix="# j2",
+        loader=FileSystemLoader([MACRO_PATH, template_path]),
+    )
+    convert_all_python_templates(
+        jinja_env,
+        template_path,
+        output_path,
+        glob_pattern="workshop*.py",
+        language=language,
+    )
 
 
 # %%
@@ -108,12 +134,18 @@ def convert_workshop_templates_to_exercises(language=None):
     if language:
         output_path = output_path / language.title()
 
-    jinja_env = Environment(line_statement_prefix="# j2",
-                            loader=FileSystemLoader(
-                                [MACRO_PATH, template_path]))
-    convert_all_python_templates(jinja_env, template_path, output_path,
-                                 glob_pattern="workshop*.py",
-                                 tags_to_remove=("solution",), language=language)
+    jinja_env = Environment(
+        line_statement_prefix="# j2",
+        loader=FileSystemLoader([MACRO_PATH, template_path]),
+    )
+    convert_all_python_templates(
+        jinja_env,
+        template_path,
+        output_path,
+        glob_pattern="workshop*.py",
+        tags_to_remove=("solution",),
+        language=language,
+    )
 
 
 # %%
