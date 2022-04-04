@@ -7,21 +7,25 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.0
+#       jupytext_version: 1.13.7
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
-
-# j2 import 'macros.j2' as doc
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # # Kraftfahrzeuge (Teil 1)
 #
 # Definieren Sie eine Klasse `Kfz`, deren Instanzen Kraftfahrzeuge beschreiben.
 # Jedes KFZ soll Attribute `hersteller` und `kennzeichen` haben.
+
+# %% [markdown] lang="en"
+# # Motor Vehicles (Part 1)
+#
+# Define a class `MotorVehicle` whose instances describe motor vehicles.
+# Every car should have attributes `manufacturer` and `license_plate`.
 
 # %% tags=["solution"]
 class Kfz:
@@ -30,29 +34,42 @@ class Kfz:
         self.kennzeichen = kennzeichen
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Erzeugen Sie zwei Kraftfahrzeuge:
 # - einen BMW mit Kennzeichen "M-BW 123"
 # - einen VW mit Kennzeichen "WOB-VW 246"
 # und speichern Sie sie in Variablen `bmw` und `vw`
 
+# %% [markdown] lang="en"
+# Create two motor vehicles:
+# - a BMW with license plate "M-BW 123"
+# - a VW with license plate "WOB-VW 246"
+# and store them in variables `bmw` and `vw`
+
 # %% tags=["solution"]
 bmw = Kfz("BMW", "M-BW 123")
 vw = Kfz("VW", "WOB-VW 246")
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Erzeugen Sie eine neue Instanz von `Kfz` mit Hersteller BMW und Kennzeichen
 # "M-BW 123" und speichern Sie sie in einer Variablen `bmw2`.
 
+# %% [markdown] lang="en"
+# Create a new instance of `MotorVehicle` with manufacturer BMW and registration number
+# "M-BW 123" and store it in a variable `bmw2`.
+
 # %% tags=["solution"]
 bmw2 = Kfz("BMW", "M-BW 123")
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Wie können Sie feststellen, ob `bmw` und `bmw2` (bzw. `bmw` und `vw`) das
 # gleiche Fahrzeug beschreiben?
+
+# %% [markdown] lang="en"
+# How can you determine whether `bmw` and `bmw2` (or `bmw` and `vw`) describe the same vehicle?
 
 # %% tags=["solution"]
 bmw.hersteller == bmw2.hersteller and bmw.kennzeichen == bmw2.kennzeichen
@@ -61,12 +78,17 @@ bmw.hersteller == bmw2.hersteller and bmw.kennzeichen == bmw2.kennzeichen
 bmw.hersteller == vw.hersteller and bmw.kennzeichen == vw.kennzeichen
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # # Kraftfahrzeuge (Teil 2)
 #
 # Erweitern Sie die Klasse `Kfz` um eine Methode `melde_um(self,
 # neues_kennzeichen)`, die das Kennzeichen des Fahrzeugs ändert.
+
+# %% [markdown] lang="en"
+# # Motor Vehicles (Part 2)
+#
+# Extend the `MotorVehicle` class with a method `change_registration(self, new_license_plate)`, which changes the vehicle's license plate.
 
 # %% tags=["solution"]
 class Kfz:
@@ -78,21 +100,27 @@ class Kfz:
         self.kennzeichen = neues_kennzeichen
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Erzeugen Sie neue Instanzen von `bmw`, `bmw2` und `vw` wie in der obigen
 # Aufgabe:
+
+# %% [markdown] lang="en"
+# Create new instances of `bmw`, `bmw2` and `vw` as above:
 
 # %% tags=["solution"]
 bmw = Kfz("BMW", "M-BW 123")
 bmw2 = Kfz("BMW", "M-BW 123")
 vw = Kfz("VW", "WOB-VW 246")
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Melden Sie den obern erzeugten VW um, so dass er das neue Kennzeichen "BGL-A
 # 9" hat. Wie können Sie feststellen ob das Ummelden die gewünschte Änderung
 # hatte?
+
+# %% [markdown] lang="en"
+# Change the registation of the VW generated above so that it has the new license plate  "BGL-A 9". How can you tell if changing the registration resulted is the change you wanted?
 
 # %% tags=["solution"]
 vw.melde_um("BGL-A 9")
@@ -103,10 +131,14 @@ assert vw.kennzeichen == "BGL-A 9" and vw.hersteller == "VW"
 # Oder
 print("Hersteller:", vw.hersteller, "\tKennzeichen:", vw.kennzeichen)
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Melden Sie den in `bmw` gespeicherten BMW um (mit Kennzeichen "F-B 21"). Wirkt
 # sich die Änderung auf das in `bmw2` gespeicherte KFZ aus?
+
+# %% [markdown] lang="en"
+# Change the registration of the BMW saved in `bmw` (to the new registration number "F-B 21"). 
+# Does the change affect the car saved in `bmw2`?
 
 # %% tags=["solution"]
 bmw.melde_um("F-B 21")
@@ -114,7 +146,7 @@ print("Hersteller:", bmw.hersteller, "\tKennzeichen:", bmw.kennzeichen)
 print("Hersteller:", bmw2.hersteller, "\tKennzeichen:", bmw2.kennzeichen)
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # # Kraftfahrzeuge (Teil 3)
 #
@@ -122,6 +154,11 @@ print("Hersteller:", bmw2.hersteller, "\tKennzeichen:", bmw2.kennzeichen)
 # ein KFZ in einer geeigneten Form ausgeben.  Führen Sie die obigen Beispiele
 # mit der verbesserten Klasse aus.
 
+
+# %% [markdown] lang="en"
+# # Motor Vehicles (Part 3)
+#
+# Enhance the `MotorVehicle` class by implementing methods that return a string representation of the vehicle in a suitable form. Repeat the above examples with the new class.
 
 # %% tags=["solution"]
 class Kfz:
@@ -162,7 +199,7 @@ bmw
 # %%
 bmw2
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # # Einkaufsliste
 #
 # In dieser Aufgabe wollen wir eine  Einkaufsliste definieren, die geplante
@@ -175,6 +212,15 @@ bmw2
 # Definieren Sie zunächst eine Klasse `Item`, die Attribute `product` und
 # `amount` hat. Verwenden Sie dazu den `@dataclass` Decorator
 
+# %% [markdown] lang="en"
+# # Shopping List
+#
+# In this workshop we want to define a shopping list, that can manage planned purchases. A shopping list should consist of items that contain a product and the required quantity of the product.
+#
+# Both the shopping list itself and the entries should be represented as user-defined data types.
+#
+# First define a class `Item` that has attributes `product` and `amount`. To do this, use the `@dataclass` decorator
+
 # %% tags=["solution"]
 from dataclasses import dataclass
 
@@ -185,13 +231,16 @@ class Item:
     amount: str = "1 Stück"
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # Erzeugen sie ein Item, das 500g Kaffee repräsentiert:
+
+# %% [markdown] lang="en"
+# Create an item that represents 500g of coffee:
 
 # %% tags=["solution"]
 Item("Kaffee", "500g")
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Definieren Sie eine Klasse `ShoppingList`, die eine Liste von `Item`-Instanzen
 # beinhaltet:
@@ -228,6 +277,37 @@ Item("Kaffee", "500g")
 # Einkaufsliste zurückgibt, und für `__getitem__()`, die den Zugriff auf
 # Einträge über ihren numerischen Index erlaubt.
 
+# %% [markdown] lang="en"
+# Define a class `ShoppingList` containing a list of `Item` instances:
+#
+# - Use the `@dataclass` decorator
+# - The class has an attribute `items` of type `list` (or `list[Item]` if
+#   you are using Python 3.9 or newer), initialized with an empty list.
+# - The method `add_item(self, item: Item)` adds an `Item` to the shopping list.
+#
+# Implement one
+# [`__str__()` method](https://docs.python.org/3/reference/datamodel.html#object.__str<_>_),
+# so the following program:
+#
+# ```pythons
+# my_shopping list = ShoppingList([Item('Tea', '2 packages'),
+#                                  Item('Coffee', '1 packet')])
+# print(str(my_shopping list))
+# print(repr(my_shopping list))
+# ```
+#
+# Produces the following output:
+#
+# ```
+# Shopping List
+#   Tea, (2 packets)
+#   coffee, (1 package)
+#
+# ShoppingList(items=[Item(product='Tea', amount='2 packages'), Item(product='Coffee', amount='1 package')])
+# ```
+#
+# Implement a method `__len__()` that returns the length of the shopping list, and a method `__getitem__()` that allows access to items via their numeric index.
+
 # %% tags=["solution"]
 from dataclasses import field
 
@@ -252,35 +332,46 @@ class ShoppingList:
         self.items.append(item)
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Definieren Sie Variable `meine_einkaufsliste`, die eine Einkaufsliste mit
 # folgenden Items repräsentiert:
 # - 2 Pakete Tee,
 # - 1 Paket Kaffee
 
+# %% [markdown] lang="en"
+# Define a variable `my_shopping_list` containing a shopping list representing the following items:
+# - 2 packets of tea,
+# - 1 packet of coffee
+
 # %% tags=["solution"]
 meine_einkaufsliste = ShoppingList([Item("Tee", "2 Pakete"), Item("Kaffee", "1 Paket")])
 print(str(meine_einkaufsliste))
 print(repr(meine_einkaufsliste))
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Drucken Sie `meine_einkaufsliste` aus.
+
+# %% [markdown] lang="en"
+# Print out `my_shopping list`.
 
 # %% tags=["solution"]
 print(meine_einkaufsliste)
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
-# Stellen Sie fest, wie lange `meine_einkaufsliste` ist und welches Element an
-# Index 1 ist:
+# Stellen Sie fest, wie lange `meine_einkaufsliste` ist und was ihr erstes und zweites Elemnt sind:
+
+# %% [markdown] lang="en"
+# Determine the length of `my_shoppinglist` is and its first and second item.
 
 # %% tags=["solution"]
 print(len(meine_einkaufsliste))
 print(meine_einkaufsliste[0])
+print(meine_einkaufsliste[1])
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Was ist der Effekt des follgenden Ausdrucks?
 # ```python
@@ -288,30 +379,47 @@ print(meine_einkaufsliste[0])
 #       print(item)
 # ```
 
+# %% [markdown] lang="en"
+# What is the effect of the following expression?
+# ```python
+#   for item in my_shopping list:
+#       print(item)
+# ```
+
 # %% tags=["solution"]
 for item in meine_einkaufsliste:
     print(item)
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Fügen Sie  250 g Butter und  1 Laib Brot zur Einkaufsliste
 # `meine_einkaufsliste` hinzu.
+
+# %% [markdown] lang="en"
+# Add 250g butter and 1 loaf of bread to the shopping list
+# `my_shopping list`.
 
 # %% tags=["solution"]
 meine_einkaufsliste.add_item(Item("Butter", "250g"))
 meine_einkaufsliste.add_item(Item("Brot", "1 Laib"))
 meine_einkaufsliste
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # Drucken Sie die Einkaufsliste nochmal aus.
+
+# %% [markdown] lang="en"
+# Print out the shopping list again.
 
 # %% tags=["solution"]
 print(meine_einkaufsliste)
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Was passiert, wenn Sie `Butter` und `Brot` nochmals zur Einkaufsliste
 # `meine_einkaufsliste` hinzufügen?
+
+# %% [markdown] lang="en"
+# What happens when you add `butter` and `bread` to the shopping list again?
 
 # %% tags=["solution"]
 meine_einkaufsliste.add_item(Item("Butter", "250g"))

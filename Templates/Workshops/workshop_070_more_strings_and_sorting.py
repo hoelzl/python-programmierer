@@ -7,48 +7,65 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.0
+#       jupytext_version: 1.13.7
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
-# j2 import 'macros.j2' as doc
-# %% [markdown]
+# %% [markdown] lang="de"
 # # Shout
 #
 # Schreiben Sie eine Funktion `shout(text)`, die `text` in Großbuchstaben,
 # gefolgt von drei Außrufezeichen auf dem Bildschirm ausgibt.
+
+# %% [markdown] lang="en"
+# # Shout
+#
+# Write a function `shout(text)` that will print `text` in upper case letters,
+# followed by three exclamation marks on the screen.
 
 # %% tags=["solution"]
 def shout(text):
     print(f"{text.upper()}!!!")
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # Testen Sie die Funktion mit Argument `"Hallo"`
+
+# %% [markdown] lang="en"
+# Test the function with argument `"Hello"`
 
 # %% tags=["solution"]
 shout("Hallo")
 
-# %% [markdown] pycharm={"name": "#%% md\n"}
+# %% [markdown] pycharm={"name": "#%% md\n"} lang="de"
 # # Vergleichen von Strings
 
-# %% [markdown]
+# %% [markdown] lang="en"
+# # Comparing strings
+
+# %% [markdown] lang="de"
 # Ist `Abc` kleiner als `aBC`?
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# Is `Abc` less than `aBC`?
+
+# %% tags=["solution"]
 "Abc" < "aBC"
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # Ist gleichzeitig `abc` kleiner als `abcd` und `abcd` kleiner als `abd`?
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# Is `abc` less than `abcd` and simultaneously `abcd` less than `abd`?
+
+# %% tags=["solution"]
 "abc" < "abcd" < "abd"
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # # Begrüßung 1
 #
 # Schreiben Sie eine Funktion `drucke_begrüßung(name)`, die eine personalisierte
@@ -61,7 +78,19 @@ shout("Hallo")
 # Verwenden Sie dazu die `print()`-Funktion mit einem Argument und
 # String-Konkatenation.
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# # Greeting 1
+#
+# Write a function `print_greeting(name)` that does a personalized
+# outputs a greeting, e.g.
+# ```
+# Hello Hans!
+# Nice to welcome you again today.
+# We wish you a lot of fun, Hans.
+# ```
+# To do this, use the `print()` function with one argument and string concatenation.
+
+# %% tags=["solution"]
 def drucke_begrüßung(name):
     print(
         "Hallo, "
@@ -77,13 +106,18 @@ def drucke_begrüßung(name):
 drucke_begrüßung("Hans")
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # # Begrüßung 2
 #
-# Schreiben Sie eine Funktion `drucke_begrüßung(name)`, die die
+# Schreiben Sie eine Funktion `drucke_begrüßung_2(name)`, die die
 # Funktionalität von `drucke_begrüßung(name)` mittels F-Strings implementiert.
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# # Greeting 2
+#
+# Write a function `print_greeting_2(name)` that implements the functionality of `print_greeting(name)` using F-strings.
+
+# %% tags=["solution"]
 def drucke_begrüßung_2(name):
     print(
         f"Hallo, {name}!\n"
@@ -95,7 +129,7 @@ def drucke_begrüßung_2(name):
 drucke_begrüßung_2("Sepp")
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # # Piraten, Teil 4
 #
 # Das Ausdrucken der Beute-Aufteilund mittels
@@ -115,6 +149,26 @@ drucke_begrüßung_2("Sepp")
 # Verwenden Sie F-Strings um die Ausgabetexte zu erzeugen. Sie können die
 # folgende Funktion verwenden, um die Aufteilung der Beute zu berechnen:
 
+# %% [markdown] lang="en"
+# # Pirates, part 4
+#
+# The printout of the loot allocation and means
+# `print_division_of_loot(doubloons, pirates)` uses too much paper.
+#
+# Implement a new version of the function containing the following text
+# outputs:
+#
+# ```
+# Each of the 8 pirates gets 2 of the 17 gold doubloons. The captain receives an extra 1 gold doubloon.
+# ```
+# or.
+# ```
+# Each of the 8 pirates gets 2 of the 17 gold doubloons. The captain receives an extra 2 gold doubloons.
+# ```
+#
+# Use F-strings to generate the output texts. You can the
+# use the following function to calculate the division of spoils:
+
 # %%
 def teile_beute_auf(dublonen, piraten):
     dublonen_pro_pirat = dublonen // piraten
@@ -122,7 +176,7 @@ def teile_beute_auf(dublonen, piraten):
     return dublonen_pro_pirat, dublonen_kapitän
 
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 def drucke_aufteilung_der_beute(dublonen, piraten):
     dublonen_pro_pirat, dublonen_kapitän = teile_beute_auf(dublonen, piraten)
     if dublonen_kapitän == 1:
@@ -139,12 +193,12 @@ def drucke_aufteilung_der_beute(dublonen, piraten):
         )
 
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 drucke_aufteilung_der_beute(1000, 11)
 drucke_aufteilung_der_beute(17, 8)
 
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 def drucke_aufteilung_der_beute_v2(dublonen, piraten):
     dublonen_pro_pirat, dublonen_kapitän = teile_beute_auf(dublonen, piraten)
     print(
@@ -155,6 +209,6 @@ def drucke_aufteilung_der_beute_v2(dublonen, piraten):
     )
 
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 drucke_aufteilung_der_beute_v2(1000, 11)
 drucke_aufteilung_der_beute_v2(17, 8)

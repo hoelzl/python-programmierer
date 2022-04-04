@@ -7,16 +7,14 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.3
+#       jupytext_version: 1.13.7
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
-# %%
-# j2 import 'macros.j2' as doc
-# %% [markdown]
+# %% [markdown] lang="de"
 # # Vererbung
 #
 # Im Folgenden soll eine Klassenhierarchie für Mitarbeiter einer Firma erstellt
@@ -36,6 +34,25 @@
 # Implementieren Sie Python Klassen `Mitarbeiter`, `Arbeiter` und `Manager` mit
 # geeigneten Attributen und einer Methode `gehalt()`, die das Gehalt berechnet.
 #
+
+# %% [markdown] lang="en"
+# # Inheritance
+#
+# In the following we will implement a class hierarchy for employees of a company:
+#
+# - Employees can be either workers or managers
+# - Each employee of the company has a name, a personnel number and a
+#   base salary
+# - For each worker, the accumulated overtime and the hourly wage
+#   are stored in attributes.
+# - A worker's salary is calculated as 13/12 times the
+#   base salary plus overtime pay
+# - Each manager has an individual bonus
+# - A manager's salary is calculated as 13/12 times the
+#   base salary plus bonus
+#
+# Implement Python classes `Employee`, `Worker` and `Manager` with
+# appropriate attributes and a method `salary()` that calculates the salary.
 
 # %% tags=["solution"]
 from dataclasses import dataclass
@@ -73,31 +90,42 @@ class Manager(Mitarbeiter):
         return super().gehalt + self.bonus
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Erzeugen Sie einen Arbeiter mit Namen Hans, Personalnummer 123, einem
 # Grundgehalt von  36000.0 Euro, der 3.5 Überstunden zu je 40.0 Euro gearbeit
 # hat. Drucken Sie das Gehalt aus.
+
+# %% [markdown] lang="en"
+# Create a worker named Hans, personnel number 123, a base salary of 36000.0 Euros, who worked 3.5 hours of overtime at 40.0 euros each. Print out the salary.
 
 # %% tags=["solution"]
 a = Arbeiter("Hans", "123", 36_000, 3.5, 40.0)
 print(a.gehalt)
 a
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Erzeugen Sie einen Manager mit Namen Sepp, Personalnummer 666, der ein
 # Grundgehalt von 60000.0 Euro und einen Bonus von 30000.0 Euro hat. Drucken Sie
 # das Gehalt aus.
+
+# %% [markdown] lang="en"
+# Create a manager named Sepp, personnel number 666, who is a
+# base salary of 60000.0 euros and a bonus of 30000.0 euros. Print out
+# the salary.
 
 # %% tags=["solution"]
 m = Manager("Sepp", "666", 60_000.0, 30_000.0)
 print(m.gehalt)
 m
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Lösung ohne Dataclasses:
+
+# %% [markdown] lang="en"
+# Solution without dataclasses:
 
 # %% tags=["solution"]
 class Mitarbeiter:
@@ -157,7 +185,7 @@ print(m.gehalt)
 m
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # # Bank Account
 #
@@ -174,6 +202,21 @@ m
 # - Wenn `deposit` mit einem negativen Wert aufgerufen wird.
 # - Wenn `withdraw` mit einem negativen Wert aufgerufen wird oder durch das
 #   Abheben des Betrags die `balance` des Kontos negativ werden würde.
+
+# %% [markdown] lang="en"
+# # Bank accounts
+#
+# Define a class `BankAccount` with an attribute `balance: float`
+# and methods `deposit(amount: float)` and `withdraw(amount: float)`.
+#
+# *Note: For a more realistic implementation, `decimal.Decimal`
+# can be used instead of `float`.*
+#
+# The class should throw an exception of type `ValueError` in the following cases:
+#
+# - If a new `BankAccount` with a negative `balance` is created.
+# - If `deposit` is called with a negative value.
+# - When `withdraw` is called with a negative value if by withdrawing the desired amount the `balance` attribute of the account would become negative.
 
 # %% tags=["solution"]
 from dataclasses import dataclass
@@ -208,10 +251,13 @@ class BankAccount:
             raise ValueError(f"Cannot withdraw a negative amount: {amount}")
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Testen Sie die Funktionalität der Klasse sowohl für erfolgreiche
 # Transaktionen, als auch für Transaktionen, die Exceptions auslösen.
+
+# %% [markdown] lang="en"
+# Test the functionality of the class for both successful transactions, as well as for transactions that throw exceptions.
 
 # %% tags=["solution"]
 BankAccount(100.0)
@@ -253,7 +299,7 @@ except ValueError as err:
     print("ERROR:", err)
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 #  # Lesen und Schreiben in Dateien
 #
@@ -265,16 +311,28 @@ except ValueError as err:
 # *Hinweis:*  Beachten Sie die möglichen Werte für das `mode` Argument von
 # `open()`.
 
+# %% [markdown] lang="en"
+# # Reading and writing to files
+#
+# Write a function `write_text_to_file(text: str, file_name: str) -> None`, which writes the string `text` to the file `file_name` if it *does not* exist and which throws an exception of type `FileExistsError` if
+# the file exists.
+#
+# *Note:* Note the possible values for the `mode` argument of `open()`.
+
 # %% tags=["solution"]
 def write_text_to_file(text, file_name):
     with open(file_name, "x") as file:
         file.write(text)
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Testen Sie die Funktion, indem Sie zweimal hintereinander versuchen den Text
 # `Python 3.8` in die Datei `my-private-file.txt` zu schreiben.
+
+# %% [markdown] lang="en"
+# Test the function by trying the text twice in a row
+# `Python 3.8` to the file `my-private-file.txt`.
 
 # %% tags=["solution"]
 write_text_to_file("Python 3.8", "my_private_file.txt")
@@ -283,7 +341,7 @@ write_text_to_file("Python 3.8", "my_private_file.txt")
 # write_text_to_file('Python 3.8', 'my_private_file.txt')
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 #  Schreiben Sie eine Funktion `annotate_file(file_name: str) -> None`, die
 # - den Inhalt der Datei `file_name` gefolgt von dem Text `(annotated version)`
@@ -291,6 +349,15 @@ write_text_to_file("Python 3.8", "my_private_file.txt")
 # - den Text `No file found, we will bill the time we spent searching.` ausgibt
 #   falls sie nicht existiert
 # - in beiden Fällen den Text `Our invoice will be sent by mail.` ausgibt.
+
+# %% [markdown] lang="en"
+# Write a function `annotate_file(file_name: str) -> None` which
+# - prints out the content of the file `file_name` followed by the text `(annotated version)`
+#   on the screen, if the file exists
+# - outputs the text `No file found, we will bill the time we spent searching.`
+#   if the file doesn't exist
+#   
+# In both cases the text `Our invoice will be sent by mail.` is printed out.
 
 # %% tags=["solution"]
 def annotate_file(file_name):

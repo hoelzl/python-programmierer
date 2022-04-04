@@ -7,15 +7,14 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.0
+#       jupytext_version: 1.13.7
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
-# j2 import 'macros.j2' as doc
-# %% [markdown]
+# %% [markdown] lang="de"
 # # Quiz
 #
 # Wir wollen ein Quiz in Python implementieren.
@@ -36,7 +35,28 @@
 #   eine korrekte Antwort auf die Frage ist.
 # - `correct_answer(self)`: Gibt eine der korrekten Antworten zurück.
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# # Quiz
+#
+# We want to implement a quiz in Python.
+#
+# Although it is possible to start implementing it in a notebook it would be
+# better to start this project in an IDE and use the notebook only for
+# instructions, since the later parts are easier to implement in an IDE.
+#
+# Define a class `Question` representing a single questions and multiple correct
+# answers. The attributes of the class are:
+#
+# - A string `text` representing the text of the question.
+# - A list of strings `answers` representing the correct answers.
+#
+# `Question` has the following methods:
+#
+# - `is_answer_correct(self, answer: str)`: checks whether the string `answer`
+#   is a correct answer to the question.
+# - `correct_answer(self)`: Returns one of the correct answers.
+
+# %% tags=["solution"]
 class Question:
     def __init__(self, text, answers):
         self.text = text
@@ -55,12 +75,15 @@ class Question:
         return self.answers[0]
 
 
-# %% [markdown]
+# %% [markdown] lang="de"
 #
 # Testen Sie die Klasse (interaktiv falls Sie die Aufgabe im Notebook
 # bearbeiten, sonst mit pytest)
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# Test the class (interactively if you did the assignment in the notebook, else with pytest)
+
+# %% tags=["solution"]
 questions = [
     Question("Wann wurde Napoleon geboren?", ["15. August 1769", "1769"]),
     Question("Wann wurde Python erfunden?", ["1991"]),
@@ -71,13 +94,13 @@ questions = [
 ]
 questions
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 questions[0].is_answer_correct("15. August 1769")
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 questions[0].correct_answer()
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # Implementieren Sie jetzt eine Klasse `TriviaGame`, die eine Liste von
 # `Question`-Instanzen enthält und eine Methode `run(self)` hat, die
 #
@@ -115,7 +138,43 @@ questions[0].correct_answer()
 # - `print_reply()` gibt eine Antwort basierend auf der Frage und dem
 #   "Statuscode" zurück.
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# Now implement a class `TriviaGame` that has a list of
+# `Question` instances and has a `run(self)` method that
+#
+# - randomly selects a question,
+# - outputs the question text on the screen,
+# - asks the user for their answer,
+# - checks the user's answer and
+# - outputs a text whether the answer was right or wrong.
+#
+# An empty input should abort the game. At the end of the game the
+# number of questions answered and the percentage of correct
+# answers are printed out.
+#
+# *Note:* It's a good idea to implement some helper methods that
+# *Take over part of the functionality of `run()`. An option would be
+#
+# - `percentage_questions_answered_correctly(self)` returns the percentage of
+#   correctly answered questions. (Pay attention to the case that the
+#   user did not answer a question). For this method, an implementation as property might be appropriate.
+#
+# - `pick_random_question(self)` randomly selects one of the questions. The
+#   `random.choice()` function is very helpful for this
+#
+# - `query_user_for_answer(self, question: Question)` asks the user for an answer and returns it
+#
+# - `process_answer(self, question: Question, answer: str)` , evaluates the answer
+#   and returns a "status code" with one of the following meanings:
+#
+#   - The question was answered correctly.
+#   - The question was answered incorrectly.
+#   - The player wants to end the game.
+#
+# - `print_reply()` prints out a reply based on the question and the
+#   "Status Code".
+
+# %% tags=["solution"]
 from random import choice
 
 
@@ -200,14 +259,14 @@ class TriviaGame:
                 break
 
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 my_game = TriviaGame(questions)
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 my_game.pick_random_question()
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 # my_game.process_answer(my_game.pick_random_question())
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 # my_game.run()
