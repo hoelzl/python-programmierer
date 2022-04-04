@@ -75,7 +75,7 @@ list("abcde")
 # - `range(m, n)` produces the integer interval from $m$ to $n-1$
 # - `range(m,n,k)` produces the integer sequence $m, m+k, m+2k, ..., p$, where $p$ is the largest number of the form $m + jk$ with $j \geq 0$ and $p < n$
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]"}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 range(3)
 
 # %% {"tags": ["code-along"]}
@@ -465,7 +465,8 @@ print(my_list[my_slice])
 # The `indices()` method of a slice object can be used to
 # determine which indices the slice contains:
 
-# %% {"incorrectly_encoded_metadata": "my_slice = slice(None, 3)"}
+# %% 
+my_slice = slice(None, 3)
 print(my_slice.indices(len(my_list)))
 
 

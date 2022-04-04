@@ -359,7 +359,7 @@ class TodoList:
 # %% [markdown] lang="en"
 # ## Loading and saving
 #
-# Add a method 
+# Add a method
 #
 # ```save_to_file(self, file)```
 #
@@ -441,7 +441,7 @@ class TodoList:
 #   can be saved. This argument must be specified. The content
 #   from `file` is a todo list in `pickle` format.
 #
-# - Each command should (if applicable) first load the contents of `file`, perform the 
+# - Each command should (if applicable) first load the contents of `file`, perform the
 #   necessary changes, and then save the changes back to `file`.
 #
 # Example calls:

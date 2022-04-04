@@ -418,7 +418,7 @@ type(True)
 # %% {"tags": ["code-along"]}
 1 <= 1
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]"}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 1 > 2
 
 # %% {"tags": ["code-along"]}

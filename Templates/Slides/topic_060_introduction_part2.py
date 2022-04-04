@@ -142,7 +142,7 @@ print(p1.y)
 #
 # Statt dessen sollen allen Instanzen die gleiche Form haben. Deswegen werden
 # die Attribute eines Objekts bei seiner Konstruktion initialisiert. Das geht
-# über die `__init__()` Methode. 
+# über die `__init__()` Methode.
 #
 # Die `__init__()`-Methode hat immer
 # (mindestens) einen Parameter, der per Konvention `self` heißt:
@@ -191,7 +191,7 @@ print("p2: x =", p2.x, "y =", p2.y)
 # zusätzliche Parameter gibt.
 
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
-# In many cases, when constructing an object, we would like to specify the attributes of the instance. 
+# In many cases, when constructing an object, we would like to specify the attributes of the instance.
 # This is made possible by passing additional arguments to the `__init__()` method.
 
 # %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
@@ -335,7 +335,7 @@ print(str(p1))
 # in der Dokumentation.
 
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
-# Python offers many dunder methods: see the documentation of the 
+# Python offers many dunder methods: see the documentation of the
 # [Python data model](https://docs.python.org/3/reference/datamodel.html).
 
 # %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
@@ -534,6 +534,7 @@ print(p3d.move(dy=1.0, dz=5.0))
 
 # %% {"tags": ["code-along"]}
 from dataclasses import dataclass, field
+
 
 @dataclass
 class DefaultDemo:

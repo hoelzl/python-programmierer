@@ -107,13 +107,13 @@
 # - Numbers: `123`, `3.141592`
 # - Text (strings): `'This is a text'`, `"Hello, world!"`
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]", "tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 123
 
 # %% {"tags": ["code-along"]}
 3.141592
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]", "tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 "Das ist ein Text"
 
 # %% {"tags": ["code-along"]}
@@ -226,7 +226,7 @@ print(1, 3, 7.5, 2, "who, me?", sep=",")
 #     - `1.0` is a floating point number (`float`)
 # - With `type(...)` you can get the type of the argument:
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]"}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 type(1)
 
 # %% {"tags": ["code-along"]}
@@ -241,10 +241,10 @@ type("1")
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 # Integers in Python have no (practically relevant) upper limit:
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"\"}} tags=[\"code-along\"]"}
+# %% {"tags": ["code-along"]}
 10000000000000000000000000000000000000000000000000 + 500
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"\"}} tags=[\"code-along\"]"}
+# %% {"tags": ["code-along"]}
 type(10000000000000000000000000000000000000000000000000)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
@@ -297,7 +297,7 @@ type(10000000000000000000000000000000000000000000000000)
 # %% {"tags": ["code-along"]}
 20 / 7
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]", "tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 # // und % können zur Division mit Rest verwendet werden:
 20 // 7  # Wie oft geht 7 in 20?
 
@@ -330,13 +330,13 @@ type(10000000000000000000000000000000000000000000000000)
 # ### Exponentiation (power)
 
 # %% {"tags": ["code-along"]}
-2 ** 3
+2**3
 
 # %% {"tags": ["code-along"]}
 2 * 2 * 2
 
 # %% {"tags": ["code-along"]}
-2 ** 4
+2**4
 
 # %% {"tags": ["code-along"]}
 2 * 2 * 2 * 2
@@ -354,13 +354,13 @@ type(10000000000000000000000000000000000000000000000000)
 # $(2^2)^3 = 4^3 = 64$
 
 # %% {"tags": ["code-along"]}
-2 ** 2 ** 3
+2**2**3
 
 # %% {"tags": ["code-along"]}
-2 ** (2 ** 3)
+2 ** (2**3)
 
 # %% {"tags": ["code-along"]}
-(2 ** 2) ** 3
+(2**2) ** 3
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # Der `**` Operator kann auch zum Wurzelziehen verwendet werden:
@@ -377,13 +377,13 @@ type(10000000000000000000000000000000000000000000000000)
 # $\sqrt{2} = 2^{1/2} \approx 1.4142\qquad$
 
 # %% {"tags": ["code-along"]}
-4 ** 0.5
+4**0.5
 
 # %% {"tags": ["code-along"]}
-9 ** 0.5
+9**0.5
 
 # %% {"tags": ["code-along"]}
-2 ** 0.5
+2**0.5
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
 # # Variablen
@@ -418,7 +418,7 @@ type(10000000000000000000000000000000000000000000000000)
 # How long does our fence have to be?
 
 # %% {"tags": ["code-along"]}
-20 + 30 + (20 ** 2 + 30 ** 2) ** 0.5
+20 + 30 + (20**2 + 30**2) ** 0.5
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # <img src="img/fence.svg" style="vertical-align:top;overflow:auto;float:right;width:25%"/>
@@ -433,7 +433,7 @@ type(10000000000000000000000000000000000000000000000000)
 # %% {"tags": ["code-along"]}
 länge_birkenweg = 20
 länge_fichtengasse = 30
-länge_hauptstr = (länge_birkenweg ** 2 + länge_fichtengasse ** 2) ** 0.5
+länge_hauptstr = (länge_birkenweg**2 + länge_fichtengasse**2) ** 0.5
 länge_gesamt = länge_birkenweg + länge_fichtengasse + länge_hauptstr
 ergebniss = länge_gesamt
 
@@ -482,7 +482,7 @@ ergebniss = länge_gesamt
 # Creating and changing variable <br/>
 # are *statements*.
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]"}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 länge_birkenweg = 20
 print(länge_birkenweg)
 länge_birkenweg = 25
@@ -508,7 +508,7 @@ print(länge_birkenweg)
 # - You can assign new values to variables
 #     - The *old value* of the variable can be used on the right hand side:<br/> `jobs = jobs + 1`
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]"}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 x = "Hallo!"
 print(x)
 x = 123
@@ -518,7 +518,7 @@ print(x)
 x += 1
 print(x)
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]", "tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 # print(diese_variable_gibt_es_nicht)
 
 
@@ -574,7 +574,7 @@ print(x)
 #     - `__class__`, `__name__`
 #     - Normal user-defined variables should not be dunders
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]"}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 print(__name__)
 print(type(__name__))
 
@@ -618,7 +618,7 @@ print(VARIABLE_1)
 print(Variable_1)
 print(variablE_1)
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]"}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 _my_var = 1
 print(_my_var)
 _my_var = _my_var + 5
@@ -635,7 +635,7 @@ größenmaßstäbe_der_fußgängerübergänge
 # %% {"slideshow": {"slide_type": "subslide"}}
 α = 0.2
 β = 0.7
-γ = α ** 2 + 3 * β ** 2
+γ = α**2 + 3 * β**2
 print(γ)
 αβγ = α * β * γ
 print(αβγ)
@@ -689,7 +689,7 @@ print(b)
 # %%
 länge_a = 10  # Beispielwert
 länge_b = 40  # Beispielwert
-länge_c = (länge_a ** 2 + länge_b ** 2) ** 0.5
+länge_c = (länge_a**2 + länge_b**2) ** 0.5
 länge_gesamt = länge_a + länge_b + länge_c
 print(länge_gesamt)
 
@@ -716,9 +716,9 @@ print(länge_gesamt)
 #
 # We can express this in Python using a *function*:
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]", "tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def pythagoras(a, b):
-    c = (a ** 2 + b ** 2) ** 0.5
+    c = (a**2 + b**2) ** 0.5
     return c
 
 
@@ -751,11 +751,11 @@ pythagoras(1, 1)
 #     - Exits the function
 #     - Determines which value is returned
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]"}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def pythagoras(a, b):
-    quadratsumme = a ** 2 + b ** 2
+    quadratsumme = a**2 + b**2
     # We can compute (part of) the return value here
-    return quadratsumme ** 0.5
+    return quadratsumme**0.5
 
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
@@ -897,7 +897,7 @@ gesamtlänge(3, 4)
 # - Fixed size integers (e.g. with `numpy`)
 # - Floating point numbers with different sizes (`numpy`)
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]", "tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 1.1 * 100
 
 # %% {"tags": ["code-along"]}
@@ -905,7 +905,7 @@ import decimal
 
 decimal.Decimal("1.1") * 100
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]", "tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 (1 + 1j) * (1 + 1j)
 
 # %% {"tags": ["code-along"]}
@@ -925,7 +925,7 @@ decimal.Decimal("1.1") * 100
 # - A function can also be defined without formal parameters.
 # - The parentheses must be used in the definition and in calls.
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]", "tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def null():
     return 0
 
@@ -999,7 +999,7 @@ print(print("Hans"))
 #     - Often this is the special value `None`
 #     - If a function returns `None` we don't need an explicit `return` statement
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]", "tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def say_hello():
     print("Hello, world!")
     print("Today is a great day!")
@@ -1038,7 +1038,7 @@ say_hello()
 # - If the corresponding argument is not passed, the default value is used
 # - If a parameter has a default value, all values ​​to the right of it must also have one
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]", "tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def add_weighted(a, b=0, c=0):
     return a + 2 * b + 3 * c
 
@@ -1106,7 +1106,7 @@ append_value(2)
 # - The appropriate value is then substituted for the named parameter
 # - If all parameters are named, the call becomes independent of the parameter order
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]"}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def say_hi(person, greeting="Hi"):
     print(greeting, " ", person, "!", sep="")
 
@@ -1119,12 +1119,12 @@ say_hi("Jack", "Good morning")
 say_hi(greeting="Heya", person="Betty")
 
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]"}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def add_weighted(a, b=0, c=0):
     return a + 2 * b + 3 * c
 
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"\"}} tags=[\"code-along\"]", "tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 add_weighted(c=2, a=1)
 
 # %% {"tags": ["code-along"]}
@@ -1178,7 +1178,7 @@ def my_append(lhs: list[int], rhs: Optional[int]):
         lhs.append(rhs)
 
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]", "tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 my_list = [1, 2, 3]
 my_append(my_list, None)
 my_list
@@ -1201,7 +1201,7 @@ my_list
 # Any function in Python can be documented using a string literal as a
 # first element in the body. Most often, a `"""` string is used for this:
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]"}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 def my_fun(x):
     """
     Zeigt dem Benutzer den Wert von x an

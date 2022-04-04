@@ -40,7 +40,7 @@
 # %% [markdown] {"lang": "en"}
 # # Python and Jupyter notebooks
 #
-# We'll start with a brief introduction: 
+# We'll start with a brief introduction:
 # - How does Python work?
 # - What are Jupyter notebooks?
 
@@ -61,7 +61,7 @@
 #
 
 # %% [markdown] {"lang": "en"}
-# ## interpreter (Python)
+# ## Interpreter (Python)
 #
 # <img src="img/interpreter.svg" style="width:60%;margin:auto"/>
 
@@ -169,7 +169,7 @@ my_value = answer + 2
 # %% {"tags": ["code-along"]}
 123
 
-# %%
+# %% {"tags": ["code-along"]}
 123;
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
@@ -326,7 +326,7 @@ print(my_round(0.5), my_round(1.5), my_round(2.5), my_round(3.5))
 #
 # Write a function `greeting(name)` that prints a greeting in the form
 # "Hello *name*!" to the screen, e.g.
-# ```pythons
+# ```python
 # >>> greeting("Max")
 # Hi Max!
 # >>>
@@ -502,6 +502,7 @@ print_size(100)
 # * `text` auf dem Bildschirm ausgibt, falls das in einer Zeile der Länge
 #   `line_length` möglich ist
 # * `...` ausgibt, falls das nicht möglich ist.
+#
 # ```python
 # >>> print_line("Hallo")
 # Hallo
@@ -515,13 +516,13 @@ print_size(100)
 # ### Micro workshop
 #
 # Write a function `fits_in_line(text: str, line_length: int = 72)`,
-# which returns `True` or `False` depending on whether `text` fits into a line of 
+# which returns `True` or `False` depending on whether `text` fits into a line of
 # length `line_length`:
 # ```python
 # >>> fits_in_line("Hello")
 # True
 # >>> fits_in_line("Hello", 3)
-# false
+# False
 # >>>
 # ```
 #
@@ -605,7 +606,7 @@ result
 # Write a function `print_all(items: list)` that prints the elements of a
 # list `items` to the screen, one item per line:
 #
-# ```pythons
+# ```python
 # >>> print_all([1, 2, 3])
 # 1
 # 2

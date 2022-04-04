@@ -53,7 +53,7 @@ class GeoPointV0:
         self.y = y
 
     def get_radius(self):
-        return (self.x ** 2 + self.y ** 2) ** 0.5
+        return (self.x**2 + self.y**2) ** 0.5
 
     def get_angle(self):
         return math.atan2(self.y, self.x)
@@ -94,7 +94,7 @@ class GeoPointV1:
 
     @property
     def radius(self):
-        return (self.x ** 2 + self.y ** 2) ** 0.5
+        return (self.x**2 + self.y**2) ** 0.5
 
     @property
     def angle(self):
@@ -139,7 +139,7 @@ class GeoPointV2:
 
     @property
     def radius(self):
-        return (self.x ** 2 + self.y ** 2) ** 0.5
+        return (self.x**2 + self.y**2) ** 0.5
 
     @radius.setter
     def radius(self, new_radius):
@@ -175,7 +175,7 @@ print("Set radius to 10:", p)
 # ## Attributes of classes
 #
 # Most attributes are defined at the instance level, i.e.,
-# each object has its own values for the attributes. But sometimes it 
+# each object has its own values for the attributes. But sometimes it
 # makes sense to define attributes on the class level as well:
 
 # %% {"tags": ["code-along"]}

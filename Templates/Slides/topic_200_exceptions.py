@@ -147,7 +147,7 @@ print_int_sqrt_2_better(8)
 #    an incorrect value.
 #  - If the caller cannot handle the error itself, the error must be passed through (possibly)
 #    multiple levels of function calls. That leads to
-#    confusing code because the "interesting" path is intermingled with code to 
+#    confusing code because the "interesting" path is intermingled with code to
 #    handle errors.
 #
 #  A better solution:

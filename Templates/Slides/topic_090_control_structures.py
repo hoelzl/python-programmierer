@@ -137,7 +137,7 @@ klassifiziere_zahl(12, 12)
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 # ## Structure of an `if` statement (complete):
 #
-# ```pythons
+# ```python
 # if <Bedingung 1>:
 #     # Body that runs if condition 1 is true
 # elif <Bedingung 2>:
@@ -529,7 +529,7 @@ print("Wir haben einen erfolgreichen Versuch ausgeführt.")
 # ## Terminating loops
 #
 # Sometimes it's easier to determine whether to terminate a loop inside the body
-# rather than in the loop condition. With the `break` statement you can 
+# rather than in the loop condition. With the `break` statement you can
 # exit a loop early:
 
 # %%

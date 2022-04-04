@@ -321,7 +321,7 @@ kinopreis(70)
 
 
 # %% Schreiben Sie eine Funktion `drucke_kinopreis(alter)`, [markdown] lang="de"
-# Schreiben Sie eine Funktion `drucke_kinopreis(alter)`, 
+# Schreiben Sie eine Funktion `drucke_kinopreis(alter)`,
 # die einen Text der folgenden Art auf dem Bildschirm ausgibt:
 #
 # ```

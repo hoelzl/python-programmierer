@@ -137,7 +137,7 @@ print("Hersteller:", vw.hersteller, "\tKennzeichen:", vw.kennzeichen)
 # sich die Änderung auf das in `bmw2` gespeicherte KFZ aus?
 
 # %% [markdown] lang="en"
-# Change the registration of the BMW saved in `bmw` (to the new registration number "F-B 21"). 
+# Change the registration of the BMW saved in `bmw` (to the new registration number "F-B 21").
 # Does the change affect the car saved in `bmw2`?
 
 # %% tags=["solution"]
@@ -289,7 +289,7 @@ Item("Kaffee", "500g")
 # [`__str__()` method](https://docs.python.org/3/reference/datamodel.html#object.__str<_>_),
 # so the following program:
 #
-# ```pythons
+# ```python
 # my_shopping list = ShoppingList([Item('Tea', '2 packages'),
 #                                  Item('Coffee', '1 packet')])
 # print(str(my_shopping list))

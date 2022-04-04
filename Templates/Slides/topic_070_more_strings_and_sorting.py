@@ -140,7 +140,7 @@ sorted(my_strings)
 # %% {"tags": ["code-along"]}
 sorted(my_strings, key=locale.strxfrm)
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]"}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 locale.setlocale(locale.LC_COLLATE, "de_DE.UTF-8")
 
 # %% {"tags": ["code-along"]}
@@ -167,7 +167,7 @@ sorted(my_strings, key=locale.strxfrm)
 # The locale settings are global per process and therefore mainly suitable
 # to interact with the user.
 #
-# If you have to deal with strings in different languages, 
+# If you have to deal with strings in different languages,
 # using libraries like `PyUCA` (written in Python and therefore
 # easier to install) or `PyICU` (more complete implementation of the
 # Unicode specification based on a C++ library) might be a good idea.
@@ -369,7 +369,7 @@ s2 = "cafe\u0301"
 print(s1, s2)
 s1 == s2
 
-# %% {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"subslide\"}} tags=[\"code-along\"]"}
+# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
 import unicodedata
 
 unicodedata.normalize("NFC", s1) == s1

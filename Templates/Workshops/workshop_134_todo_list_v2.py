@@ -191,7 +191,7 @@ print(todo_list_as_string(todos))
 
 # %% [markdown] lang="en"
 # Write a function `mark_todo_item_done(todo_list, title)`,
-# that marks as done the first todo item with title 
+# that marks as done the first todo item with title
 # `title` that is not yet marked as done.
 
 # %% tags=["solution"]

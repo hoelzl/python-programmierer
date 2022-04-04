@@ -62,7 +62,7 @@ except ModuleNotFoundError:
 #
 # In this notebook we want to implement a simplified variant of the game Reversi (also
 # known under the trade name Othello). The game is
-# played on a board with 8x8 squares, on which players 
+# played on a board with 8x8 squares, on which players
 # can place black or white pieces. The exact rules are
 # described [in the Wikipedia article](https://en.wikipedia.org/wiki/Reversi).
 
@@ -289,7 +289,7 @@ print(npb)
 # mächtigere Zugriffsvarianten, wie z.B. Slicing zur Verfügung:
 
 # %% [markdown] {"lang": "en"}
-# Because the index is passed to the NumPy array, 
+# Because the index is passed to the NumPy array,
 # powerful access variants, such as slicing, are also available:
 
 # %%
@@ -779,7 +779,7 @@ except IndexError as err:
 #                              d: Direction) -> set[Index]
 # ```
 #
-# which returns the indices of all fields that the player 
+# which returns the indices of all fields that the player
 # can flip starting from field `index` and moving in direction `d`.
 
 # %% {"tags": ["code-along"]}

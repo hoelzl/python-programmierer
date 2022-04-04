@@ -25,7 +25,7 @@
 # Is $2^{16}$ larger than $32\,000\,\,/\,\,2$?
 
 # %% tags=["solution"]
-2 ** 16 > (32_000 / 2)
+2**16 > (32_000 / 2)
 
 # %% [markdown] lang="de"
 # Ist $72$ ohne Rest durch $3$ teilbar?
@@ -257,7 +257,7 @@ drucke_einkaufsliste(meine_einkaufsliste)
 # %% tags=["solution"]
 def drucke_quadrate(m, n):
     for num in range(m, n + 1):
-        print("Das Quadrat von", num, "ist", num ** 2)
+        print("Das Quadrat von", num, "ist", num**2)
 
 
 # %% [markdown] lang="de"

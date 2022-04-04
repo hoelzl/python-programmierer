@@ -70,7 +70,7 @@ print(a)
 # print(x)
 
 # %% {"slideshow": {"slide_type": "subslide"}}
-a = 1  # Globaler Namespace
+a = 1         # Globaler Namespace
 
 def f(x):     # Namespace von f - x ist im globalen Namespace *nicht* sichtbar
     a = x + 1 # Namespace von f - a ist im globalen Namespace *nicht* sichtbar

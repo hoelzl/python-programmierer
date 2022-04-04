@@ -68,7 +68,7 @@ write_text_to_file("Python 3.8", "my_private_file.txt")
 #   if the file exists
 # - prints out the text `No file found, we will bill the time we spent searching.`
 #   if the file doesn't exist
-#   
+#
 # In both cases the text `Our invoice will be sent by mail.` is printed out.
 
 # %% tags=["solution"]
