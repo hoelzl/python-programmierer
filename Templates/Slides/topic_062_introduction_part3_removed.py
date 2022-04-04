@@ -15,9 +15,21 @@
 #     name: python3
 # ---
 
-# j2 import 'macros.j2' as doc
-# %% [markdown] slideshow={"slide_type": "slide"}
-# {{ doc.header("Einführung in Python: Grundlagen Teil 3 - Gelöscht") }}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
+# <img src="img/python-logo-notext.svg"
+#      style="display:block;margin:auto;width:10%"/>
+# <br>
+# <div style="text-align:center; font-size:200%;"><b>Einführung in Python: Grundlagen Teil 3 - Gelöscht</b></div>
+# <br/>
+# <div style="text-align:center;">Dr. Matthias Hölzl</div>
+
+# %% [markdown]{"slideshow": {"slide_type": "slide"}, "lang": "en"}
+# <img src="img/python-logo-notext.svg"
+#      style="display:block;margin:auto;width:10%"/>
+# <br>
+# <div style="text-align:center; font-size:200%;"><b>Introduction to Python: Part 3 - Deleted Parts</b></div>
+# <br/>
+# <div style="text-align:center;">Dr. Matthias Hölzl</div>
 
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}}

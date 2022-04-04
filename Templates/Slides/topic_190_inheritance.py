@@ -7,28 +7,47 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.3
+#       jupytext_version: 1.13.7
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
-# %%
-# j2 import 'macros.j2' as doc
-# %% [markdown] {"slideshow": {"slide_type": "slide"}}
-# {{ doc.header("Objektorientierung Teil 2: Vererbung") }}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
+# <img src="img/python-logo-notext.svg"
+#      style="display:block;margin:auto;width:10%"/>
+# <br>
+# <div style="text-align:center; font-size:200%;"><b>Objektorientierung Teil 2: Vererbung</b></div>
+# <br/>
+# <div style="text-align:center;">Dr. Matthias Hölzl</div>
 
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "en"}
+# <img src="img/python-logo-notext.svg"
+#      style="display:block;margin:auto;width:10%"/>
+# <br>
+# <div style="text-align:center; font-size:200%;"><b>Object orientation part 1: Inheritance</b></div>
+# <br/>
+# <div style="text-align:center;">Dr. Matthias Hölzl</div>
 
-# %% [markdown]
+# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "slide"}}
 #
 #  # Objektorientierung Teil 2
 #
 #  - Wir haben im vorherigen Kapitel Klassen kennengelernt, einen der grundlegenden Baustein der objektorientierten Programmierung
 #  - In diesem Kapitel werden wir Vererbung betrachten.
 
-# %% [markdown]
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "slide"}}
+# # Object Orientation Part 2
+#
+#  - In the previous lesson we got to know classes, one of the basic building blocks of object-oriented programming
+#  - In this chapter we will consider inheritance.
+
+# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "subslide"}}
 #  ## Vererbung
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# ## Inheritance
 
 # %%
 import random
@@ -65,8 +84,11 @@ p.randomize()
 p
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "subslide"}}
 # Wie können wir farbige Punkte einführen, ohne die komplette Funktionalität von `Point` neu implementieren zu müssen?
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# How can we introduce colored points without having to re-implement the entire functionality of `Point`?
 
 # %% {"tags": ["code-along"]}
 class ColorPoint(Point):
@@ -97,7 +119,7 @@ cp.randomize()
 # cp
 
 
-# %% [markdown]
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 #
 #  ## Mini-Workshop
 #
@@ -105,13 +127,26 @@ cp.randomize()
 #  - Abschnitt "Vererbung"
 #
 
-# %% [markdown]
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# ## Mini workshop
+#
+#  - Notebook `020x workshop control structures`
+#  - Section "Inheritance"
+
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
 #
 #  ## Abstrakte Klassen
 #
 #  - Die Klasse `abc.ABC` als Basisklasse
 #  - (Eigentlich ist eine Metaklasse verantwortlich)
 #  - `@abstractmethod` Dekorator
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "slide"}}
+# ## Abstract classes
+#
+#  - The class `abc.ABC` as base class
+#  - (actually a metaclass is responsible)
+#  - `@abstractmethod` decorator
 
 # %% {"tags": ["code-along"]}
 from abc import ABC, abstractmethod
@@ -142,16 +177,24 @@ yc = YourClass()
 yc.my_method()
 
 
-# %% [markdown]
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 #
 #  # Workshop
 #
 #  Siehe `070x-Workshop RPG-Würfel` bis `Factory für RPG-Würfel`.
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "en"}
+# # Workshop
+#
+#  See `070x-Workshop RPG Cubes` to `Factory for RPG Cubes`.
+
+# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "slide"}}
 # ## Mehrfachvererbung
 
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "slide"}}
+# ## Multiple inheritance
 
 # %%
 class A:

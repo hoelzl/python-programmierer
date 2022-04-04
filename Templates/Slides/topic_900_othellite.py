@@ -8,16 +8,28 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.2
+#       jupytext_version: 1.13.7
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
-# j2 import 'macros.j2' as doc
-# %% [markdown] slideshow={"slide_type": "slide"}
-# {{ doc.header("Case Study: Othellite") }}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
+# <img src="img/python-logo-notext.svg"
+#      style="display:block;margin:auto;width:10%"/>
+# <br>
+# <div style="text-align:center; font-size:200%;"><b>Fallstudie: Othellite</b></div>
+# <br/>
+# <div style="text-align:center;">Dr. Matthias Hölzl</div>
+
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "en"}
+# <img src="img/python-logo-notext.svg"
+#      style="display:block;margin:auto;width:10%"/>
+# <br>
+# <div style="text-align:center; font-size:200%;"><b>Case Study: Othellite</b></div>
+# <br/>
+# <div style="text-align:center;">Dr. Matthias Hölzl</div>
 
 
 # %%
@@ -34,7 +46,7 @@ except ModuleNotFoundError:
     print("NumPy not found, some (minor) examples may not work")
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 #
 # # Othellite
 #
@@ -45,12 +57,25 @@ except ModuleNotFoundError:
 # [im Wikipedia Artikel](https://de.wikipedia.org/wiki/Othello_(Spiel))
 # beschrieben.
 
-# %% [markdown]
+# %% [markdown] {"lang": "en"}
+# # Othellite
+#
+# In this notebook we want to implement a simplified variant of the game Reversi (also
+# known under the trade name Othello). The game is
+# played on a board with 8x8 squares, on which players 
+# can place black or white pieces. The exact rules are
+# described [in the Wikipedia article](https://en.wikipedia.org/wiki/Reversi).
+
+# %% [markdown] {"lang": "de"}
 #
 # Wir definieren eine Enumeration, die den Zustand eines einzelnen Feldes auf
 # dem Brett beschreibt:
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# We define an enumeration that returns a state describing a single field
+# of the board:
+
+# %% {"tags": ["code-along"]}
 class Field(Enum):
     EMPTY = "\N{Open Box}"
     LIGHT = "\N{Medium White Circle}"
@@ -66,13 +91,19 @@ print("Light field value:", Field.LIGHT.value)
 print("Light field name: ", Field.LIGHT.name)
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 #
 # ## Micro-Workshop
 #
 # Definieren Sie eine Funktion `is_occupied(f: Field) -> bool`,
 # die genau dann `True` zurückgibt, wenn `field` nicht leer ist.
 
+
+# %% [markdown] {"lang": "en"}
+# ## Micro workshop
+#
+# Define a function `is_occupied(f: Field) -> bool`,
+# which returns `True` if and only if `field` is not empty.
 
 # %%
 def is_occupied(f: Field) -> bool:
@@ -85,7 +116,7 @@ assert is_occupied(Field.LIGHT)
 assert not is_occupied(Field.EMPTY)
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 #
 # ## Micro-Workshop
 #
@@ -94,13 +125,19 @@ assert not is_occupied(Field.EMPTY)
 # sowie Value und Namen für einen Enum-Wert aus.
 
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# ## Micro workshop
+#
+# Define an enumeration `Player` which describes the players in analogy with the enumeration `Field`.
+# Print out the possible values as well as value and name for a single enum value.
+
+# %% {"tags": ["code-along"]}
 class Player(Enum):
     LIGHT = 0
     DARK = 1
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 print("Players:           ", list(Player))
 print("Light player:      ", Player.LIGHT)
 print("Dark player:       ", Player.DARK)
@@ -108,7 +145,7 @@ print("Light player value:", Player.LIGHT.value)
 print("Light player name: ", Player.LIGHT.name)
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 #
 # ## Micro-Workshop
 #
@@ -122,7 +159,18 @@ print("Light player name: ", Player.LIGHT.name)
 #
 # Implementieren Sie eine entsprechende Methode `is_field_owned_by_player()`.
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# ## Micro workshop
+#
+# Define a function
+# `is_field_owned_by_opponent(p: Player, f: Field) -> bool`,
+# which returns `True` if and only if the token on square `f` belongs to the opponen, i.e. if `f` is occupied and the token on `f` does not have the same color as the player.
+#
+# Verify that your implementation satisfies the specified assertions.
+#
+# Implement a corresponding method `is_field_owned_by_player()`.
+
+# %% {"tags": ["code-along"]}
 def is_field_owned_by_opponent(p: Player, f: Field) -> bool:
     if p is Player.DARK:
         return f is Field.LIGHT
@@ -139,7 +187,7 @@ assert not is_field_owned_by_opponent(Player.LIGHT, Field.LIGHT)
 assert not is_field_owned_by_opponent(Player.LIGHT, Field.EMPTY)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 def is_field_owned_by_player(p: Player, f: Field) -> bool:
     if p is Player.DARK:
         return f is Field.DARK
@@ -156,7 +204,7 @@ assert not is_field_owned_by_player(Player.LIGHT, Field.DARK)
 assert not is_field_owned_by_player(Player.LIGHT, Field.EMPTY)
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 #
 # Wir wollen auf die einzelnen Felder eines 8x8 Spielfelds mittels eines
 # zweidimensionalen Index-Werts zugreifen: `board[0, 0]` steht für das linke
@@ -181,7 +229,20 @@ assert not is_field_owned_by_player(Player.LIGHT, Field.EMPTY)
 # to the NumPy array:
 # -->
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# We want to go to the individual squares of an 8x8 playing field using a
+# two-dimensional index value: `board[0, 0]` stands for the left one
+# top panel, `board[0, 1]` for the panel to the right, etc.
+#
+# This is easy if we take a two-dimensional array as the underlying
+# data structure, e.g. NumPy's `ndarray`. In this case
+# let's just delegate `__getitem__()` and `__setitem__()` to the
+# corresponding methods of the NumPy array.
+#
+# We initialize the middle 4 fields of the playing field with diagonal
+# arranged stones.
+
+# %% {"tags": ["code-along"]}
 @dataclass()
 class NumPyBoard:
     _fields: np.array = field(default_factory=lambda: np.array([[Field.EMPTY] * 8] * 8))
@@ -216,16 +277,20 @@ class NumPyBoard:
         return result
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 npb = NumPyBoard()
 npb[0, 0] = Field.DARK
 npb[0, 1] = Field.LIGHT
 print(npb)
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 #
 # Dadurch, dass der Index an das NumPy Array weitergereicht wird, stehen auch
 # mächtigere Zugriffsvarianten, wie z.B. Slicing zur Verfügung:
+
+# %% [markdown] {"lang": "en"}
+# Because the index is passed to the NumPy array, 
+# powerful access variants, such as slicing, are also available:
 
 # %%
 npb[0, 2:] = Field.DARK
@@ -233,7 +298,7 @@ npb[1:3, 1:3] = Field.LIGHT
 print(npb)
 
 
-# %%
+# %% [markdown] {"lang": "de"}
 # ## Mini-Workshop Compute Linear Index
 #
 # Wenn wir eine Python Liste als Speicher für das Spielfeld verwenden wollen,
@@ -248,7 +313,20 @@ print(npb)
 # übernimmt.
 
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# ## Mini workshop Compute Linear Index
+#
+# If we want to use a Python list as storage for the playing field,
+# we need to convert two-dimensional index values into a one-dimensional index.
+#
+# We do this by calculating the value `r * 8 + c` for a position `(r, c)`.
+# In the event that one of the indices is not `>= 0` and `< 8`, a
+# appropriate exception are raised.
+#
+# Implement a function `compute_linear_index()` to do this task
+# takes over.
+
+# %% {"tags": ["code-along"]}
 def compute_linear_index(index):
     """
     Compute the linear index for the given (possibly complex) index.
@@ -277,7 +355,7 @@ def compute_linear_index(index):
         return index
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 #
 # ## Mini-Workshop
 #
@@ -288,7 +366,14 @@ def compute_linear_index(index):
 # verwenden.
 
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# ## Mini workshop
+#
+# Implement a class `Board` representing an 8x8 Othellite board
+# that stores the state of the board in a list.
+# You can refer to the `NumPyBoard` class for implementation hints, and you can use `compute_linear_index` to calculate index values.
+
+# %% {"tags": ["code-along"]}
 @dataclass(repr=False)
 class Board:
     _fields: list[Field] = field(default_factory=lambda: [Field.EMPTY] * 64)
@@ -323,7 +408,7 @@ class Board:
         return result
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 board = Board()
 board[0, 0] = Field.DARK
 board[0, 2] = Field.DARK
@@ -332,7 +417,7 @@ print(str(board))
 board[:3]
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 #
 # Wir definieren eine weitere Enumeration für "Himmelsrichtungen". Die
 # Schlüssel der Enumeration sollen Abkürzungen für die Kompassrichtungen (N,
@@ -363,13 +448,48 @@ board[:3]
 # - `(1, -1` for moving south-west.
 # -->
 
-# %% [markdown]
+# %% [markdown] {"lang": "en"}
+# We define another enumeration for "directions". The
+# Keys of the enumeration should be abbreviations for the compass directions (N,
+# NE, E, ...). The value for movement in this direction
+# should be the "offset" to move in that direction:
+#
+# - `(-1, 0)` for northbound movement,
+# - `(0, 1)` for eastbound movement,
+# - `(1, 0)` for a southbound movement,
+# - `(0, -1)` for westbound movement,
+# - `(-1, 1)` for a north-east movement,
+# - `(1, 1)` for moving south-east,
+# - `(-1, -1)` for moving north-west,
+# - `(1, -1` for moving south-west.
+#
+# <!--
+# We define yet another enumeration, this time for directions.
+# The keys of this enumeration should be the compass directions (N, NE, E, ...),
+# the values should be the (x, y) offset to move to this field in a
+# right-handed coordinate system, i.e.,
+# - `(-1, 0)` for moving north,
+# - `(0, 1)` for moving east,
+# - `(1, 0)` for moving south,
+# - `(0, -1)` for moving west,
+# - `(-1, 1)` for moving north-east,
+# - `(1, 1)` for moving south-east,
+# - `(-1, -1)` for moving north-west,
+# - `(1, -1` for moving south-west.
+# -->
+
+# %% [markdown] {"lang": "de"}
 #
 # ## Micro-Workshop
 #
 # Definieren Sie eine Enumeration `Directions`, wie gerade beschrieben.
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# ## Micro workshop
+#
+# Define an enumeration `Directions` as just described.
+
+# %% {"tags": ["code-along"]}
 class DirectionV0(Enum):
     N = (-1, 0)
     NE = (-1, 1)
@@ -381,19 +501,33 @@ class DirectionV0(Enum):
     NW = (-1, -1)
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 # Es ist bei Enumerationen möglich, mehrere Schlüssel für den gleichen Wert
 # zu definieren (also gewissermaßen Synonyme anzugeben).
+#
+# ```python
+# class Synonyms(Enum):
+#     DRINK = 0
+#     BEVERAGE = 0
+#     FOOD = 1
+#     BIG = 2
+#     LARGE = 2
+#     SMALL = 3
+# ```
 
-
-class Synonyms(Enum):
-    DRINK = 0
-    BEVERAGE = 0
-    FOOD = 1
-    BIG = 2
-    LARGE = 2
-    SMALL = 3
-
+# %% [markdown] {"lang": "en"}
+# It is possible with enumerations to use several keys for the same value
+# to define (i.e. to give synonyms, so to speak).
+#
+# ```python
+# class Synonyms(enum):
+#     DRINK = 0
+#     BEVERAGE = 0
+#     FOOD = 1
+#     BIG = 2
+#     LARGE = 2
+#     SMALL = 3
+# ```
 
 # %%
 print(Synonyms.DRINK is Synonyms.BEVERAGE)
@@ -402,14 +536,18 @@ print(Synonyms.BIG is Synonyms.LARGE)
 print(Synonyms.BIG is not Synonyms.SMALL)
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 #
 # Erweitern Sie die Enumeration `Directions` so, dass auch die vollständigen
 # Namen der Kompassrichtungen (`NORTH`, `NORTH_EAST`, ...) verwendet werden
 # können.
 
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# Extend the enumeration `Directions` to include the full
+# Names of the compass directions (`NORTH`, `NORTH_EAST`, ...).
+
+# %% {"tags": ["code-along"]}
 class Direction(Enum):
     # Abbreviated names
     N = (-1, 0)
@@ -431,7 +569,7 @@ class Direction(Enum):
     NORTH_WEST = (-1, -1)
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 #
 # ## Micro-Workshop
 #
@@ -442,7 +580,13 @@ class Direction(Enum):
 # same values.
 # -->
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# ## Micro workshop
+#
+# Check that the abbreviations and the full names
+# represent the same values.
+
+# %% {"tags": ["code-along"]}
 assert Direction.N is Direction.NORTH
 assert Direction.NE is Direction.NORTH_EAST
 assert Direction.E is Direction.EAST
@@ -452,7 +596,7 @@ assert Direction.SW is Direction.SOUTH_WEST
 assert Direction.W is Direction.WEST
 assert Direction.NW is Direction.NORTH_WEST
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 print("Direction[0:3]: ", list(Direction)[:3])
 print("Direction values:", [d.value for d in Direction])
 print("Direction names: ", [d.name for d in Direction])
@@ -461,16 +605,23 @@ print("Direction names: ", [d.name for d in Direction])
 Index = tuple[int, int]
 
 
-# %% [markdown]
-#
-# Micro-Workshop
+# %% [markdown] {"lang": "de"}
+# ## Micro-Workshop
 #
 # Schreiben Sie eine Funktion `is_valid_index(index: Index) -> bool`,
 # die genau dann `True` zurückgibt, wenn `index` ein gültiger Index für
 # ein Othellite Brett ist, andernfalls `False`. Überprüfen Sie, ob Ihre
 # Implementierung die Assertions erfüllt
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# ## Micro workshop
+#
+# Write a function `is_valid_index(index: index) -> bool`,
+# which returns `True` if and only if `index` is a valid index for
+# an Othellite board. Check if your
+# Implementation satisfies the given assertions.
+
+# %% {"tags": ["code-along"]}
 def is_valid_index(index: Index) -> bool:
     row, column = index
     return 0 <= row < 8 and 0 <= column < 8
@@ -484,7 +635,7 @@ assert not is_valid_index((6, -1))
 assert not is_valid_index((-2, 4))
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 # ## Micro-Workshop
 #
 # Schreiben Sie eine Funktion
@@ -495,7 +646,17 @@ assert not is_valid_index((-2, 4))
 # verschiedene Fehlerfälle eine Exception auslöst.
 
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# ## Micro workshop
+#
+# Write a function
+# `assert_valid_index(index: Index) -> None:` which throws an exception of
+# type `IndexError` with an appropriate error message if `index`
+# is not a valid index for an Othellite board. Check that the
+# function does not throw an exception for correct arguments, but it does for
+# different error cases.
+
+# %% {"tags": ["code-along"]}
 def assert_valid_index(index: Index) -> None:
     def assert_component_in_range(value: int, component: str):
         if value < 0 or value >= 8:
@@ -506,23 +667,23 @@ def assert_valid_index(index: Index) -> None:
     assert_component_in_range(y, "Second")
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 assert_valid_index((2, 0))
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 try:
     assert_valid_index((-1, 3))
 except IndexError as err:
     print(err)
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 try:
     assert_valid_index((1, 8))
 except IndexError as err:
     print(err)
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 #
 # Schreiben Sie eine Funktion
 # `next_index_in_direction(index: Index, direction: Direction)`,
@@ -538,7 +699,21 @@ except IndexError as err:
 # Überprüfen Sie, ob Ihre Implementierung die angegebenen Assertions erfüllt.
 
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# Write a function
+# `next_index_in_direction(index: Index, direction: Direction)`,
+# which returns two values ​​if `index` is a valid index:
+# - the next index in direction `direction` and
+# - `True` or `False` depending on whether the next index is valid or not.
+# If `index` is not a valid index, an exception of type
+# `IndexError` is thrown.
+#
+# *Note:* You can calculate the values to be added to the components of `index`
+# using `d_row, d_column = direction.value`.
+#
+# Verify that your implementation satisfies the specified assertions.
+
+# %% {"tags": ["code-along"]}
 def next_index_in_direction(index: Index, direction: Direction):
     assert_valid_index(index)
     row, column = index
@@ -584,7 +759,7 @@ except IndexError as err:
     print(err)
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 #
 # Wir wollen unsere Klasse `Board` jetzt um eine Methode
 #
@@ -596,7 +771,18 @@ except IndexError as err:
 # erweitern, die die Indizes aller Felder zurückgibt, die der Spieler ausgehend
 # vom Feld `index` in Richtung `d` umdrehen kann.
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# We want to extend our `Board` class with a method
+#
+# ```
+# _fields_flipped_in_direction(self, p: Player, index: Index,
+#                              d: Direction) -> set[Index]
+# ```
+#
+# which returns the indices of all fields that the player 
+# can flip starting from field `index` and moving in direction `d`.
+
+# %% {"tags": ["code-along"]}
 # This is very specific to the use in `Board`...
 def _find_rightmost(seq: Sequence):
     for i in range(len(seq) - 1, -1, -1):
@@ -610,7 +796,7 @@ assert _find_rightmost([True, False, True, False]) == 2
 assert _find_rightmost([False, False, False]) == 0
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 @dataclass(repr=False)
 class Board:
     _fields: list[Field] = field(default_factory=lambda: [Field.EMPTY] * 64)
@@ -709,7 +895,7 @@ assert_flips_direction(Player.DARK, (5, 4), set())
 assert_flips_direction(Player.DARK, (6, 4), set())
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 #
 # ## Mini-Workshop
 #
@@ -723,7 +909,19 @@ assert_flips_direction(Player.DARK, (6, 4), set())
 # - Mindestens ein Stein des Gegenspielers durch den Zug umgedreht wird
 #
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# ## Mini workshop
+#
+# Add a method to the `Board` class
+# `is_valid_move(self, player: Player, index: Index) -> bool`
+# which returns `True` if and only if `index` is a valid index for
+# the player's next move.
+#
+# An index is valid if
+# - It is not already occupied,
+# - At least one of the opponent's stones is turned over by the move
+
+# %% {"tags": ["code-along"]}
 @dataclass(repr=False)
 class Board:
     _fields: list[Field] = field(default_factory=lambda: [Field.EMPTY] * 64)
@@ -816,7 +1014,7 @@ valid_move_for_dark_player = {(2, 4), (3, 5), (4, 2), (5, 3)}
 assert_valid_moves(Player.DARK, valid_move_for_dark_player)
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 #
 # ## Mini-Workshop
 #
@@ -828,7 +1026,18 @@ assert_valid_moves(Player.DARK, valid_move_for_dark_player)
 # Erzeugen Sie alle möglichen Züge und testen Sie dann für jeden Zug, ob
 # er möglich ist.
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# ## Mini workshop
+#
+# Add a method to the `Board` class
+# `find_valid_moves(self, player: Player) -> set[Index]`,
+# which returns all possible moves for the player `player`.
+#
+# *Note:* You can easily achieve this using *Generate and Test*:
+# Generate all possible moves and then test for each move whether
+# he is possible.
+
+# %% {"tags": ["code-along"]}
 @dataclass(repr=False)
 class Board:
     _fields: list[Field] = field(default_factory=lambda: [Field.EMPTY] * 64)
@@ -911,7 +1120,7 @@ assert board.find_valid_moves(Player.LIGHT) == valid_moves_for_light_player
 assert board.find_valid_moves(Player.DARK) == valid_move_for_dark_player
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 #
 # ## Mini-Workshop
 #
@@ -926,7 +1135,20 @@ assert board.find_valid_moves(Player.DARK) == valid_move_for_dark_player
 # viele Verantwortlichkeiten hat.
 
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en"}
+# ## Mini workshop
+#
+# Write a method
+# `play_move(self, player: Player, index: Index) -> None`,
+# which executes the move from `player` to the field `index`.
+# If the move is invalid, an exception should be thrown.
+# If the move is valid, all fields flipped by the move should
+# be set to the correct value.
+#
+# To do this, write appropriate helper methods so that `play_move` does not
+# have too many responsibilities.
+
+# %% {"tags": ["code-along"]}
 @dataclass(repr=False)
 class Board:
     _fields: list[Field] = field(default_factory=lambda: [Field.EMPTY] * 64)

@@ -2,24 +2,36 @@
 # ---
 # jupyter:
 #   jupytext:
+#     cell_metadata_json: true
 #     text_representation:
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.3
+#       jupytext_version: 1.13.7
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
-# %%
-# j2 import 'macros.j2' as doc
-# %% [markdown] slideshow={"slide_type": "slide"}
-# {{ doc.header("Ausnahmen und Fehlerbehandlung") }}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
+# <img src="img/python-logo-notext.svg"
+#      style="display:block;margin:auto;width:10%"/>
+# <br>
+# <div style="text-align:center; font-size:200%;"><b>Ausnahment und Fehlerbehandlung</b></div>
+# <br/>
+# <div style="text-align:center;">Dr. Matthias Hölzl</div>
+
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "en"}
+# <img src="img/python-logo-notext.svg"
+#      style="display:block;margin:auto;width:10%"/>
+# <br>
+# <div style="text-align:center; font-size:200%;"><b>Exceptions and handling errors</b></div>
+# <br/>
+# <div style="text-align:center;">Dr. Matthias Hölzl</div>
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "slide"}}
 #
 # # Fehlerbehandlung
 #
@@ -32,11 +44,22 @@
 # Einige Lösungsversuche:
 
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "slide"}}
+# # Error handling
+#
+# We want to write a function `int_sqrt(n: int) -> int` that calculates the
+# "integer square root":
+# - If `n` is a square number, i.e. has the form `m * m`, then `m` should
+#   be returned.
+# - What do we do if `n` is not a square number?
+#
+# Some attempted solutions:
+
+# %% {"tags": ["code-along"]}
 from typing import Tuple
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 def int_sqrt_with_pair(n: int) -> Tuple[int, bool]:
     for m in range(n + 1):
         if m * m == n:
@@ -44,23 +67,23 @@ def int_sqrt_with_pair(n: int) -> Tuple[int, bool]:
     return 0, False
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 int_sqrt_with_pair(9)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 int_sqrt_with_pair(8)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 int_sqrt_with_pair(0)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 int_sqrt_with_pair(1)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
 def print_int_sqrt_1(n):
     root, is_valid = int_sqrt_with_pair(8)
     print(f"The root of {n} is {root}.")
@@ -69,7 +92,7 @@ def print_int_sqrt_1(n):
 print_int_sqrt_1(8)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 def int_sqrt_with_negative_value(n: int) -> int:
     for m in range(n + 1):
         if m * m == n:
@@ -77,15 +100,15 @@ def int_sqrt_with_negative_value(n: int) -> int:
     return -1
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 int_sqrt_with_negative_value(9)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 int_sqrt_with_negative_value(8)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
 def print_int_sqrt_2(n):
     root = int_sqrt_with_negative_value(8)
     print(f"The root of {n} is {root}.")
@@ -94,7 +117,7 @@ def print_int_sqrt_2(n):
 print_int_sqrt_2(8)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 def print_int_sqrt_2_better(n):
     root = int_sqrt_with_negative_value(8)
     if root < 0:
@@ -106,7 +129,7 @@ def print_int_sqrt_2_better(n):
 print_int_sqrt_2_better(8)
 
 
-# %% [markdown]
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 #
 #  Beide Ansätze haben mehrere Probleme:
 #  - Die Fehlerbehandlung ist optional. Wird sie nicht durchgeführt, so wird mit
@@ -118,7 +141,18 @@ print_int_sqrt_2_better(8)
 #
 #  Eine bessere Lösung:
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# Both approaches have several problems:
+#  - Error handling is optional. If it is not carried out, the computation proceeds with
+#    an incorrect value.
+#  - If the caller cannot handle the error itself, the error must be passed through (possibly)
+#    multiple levels of function calls. That leads to
+#    confusing code because the "interesting" path is intermingled with code to 
+#    handle errors.
+#
+#  A better solution:
+
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
 def int_sqrt(n: int) -> int:
     for m in range(n + 1):
         if m * m == n:
@@ -126,33 +160,33 @@ def int_sqrt(n: int) -> int:
     raise ValueError(f"{n} is not a square number.")
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 int_sqrt(9)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 int_sqrt(0)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 int_sqrt(1)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 # int_sqrt(8)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
 def print_int_sqrt(n):
     root = int_sqrt(n)
     print(f"The root of {n} is {root}.")
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 # print_int_sqrt(8)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 def print_int_sqrt_no_error(n):
     try:
         root = int_sqrt(n)
@@ -161,15 +195,15 @@ def print_int_sqrt_no_error(n):
         print(str(err))
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 print_int_sqrt_no_error(9)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 print_int_sqrt_no_error(8)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
 def print_int_sqrt_no_error_2(n):
     try:
         root = int_sqrt(n)
@@ -180,39 +214,55 @@ def print_int_sqrt_no_error_2(n):
         print("And that's all there is to say about this topic.")
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 print_int_sqrt_no_error_2(9)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 print_int_sqrt_no_error_2(8)
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "subslide"}}
+# ## Fehlerklassen
 #
-#  ## Fehlerklassen
+# In Python gibt es viele vordefinierte Fehlerklassen, mit denen verschiedene
+# Fehlerarten signalisiert werden können:
+# - `Exception`: Basisklasse aller behandelbaren Exceptions
+# - `ArithmeticError`: Basisklasse aller Fehler bei Rechenoperationen:
+#   - OverflowError
+#   - ZeroDivisionError
+# - `LookupError`: Basisklasse wenn ein ungültiger Index für eine Datenstruktur
+#   verwendet wurde
+# - `AssertionError`: Fehlerklasse, die von `assert` verwendet wird
+# - `EOFError`: Fehler wenn `intput()` unerwartet das Ende einer Datei erreicht
+# - ...
 #
-#  In Python gibt es viele vordefinierte Fehlerklassen, mit denen verschiedene
-#  Fehlerarten signalisiert werden können:
-#  - `Exception`: Basisklasse aller behandelbaren Exceptions
-#  - `ArithmeticError`: Basisklasse aller Fehler bei Rechenoperationen:
-#    - OverflowError
-#    - ZeroDivisionError
-#  - `LookupError`: Basisklasse wenn ein ungültiger Index für eine Datenstruktur
-#    verwendet wurde
-#  - `AssertionError`: Fehlerklasse, die von `assert` verwendet wird
-#  - `EOFError`: Fehler wenn `intput()` unerwartet das Ende einer Datei erreicht
-#  - ...
-#
-#  Die Liste der in der Standardbibliothek definierten Fehlerklassen ist
-#  [hier](https://docs.python.org/3/library/exceptions.html).
+# Die Liste der in der Standardbibliothek definierten Fehlerklassen ist
+# [hier](https://docs.python.org/3/library/exceptions.html).
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# ## Error classes
+#
+# In Python, there are many predefined classes that signal different types of error:
+# - `Exception`: Base class of all exceptions that can be handled
+# - `ArithmeticError`: Base class of all errors in arithmetic operations:
+#   - OverflowError
+#   - Zero Division Error
+# - `LookupError`: base class when an invalid index for a data structure
+#   has been used
+# - `AssertionError`: error class used by `assert`
+# - `EOFError`: Error when `intput()` unexpectedly reaches the end of a file
+# - ...
+#
+# The list of error classes defined in the standard library is
+# [here](https://docs.python.org/3/library/exceptions.html).
+
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
 class NoRootError(ValueError):
     pass
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 try:
     raise ValueError("ValueError")
     # raise NoRootError("This is a NoRootError.")
@@ -222,12 +272,12 @@ except ValueError as error:
     print(f"Case 2: {error}")
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 my_var = 1
 assert my_var == 1
 
 
-# %% [markdown]
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 #
 #  ## Mini-Workshop
 #
@@ -235,8 +285,20 @@ assert my_var == 1
 #  - Abschnitt "Knobeln"
 #
 
-# %% [markdown]
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# ## Mini workshop
+#
+#  - Notebook `workshop_090_control_structures`
+#  - Section "Passage"
+
+# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
+#
+# - Notebook `topic_900_othellite`
+# - `compute_linear_index()`
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# ## Mini workshop
 #
 # - Notebook `topic_900_othellite`
 # - `compute_linear_index()`

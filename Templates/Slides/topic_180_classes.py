@@ -2,30 +2,48 @@
 # ---
 # jupyter:
 #   jupytext:
+#     cell_metadata_json: true
 #     text_representation:
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.3
+#       jupytext_version: 1.13.7
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
-# %%
-# j2 import 'macros.j2' as doc
-# %% [markdown] slideshow={"slide_type": "slide"}
-# {{ doc.header("Objektorientierung Teil 1: Klassen") }}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
+# <img src="img/python-logo-notext.svg"
+#      style="display:block;margin:auto;width:10%"/>
+# <br>
+# <div style="text-align:center; font-size:200%;"><b>Objektorientierung Teil 1: Klassen</b></div>
+# <br/>
+# <div style="text-align:center;">Dr. Matthias Hölzl</div>
+
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "en"}
+# <img src="img/python-logo-notext.svg"
+#      style="display:block;margin:auto;width:10%"/>
+# <br>
+# <div style="text-align:center; font-size:200%;"><b>Object orientation part 1: Classes</b></div>
+# <br/>
+# <div style="text-align:center;">Dr. Matthias Hölzl</div>
 
 
-# %% [markdown]
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
 # ## Properties
 #
 # Wie können wir es ermöglichen auf einen Punkt sowohl mittels der `x` und
 # `y`-Koordinaten zuzugreifen, als auch mittels Radius und Winkel?
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "slide"}}
+# ## Properties
+#
+# How can we create class for points that allows us to access its position both via`x` and
+# `y` coordinates, as well as using radius and angle?
+
+# %% {"tags": ["code-along"]}
 import math
 
 
@@ -44,24 +62,28 @@ class GeoPointV0:
         return f"GeoPointV0({self.x:.1f}, {self.y:.1f}, r={self.get_radius():.2f}, θ={self.get_angle():.2f})"
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
 GeoPointV0()
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 GeoPointV0(1.0, 0.0)
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 GeoPointV0(0.0, 2.0)
 
-# %% [markdown]
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # Es ist unschön, dass bei der Verwendung von `GeoPointV0` die Attribute `x`
 # und `y` anders behandelt werden müsseen als `radius` und `angle`:
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# It is inconvenient that when using `GeoPointV0` the attributes `x`
+# and `y` must be treated differently than `radius` and `angle`:
+
+# %% {"tags": ["code-along"]}
 p = GeoPointV0(1.0, 1.0)
 print(p.x, p.y, p.get_radius(), p.get_angle())
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
 import math
 
 
@@ -82,26 +104,31 @@ class GeoPointV1:
         return f"GeoPointV1({self.x:.1f}, {self.y:.1f}, r={self.radius:.2f}, θ={self.angle:.2f})"
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 GeoPointV1()
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 GeoPointV1(1.0, 0.0)
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 GeoPointV1(0.0, 2.0)
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 p = GeoPointV1(1.0, 1.0)
 print(p.x, p.y, p.radius, p.angle)
 
-# %% [markdown]
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 #
 # ## Setter für Properties:
 #
 # Properties können auch modifiziert werden:
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# ## Setters for properties:
+#
+# Properties can also be modified:
+
+# %% {"tags": ["code-along"]}
 import math
 
 
@@ -129,14 +156,14 @@ class GeoPointV2:
         return f"GeoPointV1({self.x:.1f}, {self.y:.1f}, r={self.radius:.2f}, θ={self.angle:.2f})"
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 p = GeoPointV2(3.0, 4.0)
 print("Original point:  ", p)
 p.radius = 10.0
 print("Set radius to 10:", p)
 
 
-# %% [markdown]
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 #
 #  ## Attribute von Klassen
 #
@@ -144,7 +171,14 @@ print("Set radius to 10:", p)
 # jedes Objekt hat seine eigenen Werte für die Attribute. Manchmal ist es
 # aber sinnvoll Attribute auch auf der Klassenebene zu definieren:
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# ## Attributes of classes
+#
+# Most attributes are defined at the instance level, i.e.,
+# each object has its own values for the attributes. But sometimes it 
+# makes sense to define attributes on the class level as well:
+
+# %% {"tags": ["code-along"]}
 class CountedAdder:
     # Attribut der Klasse, wird von allen Instanzen geteilt
     num_counters = 0
@@ -164,27 +198,27 @@ class CountedAdder:
         return self.value + n
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 print(CountedAdder.num_counters)
 a1 = CountedAdder(10)
 print(CountedAdder.num_counters)
 a2 = CountedAdder(20)
 print(CountedAdder.num_counters)
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 print(a1.add(1))
 print(a2.add(2))
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 a1.describe()
 a2.describe()
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 print(CountedAdder.num_counters)
 print(a1.num_counters)
 print(a2.num_counters)
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 print(CountedAdder.add)
 print(a1.add)
 print(a2.add)
@@ -193,58 +227,63 @@ print(a2.add)
 # ## Vererbung
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 class LoggingAdder(CountedAdder):
     def add(self, n):
         print(f"Adding {self.value} to {n}")
         return self.value + n
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 a3 = LoggingAdder(30)
 print(a3.add(3))
 print(a3.num_counters)
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 a1.describe()
 a2.describe()
 a3.describe()
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 # Method Resolution Order:
 LoggingAdder.mro()
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 print(CountedAdder.add)
 print(a1.add)
 print(a2.add)
 print(LoggingAdder.add)
 print(a3.add)
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 print(CountedAdder.add)
 print(a1.add.__func__)
 print(a2.add.__func__)
 print(LoggingAdder.add)
 print(a3.add.__func__)
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 a1.__dict__["value"] = 15
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 a1.add(0)
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 LoggingAdder.__dict__
 
 
-# %% [markdown]
+# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "slide"}}
 #
 #  ## Für Experten: Zugriff auf Attribute
 #
 #  Python ermöglicht es uns als Programmierer, an mehreren Stellen in den Zugriff auf Attribute einzugreifen und das Verhalten zu modifizieren.
 
-# %% [markdown]
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "slide"}}
+# ## For experts: access to attributes
+#
+# Python allows us to modify access to attributes in several places.
+
+# %% [markdown] {"lang": "de"}
 #
 #  ## Attribute von Klassen
 #
@@ -260,7 +299,22 @@ LoggingAdder.__dict__
 #    - Die Baisklassen von `C` werden in Method Resolution Order durchlaufen und
 #      diese Verfahren wird für jede Klasse ausgeführt
 
-# %% [markdown]
+# %% [markdown] {"lang": "en"}
+# ## Attributes of classes
+#
+#  When accessing `C.name`, Python does the following:
+#
+#  - If `name` is a key in `C.__dict__`:
+#    - `v=C.__dict__['name']`
+#    - If `v` is a descriptor (i.e., `type(v).__get__` is defined:
+#      - Result is `type(v).__get__(v, None, C)`
+#    - If `v` is not a descriptor:
+#      - Result is `v`
+#  - If `name` is not a key in `C.__dict__`:
+#    - The base classes of `C` are traversed in Method Resolution Order and
+#      this procedure is performed for each class
+
+# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "subslide"}}
 #
 #  ## Attribute von Instanzen
 #
@@ -284,7 +338,30 @@ LoggingAdder.__dict__
 #
 #  Dieser Prozess kann durch die `__getattribute__` Methode überschrieben werden.
 
-# %% tags=["code-along"]
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# ## Attributes of instances
+#
+#  When accessing `object.name`, Python does the following:
+#
+#  - If `name` is an overriding descriptor `v` in `C` or one of the
+#    Base classes of `C` is (`type(v)` has methods `__get__()` and
+#    `__set__()`:
+#    - The result is `type(v).__get__(v, object, C)`
+#  - Else, if `name` is a key in `object.__dict__` :
+#    - The result is `object.__dict__['name']`
+#  - Otherwise, `object.name` delegates the search to the class, as above
+#    described
+#    - If this finds a descriptor `v`, then the result is
+#      `type(v).__get__(v, object, C)`
+#    - If a value `v` is found that is not a descriptor, then `v`
+#      returned
+#  - If no value is found and `C.__getattr__` is defined, then
+#    `C.__getattr__(object, 'name')` is called to get the value
+#  - Otherwise an `AttributeError` exception will be thrown
+#
+#  This process can be overridden by the `__getattribute__` method.
+
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
 class LoggingDescriptor:
     def __init__(self, name):
         self.name = name
@@ -295,32 +372,32 @@ class LoggingDescriptor:
         return instance.__dict__.get(self.name, "nothing")
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 class OverridingLoggingDescriptor(LoggingDescriptor):
     def __set__(self, instance, value):
         print(f"__set__({self}, {instance}, {value}")
         instance.__dict__[self.name] = value
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 class YourClass:
     f = LoggingDescriptor("f")
     g = OverridingLoggingDescriptor("g")
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
 yc = YourClass()
 print(yc.f, yc.g)
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 yc.f = 234
 yc.g = 345
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 print(yc.f, yc.g)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 class MyClass:
     def g(self, x):
         print(self, x)
@@ -330,25 +407,25 @@ def f(x, y):
     print(x, y)
 
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 mc = MyClass()
 print(mc.__class__)
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 print(MyClass.g)
 print(mc.g.__qualname__)
 print(mc.g.__get__)
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 print(f.__get__)
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 bound_f = f.__get__(mc, MyClass)
 bound_g = mc.g
 print(bound_f)
 print(bound_g)
 
-# %% tags=["code-along"]
+# %% {"tags": ["code-along"]}
 bound_f(3)
 bound_g(3)
 mc.g(3)
