@@ -264,14 +264,14 @@ print("y =", p.y)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ## Mini-Workshop
 #
-# - Notebook `lecture_045x_Workshop_Benutzerdefinierte_Datentypen`
+# - Notebook `workshop_062_objects`
 # - Abschnitt "Kraftfahrzeuge (Teil 2)"
 
 
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 # ## Mini workshop
 #
-# - Notebook `lecture_045x_Workshop_Custom_Datatypes`
+# - Notebook `workshop_062_objects`
 # - Section "Motor Vehicles (Part 2)"
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
@@ -403,14 +403,14 @@ p2
 #
 #  ## Mini-Workshop
 #
-# - Notebook `lecture_045x_Workshop_Benutzerdefinierte_Datentypen`
+# - Notebook `workshop_062_objects`
 # - Abschnitt "Kraftfahrzeuge (Teil 3)"
 
 
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 # ## Mini workshop
 #
-# - Notebook `lecture_045x_Workshop_Custom_Datatypes`
+# - Notebook `workshop_062_objects`
 # - Section "Motor Vehicles (Part 3)"
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}

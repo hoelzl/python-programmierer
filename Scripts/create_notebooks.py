@@ -126,5 +126,5 @@ if __name__ == "__main__":
     convert_slide_templates_to_codealongs(language="de")
     convert_workshop_templates_to_solutions(language="en")
     convert_workshop_templates_to_exercises(language="en")
-    convert_workshop_templates_to_solutions(language="en")
-    convert_workshop_templates_to_exercises(language="en")
+    convert_workshop_templates_to_solutions(language="de")
+    convert_workshop_templates_to_exercises(language="de")

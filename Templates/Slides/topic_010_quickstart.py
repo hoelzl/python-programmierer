@@ -23,7 +23,7 @@
 # <br/>
 # <div style="text-align:center;">Dr. Matthias Hölzl</div>
 
-# %% [markdown]{"slideshow": {"slide_type": "slide"}, "lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "en"}
 # <img src="img/python-logo-notext.svg"
 #      style="display:block;margin:auto;width:10%"/>
 # <br>
@@ -120,8 +120,8 @@ plt.scatter(page_load_time, purchase_amount)
 # %% {"tags": ["code-along"]}
 str(1 + 2)
 
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
-# "3" + "abc"
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
+"3" + "abc"
 
 # %% {"tags": ["code-along"]}
 "literal strings " "can be concatenated " "by juxtaposition"
@@ -155,8 +155,8 @@ my_value = answer + 2
 #   - At least when they are executed as programs
 #   - The interactive interpreter behaves similar to notebooks
 
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
-# 123
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
+123
 
 # %% [markdown] {"lang": "de"}
 # Um die Ausgabe des letzten Wertes einer Zelle in Jupyter zu unterbinden
@@ -421,7 +421,7 @@ print(numbers)
 print(numbers[0], numbers[3])
 print("Länge:", len(numbers))
 
-# %% {"slideshow": {"slide_type": "subslide"}}
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 numbers + numbers
 
 # %% {"tags": ["code-along"]}
@@ -433,7 +433,7 @@ numbers + numbers
 # %% {"tags": ["code-along"]}
 3 in [5, 6, 7]
 
-# %% {"slideshow": {"slide_type": "subslide"}}
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 my_list = [1, 2, 3]
 my_list[1] = 5
 my_list
@@ -517,7 +517,7 @@ print_size(100)
 # Write a function `fits_in_line(text: str, line_length: int = 72)`,
 # which returns `True` or `False` depending on whether `text` fits into a line of 
 # length `line_length`:
-# ```pythons
+# ```python
 # >>> fits_in_line("Hello")
 # True
 # >>> fits_in_line("Hello", 3)
@@ -531,7 +531,7 @@ print_size(100)
 #   `line_length`
 # * prints `...` if that is not possible.
 #
-# ```pythons
+# ```python
 # >>> print_line("Hello")
 # Hello
 # >>> print_line("Hello", 3)
@@ -656,7 +656,7 @@ for i in range(1, 6, 2):
 # Write a function `print_squares(n: int)` that prints the squares of the
 # numbers from 1 to n, one element per line:
 #
-# ```pythons
+# ```python
 # >>>print_square(3)
 # 1**2 = 1
 # 2**2 = 4
