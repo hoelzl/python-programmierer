@@ -110,7 +110,7 @@ a
 # %% [markdown] lang="en"
 # Write assertions to test the functionality of the class `Worker`.
 
-# %%
+# %% tags=["solution"]
 # Diese Assertions sind überflüssig! /  These assertions are superfluous!
 assert a.name == "Hans"
 assert a.pers_nr == "123"
@@ -143,7 +143,7 @@ m
 # %% [markdown] lang="en"
 # Test the functionality of the class `Manager`.
 
-# %%
+# %% tags=["solution"]
 assert m.gehalt == 95_000.0
 
 

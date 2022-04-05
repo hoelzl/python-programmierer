@@ -109,13 +109,13 @@
 # If you are using Pytest:
 # Write parametric Pytest tests to test (indirect) instances of `Dice`.
 
-# %%
+# %% tags=["solution"]
 import random
 from abc import ABC, abstractmethod
 from typing import Tuple, Callable, Sequence, Union, Iterable
 
 
-# %%
+# %% tags=["solution"]
 class Dice(ABC):
     """Roll with a combination of multiple dice."""
 
@@ -148,7 +148,7 @@ class Dice(ABC):
 # represents a die that always rolls a constant value. The result value is
 # specified when the creating an instance of the class.
 
-# %% lang="en"
+# %% lang="en" tags=["solution"]
 class ConstantDice(Dice):
     def __init__(self, value):
         self.value = value
@@ -170,7 +170,7 @@ class ConstantDice(Dice):
     def max_value(self) -> int:
         return self.value
 
-# %%
+# %% tags=["solution"]
 dice = ConstantDice(3)
 assert dice.min_value == 3
 assert dice.max_value == 3
@@ -208,7 +208,7 @@ assert dice.roll() == 3
 # *Hint:* Look at `random.randint()` and `random.seed()`.
 
 
-# %%
+# %% tags=["solution"]
 class FairDice(Dice):
     def __init__(self, num_dice, num_sides):
         assert num_dice >= 1
@@ -239,7 +239,7 @@ class FairDice(Dice):
         return self.num_sides * self.num_dice
 
 
-# %%
+# %% tags=["solution"]
 dice = FairDice(2, 6)
 assert dice.min_value == 2
 assert dice.max_value == 12
@@ -261,7 +261,7 @@ assert dice.roll() == 7
 # (potentially of the form `<m>d<n>`).
 
 
-# %%
+# %% tags=["solution"]
 class SumDice(Dice):
     def __init__(self, dice: Iterable):
         assert dice
@@ -286,13 +286,13 @@ class SumDice(Dice):
 
 
 
-# %%
+# %% tags=["solution"]
 dice = SumDice([ConstantDice(3), ConstantDice(2)])
 assert dice.min_value == 5
 assert dice.max_value == 5
 assert dice.roll() == 5
 
-# %%
+# %% tags=["solution"]
 dice = SumDice([ConstantDice(1), FairDice(2, 6)])
 assert dice.min_value == 3
 assert dice.max_value == 13
@@ -314,7 +314,7 @@ assert dice.roll() == 8
 # (specified when the die is instantiated).
 
 
-# %%
+# %% tags=["solution"]
 class SimpleDie(Dice):
     def __init__(self, num_sides):
         assert num_sides >= 2
@@ -338,7 +338,7 @@ class SimpleDie(Dice):
         return self.num_sides
 
 
-# %%
+# %% tags=["solution"]
 die = SimpleDie(6)
 assert die.min_value == 1
 assert die.max_value == 6
@@ -369,7 +369,7 @@ assert die.roll() == 2
 # implementation strategies in their testability.
 
 
-# %%
+# %% tags=["solution"]
 class MultipleRollDice(Dice):
     def __init__(self, rolls, dice):
         assert rolls >= 1
@@ -399,7 +399,7 @@ class MultipleRollDice(Dice):
 
 
 
-# %%
+# %% tags=["solution"]
 dice = MultipleRollDice(2, SimpleDie(6))
 assert dice.min_value == 2
 assert dice.max_value == 12

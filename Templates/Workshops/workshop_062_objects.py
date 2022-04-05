@@ -34,7 +34,7 @@ class Kfz:
         self.kennzeichen = kennzeichen
 
 
-# %%
+# %% tags=["solution"]
 class MotorVehicle:
     def __init__(self, manufacturer, license_plate):
         self.manufacturer = manufacturer
@@ -88,7 +88,7 @@ bmw.hersteller == bmw2.hersteller and bmw.kennzeichen == bmw2.kennzeichen
 # %% tags=["solution"]
 bmw.hersteller == vw.hersteller and bmw.kennzeichen == vw.kennzeichen
 
-# %%
+# %% tags=["solution"]
 bmw_en.manufacturer == vw_en.manufacturer and bmw_en.license_plate == vw_en.license_plate
 
 
@@ -114,7 +114,7 @@ class Kfz:
         self.kennzeichen = neues_kennzeichen
 
 
-# %%
+# %% tags=["solution"]
 class MotorVehicle:
     def __init__(self, manufacturer, license_plate):
         self.manufacturer = manufacturer
@@ -154,7 +154,7 @@ vw_en = MotorVehicle("VW", "WOB-VW 246")
 # %% tags=["solution"]
 vw.melde_um("BGL-A 9")
 
-# %%
+# %% tags=["solution"]
 vw_en.change_registration("BGL-A 9")
 
 # %% tags=["solution"]
@@ -163,7 +163,7 @@ assert vw.kennzeichen == "BGL-A 9" and vw.hersteller == "VW"
 # Oder
 print("Hersteller:", vw.hersteller, "\tKennzeichen:", vw.kennzeichen)
 
-# %%
+# %% tags=["solution"]
 assert vw_en.license_plate == "BGL-A 9" and vw_en.manufacturer == "VW"
 
 # %% [markdown] lang="de"
@@ -208,15 +208,15 @@ class Kfz:
         return f"Kfz({self.hersteller!r}, {self.kennzeichen!r})"
 
 
-# %%
+# %% tags=["solution"]
 bmw = Kfz("BMW", "M-BW 123")
 bmw
 
-# %%
+# %% tags=["solution"]
 bmw2 = Kfz("BMW", "M-BW 123")
 bmw2
 
-# %%
+# %% tags=["solution"]
 vw = Kfz("VW", "WOB-VW 246")
 vw
 
@@ -231,7 +231,7 @@ assert vw.kennzeichen == "BGL-A 9" and vw.hersteller == "VW"
 bmw.melde_um("F-B 21")
 bmw
 
-# %%
+# %% tags=["solution"]
 bmw2
 
 # %% [markdown] lang="de"
@@ -442,12 +442,12 @@ for item in meine_einkaufsliste:
 #
 # *Hint:* You can use the `isinstance()` function to check whether an object is a string:
 
-# %%
+# %% tags=["solution"]
 print(isinstance("abc", str))
 print(isinstance(123, str))
 
 
-# %%
+# %% tags=["solution"]
 @dataclass
 class ShoppingList:
     items: list[ShoppingListItem] = field(default_factory=list)
@@ -476,7 +476,7 @@ class ShoppingList:
         self.items.append(item)
 
 
-# %%
+# %% tags=["solution"]
 meine_einkaufsliste = ShoppingList([ShoppingListItem("Tee", "2 Pakete"), ShoppingListItem("Kaffee", "1 Paket")])
 print(meine_einkaufsliste[0])
 print(meine_einkaufsliste["Tee"])
