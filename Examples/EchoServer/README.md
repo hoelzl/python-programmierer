@@ -6,7 +6,10 @@ Run the server in development mode with
 $ uvicorn echo_server.__main__:app --reload
 ```
 
-Send a GET request to `http://localhost:8000/` to get a status message.
+Send a GET request to `http://localhost:8000/docs` to get the OpenAPI
+documentation of the service.
+
+Send a GET request to `http://localhost:8000/` to get a "status message".
 
 Send a GET requiest with query parameter `text` to 
 `http://localhost:8000/echo`, e.g.
