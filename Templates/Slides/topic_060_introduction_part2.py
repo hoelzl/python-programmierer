@@ -224,23 +224,62 @@ print("p2: x =", p2.x, "y =", p2.y)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ## Methoden
 #
-# Klassen können Methoden enthalten. Im Gegensatz zu vielen anderen Sprachen hat
+# Klassen können Methoden enthalten. Methoden sind Funktionen, die
+# "zu einem Objekt gehören". Wir werden im Abschnitt zu Vererbung sehen,
+# welche Möglichkeiten sich dadurch bieten.
+#
+# Methoden werden mit der "Dot-Notation" aufgerufen: `my_object.method()`.
+#
+# Die Syntax von Methodendefinitionen entspricht Funktionsdefinitionen,
+# steht aber im Rumpf einer Klassendefinition.
+#
+# Im Gegensatz zu vielen anderen Sprachen hat
 # Python bei der Definition keinen impliziten `this` Parameter; das Objekt auf
 # dem die Methode aufgerufen wird muss als erster Parameter angegeben werden.
-#
 # Per Konvention hat dieser Parameter den Namen `self`, wie bei der
 # `__init__()`-Methode.
+#
+# Die Definition einer Methode, die mit `my_object.method()` aufgerufen
+# werden kann erfolgt also folgendermaßen:
 
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 # ## Methods
 #
-# Classes can contain methods. Unlike many other languages,
-# Python doesn't have an implicit `this` parameter when defining a method; the object on
-# which the method is called must be specified as the first parameter of the definition.
+# Classes can contain methods. Methods are functions that "belong to an object".
+# We will see capabilities of methods that go beyond those of functions in the
+# section on inheritance.
 #
-# By convention, this parameter is named `self`, as in the `__init__()` method.
+# Methods are called using "dot-notation": `my_object.method()`.
+#
+# Syntactically a method definion looks like a function definition, but nested
+# inside the body of a class definition.
+#
+# Unlike many other languages, Python doesn't have an implicit `this` parameter
+# when defining a method; the object on which the method is called must be
+# specified as the first parameter of the definition. By convention, this
+# parameter is named `self`, as in the `__init__()` method.
+#
+# The definition of a method that can be called with `my_object.method()` is thus
+# as follows:
 
-# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "subslide"}}
+class MyClass:
+    def method(self):
+        print(F"Called method on {self}")
+
+
+# %%
+my_object = MyClass()
+my_object.method()
+
+
+# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "subslide"}}
+# Wir können eine Methode zum Verschieben eines Punktes zu unserer `Point` Klasse hinzufügen:
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# We can add a method to move a point to our `Point` class:
+
+# %% {"slideshow": {"slide_type": "-"}, "tags": ["code-along"]}
 class PointV3:
     def __init__(self, x, y):
         self.x = x
@@ -314,16 +353,16 @@ class PointV4:
         self.y += dy
 
 
-# %% {"tags": ["code-along"]}
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
 p1 = PointV4(2, 5)
 print(repr(p1))
 
-# %% [markdown] {"delegiert": null, "incorrectly_encoded_metadata": "slideshow={\"slide_type\": \"subslide\"} Standardm\u00e4\u00dfig", "lang": "de"}
-# Die Funktion `str` delegiert an `repr`, falls keine `__str__`-Methode definiert ist:
+# %% [markdown] {"delegiert": null, "incorrectly_encoded_metadata": "slideshow={\"slide_type\": \"subslide\"} Standardm\u00e4\u00dfig", "lang": "de", "slideshow": {"slide_type": "subslide"}}
+# Entsprechend kann eine `__str__()` Methode definiert werden, die von `str()` verwendet wird. Die Funktion `str()` delegiert an `__repr__()`, falls keine `__str__()`-Methode definiert ist:
 #
 
 # %% [markdown] {"lang": "en"}
-# The function `str` delegates to `repr` if no `__str__` method is defined:
+# Similarly, if a `__str__()` method is defined it will be used by the `str()` function. However, the function `str()` delegates to `__repr__()` if no `__str__` method is defined:
 
 # %% {"tags": ["code-along"]}
 print(str(p1))
@@ -414,11 +453,10 @@ p2
 # - Section "Motor Vehicles (Part 3)"
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
-#
-# Es ist möglich eigene Typen zu definieren, die sich wie Listen verhalten:
+# Es ist möglich einen Klasse zu definieren, deren Instanzen sich wie Listen verhalten. Um die Implementierung zu vereinfachen delegieren wir die Verwaltung der Elemente an eine Liste, die als Attribut gespeichert ist. Diese Form der Komposition findet man häufig in der objektorientierten Programmierung.
 
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
-# It is possible to define custom types that behave like lists:
+# It is possible to define a custom type whose instances behave like lists. To simplify the implementation we delegate the handling of the elements to a list that is stored as an attribute. This kind of composition is found very frequently in object oriented programming.
 
 # %% {"tags": ["code-along"]}
 class MyBadList:
@@ -561,6 +599,6 @@ print(d2)
 # ## Workshop
 #
 # - Notebook `workshop_062_objects`
-# - "Shopping list" section
+# - Section "Shopping list"
 
 # %%

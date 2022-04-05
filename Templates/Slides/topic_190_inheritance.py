@@ -76,8 +76,16 @@ p = Point(0, 0)
 p
 
 # %%
+assert p.x == 0.0
+assert p.y == 0.0
+
+# %%
 p.move(2, 3)
 p
+
+# %%
+assert p.x == 2.0
+assert p.y == 3.0
 
 # %%
 p.randomize()
@@ -109,10 +117,20 @@ cp = ColorPoint(2, 3, "red")
 # cp
 
 
+# %%
+assert cp.x == 2.0
+assert cp.y == 3.0
+assert cp.color == "red"
+
 # %% {"tags": ["code-along"]}
 cp.move(2, 3)
 # cp
 
+
+# %%
+assert cp.x == 4.0
+assert cp.y == 6.0
+assert cp.color == "red"
 
 # %% {"tags": ["code-along"]}
 cp.randomize()
@@ -123,39 +141,76 @@ cp.randomize()
 #
 #  ## Mini-Workshop
 #
-#  - Notebook `020x-Workshop Kontrollstrukturen`
+#  - Notebook `workshop_190_inheritance`
 #  - Abschnitt "Vererbung"
 #
 
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 # ## Mini workshop
 #
-#  - Notebook `020x workshop control structures`
+#  - Notebook `workshop_190_inheritance`
 #  - Section "Inheritance"
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
+# ## Abstrakte Klassen
 #
-#  ## Abstrakte Klassen
-#
-#  - Die Klasse `abc.ABC` als Basisklasse
-#  - (Eigentlich ist eine Metaklasse verantwortlich)
-#  - `@abstractmethod` Dekorator
+# - Klassen von denen keine direkte Instanz erzeugt werden kann
+# - Haben die Klasse `abc.ABC` als Basisklasse
+#     - (Eigentlich ist eine Metaklasse verantwortlich für das Verhalten)
+# - Erlauben die Verwendung des `@abstractmethod` Dekorators um abstrakte Methoden zu definieren
+#     - Der Rumpf einer abstrakten Methode ist oft `...`
+# - Abstrakte Klassen, die nur abstrakte Methoden haben nennt man Interfaces
+#     - Interfaces beschreiben Anforderungen an ihre Unterklassen
 
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "slide"}}
 # ## Abstract classes
 #
-#  - The class `abc.ABC` as base class
-#  - (actually a metaclass is responsible)
-#  - `@abstractmethod` decorator
+# - Classes that cannot have direct instances
+# - Have `abc.ABC` as base class
+#     - (a metaclass is actually responsible for their behavior)
+# - Allow use of the `@abstractmethod` decorator to define abstract methods
+#     - Often the body of an abstract method is written as `...`
+# - Abstract classes that have only abstract methods are called Interfaces
+#     - Interfaces describe requirements placed on subclasses
 
-# %% {"tags": ["code-along"]}
+# %%
+...
+
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
 from abc import ABC, abstractmethod
-
 
 class MyBase(ABC):
     @abstractmethod
     def my_method(self):
-        print("HI!")
+        ...
+
+
+# %%
+class MyClass(MyBase):
+    def my_method(self):
+        super().my_method()
+        print("my_method()")
+
+
+# %%
+mc = MyClass()
+mc.my_method()
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+# - Abstrakte Methoden können eine Implementierung haben
+# - Klassen, die von einer abstrakten Klasse erben aber nicht alle abstrakten Methoden überschreiben sind selber abstrakt.
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# - Abstract methods can provide an implementation
+# - Classes that inherit from an abstract class but do not override all abstract methods are themselves abstract.
+
+# %% {"tags": ["code-along"]}
+from abc import ABC, abstractmethod
+
+class MyBase(ABC):
+    @abstractmethod
+    def my_method(self):
+        print("Hi!")
 
 
 # %% {"tags": ["code-along"]}
@@ -163,6 +218,7 @@ class MyClass(MyBase):
     pass
 
 
+# %% {"tags": ["code-along"]}
 # mc = MyClass()
 
 
@@ -173,21 +229,82 @@ class YourClass(MyBase):
         print("Hello!")
 
 
+# %% {"tags": ["code-along"]}
 yc = YourClass()
 yc.my_method()
 
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+# # Workshop
 #
-#  # Workshop
-#
-#  Siehe `070x-Workshop RPG-Würfel` bis `Factory für RPG-Würfel`.
+# Siehe `workshop_950_rpg_dice` bis `Factory für RPG-Würfel`.
 
 
 # %% [markdown] {"lang": "en"}
 # # Workshop
 #
-#  See `070x-Workshop RPG Cubes` to `Factory for RPG Cubes`.
+# See `workshop_950_rpg_dice` to `Factory for RPG Cubes`.
+
+# %% [markdown] {"lang": "de"}
+# ## RPG-Würfel
+#
+# In Rollenspielen werden Konflikte zwischen Spielern oft durch Würfeln
+# entschieden. Dabei werden oft mehrere Würfel gleichzeitig verwendet. Außerdem
+# werden nicht nur die bekannten 6-seitigen Würfel verwendet, sondern auch
+# 4-seitige, 8-seitige, 20-seitige Würfel, etc.
+#
+# Die Anzahl und Art der Würfel wird dabei durch folgende Notation beschrieben:
+#
+# ```text
+# <Anzahl der Würfel> d <Seiten pro Würfel>
+# ```
+#
+# Zum Beispiel wird das Würfeln mit zwei 6-seitigen Würfeln als `2d6`
+# beschrieben. Manchmal werden auch komplexere Formeln verwendet: 
+# `3d20 + 2d6 - 4` bedeutet, dass gleichzeitig drei 20-seitige Würfel und zwei 6-seitige
+# Würfel geworfen werden und die Gesamtsumme der Augenzahlen dann um 4
+# verringert wird.
+#
+# In manchen Spielen wird das Werfen der niedrigsten oder höchsten Augenzahl
+# besonders behandelt ("katastrophale Niederlage", "kritischer Erfolg").
+#
+# In den folgenden Aufgaben sollen Sie derartige RPG-Würfel in Python
+# implementieren. Um Ihre Implementierung testen zu können empfiehlt es sich
+# sie in einem IDE zu realisieren. 
+#
+# Schreiben Sie Tests für jede Funktionalität, die Sie implementieren.
+# Wie können Sie beim Testen mit der Zufälligkeit beim Würfeln umgehen?
+# Was sind Stärken bzw. Schwächen der von Ihnen gewählten Teststrategie?
+
+# %% [markdown] {"lang": "en"}
+# ## RPG dice
+#
+# In roleplaying games, conflicts between players are often decided by rolling
+# dice, often multiple dice at the same time. Furthermore games often use
+# not only the well known 6-sided dice, but also 4-sided, 8-sided, 20-sided dice, etc.
+#
+# The number and type of dice is described by the following notation:
+#
+# ```text
+# <number of dice> d <number of sides per die>
+# ```
+#
+# For example, rolling two 6-sided dice is described as `2d6`.
+# Sometimes more complex formulas are used: `3d20 + 2d6 - 4`
+# means that three 20-sided dice and two 6-sided dice are rolled
+# at the same time, and the total sum of numbers is then reduced by 4.
+#
+# In some games, rolling the lowest or highest number of dice is treated
+# in a special way ("catastrophic failure", "critical success").
+#
+# In the following exercise your task is to implement RPG dice in Python.
+# To simplify testing your implementation it might be advisable
+# to implement it in an IDE, but it is also possible to write tests as
+# assertions in a jupyter notebook. 
+#
+# Write tests for each functionality you implement. How can you deal with the
+# randomness in dice rolling? What are the strengths and weaknesses of the strategy
+# you have chosen to test?
 
 # %% [markdown] {"lang": "de", "slideshow": {"slide_type": "slide"}}
 # ## Mehrfachvererbung
@@ -247,3 +364,8 @@ d.f()
 
 # %%
 d.g()
+
+# %%
+type(d).mro()
+
+# %%

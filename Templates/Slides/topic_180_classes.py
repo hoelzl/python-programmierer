@@ -63,21 +63,43 @@ class GeoPointV0:
 
 
 # %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
-GeoPointV0()
+p = GeoPointV0()
+p
+
+# %%
+assert p.x == 0.0
+assert p.y == 0.0
+assert p.get_radius() == 0.0
+assert p.get_angle() == 0.0
 
 # %% {"tags": ["code-along"]}
-GeoPointV0(1.0, 0.0)
+p = GeoPointV0(1.0, 0.0)
+p
+
+# %%
+assert p.x == 1.0
+assert p.y == 0.0
+assert p.get_radius() == 1.0
+assert p.get_angle() == 0.0
 
 # %% {"tags": ["code-along"]}
-GeoPointV0(0.0, 2.0)
+p = GeoPointV0(0.0, 2.0)
+p
+
+# %%
+from math import isclose, pi
+assert p.x == 0.0
+assert p.y == 2.0
+assert p.get_radius() == 2.0
+assert isclose(p.get_angle(), pi/2) 
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # Es ist unschön, dass bei der Verwendung von `GeoPointV0` die Attribute `x`
 # und `y` anders behandelt werden müsseen als `radius` und `angle`:
 
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
-# It is inconvenient that when using `GeoPointV0` the attributes `x`
-# and `y` must be treated differently than `radius` and `angle`:
+# It is inconvenient that the attributes `x`
+# and `y` of `GeoPointV0` must be treated differently than `radius` and `angle`:
 
 # %% {"tags": ["code-along"]}
 p = GeoPointV0(1.0, 1.0)
@@ -85,7 +107,6 @@ print(p.x, p.y, p.get_radius(), p.get_angle())
 
 # %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
 import math
-
 
 class GeoPointV1:
     def __init__(self, x=0, y=0):
@@ -104,8 +125,36 @@ class GeoPointV1:
         return f"GeoPointV1({self.x:.1f}, {self.y:.1f}, r={self.radius:.2f}, θ={self.angle:.2f})"
 
 
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
+p = GeoPointV1()
+p
+
+# %%
+assert p.x == 0.0
+assert p.y == 0.0
+assert p.radius == 0.0
+assert p.angle == 0.0
+
 # %% {"tags": ["code-along"]}
-GeoPointV1()
+p = GeoPointV1(1.0, 0.0)
+p
+
+# %%
+assert p.x == 1.0
+assert p.y == 0.0
+assert p.radius == 1.0
+assert p.angle == 0.0
+
+# %% {"tags": ["code-along"]}
+p = GeoPointV1(0.0, 2.0)
+p
+
+# %%
+from math import isclose, pi
+assert p.x == 0.0
+assert p.y == 2.0
+assert p.radius == 2.0
+assert isclose(p.angle, pi/2) 
 
 # %% {"tags": ["code-along"]}
 GeoPointV1(1.0, 0.0)
@@ -130,7 +179,6 @@ print(p.x, p.y, p.radius, p.angle)
 
 # %% {"tags": ["code-along"]}
 import math
-
 
 class GeoPointV2:
     def __init__(self, x=0, y=0):
@@ -161,6 +209,9 @@ p = GeoPointV2(3.0, 4.0)
 print("Original point:  ", p)
 p.radius = 10.0
 print("Set radius to 10:", p)
+
+# %%
+assert p.radius == 10.0
 
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
@@ -224,8 +275,12 @@ print(a1.add)
 print(a2.add)
 
 
-# ## Vererbung
+# %% [markdown] {"tags": ["code-along"], "lang": "de"}
+# ### Vererbung
 
+
+# %% [markdown] {"lang": "en"}
+# ### Inheritance
 
 # %% {"tags": ["code-along"]}
 class LoggingAdder(CountedAdder):

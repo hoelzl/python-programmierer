@@ -34,6 +34,13 @@ class Kfz:
         self.kennzeichen = kennzeichen
 
 
+# %%
+class MotorVehicle:
+    def __init__(self, manufacturer, license_plate):
+        self.manufacturer = manufacturer
+        self.license_plate = license_plate
+
+
 # %% [markdown] lang="de"
 #
 # Erzeugen Sie zwei Kraftfahrzeuge:
@@ -50,6 +57,10 @@ class Kfz:
 # %% tags=["solution"]
 bmw = Kfz("BMW", "M-BW 123")
 vw = Kfz("VW", "WOB-VW 246")
+
+# %% tags=["solution"]
+bmw_en = MotorVehicle("BMW", "M-BW 123")
+vw_en = MotorVehicle("VW", "WOB-VW 246")
 
 # %% [markdown] lang="de"
 #
@@ -77,6 +88,9 @@ bmw.hersteller == bmw2.hersteller and bmw.kennzeichen == bmw2.kennzeichen
 # %% tags=["solution"]
 bmw.hersteller == vw.hersteller and bmw.kennzeichen == vw.kennzeichen
 
+# %%
+bmw_en.manufacturer == vw_en.manufacturer and bmw_en.license_plate == vw_en.license_plate
+
 
 # %% [markdown] lang="de"
 #
@@ -100,6 +114,16 @@ class Kfz:
         self.kennzeichen = neues_kennzeichen
 
 
+# %%
+class MotorVehicle:
+    def __init__(self, manufacturer, license_plate):
+        self.manufacturer = manufacturer
+        self.license_plate = license_plate
+    
+    def change_registration(self, new_license_plate):
+        self.license_plate = new_license_plate
+
+
 # %% [markdown] lang="de"
 #
 # Erzeugen Sie neue Instanzen von `bmw`, `bmw2` und `vw` wie in der obigen
@@ -113,6 +137,11 @@ bmw = Kfz("BMW", "M-BW 123")
 bmw2 = Kfz("BMW", "M-BW 123")
 vw = Kfz("VW", "WOB-VW 246")
 
+# %% tags=["solution"]
+bmw_en = MotorVehicle("BMW", "M-BW 123")
+bmw2_en = MotorVehicle("BMW", "M-BW 123")
+vw_en = MotorVehicle("VW", "WOB-VW 246")
+
 # %% [markdown] lang="de"
 #
 # Melden Sie den obern erzeugten VW um, so dass er das neue Kennzeichen "BGL-A
@@ -125,11 +154,17 @@ vw = Kfz("VW", "WOB-VW 246")
 # %% tags=["solution"]
 vw.melde_um("BGL-A 9")
 
+# %%
+vw_en.change_registration("BGL-A 9")
+
 # %% tags=["solution"]
 # Z.B
 assert vw.kennzeichen == "BGL-A 9" and vw.hersteller == "VW"
 # Oder
 print("Hersteller:", vw.hersteller, "\tKennzeichen:", vw.kennzeichen)
+
+# %%
+assert vw_en.license_plate == "BGL-A 9" and vw_en.manufacturer == "VW"
 
 # %% [markdown] lang="de"
 #
@@ -209,7 +244,7 @@ bmw2
 # Es sollen sowohl die Einkaufsliste selber als auch die Einträge durch
 # benutzerdefinierte Datentypen repräsentiert werden.
 #
-# Definieren Sie zunächst eine Klasse `Item`, die Attribute `product` und
+# Definieren Sie zunächst eine Klasse `ShoppingListItem`, die Attribute `product` und
 # `amount` hat. Verwenden Sie dazu den `@dataclass` Decorator
 
 # %% [markdown] lang="en"
@@ -219,37 +254,36 @@ bmw2
 #
 # Both the shopping list itself and the entries should be represented as user-defined data types.
 #
-# First define a class `Item` that has attributes `product` and `amount`. To do this, use the `@dataclass` decorator
+# First define a class `ShoppingListItem` that has attributes `product` and `amount`. To do this, use the `@dataclass` decorator
 
 # %% tags=["solution"]
 from dataclasses import dataclass
 
-
 @dataclass
-class Item:
+class ShoppingListItem:
     product: str
-    amount: str = "1 Stück"
+    amount: str = "1"
 
 
 # %% [markdown] lang="de"
-# Erzeugen sie ein Item, das 500g Kaffee repräsentiert:
+# Erzeugen sie ein `ShoppingListItem`, das 500g Kaffee repräsentiert:
 
 # %% [markdown] lang="en"
-# Create an item that represents 500g of coffee:
+# Create a shopping list item that represents 500g of coffee:
 
 # %% tags=["solution"]
-Item("Kaffee", "500g")
+ShoppingListItem("Kaffee", "500g")
 
 # %% [markdown] lang="de"
 #
-# Definieren Sie eine Klasse `ShoppingList`, die eine Liste von `Item`-Instanzen
+# Definieren Sie eine Klasse `ShoppingList`, die eine Liste von `ShoppingListItem`-Instanzen
 # beinhaltet:
 #
 # - Verwenden Sie den `@dataclass` Decorator
-# - Die Klasse hat ein Attribut `items` vom Typ `list` (oder `list[Item]`, falls
+# - Die Klasse hat ein Attribut `items` vom Typ `list` (oder `list[ShoppingListItem]`, falls
 #   Sie Python 3.9 oder neuer verwenden), das mit einer leeren Liste
 #   Initialisiert wird.
-# - Die Methode `add_item(self, item: Item)` fügt ein `Item` zur Einkaufsliste
+# - Die Methode `add_item(self, item: ShoppingListItem)` fügt ein `ShoppingListItem` zur Einkaufsliste
 #   hinzu.
 #
 # Implementieren Sie eine
@@ -257,8 +291,8 @@ Item("Kaffee", "500g")
 # so dass das folgende Programm:
 #
 # ```python
-# meine_einkaufsliste = ShoppingList([Item('Tee', '2 Pakete'),
-#                                     Item('Kaffee', '1 Paket')])
+# meine_einkaufsliste = ShoppingList([ShoppingListItem('Tee', '2 Pakete'),
+#                                     ShoppingListItem('Kaffee', '1 Paket')])
 # print(str(meine_einkaufsliste))
 # print(repr(meine_einkaufsliste))
 # ```
@@ -270,7 +304,7 @@ Item("Kaffee", "500g")
 #   Tee, (2 Pakete)
 #   Kaffee, (1 Paket)
 #
-# ShoppingList(items=[Item(product='Tee', amount='2 Pakete'), Item(product='Kaffee', amount='1 Paket')])
+# ShoppingList(items=[ShoppingListItem(product='Tee', amount='2 Pakete'), ShoppingListItem(product='Kaffee', amount='1 Paket')])
 # ```
 #
 # Implementieren Sie eine Methode für `__len__()`, die die Länge der
@@ -278,22 +312,22 @@ Item("Kaffee", "500g")
 # Einträge über ihren numerischen Index erlaubt.
 
 # %% [markdown] lang="en"
-# Define a class `ShoppingList` containing a list of `Item` instances:
+# Define a class `ShoppingList` containing a list of `ShoppingListItem` instances:
 #
 # - Use the `@dataclass` decorator
-# - The class has an attribute `items` of type `list` (or `list[Item]` if
+# - The class has an attribute `items` of type `list` (or `list[ShoppingListItem]` if
 #   you are using Python 3.9 or newer), initialized with an empty list.
-# - The method `add_item(self, item: Item)` adds an `Item` to the shopping list.
+# - The method `add_item(self, item: ShoppingListItem)` adds a `ShoppingListItem` to the shopping list.
 #
-# Implement one
+# Implement a
 # [`__str__()` method](https://docs.python.org/3/reference/datamodel.html#object.__str<_>_),
 # so the following program:
 #
 # ```python
-# my_shopping list = ShoppingList([Item('Tea', '2 packages'),
-#                                  Item('Coffee', '1 packet')])
-# print(str(my_shopping list))
-# print(repr(my_shopping list))
+# my_shopping_list = ShoppingList([ShoppingListItem('Tea', '2 packets'),
+#                                  ShoppingListItem('Coffee', '1 packet')])
+# print(str(my_shopping_list))
+# print(repr(my_shopping_list))
 # ```
 #
 # Produces the following output:
@@ -301,9 +335,9 @@ Item("Kaffee", "500g")
 # ```
 # Shopping List
 #   Tea, (2 packets)
-#   coffee, (1 package)
+#   Coffee, (1 packet)
 #
-# ShoppingList(items=[Item(product='Tea', amount='2 packages'), Item(product='Coffee', amount='1 package')])
+# ShoppingList(items=[ShoppingListItem(product='Tea', amount='2 packets'), ShoppingListItem(product='Coffee', amount='1 packet')])
 # ```
 #
 # Implement a method `__len__()` that returns the length of the shopping list, and a method `__getitem__()` that allows access to items via their numeric index.
@@ -311,10 +345,9 @@ Item("Kaffee", "500g")
 # %% tags=["solution"]
 from dataclasses import field
 
-
 @dataclass
 class ShoppingList:
-    items: list[Item] = field(default_factory=list)
+    items: list[ShoppingListItem] = field(default_factory=list)
 
     def __str__(self):
         result = "Einkaufsliste\n"
@@ -335,36 +368,41 @@ class ShoppingList:
 # %% [markdown] lang="de"
 #
 # Definieren Sie Variable `meine_einkaufsliste`, die eine Einkaufsliste mit
-# folgenden Items repräsentiert:
+# folgenden ShoppingListItems repräsentiert:
+#
 # - 2 Pakete Tee,
 # - 1 Paket Kaffee
+#
+# Überprüfen Sie, dass sich `str()` und `repr()` wie oben beschrieben verhalten.
 
 # %% [markdown] lang="en"
 # Define a variable `my_shopping_list` containing a shopping list representing the following items:
+#
 # - 2 packets of tea,
 # - 1 packet of coffee
+#
+# Check that `str()` and `repr()` behave as specified above.
 
 # %% tags=["solution"]
-meine_einkaufsliste = ShoppingList([Item("Tee", "2 Pakete"), Item("Kaffee", "1 Paket")])
+meine_einkaufsliste = ShoppingList([ShoppingListItem("Tee", "2 Pakete"), ShoppingListItem("Kaffee", "1 Paket")])
 print(str(meine_einkaufsliste))
 print(repr(meine_einkaufsliste))
 
 # %% [markdown] lang="de"
-#
-# Drucken Sie `meine_einkaufsliste` aus.
+# Drucken Sie `meine_einkaufsliste` aus. Entspricht die Ausgabe Ihren Erwartungen?
 
 # %% [markdown] lang="en"
-# Print out `my_shopping list`.
+# Print out `my_shopping_list`. Does the output look as expected?
 
 # %% tags=["solution"]
 print(meine_einkaufsliste)
 
 # %% [markdown] lang="de"
 #
-# Stellen Sie fest, wie lange `meine_einkaufsliste` ist und was ihr erstes und zweites Elemnt sind:
+# Stellen Sie fest, wie lange `meine_einkaufsliste` ist und was ihr erstes und zweites Element sind:
 
 # %% [markdown] lang="en"
-# Determine the length of `my_shoppinglist` is and its first and second item.
+# Determine the length of `my_shopping_list` is and its first and second item.
 
 # %% tags=["solution"]
 print(len(meine_einkaufsliste))
@@ -382,7 +420,7 @@ print(meine_einkaufsliste[1])
 # %% [markdown] lang="en"
 # What is the effect of the following expression?
 # ```python
-#   for item in my_shopping list:
+#   for item in my_shopping_list:
 #       print(item)
 # ```
 
@@ -391,17 +429,71 @@ for item in meine_einkaufsliste:
     print(item)
 
 # %% [markdown] lang="de"
+# Erweitern Sie die Definition der Klasse `ShoppingList`, so dass der Indexing Operator `[]` auch mit einem String aufgerufen werden kann, und das Shopping List Item mit dem entsprechenden `product` Attribut zurückgibt, falls es existiert, oder `None` falls kein solches Item existiert.
 #
-# Fügen Sie  250 g Butter und  1 Laib Brot zur Einkaufsliste
+# Verifizieren Sie, dass ihre neue Implementierung des Indexing Operators für Integer und String Argumente funktioniert.
+#
+# *Hinweis:* Sie können die `isinstance()` Funktion verwenden um zu überprüfen, ob ein Objekt ein String ist:
+
+# %% [markdown] lang="en"
+# Extend the definition of the `ShoppingList` class so that the indexing operator `[]` can also be called with a string argument, and returns the shopping list item with the appropriate `product` attribute if such an item exists, or `None` if no such item exists.
+#
+# Verify that the new implementation of the indexing operators works for boths integer and string arguments.
+#
+# *Hint:* You can use the `isinstance()` function to check whether an object is a string:
+
+# %%
+print(isinstance("abc", str))
+print(isinstance(123, str))
+
+
+# %%
+@dataclass
+class ShoppingList:
+    items: list[ShoppingListItem] = field(default_factory=list)
+
+    def __str__(self):
+        result = "Einkaufsliste\n"
+        for item in self.items:
+            result += f"  {item.product}, ({item.amount})\n"
+        return result
+
+    def __len__(self):
+        return len(self.items)
+    
+    def __getitem__(self, n):
+        if isinstance(n, str):
+            return self.find_product(n)
+        return self.items[n]
+
+    def find_product(self, product):
+        for item in self.items:
+            if item.product == product:
+                return item
+        return None
+    
+    def add_item(self, item):
+        self.items.append(item)
+
+
+# %%
+meine_einkaufsliste = ShoppingList([ShoppingListItem("Tee", "2 Pakete"), ShoppingListItem("Kaffee", "1 Paket")])
+print(meine_einkaufsliste[0])
+print(meine_einkaufsliste["Tee"])
+print(meine_einkaufsliste["Marmelade"])
+
+# %% [markdown] lang="de"
+#
+# Fügen Sie  250g Butter und  1 Laib Brot zur Einkaufsliste
 # `meine_einkaufsliste` hinzu.
 
 # %% [markdown] lang="en"
 # Add 250g butter and 1 loaf of bread to the shopping list
-# `my_shopping list`.
+# `my_shopping_list`.
 
 # %% tags=["solution"]
-meine_einkaufsliste.add_item(Item("Butter", "250g"))
-meine_einkaufsliste.add_item(Item("Brot", "1 Laib"))
+meine_einkaufsliste.add_item(ShoppingListItem("Butter", "250g"))
+meine_einkaufsliste.add_item(ShoppingListItem("Brot", "1 Laib"))
 meine_einkaufsliste
 
 # %% [markdown] lang="de"
@@ -422,8 +514,12 @@ print(meine_einkaufsliste)
 # What happens when you add `butter` and `bread` to the shopping list again?
 
 # %% tags=["solution"]
-meine_einkaufsliste.add_item(Item("Butter", "250g"))
-meine_einkaufsliste.add_item(Item("Brot", "1 Laib"))
+meine_einkaufsliste.add_item(ShoppingListItem("Butter", "250g"))
+meine_einkaufsliste.add_item(ShoppingListItem("Brot", "1 Laib"))
 print(meine_einkaufsliste)
 
-# %%
+# %% [markdown] lang="de"
+# *Diskussion:* Wie könnte das Verhalten der Klasse verbessert werden?
+
+# %% [markdown] lang="en"
+# *Discussion:* How could we improve the behavior of the class?

@@ -105,6 +105,23 @@ print(a.gehalt)
 a
 
 # %% [markdown] lang="de"
+# Schreiben sie Assertions, die die Funktionalität der Klasse `Arbeiter` testen.
+
+# %% [markdown] lang="en"
+# Write assertions to test the functionality of the class `Worker`.
+
+# %%
+# Diese Assertions sind überflüssig! /  These assertions are superfluous!
+assert a.name == "Hans"
+assert a.pers_nr == "123"
+assert a.grundgehalt == 36_000
+assert a.überstunden == 3.5
+assert a.stundensatz == 40.0
+
+# Diese Assertion sollte vorhanden sein / This is the assertion that should be present
+assert a.gehalt == 39_140.0
+
+# %% [markdown] lang="de"
 #
 # Erzeugen Sie einen Manager mit Namen Sepp, Personalnummer 666, der ein
 # Grundgehalt von 60000.0 Euro und einen Bonus von 30000.0 Euro hat. Drucken Sie
@@ -121,11 +138,20 @@ print(m.gehalt)
 m
 
 # %% [markdown] lang="de"
-#
-# Lösung ohne Dataclasses:
+# Testen Sie die Funktionalität der `Manager` Klasse.
 
 # %% [markdown] lang="en"
-# Solution without dataclasses:
+# Test the functionality of the class `Manager`.
+
+# %%
+assert m.gehalt == 95_000.0
+
+
+# %% [markdown] lang="de"
+# ## Lösung ohne Dataclasses:
+
+# %% [markdown] lang="en"
+# ## Solution without dataclasses:
 
 # %% tags=["solution"]
 class Mitarbeiter:
