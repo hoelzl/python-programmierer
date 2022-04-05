@@ -42,7 +42,7 @@
 # - `str` für eine "benutzerfreundliche" Darstellung
 
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "slide"}}
-# # Convertsion to strings
+# # Conversion to strings
 #
 # Python offers two functions that can be used to convert any value into a string:
 #
