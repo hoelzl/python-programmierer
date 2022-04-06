@@ -121,17 +121,17 @@ class Dice(ABC):
 
     @abstractmethod
     def roll(self) -> int:
-        raise NotImplementedError("The method roll() is not implemented.")
+        ...
 
     @property
     @abstractmethod
     def min_value(self) -> int:
-        raise NotImplementedError("The property min_value is not implemented.")
+        ...
 
     @property
     @abstractmethod
     def max_value(self) -> int:
-        raise NotImplementedError("The property max_value is not implemented.")
+        ...
 
 
 # %% [markdown] lang="de"
