@@ -135,6 +135,24 @@ df_excel2.head()
 # - ...
 
 # %% [markdown] {"lang": "de"}
+# # Plotten von Data Frames
+
+# %% [markdown] {"lang": "en"}
+# # Plotting data frames
+
+# %%
+df_csv["Col 0"].hist(bins=15);
+
+# %%
+df_csv.hist(bins=20, figsize=(12, 8));
+
+# %%
+df_csv.plot(kind="scatter", x="Col 1", y="Col 2");
+
+# %%
+df_csv.plot(kind="scatter", x="Col 1", y="Col 2", c="Col 3", cmap="hot");
+
+# %% [markdown] {"lang": "de"}
 # ### Indizes und Operationen
 
 # %% [markdown] {"lang": "en"}

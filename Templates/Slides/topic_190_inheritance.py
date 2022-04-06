@@ -26,7 +26,7 @@
 # <img src="img/python-logo-notext.svg"
 #      style="display:block;margin:auto;width:10%"/>
 # <br>
-# <div style="text-align:center; font-size:200%;"><b>Object orientation part 1: Inheritance</b></div>
+# <div style="text-align:center; font-size:200%;"><b>Object orientation part 2: Inheritance</b></div>
 # <br/>
 # <div style="text-align:center;">Dr. Matthias Hölzl</div>
 
@@ -117,7 +117,7 @@ cp = ColorPoint(2, 3, "red")
 # cp
 
 
-# %%
+# %% {"tags": ["code-along"]}
 assert cp.x == 2.0
 assert cp.y == 3.0
 assert cp.color == "red"
@@ -127,7 +127,7 @@ cp.move(2, 3)
 # cp
 
 
-# %%
+# %% {"tags": ["code-along"]}
 assert cp.x == 4.0
 assert cp.y == 6.0
 assert cp.color == "red"
@@ -173,7 +173,7 @@ cp.randomize()
 # - Abstract classes that have only abstract methods are called Interfaces
 #     - Interfaces describe requirements placed on subclasses
 
-# %%
+# %% {"tags": ["code-along"]}
 ...
 
 # %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
@@ -185,14 +185,14 @@ class MyBase(ABC):
         ...
 
 
-# %%
+# %% {"tags": ["code-along"]}
 class MyClass(MyBase):
     def my_method(self):
         super().my_method()
         print("my_method()")
 
 
-# %%
+# %% {"tags": ["code-along"]}
 mc = MyClass()
 mc.my_method()
 
