@@ -247,7 +247,6 @@ m
 # %% tags=["solution"]
 from dataclasses import dataclass
 
-
 @dataclass
 class BankAccount:
     balance: float
