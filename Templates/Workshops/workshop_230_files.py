@@ -50,9 +50,9 @@ def write_text_to_file(text, file_name):
 # %% tags=["solution"]
 write_text_to_file("Python 3.8", "my_private_file.txt")
 
-# %% tags=["solution"]
-write_text_to_file("Python 3.8", "my_private_file.txt")
 
+# %% tags=["solution"]
+# write_text_to_file("Python 3.8", "my_private_file.txt")
 
 # %% [markdown] lang="de"
 # Schreiben Sie eine Funktion `annotate_file(file_name: str) -> None`, die

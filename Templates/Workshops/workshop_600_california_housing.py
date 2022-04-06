@@ -202,5 +202,5 @@ sns.pairplot(df.iloc[:500], hue="Target")
 # %% tags=["solution"]
 sns.pairplot(df.iloc[:500], hue="MedInc")
 
-# %% tags=["soliution"]
+# %% tags=["solution"]
 sns.pairplot(df_expensive)

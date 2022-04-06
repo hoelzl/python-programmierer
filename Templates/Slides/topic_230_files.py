@@ -84,14 +84,14 @@ os.getcwd()
 # - With the methods `tell()` and `seek()` the position in the file can
 #   be queried or changed.
 
-# %% {"slideshow": {"slide_type": "subslide"}}
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 file = open("my-data-file.txt", "w")
 file.write("The first line.\n")
 file.write("The second line.\n")
 file.close()
 
 
-# %%
+# %% {"tags": ["code-along"]}
 file = open("my-data-file.txt", "r")
 contents = file.read()
 print(contents)
@@ -99,28 +99,28 @@ file.close()
 contents
 
 
-# %%
+# %% {"tags": ["code-along"]}
 file = open("my-data-file.txt", mode="w")
 file.write("Another line.\n")
 file.write("Yet another line.\n")
 file.close()
 
 
-# %%
+# %% {"tags": ["code-along"]}
 file = open("my-data-file.txt", mode="r")
 contents = file.read()
 print(contents)
 file.close()
 
 
-# %%
+# %% {"tags": ["code-along"]}
 file = open("my-data-file.txt", mode="a")
 file.write("Let's try this again.\n")
 file.write("Until we succeed.\n")
 file.close()
 
 
-# %%
+# %% {"tags": ["code-along"]}
 file = open("my-data-file.txt", "r")
 contents = file.read()
 print(contents)
@@ -140,13 +140,13 @@ file.close()
 #
 # Python offers a more elegant construct for this:
 
-# %%
+# %% {"tags": ["code-along"]}
 with open("my-data-file.txt", "r") as file:
     contents = file.read()
 print(contents)
 
 
-# %%
+# %% {"tags": ["code-along"]}
 with open("my-data-file.txt", "r+") as file:
     print(f"File position before reading: {file.tell()}")
     contents = file.read()
@@ -155,7 +155,7 @@ with open("my-data-file.txt", "r+") as file:
     print(f"File position after writing: {file.tell()}")
 
 
-# %%
+# %% {"tags": ["code-along"]}
 with open("my-data-file.txt", "r+") as file:
     print(f"File has {len(file.readlines())} lines.")
     file.seek(40)
@@ -168,14 +168,14 @@ with open("my-data-file.txt", "r+") as file:
 #
 #  ## Mini-Workshop
 #
-#  - Notebook `workshop_190_inheritance`
+#  - Notebook `workshop_230_files`
 #  - Abschnitt "Lesen und Schreiben in Dateien"
 #
 
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 # ## Mini workshop
 #
-#  - Notebook `workshop_190_inheritance`
+#  - Notebook `workshop_230_files`
 #  - Section "Reading and writing to files"
 
 # %% [markdown] {"lang": "de", "slideshow": {"slide_type": "slide"}}

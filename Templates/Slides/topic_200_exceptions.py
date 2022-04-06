@@ -277,19 +277,29 @@ my_var = 1
 assert my_var == 1
 
 
+# %% [markdown] {"lang": "de"}
+# ## Mini-Workshop
+#
+# - Notebook `workshop_190_inheritance`
+# - Abschnitt "Bank Account"
+
+# %% [markdown] {"lang": "en"}
+# ## Mini workshop
+#
+# - Notebook `workshop_190_inheritance`
+# - Section "Bank Account"
+
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+# ## Mini-Workshop
 #
-#  ## Mini-Workshop
-#
-#  - Notebook `workshop_090_control_structures`
-#  - Abschnitt "Knobeln"
-#
+# - Notebook `workshop_090_control_structures`
+# - Abschnitt "Knobeln"
 
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 # ## Mini workshop
 #
 #  - Notebook `workshop_090_control_structures`
-#  - Section "Passage"
+#  - Section "Rock Paper Scissors"
 
 # %% [markdown] {"lang": "de", "slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
