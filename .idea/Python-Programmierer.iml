@@ -15,6 +15,10 @@
       <sourceFolder url="file://$MODULE_DIR$/Old/Notebooks" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/Othellite" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/SimplePackaging" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/EchoClient" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/EchoClientStarterKit" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/EchoServer" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/EchoServerStarterKit" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/NameGenerator/build" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/ShoppingCart/.pytest_cache" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/ShoppingCart/build" />
