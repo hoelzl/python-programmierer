@@ -58,6 +58,7 @@
 
 # %% {"slideshow": {"slide_type": "subslide"}}
 # Ohne Angabe der Namensräume, siehe nächste Folie
+# fmt: off
 a = 1
 
 def f(x):
@@ -70,6 +71,7 @@ print(a)
 # print(x)
 
 # %% {"slideshow": {"slide_type": "subslide"}}
+# fmt: off
 a = 1         # Globaler Namespace
 
 def f(x):     # Namespace von f - x ist im globalen Namespace *nicht* sichtbar
@@ -79,8 +81,10 @@ def f(x):     # Namespace von f - x ist im globalen Namespace *nicht* sichtbar
 f(2)
 print(a)      # Greift auf a aus dem globalen Namespace zu
 # print(x)    # Fehler: x ist im Namespace von f
+# fmt: on
 
 # %% {"slideshow": {"slide_type": "subslide"}}
+# fmt: off
 a = 1
 
 def f2():
@@ -92,6 +96,7 @@ f2()
 print(a)
 a = 5
 print(a)
+# fmt: on
 
 # %% {"tags": ["code-along"]}
 from dis import dis
@@ -103,17 +108,17 @@ dis(f)
 dis(f2)
 
 # %% {"tags": ["code-along"]}
+# fmt: off
 a = 1
-
 
 def f_broken():
     # noinspection PyUnresolvedReferences
     print(a)
     a = 2
 
-
 # %% {"tags": ["code-along"]}
 dis(f_broken)
+# fmt: on
 
 
 # %% [markdown] {"lang": "de", "slideshow": {"slide_type": "slide"}}

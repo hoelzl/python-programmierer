@@ -37,7 +37,7 @@
 # Wir beginnen mit einer kurzen Einführung in die Arbeitsweise von Python und
 # Jupyter Notebooks.
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "en"}
 # # Python and Jupyter notebooks
 #
 # We'll start with a brief introduction:
@@ -49,7 +49,7 @@
 #
 # <img src="img/compiler.svg" style="width:60%;margin:auto"/>
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ## Compiler (C++)
 #
 # <img src="img/compiler.svg" style="width:60%;margin:auto"/>
@@ -60,7 +60,7 @@
 # <img src="img/interpreter.svg" style="width:60%;margin:auto"/>
 #
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ## Interpreter (Python)
 #
 # <img src="img/interpreter.svg" style="width:60%;margin:auto"/>
@@ -70,7 +70,7 @@
 #
 # <img src="img/jupyter-notebook.svg" style="width:60%;margin:auto"/>
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ## Jupyter Notebooks
 #
 # <img src="img/jupyter-notebook.svg" style="width:60%;margin:auto"/>
@@ -91,7 +91,7 @@ plt.scatter(page_load_time, purchase_amount)
 #
 # Zahlen und Arithmetik:
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ## Variables and data types
 #
 # Numbers and arithmetic:
@@ -170,7 +170,9 @@ my_value = answer + 2
 123
 
 # %% {"tags": ["code-along"]}
+# fmt: off
 123;
+# fmt: on
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # Jupyter zeigt auch den Wert von Variablen an:
@@ -239,9 +241,10 @@ print("b", end=", ")
 print("c")
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"], "lang": "de"}
+#
 # ## Typen
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"], "lang": "en"}
 # ## Types
 
 # %% {"tags": ["code-along"]}
