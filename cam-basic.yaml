@@ -1,19 +1,12 @@
-name: cam
+name: cam-basic
 channels:
-  - pytorch
-  - nvidia
   - conda-forge
-  - mhoelzl
   - defaults
 dependencies:
   - python[version='>=3.9']
-  - cuda
-  - cudnn
   - autopep8
   - black
   - cookiecutter
-  - datasets
-  - fastapi
   - ipykernel
   - mypy
   - jinja2
@@ -21,7 +14,6 @@ dependencies:
   - jupyter_contrib_nbextensions
   - jupytext
   - matplotlib
-  - nbex
   - numba
   - numpy
   - openpyxl
@@ -32,16 +24,11 @@ dependencies:
   - pytest
   - pytest-cov
   - python-build
-  - pytorch
   - requests
   - rise
   - scikit-build
   - scikit-learn
   - scipy
   - seaborn
-  - skorch
-  - spacy[version='>=3']
-  - statsmodels
-  - transformers
   - typer
   - uvicorn
