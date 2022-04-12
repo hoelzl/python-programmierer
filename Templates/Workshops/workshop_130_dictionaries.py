@@ -88,7 +88,7 @@ def zähle_worte(text: str) -> dict:
 # %% [markdown] lang="en"
 # Test your implementation with the following string:
 
-# %% tags=["solution"]
+# %%
 dickens = "It was the best of times it was the worst of times"
 
 # %% tags=["solution"]

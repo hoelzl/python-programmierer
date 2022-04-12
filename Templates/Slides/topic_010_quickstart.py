@@ -655,6 +655,12 @@ print_all([1, 2, 3])
 # %% {"tags": ["code-along"]}
 print_all("abc")
 
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+# ### Ranges
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# ### Ranges
+
 # %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 for i in range(3):
     print(i, end=", ")
