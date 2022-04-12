@@ -7,7 +7,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.7
+#       jupytext_version: 1.13.8
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -94,6 +94,12 @@ result
 
 # %% {"tags": ["code-along"]}
 tounge_twister[end:][result.start() :]
+
+# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "slide"}}
+# # Ersetzen mit Regulären Ausdrücken
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "slide"}}
+# # Replacing with regular expressions
 
 # %% {"tags": ["code-along"]}
 re.sub("wood", "coffee", tounge_twister)
@@ -205,7 +211,7 @@ match = email_rx.match("joe.cool@people.example.com")
 # %% {"tags": ["code-along"]}
 match.group(0, 1, 2)
 
-# %%
+# %% {"tags": ["code-along"]}
 email_rx.match("Email: joe.cool@people.example.com") is None
 
 # %% {"tags": ["code-along"]}
@@ -222,5 +228,3 @@ match.group(0, 1, 2)
 
 # %% {"tags": ["code-along"]}
 email_rx.fullmatch("joe-cool+123@my_domain.example.com or something")
-
-# %%
