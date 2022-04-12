@@ -7,7 +7,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.7
+#       jupytext_version: 1.13.8
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -95,7 +95,12 @@ print(
 
 # %% tags=["solution"]
 # Alternativ:
-print("130 g   Mehl\n" "250 ml  Milch\n" "1 EL    Vanillezucker\n" "1 Prise Salz")
+# fmt: off
+print("130 g   Mehl\n"
+      "250 ml  Milch\n"
+      "1 EL    Vanillezucker\n"
+      "1 Prise Salz")
+# fmt: on
 
 # %% [markdown] lang="de"
 # # Zahlen und Mathematik

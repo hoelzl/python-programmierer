@@ -8,7 +8,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.7
+#       jupytext_version: 1.13.8
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -115,7 +115,9 @@ plt.scatter(page_load_time, purchase_amount)
 "This is a string"
 
 # %% {"tags": ["code-along"]}
-"This is also a string"
+# fmt: off
+'This is also a string'
+# fmt: on
 
 # %% {"tags": ["code-along"]}
 str(1 + 2)
