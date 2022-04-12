@@ -15,6 +15,7 @@ dependencies:
   - datasets
   - fastapi
   - ipykernel
+  - ipywidgets
   - mypy
   - jinja2
   - jupyter
