@@ -384,24 +384,24 @@ class Point:
         self.y = y
 
     def __repr__(self):
-        return "Point(" + repr(self.x) + ", " + repr(self.y) + ")"
+        return f"Point({self.x!r}, {self.y!r})"
 
-    def __eq__(self, o: object) -> bool:
-        if isinstance(o, Point):
-            return self.x == o.x and self.y == o.x
+    def __eq__(self, rhs: object) -> bool:
+        if isinstance(rhs, Point):
+            return self.x == rhs.x and self.y == rhs.y
         return False
 
-    def __add__(self, other):
-        return Point(self.x + other.x, self.y + other.y)
+    def __add__(self, rhs):
+        return Point(self.x + rhs.x, self.y + rhs.y)
 
-    def __sub__(self, other):
-        return Point(self.x - other.x, self.y - other.y)
+    def __sub__(self, rhs):
+        return Point(self.x - rhs.x, self.y - rhs.y)
 
-    def __mul__(self, other):
-        return Point(other * self.x, other * self.y)
+    def __mul__(self, rhs):
+        return Point(rhs * self.x, rhs * self.y)
 
-    def __rmul__(self, other):
-        return Point(other * self.x, other * self.y)
+    def __rmul__(self, lhs):
+        return Point(lhs * self.x, lhs * self.y)
 
     def move(self, dx=0, dy=0):
         self.x += dx

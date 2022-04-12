@@ -53,7 +53,7 @@ class GeoPointV0:
         self.y = y
 
     def get_radius(self):
-        return (self.x**2 + self.y**2) ** 0.5
+        return math.hypot(self.x, self.y)
 
     def get_angle(self):
         return math.atan2(self.y, self.x)

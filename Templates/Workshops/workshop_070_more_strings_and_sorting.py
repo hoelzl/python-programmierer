@@ -40,7 +40,7 @@ def shout(text):
 # %% tags=["solution"]
 shout("Hallo")
 
-# %% [markdown] pycharm={"name": "#%% md\n"} lang="de"
+# %% [markdown] lang="de"
 # # Vergleichen von Strings
 
 # %% [markdown] lang="en"

@@ -93,7 +93,7 @@ result = re.search("wood", tounge_twister[end:])
 result
 
 # %% {"tags": ["code-along"]}
-tounge_twister[end:][result.start():]
+tounge_twister[end:][result.start() :]
 
 # %% {"tags": ["code-along"]}
 re.sub("wood", "coffee", tounge_twister)
@@ -124,9 +124,103 @@ wood_rx.search(tounge_twister)
 wood_rx.search(tounge_twister, 13)
 
 # %% {"tags": ["code-along"]}
-wood_rx2 = re.compile(r"wood(\W)")
+wood_rx2 = re.compile(r"\bwood\b")
 
 # %% {"tags": ["code-along"]}
-wood_rx2.sub(r"coffee\1", tounge_twister)
+wood_rx2.sub(r"coffee", tounge_twister)
 
 # %% {"tags": ["code-along"]}
+def annotate(match):
+    return f"{match.group()}[{match.start()}-{match.end()}]"
+
+# %% {"tags": ["code-along"]}
+wood_rx2.sub(annotate, tounge_twister)
+
+# %% {"tags": ["code-along"]}
+four_letter_word_rx = re.compile(r"\b\w{4}\b")
+
+# %% {"tags": ["code-along"]}
+four_letter_word_rx.sub("XXXX", tounge_twister)
+
+# %% {"tags": ["code-along"]}
+any_length_rx = re.compile(r"\w*")
+
+# %% {"tags": ["code-along"]}
+def x_out(match):
+    return "X" * (match.end() - match.start())
+
+# %% {"tags": ["code-along"]}
+any_length_rx.sub(x_out, tounge_twister)
+
+# %% {"tags": ["code-along"]}
+short_word_rx = re.compile(r"\b\w{1,4}\b")
+
+# %% {"tags": ["code-along"]}
+short_word_rx.sub(lambda m: "X" * len(m.group()), tounge_twister)
+
+# %% {"tags": ["code-along"]}
+long_word_rx = re.compile(r"\b\w{5,}\b")
+
+# %% {"tags": ["code-along"]}
+long_word_rx.sub(lambda m: m.group().upper(), tounge_twister)
+
+# %% {"tags": ["code-along"]}
+long_word_rx.search(tounge_twister)
+
+# %% {"tags": ["code-along"]}
+long_word_rx.search("To be or not to be?")
+
+# %% {"tags": ["code-along"]}
+long_word_rx.search("To be or not to be?") is None
+
+# %% {"tags": ["code-along"]}
+double_vocal_rx = re.compile(r"\w*([aeiou]{2})\w*")
+
+# %% {"tags": ["code-along"]}
+match = double_vocal_rx.search(tounge_twister)
+match
+
+# %% {"tags": ["code-along"]}
+match.group(0)
+
+# %% {"tags": ["code-along"]}
+match.group(1)
+
+# %% {"tags": ["code-along"]}
+match = double_vocal_rx.search(tounge_twister, 13)
+match
+
+# %% {"tags": ["code-along"]}
+match.group(0)
+
+# %% {"tags": ["code-along"]}
+match.group(1)
+
+# %% {"tags": ["code-along"]}
+email_rx = re.compile(r"([\w._+-]+)@([\w._+-]+)", re.IGNORECASE)
+
+# %% {"tags": ["code-along"]}
+match = email_rx.match("joe.cool@people.example.com")
+
+# %% {"tags": ["code-along"]}
+match.group(0, 1, 2)
+
+# %%
+email_rx.match("Email: joe.cool@people.example.com") is None
+
+# %% {"tags": ["code-along"]}
+match = email_rx.match("joe-cool+123@my_domain.example.com or something")
+
+# %% {"tags": ["code-along"]}
+match.group(0, 1, 2)
+
+# %% {"tags": ["code-along"]}
+match = email_rx.fullmatch("joe-cool+123@my_domain.example.com")
+
+# %% {"tags": ["code-along"]}
+match.group(0, 1, 2)
+
+# %% {"tags": ["code-along"]}
+email_rx.fullmatch("joe-cool+123@my_domain.example.com or something")
+
+# %%
