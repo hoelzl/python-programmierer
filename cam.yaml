@@ -4,6 +4,7 @@ channels:
   - nvidia
   - conda-forge
   - mhoelzl
+  - fastai
   - defaults
 dependencies:
   - python[version='>=3.9']
@@ -13,6 +14,7 @@ dependencies:
   - black
   - cookiecutter
   - datasets
+  - fastai
   - fastapi
   - ipykernel
   - ipywidgets
