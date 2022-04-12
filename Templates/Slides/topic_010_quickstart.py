@@ -242,11 +242,11 @@ print("a", end=", ")
 print("b", end=", ")
 print("c")
 
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"], "lang": "de"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 #
 # ## Typen
 
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"], "lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ## Types
 
 # %% {"tags": ["code-along"]}
