@@ -447,6 +447,28 @@ my_list
 my_list.append(7)
 my_list
 
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+# ## Mini-Workshop
+#
+# - Notebook `workshop_100_lists_part2`
+# - Abschnitt "Farben"
+#
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# ## Mini workshop
+#
+# - Notebook `workshop_100_lists_part2`
+# - Section Colors
+
+# %% {"tags": ["code-along"]}
+my_tuple = 1, 2, 3
+
+# %% {"tags": ["code-along"]}
+my_tuple[0]
+
+# %% {"tags": ["code-along"]}
+# my_tuple[0] = 1
+
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ## Boole'sche Werte und `if`-Anweisungen
