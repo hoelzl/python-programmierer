@@ -7,7 +7,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.7
+#       jupytext_version: 1.13.8
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -53,47 +53,11 @@
 # %% {"tags": ["code-along"]}
 list("abcde")
 
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
-# ## Simulation der klassischen `for`-Schleife
-#
-# Iteration mit einer `for`-Schleife ist auch über andere Datenstrukturen als Listen möglich.
-#
-# In Python stellt der Typ `range` eine Folge von ganzen Zahlen dar:
-#
-# - `range(n)` erzeugt das ganzzahlige Interval von $0$ bis $n-1$
-# - `range(m, n)` erzeugt das ganzzahlige Interval von $m$ bis $n-1$
-# - `range(m, n, k)` erzeugt die ganzzahlige Sequenz $m, m+k, m+2k, ..., p$, wobei $p$ die größte Zahl der Form $m + jk$ mit $j \geq 0$ und $p < n$ ist
-
-# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
-# ## Simulation of the traditional `for` loop
-#
-# Iteration with a `for` loop is also possible over data structures other than lists.
-#
-# In Python, the `range` type represents a sequence of integers:
-#
-# - `range(n)` generates the integer interval from $0$ to $n-1$
-# - `range(m, n)` produces the integer interval from $m$ to $n-1$
-# - `range(m,n,k)` produces the integer sequence $m, m+k, m+2k, ..., p$, where $p$ is the largest number of the form $m + jk$ with $j \geq 0$ and $p < n$
-
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
-range(3)
-
-# %% {"tags": ["code-along"]}
-list(range(3))
-
-# %% {"tags": ["code-along"]}
-list(range(3, 23, 5))
-
-# %% {"tags": ["code-along"]}
-for i in range(3):
-    print(i)
-
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #
 # - Notebook `workshop_060_introduction_part2`
 # - Abschnitt "Ausgabe von Quadratzahlen"
-
 
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 # ## Mini workshop
@@ -277,7 +241,7 @@ stringliste
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ### Entfernen von Elementen
 
-# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "subslide"}}
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 # ### Removing elements
 
 # %%
@@ -465,7 +429,7 @@ print(my_list[my_slice])
 # The `indices()` method of a slice object can be used to
 # determine which indices the slice contains:
 
-# %% 
+# %%
 my_slice = slice(None, 3)
 print(my_slice.indices(len(my_list)))
 
