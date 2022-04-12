@@ -22,16 +22,19 @@
 
 # %%
 from pathlib import Path
+import numpy as np
 import pandas as pd
 
 # %%
-pandas_data_path = Path(r"C:\Users\tc\Programming\Python\Courses\Own\python-programmierer\Data\Pandas")
+pandas_data_path = Path(
+    r"C:\Users\tc\Programming\Python\Courses\Own\python-programmierer\Data\Pandas"
+)
 california_housing_csv_path = pandas_data_path / "california-housing.csv"
 
 # %% [markdown] lang="de"
 # ## Laden des Datensatzes
 #
-# Laden Sie die CSV-Datei `california_housing_csv_path` als 
+# Laden Sie die CSV-Datei `california_housing_csv_path` als
 # Pandas DataFrame. Importieren Sie dabei keine
 # Spalten ohne Informationsgehalt.
 
@@ -59,7 +62,7 @@ len(df)
 
 
 # %% [markdown] lang="de"
-# Welche Spalten hat der DataFrame? 
+# Welche Spalten hat der DataFrame?
 # Gibt es Spalten im DataFrame die undefinierte Werte (NA) enthalten?
 
 # %% [markdown] lang="en"
@@ -70,7 +73,7 @@ len(df)
 df.columns
 
 # %%
-# This is true if `notna()` drops rows, i.e., if 
+# This is true if `notna()` drops rows, i.e., if
 df.isna().sum()
 
 
@@ -193,14 +196,144 @@ df_expensive.plot(
 
 # %% tags=["solution"]
 import seaborn as sns
-sns.pairplot(df.iloc[:500])
+
+# sns.pairplot(df.iloc[:500])
 
 # %% tags=["solution"]
-sns.pairplot(df.iloc[:500], hue="Target")
+# sns.pairplot(df.iloc[:500], hue="Target")
+
+# %% tags=["solution"]
+# sns.pairplot(df.iloc[:500], hue="MedInc")
+
+# %% tags=["solution"]
+# sns.pairplot(df_expensive)
+
+# %% tags=["solution"]
+df.columns
+
+# %% tags=["solution"]
+np.set_printoptions(precision=2)
+
+# %% tags=["solution"]
+x = df[
+    [
+        "MedInc",
+        "HouseAge",
+        "AveRooms",
+        "AveBedrms",
+        "Population",
+        "AveOccup",
+        "Latitude",
+        "Longitude",
+    ]
+].to_numpy()
+y = df["Target"].to_numpy()
+x.shape, y.shape
+
+# %% tags=["solution"]
+NUM_TRAINING_SAMPLES = 15_000
+
+# %% tags=["solution"]
+x_train, x_test = x[:NUM_TRAINING_SAMPLES], x[NUM_TRAINING_SAMPLES:]
+y_train, y_test = y[:NUM_TRAINING_SAMPLES], y[NUM_TRAINING_SAMPLES:]
+x_train.shape, x_test.shape, y_train.shape, y_test.shape
+
+# %% tags=["solution"]
+from sklearn.linear_model import LinearRegression
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+
+# %% tags=["solution"]
+lr_model = LinearRegression()
+lr_model.fit(x_train, y_train)
+
+# %% tags=["solution"]
+lr_pred = lr_model.predict(x_test)
+
+# %% tags=["solution"]
+def print_score(y_true, y_pred):
+    mae = mean_absolute_error(y_true, y_pred)
+    mse = mean_squared_error(y_true, y_pred)
+    print(f"Mean: {np.mean(y_true):.3f}")
+    print(f"MAE%: {mae/np.mean(y_true):.3f}")
+    print(f"MAE:  {mae:.3f}")
+    print(f"MSE:  {mse:.3f}")
 
 
 # %% tags=["solution"]
-sns.pairplot(df.iloc[:500], hue="MedInc")
+print_score(y_test, lr_pred)
 
 # %% tags=["solution"]
-sns.pairplot(df_expensive)
+dt_model = DecisionTreeRegressor()
+dt_model.fit(x_train, y_train)
+
+# %% tags=["solution"]
+dt_pred = dt_model.predict(x_test)
+
+# %% tags=["solution"]
+print_score(y_test, dt_pred)
+
+# %% tags=["solution"]
+rf_model = RandomForestRegressor(n_jobs=32)
+rf_model.fit(x_train, y_train)
+
+# %% tags=["solution"]
+rf_pred = rf_model.predict(x_test)
+
+# %% tags=["solution"]
+print_score(y_test, rf_pred)
+
+# %% tags=["solution"]
+x_train[:3]
+
+# %% tags=["solution"]
+from sklearn.preprocessing import StandardScaler
+
+# %% tags=["solution"]
+scaler = StandardScaler()
+x_train = scaler.fit_transform(x_train)
+x_test = scaler.transform(x_test)
+
+# %%
+x_train[:3]
+
+# %% tags=["solution"]
+lr_model = LinearRegression()
+lr_model.fit(x_train, y_train)
+
+# %% tags=["solution"]
+lr_pred = lr_model.predict(x_test)
+
+# %% tags=["solution"]
+print_score(y_test, lr_pred)
+
+# %% tags=["solution"]
+dt_model = DecisionTreeRegressor()
+dt_model.fit(x_train, y_train)
+
+# %% tags=["solution"]
+dt_pred = dt_model.predict(x_test)
+
+# %% tags=["solution"]
+print_score(y_test, dt_pred)
+
+# %% tags=["solution"]
+rf_model = RandomForestRegressor(n_jobs=32)
+rf_model.fit(x_train, y_train)
+
+# %% tags=["solution"]
+rf_pred = rf_model.predict(x_test)
+
+# %% tags=["solution"]
+print_score(y_test, rf_pred)
+
+# %% tags=["solution"]
+
+# %% tags=["solution"]
+
+# %% tags=["solution"]
+
+# %% tags=["solution"]
+
+# %% tags=["solution"]
