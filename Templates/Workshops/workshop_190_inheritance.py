@@ -7,7 +7,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.7
+#       jupytext_version: 1.13.8
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -283,6 +283,81 @@ class BankAccount:
 
 # %% [markdown] lang="en"
 # Test the functionality of the class for both successful transactions, as well as for transactions that throw exceptions.
+
+# %% tags=["solution"]
+BankAccount(100.0)
+
+# %% tags=["solution"]
+try:
+    BankAccount(-100)
+except ValueError as err:
+    print("ERROR:", err)
+
+# %% tags=["solution"]
+b = BankAccount(100.0)
+b
+
+# %% tags=["solution"]
+b.deposit(200.0)
+b
+
+# %% tags=["solution"]
+try:
+    b.deposit(-100.0)
+except ValueError as err:
+    print("ERROR:", err)
+
+# %% tags=["solution"]
+b.withdraw(50.0)
+b
+
+# %% tags=["solution"]
+try:
+    b.withdraw(-200.0)
+except ValueError as err:
+    print("ERROR:", err)
+
+# %% tags=["solution"]
+try:
+    b.withdraw(1000.0)
+except ValueError as err:
+    print("ERROR:", err)
+
+
+# %% [markdown] lang="de"
+# ## Lösung ohne Dataclasses:
+
+# %% [markdown] lang="en"
+# ## Solution without dataclasses:
+
+# %% tags=["solution"]
+class BankAccount:
+    def __init__(self, balance):
+        if balance < 0:
+            raise ValueError(
+                f"Cannot create an account with negative balance: {balance}."
+            )
+        self.balance = balance
+
+    def __repr__(self):
+        return f"BankAccount({self.balance:.2f})"
+        
+    def deposit(self, amount: float):
+        if amount > 0:
+            self.balance += amount
+        else:
+            raise ValueError(f"Cannot deposit a negative amount: {amount}")
+
+    def withdraw(self, amount: float):
+        if amount <= 0:
+            raise ValueError(f"Cannot withdraw a negative amount: {amount}")
+        if amount > self.balance:
+            raise ValueError(
+                f"Cannot withdraw {amount} because it exceeds "
+                f"the current balance of {self.balance}."
+            )
+        self.balance -= amount
+
 
 # %% tags=["solution"]
 BankAccount(100.0)

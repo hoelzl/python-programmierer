@@ -7,7 +7,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.7
+#       jupytext_version: 1.13.8
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -276,6 +276,42 @@ except ValueError as error:
 my_var = 1
 assert my_var == 1
 
+
+# %% {"tags": ["code-along"]}
+def raise_and_handle_error():
+    print("rahe() before")
+    try:
+        raise ValueError("ValueError was raised.")
+        # raise NoRootError("Found no root.")
+        # raise TypeError("Bad type")
+    except NoRootError as error:
+        print(f"Case NoRootError: {error}")
+    except ValueError as error:
+        print(f"Case ValueError: {error}")
+    print("rahe() after")
+
+
+# %%
+def f2():
+    print("f2() before")
+    raise_and_handle_error()
+    print("f2() after")
+
+
+# %%
+def f1():
+    print("f1() before")
+    try:
+        f2()
+    except Exception as error:
+        print(f"Case Exception: {error}")
+    print("f1() after")        
+
+
+# %%
+f1()
+
+# %%
 
 # %% [markdown] {"lang": "de"}
 # ## Mini-Workshop

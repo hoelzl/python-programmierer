@@ -29,7 +29,7 @@
 # <br/>
 # <div style="text-align:center;">Dr. Matthias Hölzl</div>
 
-# %% [markdown] {"incorrectly_encoded_metadata": "{\"slideshow\": {\"slide_type\": \"slide\"}, \"lang\": \"de\"} Running"}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
 # ## Sub-Prozesse
 #
 # *Hinweis:* Zur Ausführung dieses Notebooks müssen muss das `ext_sample_app`
