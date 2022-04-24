@@ -38,6 +38,13 @@
 # - Notebooks und Entwicklungsumgebungen
 # - Programmierparadigmen
 
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "en"}
+# # Introduction
+#
+# - Executing Python Code
+# - Notebooks and development environments (IDEs)
+# - Programming paradigms
+
 # %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
 # ## Python Interpreter und Jupyter Notebooks
 #
@@ -92,12 +99,80 @@ purchase_amount = np.random.normal(50.0, 1.5, 1000) - page_load_time
 plt.figure(figsize=(12, 8))
 plt.scatter(page_load_time, purchase_amount)
 
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ## Entwicklungsumgebungen
 #
 # - Visual Studio Code
 # - PyCharm
 # - Vim/Emacs/... + interaktive Shell
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
+# ## Development Environments
+#
+# - Visual Studio Code
+# - PyCharm
+# - Vim/Emacs/... + interactive shell
+
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
+# # Programmierparadigmen
+# - Prozedural
+# - Funktional (?)
+# - Objektorientiert
+
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "en"}
+# # Programming paradigms
+# - Procedural
+# - Functional (?)
+# - Object oriented
+
+# %% {"tags": ["code-along"]}
+def add(x, y):
+    return x + y
+
+
+# %%
+add(2, 3)
+
+# %% {"tags": ["code-along"]}
+accu = 0
+
+
+# %% {"tags": ["code-along"]}
+def inc(x):
+    global accu
+    accu += x
+
+
+# %% {"tags": ["code-along"]}
+def disp():
+    print(f"Accumulator is {accu}.")
+
+
+# %% {"tags": ["code-along"]}
+disp()
+inc(2)
+inc(3)
+disp()
+
+
+# %% {"tags": ["code-along"]}
+def ntimes(n, f, x):
+    if n <= 0:
+        return x
+    else:
+        return ntimes(n - 1, f, f(x))
+
+
+# %%
+ntimes(10, lambda x: x * 2, 1)
+
+# %%
+from pathlib import Path
+path = Path("./some_file.txt")
+
+# %%
+path.with_suffix(".md").absolute()
 
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
@@ -105,7 +180,7 @@ plt.scatter(page_load_time, purchase_amount)
 #
 # Zahlen und Arithmetik:
 
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "en"}
 # ## Variables and data types
 #
 # Numbers and arithmetic:
@@ -122,7 +197,7 @@ plt.scatter(page_load_time, purchase_amount)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ## Zeichenketten
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown]  {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ## Strings
 
 # %% {"tags": ["code-along"]}
@@ -145,7 +220,7 @@ str(1 + 2)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ### Variablen
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ### Variables
 
 # %% {"tags": ["code-along"]}
@@ -153,7 +228,6 @@ answer = 42
 
 # %% {"tags": ["code-along"]}
 my_value = answer + 2
-
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
 # ## Jupyter Notebooks: Anzeige von Werten
@@ -163,7 +237,7 @@ my_value = answer + 2
 #   - Wenn sie als Programme ausgeführt werden
 #   - Der interaktive Interpreter verhält sich ähnlich wie Notebooks
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "en"}
 # ## Jupyter notebooks: displaying values
 #
 # - Jupyter notebooks print the last value of each cell on the screen
@@ -193,7 +267,7 @@ my_value = answer + 2
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # Jupyter zeigt auch den Wert von Variablen an:
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # Jupyter also displays the value of variables:
 
 # %% {"tags": ["code-along"]}
@@ -212,7 +286,7 @@ my_value
 # `print(...)` gibt den in Klammern eingeschlossenen Text auf dem Bildschirm
 # aus.
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # To display multiple values ​​you can use the `print()` function:
 #
 # `print(...)` prints the values between the trailing parens on the screen.
@@ -230,10 +304,8 @@ print(my_value)
 print(answer)
 print(my_value)
 
-
 # %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 print("Hello, world!")
-
 
 # %% [markdown] {"lang": "de"}
 # Vergleichen Sie die Ausgabe mit der folgenden Zelle:
@@ -275,11 +347,10 @@ print(type(answer))
 answer = "Hallo!"
 print(type(answer))
 
-
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ### Vordefinierte Funktionen
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ### Predefined functions
 
 # %% {"tags": ["code-along"]}
@@ -300,11 +371,12 @@ round(4.6)
 # %%
 print(round(0.5), round(1.5), round(2.5), round(3.5))
 
+
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ## Funktionen
 
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ## Functions
 
 # %% {"tags": ["code-along"]}
@@ -328,6 +400,7 @@ def my_round(n):
 # %%
 print(my_round(0.5), my_round(1.5), my_round(2.5), my_round(3.5))
 
+
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ### Micro-Workshop
 #
@@ -340,7 +413,7 @@ print(my_round(0.5), my_round(1.5), my_round(2.5), my_round(3.5))
 # ```
 
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ### Micro workshop
 #
 # Write a function `greeting(name)` that prints a greeting in the form
@@ -362,7 +435,7 @@ greeting("Max")
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ### Methoden
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ### Methods
 
 # %% {"tags": ["code-along"]}
@@ -375,11 +448,12 @@ greeting("Max")
 number = 5
 number.bit_length()
 
+
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ### Mehrere Parameter, Default Argumente
 
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ### Multiple parameters, default arguments
 
 # %% {"tags": ["code-along"]}
@@ -401,7 +475,7 @@ print(add3(1, c=3))
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ### Verschachtelte Funktionsaufrufe
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ### Nested function calls
 
 # %% {"tags": ["code-along"]}
@@ -411,7 +485,7 @@ add3(add_1(2), add3(1, 2, add3(1, 2)))
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ### Typannotationen
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ### Type annotations
 
 # %% {"tags": ["code-along"]}
@@ -423,13 +497,13 @@ def mult(a: int, b: float):
 mult(3, 2.0)
 
 # %% {"tags": ["code-along"]}
-# Typannotationen are only for documentation purposes:
+# Type annotations are only for documentation purposes:
 mult("a", 3)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ## Listen und Tupel
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ## Lists and tuples
 
 # %% {"tags": ["code-along"]}
@@ -487,8 +561,8 @@ my_tuple[0]
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ## Boole'sche Werte und `if`-Anweisungen
 
-# %% [markdown] {"lang": "en"}
-# ## Boolean values ​​and `if` statements
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
+# ## Boolean values and `if` statements
 
 # %% {"tags": ["code-along"]}
 True
@@ -524,6 +598,7 @@ print_size(10)
 print_size(20)
 print_size(100)
 
+
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ### Micro-Workshop
 #
@@ -553,7 +628,7 @@ print_size(100)
 # ```
 
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ### Micro workshop
 #
 # Write a function `fits_in_line(text: str, line_length: int = 72)`,
@@ -607,7 +682,6 @@ print_line("Hallo")
 # %% {"tags": ["code-along"]}
 print_line("Hallo", 3)
 
-
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ## `for`-Schleifen
 
@@ -623,6 +697,7 @@ result = 0
 for n in [1, 2, 3, 4]:
     result += n
 result
+
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ### Micro-Workshop
@@ -682,6 +757,7 @@ for i in range(3):
 # %% {"tags": ["code-along"]}
 for i in range(1, 6, 2):
     print(i, end=", ")
+
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ### Micro-Workshop
