@@ -14,9 +14,14 @@
 #     name: python3
 # ---
 
-# %% [markdown]
+# %% [markdown] {"lang": "de"}
 # # Playground
 #
 # Ein leeres Notebook für Experimente und kleine Beispiele.
+
+# %% [markdown] {"lang": "en"}
+# # Playground
+#
+# An empty notebook for experiments and small examples.
 
 # %%
