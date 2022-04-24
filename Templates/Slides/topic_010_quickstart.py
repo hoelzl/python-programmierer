@@ -32,7 +32,14 @@
 # <div style="text-align:center;">Dr. Matthias Hölzl</div>
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
-# # Python und Jupyter Notebooks
+# # Einführung
+#
+# - Ausführung von Python Code
+# - Notebooks und Entwicklungsumgebungen
+# - Programmierparadigmen
+
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
+# ## Python Interpreter und Jupyter Notebooks
 #
 # Wir beginnen mit einer kurzen Einführung in die Arbeitsweise von Python und
 # Jupyter Notebooks.
@@ -84,6 +91,13 @@ purchase_amount = np.random.normal(50.0, 1.5, 1000) - page_load_time
 
 plt.figure(figsize=(12, 8))
 plt.scatter(page_load_time, purchase_amount)
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
+# ## Entwicklungsumgebungen
+#
+# - Visual Studio Code
+# - PyCharm
+# - Vim/Emacs/... + interaktive Shell
 
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
