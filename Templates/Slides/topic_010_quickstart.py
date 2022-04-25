@@ -126,19 +126,19 @@ plt.scatter(page_load_time, purchase_amount)
 # - Functional (?)
 # - Object oriented
 
-# %% {"tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "slide"}, "tags": ["code-along"]}
 def add(x, y):
     return x + y
 
 
-# %%
+# %% {"tags": ["code-along"]}
 add(2, 3)
 
 # %% {"tags": ["code-along"]}
 accu = 0
 
 
-# %% {"tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "slide"}, "tags": ["code-along"]}
 def inc(x):
     global accu
     accu += x
@@ -156,7 +156,7 @@ inc(3)
 disp()
 
 
-# %% {"tags": ["code-along"]}
+# %% {"slideshow": {"slide_type": "slide"}, "tags": ["code-along"]}
 def ntimes(n, f, x):
     if n <= 0:
         return x
@@ -164,16 +164,16 @@ def ntimes(n, f, x):
         return ntimes(n - 1, f, f(x))
 
 
-# %%
+# %% {"tags": ["code-along"]}
 ntimes(10, lambda x: x * 2, 1)
 
-# %%
+# %% {"slideshow": {"slide_type": "slide"}, "tags": ["code-along"]}
 from pathlib import Path
+
 path = Path("./some_file.txt")
 
-# %%
+# %% {"tags": ["code-along"]}
 path.with_suffix(".md").absolute()
-
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
 # ## Variablen und Datentypen
@@ -774,7 +774,7 @@ for i in range(1, 6, 2):
 # ```
 
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ### Micro workshop
 #
 # Write a function `print_squares(n: int)` that prints the squares of the
@@ -800,7 +800,7 @@ print_squares(3)
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ## Dictionaries
 
-# %% [markdown] {"lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ## Dictionaries
 
 # %%
@@ -839,4 +839,216 @@ for item in translations.items():
 for key, val in translations.items():
     print("Key:", key, "\tValue:", val)
 
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+# ## Hinweise für den Workshop
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
+# ## Hints for the Workshop
+
 # %%
+advice = "Don't worry be happy"
+
+# %%
+words = advice.split()
+
+# %%
+" ".join(words)
+
+# %%
+smilies = {"worry": "\U0001f61f", "happy": "\U0001f600"}
+
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+# ### Micro-Workshop
+#
+# Schreiben Sie eine Funktion `replace_words(text: str, replacements: dict)`, die alle
+# Wörter, die in `dict` als Key vorkommen durch ihren Wert in `dict` ersetzen.
+#
+# ```python
+# >>> replace_words(advice, smilies)
+# "Don't 😟 be 😀"
+# ```
+# #### Hinweise
+#
+# - Splitten Sie `text` in eine Liste `words` aus einzelnen Wörtern
+#
+# - Erzeugen Sie eine neue leere Liste `new_words`
+#
+# - Iterieren Sie über `words` und fügen Sie jedes Wort, das nicht im Wörterbuch
+#   vorkommt unverändert an `new_words` an; fügen Sie für jedes Wort, das im Wörterbuch
+#   vorkommt seine Übersetzung an
+#
+# - Fügen Sie `new_words` mit der `join()`-Methode zu einem String zusammen
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
+# ### Micro workshop
+#
+# Write a function `replace_words(text: str, replacements: dict)` that replaces all
+# words occurring as key in `dict` with their values in `dict`.
+#
+# ```python
+# >>> replace_words(advice, smilies)
+# "Don't 😟 be 😀"
+# ```
+# #### Hints
+#
+# - Split `text` into a list of individual words
+#
+# - Create an empty list called `new_words`
+#
+# - Iterate over `words`; add each word that does not appear in `replacements` to
+# `new_words`; for every word that appears in `replacements`, add its value
+#
+# - Use the `join()` method to turn `new_words` into a single string
+
+# %% {"tags": ["code-along"]}
+def replace_words(text: str, replacements: dict):
+    new_words = []
+    for word in text.lower().split():
+        replacement = replacements.get(word)
+        if replacement is not None:
+            new_words.append(replacement)
+        else:
+            new_words.append(word)
+    return " ".join(new_words)
+
+
+# %% {"tags": ["code-along"]}
+replace_words(advice, smilies)
+
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
+# ## Mengen
+
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "en"}
+# ## Sets
+
+# %% {"tags": ["code-along"]}
+numbers = {3, 5, 4, 9, 4, 1, 5, 4, 3}
+numbers
+
+# %% {"tags": ["code-along"]}
+type(numbers)
+
+# %% {"tags": ["code-along"]}
+numbers.add(3)
+
+# %% {"tags": ["code-along"]}
+numbers
+
+# %% {"tags": ["code-along"]}
+numbers.union({42})
+
+# %% {"tags": ["code-along"]}
+numbers
+
+# %% {"tags": ["code-along"]}
+numbers | {42}
+
+# %% {"tags": ["code-along"]}
+numbers
+
+# %% {"tags": ["code-along"]}
+numbers & {2, 3, 4}
+
+# %% {"tags": ["code-along"]}
+numbers - {2, 3, 4}
+
+# %% {"tags": ["code-along"]}
+numbers.add(5)
+
+# %% {"tags": ["code-along"]}
+numbers
+
+# %% {"tags": ["code-along"]}
+numbers.remove(5)
+
+# %% {"tags": ["code-along"]}
+numbers
+
+# %% {"tags": ["code-along"]}
+numbers.discard(5)
+
+# %% {"tags": ["code-along"]}
+numbers
+
+# %% {"tags": ["code-along"]}
+3 in numbers
+
+# %% {"tags": ["code-along"]}
+2 not in numbers
+
+# %% {"tags": ["code-along"]}
+{2, 3} <= {1, 2, 3, 4}
+
+# %% {"tags": ["code-along"]}
+{2, 5} <= {1, 2}
+
+# %% {"tags": ["code-along"]}
+type({})  # Empty dictionary!
+
+# %% {"tags": ["code-along"]}
+set()
+
+# %% {"tags": ["code-along"]}
+type(set())
+
+# %% {"tags": ["code-along"]}
+philosophy = ("Half a bee , philosophically , must ipso facto half not be . "
+              "But can it be an entire bee , if half of it is not a bee , "
+              "due to some ancient injury .")
+philosophy
+
+# %% {"tags": ["code-along"]}
+words = philosophy.lower().split()
+words
+
+# %% {"tags": ["code-along"]}
+len(words)
+
+# %% {"tags": ["code-along"]}
+word_set = set(words)
+
+# %% {"tags": ["code-along"]}
+len(word_set)
+
+# %% {"tags": ["code-along"]}
+word_set - {".", ","}
+
+# %%
+dickens = "It was the best of times , it was the worst of times"
+
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+# ### Micro-Workshop
+#
+# Schreiben Sie eine Funktion `count_unique_words(text: str)`, die die Anzahle der in
+# einem Text vorkommenden Wörter (ohne Wiederholungen und Satzzeichen) zählt. Testen Sie
+# die Funktion mit dem in `dickens` gespeicherten String.
+#
+# ```python
+# >>> count_unique_words(dickens)
+# 8
+# >>>
+# ```
+
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
+# ### Micro workshop
+#
+# Write a function `count_unique_words(text: str)` that prints the number of unique
+# words in `text` (i.e., without repetitions, without punctuation).
+#
+# ```python
+# >>> count_unique_words(dickens)
+# 8
+# >>>
+# ```
+
+# %% {"tags": ["code-along"]}
+def count_unique_words(text: str):
+    word_set = set(text.lower().split())
+    return len(word_set)
+
+
+# %% {"tags": ["code-along"]}
+count_unique_words(dickens)
