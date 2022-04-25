@@ -535,6 +535,10 @@ my_list
 my_list.append(7)
 my_list
 
+# %% {"tags": ["code-along"]}
+my_list.insert(1, 9)
+my_list
+
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ## Mini-Workshop
 #
@@ -548,6 +552,20 @@ my_list
 # - Notebook `workshop_100_lists_part2`
 # - Section Colors
 
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
+# ## Tupel
+#
+# Tupel sind ähnlich zu Listen, allerdings sind Tupel nach ihrer Konstruktion
+# unveränderlich. Funktionen und Methoden für Listen, die die Liste nicht destruktiv
+# modifizieren sind in der Regel auch auf Tupel anwendbar.
+
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "en"}
+# ## Tuples
+#
+# Tuples are similar to lists but cannot be destructively modified. Functions and
+# methods on lists that don't modify the list destructively are generally also available
+# for tuples.
+
 # %% {"tags": ["code-along"]}
 my_tuple = 1, 2, 3
 
@@ -558,10 +576,10 @@ my_tuple[0]
 # my_tuple[0] = 1
 
 
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
 # ## Boole'sche Werte und `if`-Anweisungen
 
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "en"}
 # ## Boolean values and `if` statements
 
 # %% {"tags": ["code-along"]}
@@ -840,10 +858,10 @@ for key, val in translations.items():
     print("Key:", key, "\tValue:", val)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
-# ## Hinweise für den Workshop
+# ### Hinweise für den nächsten Workshop
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
-# ## Hints for the Workshop
+# ### Hints for the upcoming workshop
 
 # %%
 advice = "Don't worry be happy"
