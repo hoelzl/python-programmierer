@@ -57,6 +57,8 @@
 # %% tags=["solution"]
 from dataclasses import dataclass
 
+from numpy import isin
+
 # %% tags=["solution"]
 @dataclass
 class Mitarbeiter:
@@ -247,6 +249,7 @@ m
 # %% tags=["solution"]
 from dataclasses import dataclass
 
+
 @dataclass
 class BankAccount:
     balance: float
@@ -341,7 +344,7 @@ class BankAccount:
 
     def __repr__(self):
         return f"BankAccount({self.balance:.2f})"
-        
+
     def deposit(self, amount: float):
         if amount > 0:
             self.balance += amount
@@ -397,5 +400,67 @@ try:
     b.withdraw(1000.0)
 except ValueError as err:
     print("ERROR:", err)
+
+# %% [markdown] lang="de"
+# # Protokolle
+#
+# Implementieren Sie ein zur Laufzeit überprüfbares Protokoll `SupportsConnect`,
+# das Instanzen von Klassen beschreibt, die eine Methode `connect(self, device)`
+# haben.
+
+# %% [markdown] lang="en"
+# # Protocols
+#
+# Implement a runtime checkable protocol `SupportsConnect`,
+# which describes instances of classes that have a method `connect(self, device)`.
+
+# %% tags=["solution"]
+from typing import Protocol, runtime_checkable
+
+# %% tags=["solution"]
+@runtime_checkable
+class SupportsConnect(Protocol):
+    def connect(self, device):
+        ...
+
+
+# %% [markdown] lang="de"
+#
+# Implementieren Sie Klassen `Plugboard` und `PatchCord`, die das
+# `SupportsConnect` Protokoll unterstützen.
+
+# %% [markdown] lang="en"
+# Implement classes `Plugboard` and `PatchCord` that support the `SupportsConnect` protocol.
+
+# %% tags=["solution"]
+class Plugboard:
+    def connect(self, device):
+        print("Connecting plugboard to device.")
+
+# %% tags=["solution"]
+issubclass(Plugboard, SupportsConnect)
+
+# %% tags=["solution"]
+class PatchCord:
+    def connect(self, device):
+        print("Connecting patch cord to device.")
+
+# %% tags=["solution"]
+issubclass(PatchCord, SupportsConnect)
+
+# %% [markdown] lang="de"
+# Erfüllt die folgende Klasse das Protokoll `SupportsConnect`? Lässt sich das
+# zur Laufzeit feststellen?
+
+# %% [markdown] lang="en"
+# Does the following class comply with the `SupportsConnect` protocol? Is it possible to determine this at runtime?
+
+# %% 
+class SelfConnector:
+    def connect(self):
+        print("Connecting to self!")
+
+# %% tags=["solution"]
+issubclass(SelfConnector, SupportsConnect)
 
 # %%

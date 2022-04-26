@@ -7,7 +7,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.7
+#       jupytext_version: 1.13.8
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -306,6 +306,171 @@ yc.my_method()
 # randomness in dice rolling? What are the strengths and weaknesses of the strategy
 # you have chosen to test?
 
+# %% [markdown] {"lang": "de"}
+# # Protokolle
+#
+# Durch Protokolle unterstützt Python strukturelles Subtyping, bei dem Subtyp-Beziehungen aus der Struktur der Klassen erschlossen werden (im Gegensatz zum nominalen Subtyping bei dem die Beziehungen explizit deklariert werden müssen).
+
+# %% [markdown] {"lang": "en"}
+# # Protocols
+#
+# With protocols Python supports structural subtyping, i.e., the derivation of subtype relationships from the structure of classes (in contrast to nominal subtyping where the relationships have to be decalared via inheritance).
+
+# %% {"tags": ["code-along"]}
+from typing import Protocol, runtime_checkable, SupportsInt
+
+
+# %% {"tags": ["code-along"]}
+class MyNumber:
+    def __int__(self):
+        return 0
+
+
+# %% {"tags": ["code-along"]}
+my_number = MyNumber()
+int(my_number)
+
+# %% {"tags": ["code-along"]}
+isinstance(MyNumber, SupportsInt)
+
+
+# %% {"tags": ["code-along"]}
+@runtime_checkable
+class SupportsCastSpell(Protocol):
+    def cast_spell(self, name):
+        ...
+
+
+# %% {"tags": ["code-along"]}
+@runtime_checkable
+class SupportsHit(Protocol):
+    def hit(self, who, how):
+        ...
+
+
+# %% {"tags": ["code-along"]}
+class Mage:
+    def __init__(self, name="The Mage"):
+        self.name = name
+    def cast_spell(self, spell):
+        print(f"{self.name} casts a {spell} spell.")
+
+
+# %% {"tags": ["code-along"]}
+class Fighter:
+    @property
+    def name(self):
+        return "The Fighter"
+    def hit(self, opponent, weapon):
+        print(f"{self.name} attacks {opponent} with {weapon}.")
+
+
+# %% {"tags": ["code-along"]}
+class Bard:
+    def __init__(self, name="The Bard"):
+        self.name = name
+
+
+# %% {"tags": ["code-along"]}
+p1 = Mage()
+p2 = Fighter()
+p3 = Bard()
+
+# %% {"tags": ["code-along"]}
+isinstance(p1, SupportsCastSpell)
+
+# %% {"tags": ["code-along"]}
+isinstance(p2, SupportsCastSpell)
+
+# %% {"tags": ["code-along"]}
+isinstance(p3, SupportsCastSpell)
+
+# %% {"tags": ["code-along"]}
+isinstance(p1, SupportsHit)
+
+# %% {"tags": ["code-along"]}
+isinstance(p2, SupportsHit)
+
+# %% {"tags": ["code-along"]}
+isinstance(p3, SupportsHit)
+
+
+# %% {"tags": ["code-along"]}
+@runtime_checkable
+class HasName(Protocol):
+    @property
+    def name(self):
+        ...
+
+
+# %% {"tags": ["code-along"]}
+isinstance(p1, HasName)
+
+# %% {"tags": ["code-along"]}
+isinstance(p2, HasName)
+
+# %% {"tags": ["code-along"]}
+isinstance(p3, HasName)
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+#
+#  ## Mini-Workshop
+#
+#  - Notebook `workshop_190_inheritance`
+#  - Abschnitt "Vererbung"
+#
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# ## Mini workshop
+#
+#  - Notebook `workshop_190_inheritance`
+#  - Section "Inheritance"
+
+# %% [markdown] {"lang": "de"}
+# ## Single Dispatch Funktionen
+#
+# Single Dispatch Funktionen erlauben die definition von "Methoden" außerhalb von Klassen, d.h., man kann Funktionen definieren, die polymorph in ihrem ersten Argument sind.
+#
+# Dieser Mechanismus erlaubt die flexible Erweiterung von bereits existierenden Klassen.
+
+# %% [markdown] {"lang": "en"}
+# ## Single dispatch functions
+#
+# Single dispatch functions allow "methods" to be defined outside of classes, i.e. one can define functions that are polymorphic in their first argument.
+#
+# This mechanism allows the flexible extension of already existing classes.
+
+# %% {"tags": ["code-along"]}
+from functools import singledispatch
+
+
+# %% {"tags": ["code-along"]}
+@singledispatch
+def attack(player: HasName, opponent):
+    print(f"{player.name} just stares at the carnage.")
+
+
+# %% {"tags": ["code-along"]}
+@attack.register
+def _(player: Mage, opponent):
+    player.cast_spell("fireball")
+
+
+# %% {"tags": ["code-along"]}
+@attack.register
+def _(player: Fighter, opponent):
+    player.hit(opponent, "sword")
+
+
+# %% {"tags": ["code-along"]}
+attack(p1, "The Baddie")
+
+# %% {"tags": ["code-along"]}
+attack(p2, "The Baddie")
+
+# %% {"tags": ["code-along"]}
+attack(p3, "The Baddie")
+
 # %% [markdown] {"lang": "de", "slideshow": {"slide_type": "slide"}}
 # ## Mehrfachvererbung
 
@@ -316,7 +481,10 @@ yc.my_method()
 # %%
 class A:
     """Superclass of everything"""
-
+    def __init__(self, arg_a="arg_a", **kwargs):
+        super().__init__(**kwargs)
+        print(f"__init__(A, {arg_a})")
+    
     def f(self):
         print(f"f(A) on {self!r}")
 
@@ -326,6 +494,10 @@ class A:
 
 # %%
 class B(A):
+    def __init__(self, arg_b="arg_b", **kwargs):
+        super().__init__(**kwargs)
+        print(f"__init__(B, {arg_b})")
+
     def f(self):
         print(f"f(B) on {self!r}")
         super().f()
@@ -337,6 +509,10 @@ class B(A):
 
 # %%
 class C(A):
+    def __init__(self, arg_c="arg_c", **kwargs):
+        super().__init__(**kwargs)
+        print(f"__init__(C, {arg_c})")
+    
     def f(self):
         print(f"f(C) on {self!r}")
         super().f()
@@ -348,6 +524,10 @@ class C(A):
 
 # %%
 class D(B, C):
+    def __init__(self, arg_d="arg_d", **kwargs):
+        super().__init__(**kwargs)
+        print(f"__init__(D, {arg_d})")
+    
     def f(self):
         print(f"f(D) on {self!r}")
         super().f()
@@ -358,14 +538,14 @@ class D(B, C):
         C.g(self)
 
 
-# %%
+# %% {"tags": ["code-along"]}
 d = D()
 d.f()
 
-# %%
+# %% {"tags": ["code-along"]}
 d.g()
 
-# %%
+# %% {"tags": ["code-along"]}
 type(d).mro()
 
 # %%

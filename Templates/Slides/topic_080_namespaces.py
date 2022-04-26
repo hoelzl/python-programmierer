@@ -7,7 +7,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.7
+#       jupytext_version: 1.13.8
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -87,12 +87,12 @@ print(a)      # Greift auf a aus dem globalen Namespace zu
 # fmt: off
 a = 1
 
-def f2():
+def f2(x):
     global a
-    a = 4
+    a = x + 1
     print(a)
 
-f2()
+f2(2)
 print(a)
 a = 5
 print(a)
@@ -115,10 +115,13 @@ def f_broken():
     # noinspection PyUnresolvedReferences
     print(a)
     a = 2
+# fmt: on
+
+# %%
+# f_broken()
 
 # %% {"tags": ["code-along"]}
 dis(f_broken)
-# fmt: on
 
 
 # %% [markdown] {"lang": "de", "slideshow": {"slide_type": "slide"}}
@@ -271,3 +274,5 @@ if "slow_value" not in globals():
 # %% {"tags": ["code-along"]}
 if "slow_value" not in globals():
     slow_value = slow_computation()
+
+# %%
