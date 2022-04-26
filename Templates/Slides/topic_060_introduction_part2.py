@@ -8,7 +8,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.7
+#       jupytext_version: 1.13.8
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -161,11 +161,16 @@ class PointV1:
         self.y = 0.0
 
 
+# %%
+def print_point(name, p):
+    print(f"{name}: x = {p.x}, y = {p.y}")
+
+
 # %% {"tags": ["code-along"]}
 p1 = PointV1()
 p2 = PointV1()
-print("p1: x =", p1.x, "y =", p1.y)
-print("p2: x =", p2.x, "y =", p2.y)
+print_point("p1", p1)
+print_point("p2", p2)
 
 # %% {"tags": ["code-along"]}
 p1 == p2
@@ -180,8 +185,8 @@ p1 == p2
 # %% {"tags": ["code-along"]}
 p1.x = 1.0
 p1.y = 2.0
-print("p1: x =", p1.x, "y =", p1.y)
-print("p2: x =", p2.x, "y =", p2.y)
+print_point("p1", p1)
+print_point("p2", p2)
 
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
@@ -204,8 +209,8 @@ class PointV2:
 # %% {"tags": ["code-along"]}
 p1 = PointV2(2.0, 3.0)
 p2 = PointV2(0.0, 0.0)
-print("p1: x =", p1.x, "y =", p1.y)
-print("p2: x =", p2.x, "y =", p2.y)
+print_point("p1", p1)
+print_point("p2", p2)
 
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
@@ -292,13 +297,11 @@ class PointV3:
 
 # %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 p = PointV3(2, 3)
-print("x =", p.x)
-print("y =", p.y)
+print_point("p", p)
 
 # %% {"tags": ["code-along"]}
 p.move(3, 5)
-print("x =", p.x)
-print("y =", p.y)
+print_point("p", p)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ## Mini-Workshop
@@ -366,6 +369,9 @@ print(repr(p1))
 
 # %% {"tags": ["code-along"]}
 print(str(p1))
+
+# %%
+print(p1)
 
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
@@ -452,10 +458,131 @@ p2
 # - Notebook `workshop_062_objects`
 # - Section "Motor Vehicles (Part 3)"
 
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
+# ## Dataclasses
+#
+# Definition einer Klasse, in der Attribute besser sichtbar sind, Repräsentation
+# und Gleichheit vordefiniert sind, etc.
+#
+# Die [Dokumentation](https://docs.python.org/3/library/dataclasses.html)
+# beinhaltet weitere Möglichkeiten.
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "slide"}}
+# ## Dataclasses
+#
+# Definition of a class in which attributes are more visible, representation
+# and equality are predefined, etc.
+#
+# The [documentation](https://docs.python.org/3/library/dataclasses.html)
+# includes other options.
+
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
+from dataclasses import dataclass
+
+
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
+@dataclass
+class DataPoint:
+    x: float
+    y: float
+
+
+# %% {"tags": ["code-along"]}
+dp = DataPoint(2, 3)
+dp
+
+# %% {"tags": ["code-along"]}
+dp1 = DataPoint(1, 1)
+dp2 = DataPoint(1, 1)
+print(dp1 == dp2)
+print(dp1 is dp2)
+
+
+# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
+@dataclass
+class Point3D:
+    x: float
+    y: float
+    z: float = 0.0
+
+    def move(self, dx=0.0, dy=0.0, dz=0.0):
+        self.x += dx
+        self.y += dy
+        self.z += dz
+
+
+# %% {"tags": ["code-along"]}
+p3d = Point3D(1.0, 2.0)
+p3d
+
+# %% {"tags": ["code-along"]}
+p3d.move(dy=1.0, dz=5.0)
+p3d
+
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
-# Es ist möglich einen Klasse zu definieren, deren Instanzen sich wie Listen verhalten. Um die Implementierung zu vereinfachen delegieren wir die Verwaltung der Elemente an eine Liste, die als Attribut gespeichert ist. Diese Form der Komposition findet man häufig in der objektorientierten Programmierung.
+# Dataclasses erzwingen, dass Default-Werte unveränderlich sind (zumindest für einige Typen...):
 
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# Dataclasses ensure that default values are immutable (at least for some types...):
+
+# %% {"tags": ["code-along"]}
+from dataclasses import dataclass, field
+
+
+# %% {"tags": ["code-along"]}
+@dataclass
+class DefaultDemo:
+    # items: list = []
+    items: list = field(default_factory=list)
+
+
+# %% {"tags": ["code-along"]}
+d1 = DefaultDemo()
+d2 = DefaultDemo()
+
+# %% {"tags": ["code-along"]}
+d1.items.append(1234)
+print(d1)
+print(d2)
+
+
+# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "subslide"}}
+# Der Test auf unveränderliche Defaults funktioniert aber nur für einige Typen aus der Standardbibliothek, nicht für benutzerdefinierte Typen:
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# However, the test for immutable defaults only works for some types from the standard library, not for user-defined types:
+
+# %%
+@dataclass
+class BadDefault:
+    point: Point3D = Point3D(0.0, 0.0)
+
+
+# %%
+bd1 = BadDefault()
+bd2 = BadDefault()
+bd1, bd2
+
+# %%
+bd1.point.move(1.0, 2.0)
+bd1, bd2
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+# ## Workshop
+#
+# - Notebook `workshop_062_objects`
+# - Abschnitt "Einkaufsliste"
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# ## Workshop
+#
+# - Notebook `workshop_062_objects`
+# - Section "Shopping list"
+
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
+# Es ist möglich einen Klasse zu definieren, deren Instanzen sich wie Listen verhalten. Um die Implementierung zu vereinfachen delegieren wir die Verwaltung der Elemente an eine Liste, die als Attribut gespeichert ist. Diese Form der Komposition findet man häufig in der objektorientierten Programmierung.
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "slide"}}
 # It is possible to define a custom type whose instances behave like lists. To simplify the implementation we delegate the handling of the elements to a list that is stored as an attribute. This kind of composition is found very frequently in object oriented programming.
 
 # %% {"tags": ["code-along"]}
@@ -466,6 +593,8 @@ class MyBadList:
         self.elements = elements
 
     def __getitem__(self, n):
+        if isinstance(n, slice):
+            return MyBadList(self.elements[n])
         return self.elements[n]
 
     def __len__(self):
@@ -506,99 +635,5 @@ for elt in my_list_1:
 # %% {"tags": ["code-along"]}
 my_list_1[1:]
 
-
-# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
-# ## Dataclasses
-#
-# Definition einer Klasse, in der Attribute besser sichtbar sind, Repräsentation
-# und Gleichheit vordefiniert sind, etc.
-#
-# Die [Dokumentation](https://docs.python.org/3/library/dataclasses.html)
-# beinhaltet weitere Möglichkeiten.
-
-# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "slide"}}
-# ## Dataclasses
-#
-# Definition of a class in which attributes are more visible, representation
-# and equality are predefined, etc.
-#
-# The [documentation](https://docs.python.org/3/library/dataclasses.html)
-# includes other options.
-
-# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
-from dataclasses import dataclass
-
-
-@dataclass
-class DataPoint:
-    x: float
-    y: float
-
-
-# %% {"tags": ["code-along"]}
-dp = DataPoint(2, 3)
-dp
-
-# %% {"tags": ["code-along"]}
-dp1 = DataPoint(1, 1)
-dp2 = DataPoint(1, 1)
-print(dp1 == dp2)
-print(dp1 is dp2)
-
-
-# %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
-@dataclass
-class Point3D:
-    x: float
-    y: float
-    z: float = 0.0
-
-    # Non-destructive move!
-    def move(self, dx=0.0, dy=0.0, dz=0.0):
-        return Point3D(self.x + dx, self.y + dy, self.z + dz)
-
-
-# %% {"tags": ["code-along"]}
-p3d = Point3D(1.0, 2.0)
-print(p3d)
-print(p3d.move(dy=1.0, dz=5.0))
-
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
-#
-# Dataclasses erzwingen, dass alle Default-Werte unveränderlich sind:
-
-# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
-# Dataclasses ensure that all default values are immutable:
-
-# %% {"tags": ["code-along"]}
-from dataclasses import dataclass, field
-
-
-@dataclass
-class DefaultDemo:
-    # item: list = []
-    items: list = field(default_factory=list)
-
-
-# %% {"tags": ["code-along"]}
-d1 = DefaultDemo()
-d2 = DefaultDemo()
-
-# %% {"tags": ["code-along"]}
-d1.items.append(1234)
-print(d1)
-print(d2)
-
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
-# ## Workshop
-#
-# - Notebook `workshop_062_objects`
-# - Abschnitt "Einkaufsliste"
-
-# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
-# ## Workshop
-#
-# - Notebook `workshop_062_objects`
-# - Section "Shopping list"
 
 # %%
