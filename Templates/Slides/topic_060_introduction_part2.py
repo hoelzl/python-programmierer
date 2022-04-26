@@ -552,19 +552,65 @@ print(d2)
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 # However, the test for immutable defaults only works for some types from the standard library, not for user-defined types:
 
-# %%
+# %% {"tags": ["code-along"]}
 @dataclass
 class BadDefault:
     point: Point3D = Point3D(0.0, 0.0)
 
 
-# %%
+# %% {"tags": ["code-along"]}
 bd1 = BadDefault()
 bd2 = BadDefault()
 bd1, bd2
 
-# %%
+# %% {"tags": ["code-along"]}
 bd1.point.move(1.0, 2.0)
+bd1, bd2
+
+
+# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "subslide"}}
+# 
+# Es ist möglich, koplexere Initialisierungen vorzunehmen:
+#
+# - Die `__post_init__()` Methode kann Code zur Initialisierung von Objekten
+#   enthalten, der nach der generierten `__init__()` Methode ausgeführt wird.
+# - Der Typ `InitVar[T]` deklariert, dass ein Klassen-Attribut als Argument an
+#   `__post_init__()` übergeben und nicht als Instanz-Attribut verwendet wird.
+# - Das Keyword-Argument `init=False` für `field()` bewirkt, dass ein Attribut
+#   nicht in der generierten `__init__()` Methode initialisiert wird.
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+#
+# It is possible to perform more complex initializations:
+#
+# - The `__post_init__()` method can contain code that is executed after the
+#   generated `__init__()` method has been executed.
+# - The type `InitVar[T]` declasres that a class attribute serves as an argument
+#   for the `__post_init__()` method and not as an attribute for the instance.
+# - The keyword argument `init=False` for `field()` causes the corresponding
+#   attribute to not be initialized in the generated `__init__()` method.
+
+# %% {"tags": ["code-along"]}
+from dataclasses import dataclass, field, InitVar
+
+# %% {"tags": ["code-along"]}
+@dataclass
+class DependentInit:
+    x: InitVar[float] = 0.0
+    y: InitVar[float] = 0.0
+    z: InitVar[float] = 0.0
+    point: Point3D = field(init=False)
+        
+    def __post_init__(self, x, y, z):
+        self.point = Point3D(x, y, z)
+
+# %% {"tags": ["code-along"]}
+bd1 = DependentInit()
+bd2 = DependentInit(1.0, 2.0, 3.0)
+bd1, bd2
+
+# %% {"tags": ["code-along"]}
+bd1.point.move(3.0, 5.0)
 bd1, bd2
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
