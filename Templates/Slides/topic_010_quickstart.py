@@ -799,7 +799,7 @@ for i in range(1, 6, 2):
 # numbers from 1 to n, one element per line:
 #
 # ```python
-# >>>print_square(3)
+# >>>print_squares(3)
 # 1**2 = 1
 # 2**2 = 4
 # 3**2 = 9
@@ -1010,7 +1010,7 @@ set()
 # %% {"tags": ["code-along"]}
 type(set())
 
-# %% {"tags": ["code-along"]}
+# %%
 philosophy = ("Half a bee , philosophically , must ipso facto half not be . "
               "But can it be an entire bee , if half of it is not a bee , "
               "due to some ancient injury .")
@@ -1058,13 +1058,13 @@ dickens = "It was the best of times , it was the worst of times"
 #
 # ```python
 # >>> count_unique_words(dickens)
-# 8
+# 7
 # >>>
 # ```
 
 # %% {"tags": ["code-along"]}
 def count_unique_words(text: str):
-    word_set = set(text.lower().split())
+    word_set = set(text.lower().split()) - {",", "."}
     return len(word_set)
 
 
