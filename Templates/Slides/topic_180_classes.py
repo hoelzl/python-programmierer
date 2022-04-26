@@ -88,10 +88,11 @@ p
 
 # %%
 from math import isclose, pi
+
 assert p.x == 0.0
 assert p.y == 2.0
 assert p.get_radius() == 2.0
-assert isclose(p.get_angle(), pi/2) 
+assert isclose(p.get_angle(), pi / 2)
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # Es ist unschön, dass bei der Verwendung von `GeoPointV0` die Attribute `x`
@@ -107,6 +108,7 @@ print(p.x, p.y, p.get_radius(), p.get_angle())
 
 # %% {"tags": ["code-along"], "slideshow": {"slide_type": "subslide"}}
 import math
+
 
 class GeoPointV1:
     def __init__(self, x=0, y=0):
@@ -151,10 +153,11 @@ p
 
 # %%
 from math import isclose, pi
+
 assert p.x == 0.0
 assert p.y == 2.0
 assert p.radius == 2.0
-assert isclose(p.angle, pi/2) 
+assert isclose(p.angle, pi / 2)
 
 # %% {"tags": ["code-along"]}
 GeoPointV1(1.0, 0.0)
@@ -179,6 +182,7 @@ print(p.x, p.y, p.radius, p.angle)
 
 # %% {"tags": ["code-along"]}
 import math
+
 
 class GeoPointV2:
     def __init__(self, x=0, y=0):
@@ -216,7 +220,95 @@ assert p.radius == 10.0
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 #
-#  ## Attribute von Klassen
+# ## Klassenmethoden und Factories
+#
+# Eine Factory ist eine Funktion (oder Klasse), die zur Konstruktion von
+# Objekten verwendet werden kann. Python bietet mit Klassenmethoden ein
+# mächtiges Konstrukt für die Implementierung von Factories an.
+#
+# Klassenmethoden sind Methoden, die typischerweise auf einer Klasse (und nicht
+# einem Objekt) aufgerufen werden. Im Gegensatz zu statischen Methoden (die
+# keine Information über die Klasse, auf der sie aufgerufen werden bekommen)
+# bekommen Klassenmethiden das Klassenobjekt, auf dem sie aufgerufen werden, als
+# argument. Dieses Klassenobjekt kann verwendet werden um Operationen
+# auszuführen, die von der Klasse abhängen, z.B. das Erstellen von
+# Objektinstanzen.
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+# ## Class methods and factories
+#
+# A factory is a function (or class) used to build object instances. Class
+# methods are a powerful feature of Python that is useful for implementing
+# factories.
+#
+# Class methods are methods typically called on a class (as opposed to an
+# object). In contrast to static methods (which receive no information about the
+# class they are called on) they are passed a class object as argument that can
+# be used to perform operations that depend on the class (such as creating
+# instances).
+
+# %% {"tags": ["code-along"]}
+from dataclasses import dataclass
+
+# %% {"tags": ["code-along"]}
+@dataclass
+class Color:
+    r: float = 0.0
+    g: float = 0.0
+    b: float = 0.0
+    color_table = {
+        "white": (1.0, 1.0, 1.0),
+        "red": (1.0, 0.0, 0.0),
+        "green": (0.0, 1.0, 0.0),
+        "blue": (0.0, 0.0, 1.0)
+    }
+
+    @classmethod
+    def from_string(cls, color):
+        return cls(*cls.color_table.get(color, (0.0, 0.0, 0.0)))
+    
+    @classmethod
+    def from_unsigned(cls, r, g, b):
+        return cls(r/255, g/255, b/255)
+
+# %% {"tags": ["code-along"]}
+Color(0.5, 0.5, 0.5)
+
+# %% {"tags": ["code-along"]}
+Color.from_string("red")
+
+# %% {"tags": ["code-along"]}
+Color.from_unsigned(255, 0, 0)
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+#
+# Falls die Konstruktor-Argumente einer Subklasse mit der Oberklasse kompatibel
+# sind, können die Klassenmethoden der Oberklasse direkt als Factories für die
+# Unterklassen verwendet werden.
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
+#
+# If the constructor arguments of a subclass are compatible with the superclass,
+# the class methods of the superclass can directly be used as factories for the
+# subclass.
+
+# %% {"tags": ["code-along"]}
+@dataclass
+class AlphaColor(Color):
+    alpha: float = 1.0
+
+# %% {"tags": ["code-along"]}
+AlphaColor(0.5, 0.5, 0.5)
+
+# %% {"tags": ["code-along"]}
+AlphaColor.from_string("red")
+
+# %% {"tags": ["code-along"]}
+AlphaColor.from_unsigned(255, 0, 0)
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+#
+# ## Attribute von Klassen
 #
 # Die meisten Attribute werden auf der Instanz-Ebene definiert, d.h.,
 # jedes Objekt hat seine eigenen Werte für die Attribute. Manchmal ist es
