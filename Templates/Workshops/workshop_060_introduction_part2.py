@@ -7,7 +7,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.7
+#       jupytext_version: 1.13.8
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -47,20 +47,31 @@
 
 
 # %% [markdown] lang="de"
+# ## Teilbarkeit
 #
 # Schreiben Sie eine Funktion `ist_teilbar_durch(m, n)` die ( genau dann)
 # `True` zurückgibt, wenn `m` durch `n` teilbar ist.
 
 # %% [markdown] lang="en"
+# ## Divisibility
+#
 # Write a function `is_divisible_by(m,n)` which returns `True` if (and only if) `m` is divisible by `n`.
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 def ist_teilbar_durch(m, n):
     return m % n == 0
 
 
+# %% tags=["solution"] lang="de"
 ist_teilbar_durch(6, 2)
 
+# %% tags=["solution"] lang="en"
+def is_divisible_by(m, n):
+    return m % n == 0
+
+
+# %% tags=["solution"] lang="en"
+is_divisible_by(6, 2)
 
 # %% [markdown] lang="de"
 #
@@ -70,13 +81,18 @@ ist_teilbar_durch(6, 2)
 # %% [markdown] lang="en"
 # Write a function `is_divisible_by_2_and_3(n)` that returns `True` if (and only if) `n` is divisible by $2$ and by $3$.
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 def ist_teilbar_durch_2_und_3(n):
     return ist_teilbar_durch(n, 2) and ist_teilbar_durch(n, 3)
 
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 def ist_teilbar_durch_2_und_3_v2(n):
+    return n % 6 == 0
+
+
+# %% tags=["solution"] lang="en"
+def is_divisible_by_2_and_3(n):
     return n % 6 == 0
 
 
@@ -86,8 +102,11 @@ def ist_teilbar_durch_2_und_3_v2(n):
 # %% [markdown] lang="en"
 # Test whether $72$ is divisible by $2$ and by $3$.
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="en"
 ist_teilbar_durch_2_und_3(72)
+
+# %% tags=["solution"] lang="en"
+is_divisible_by_2_and_3(72)
 
 
 # %% [markdown] lang="de"
@@ -99,14 +118,22 @@ ist_teilbar_durch_2_und_3(72)
 # %% [markdown] lang="en"
 # # Of legal age
 #
-# Write a function `print_of_age(age)` that prints `of_age` on the screen if `age >= 18` and `minor` otherwise.
+# Write a function `print_of_age(age)` that prints `of age` on the screen if `age >= 18` and `minor` otherwise.
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 def drucke_volljährig(alter):
     if alter < 18:
         print("Minderjährig")
     else:
         print("Volljährig")
+
+
+# %% tags=["solution"] lang="en"
+def print_of_age(age):
+    if age < 18:
+        print("minor")
+    else:
+        print("of age")
 
 
 # %% [markdown] lang="de"
@@ -115,9 +142,13 @@ def drucke_volljährig(alter):
 # %% [markdown] lang="en"
 # Test `print_of age(age)` with the values ​​17 and 18.
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 drucke_volljährig(17)
 drucke_volljährig(18)
+
+# %% tags=["solution"] lang="en"
+print_of_age(17)
+print_of_age(18)
 
 # %% [markdown] lang="de"
 # # Einkaufsliste
@@ -135,9 +166,13 @@ drucke_volljährig(18)
 # - `my_shopping list` holding a list containing the strings `tea` and `coffee`
 # - `another_shopping list`, holding a different list also containing the strings `tea` and `coffee`
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 meine_einkaufsliste = ["Tee", "Kaffee"]
 eine_andere_einkaufsliste = ["Tee", "Kaffee"]
+
+# %% tags=["solution"] lang="en"
+my_shopping_list = ["tea", "coffee"]
+another_shopping_list = ["tea", "coffee"]
 
 
 # %% [markdown] lang="de"
@@ -160,10 +195,17 @@ eine_andere_einkaufsliste = ["Tee", "Kaffee"]
 #   coffee
 # ```
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 def drucke_einkaufsliste(einkaufsliste):
     print("Einkaufsliste:")
     for item in einkaufsliste:
+        print(" ", item)
+
+
+# %% tags=["solution"] lang="en"
+def print_shopping_list(shopping_list):
+    print("Shopping List:")
+    for item in shopping_list:
         print(" ", item)
 
 
@@ -176,11 +218,17 @@ def drucke_einkaufsliste(einkaufsliste):
 # Test the function `print_shopping list(shopping list)` with both
 # shopping lists.
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 drucke_einkaufsliste(meine_einkaufsliste)
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 drucke_einkaufsliste(eine_andere_einkaufsliste)
+
+# %% tags=["solution"] lang="en"
+print_shopping_list(my_shopping_list)
+
+# %% tags=["solution"] lang="en"
+print_shopping_list(another_shopping_list)
 
 
 # %% [markdown] lang="de"
@@ -190,9 +238,14 @@ drucke_einkaufsliste(eine_andere_einkaufsliste)
 # %% [markdown] lang="en"
 # Define a function `buy(product, shopping_list)`, that adds `product` to `shopping_list`.
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 def kaufe(produkt, einkaufsliste):
     einkaufsliste.append(produkt)
+
+
+# %% tags=["solution"] lang="en"
+def buy(product, shopping_list):
+    shopping_list.append(product)
 
 
 # %% [markdown] lang="de"
@@ -201,9 +254,13 @@ def kaufe(produkt, einkaufsliste):
 # %% [markdown] lang="en"
 # Add `butter` and `bread` to the shopping list `my_shopping_list`.
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 kaufe("Butter", meine_einkaufsliste)
 kaufe("Brot", meine_einkaufsliste)
+
+# %% tags=["solution"] lang="en"
+buy("butter", my_shopping_list)
+buy("bread", my_shopping_list)
 
 # %% [markdown] lang="de"
 # Drucken Sie beide Einkauslisten nochmal aus.
@@ -217,6 +274,12 @@ drucke_einkaufsliste(meine_einkaufsliste)
 # %% tags=["solution"]
 drucke_einkaufsliste(eine_andere_einkaufsliste)
 
+# %% tags=["solution"] lang="en"
+print_shopping_list(my_shopping_list)
+
+# %% tags=["solution"] lang="en"
+print_shopping_list(another_shopping_list)
+
 # %% [markdown] lang="de"
 # Was passiert, wenn Sie `Butter` und `Brot` nochmals zur Einkaufsliste
 # `meine_einkaufsliste` hinzufügen?
@@ -224,10 +287,15 @@ drucke_einkaufsliste(eine_andere_einkaufsliste)
 # %% [markdown] lang="en"
 # What happens when you add `butter` and `bread` to the shopping list `my_shopping list` again?
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 kaufe("Butter", meine_einkaufsliste)
 kaufe("Brot", meine_einkaufsliste)
 drucke_einkaufsliste(meine_einkaufsliste)
+
+# %% tags=["solution"] lang="en"
+buy("butter", my_shopping_list)
+buy("bread", my_shopping_list)
+print_shopping_list(my_shopping_list)
 
 
 # %% [markdown] lang="de"
@@ -254,10 +322,16 @@ drucke_einkaufsliste(meine_einkaufsliste)
 # The square of 7 is 49
 # ```
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 def drucke_quadrate(m, n):
     for num in range(m, n + 1):
         print("Das Quadrat von", num, "ist", num**2)
+
+
+# %% tags=["solution"] lang="en"
+def print_squares(m, n):
+    for num in range(m, n + 1):
+        print("The squre of", num, "is", num**2)
 
 
 # %% [markdown] lang="de"
@@ -266,9 +340,11 @@ def drucke_quadrate(m, n):
 # %% [markdown] lang="en"
 # Test the function with arguments 5, 7
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 drucke_quadrate(5, 7)
 
+# %% tags=["solution"] lang="en"
+print_squares(5, 7)
 
 # %% [markdown] lang="de"
 # # Verbesserte Einkaufsliste
@@ -310,9 +386,11 @@ class Item:
 # %% [markdown] lang="en"
 # Create an item that represents 500g of coffee:
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 Item("Kaffee", "500g")
 
+# %% tags=["solution"] lang="en"
+Item("coffee", "500g")
 
 # %% [markdown] lang="de"
 # Definieren Sie eine Klasse `ShoppingList`, die eine Liste von `Item`-Instanzen
@@ -373,9 +451,12 @@ class ShoppingList:
 # - 2 packets of tea,
 # - 1 packet of coffee
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 meine_einkaufsliste = ShoppingList([Item("Tee", "2 Pakete"), Item("Kaffee", "1 Paket")])
 meine_einkaufsliste
+
+# %% tags=["solution"] lang="en"
+my_shopping_list = ShoppingList([Item("tea", "2 packets"), Item("coffe", "1 packet")])
 
 # %% [markdown] lang="de"
 # Drucken Sie `meine_einkaufsliste` aus.
@@ -383,11 +464,11 @@ meine_einkaufsliste
 # %% [markdown] lang="en"
 # Print out `my_shopping list`.
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 meine_einkaufsliste.print()
 
-# %% tags=["solution"]
-drucke_einkaufsliste(eine_andere_einkaufsliste)
+# %% tags=["solution"] lang="en"
+print_shopping_list(my_shopping_list)
 
 # %% [markdown] lang="de"
 # Fügen Sie  250 g Butter und  1 Laib Brot zur Einkaufsliste
@@ -397,10 +478,14 @@ drucke_einkaufsliste(eine_andere_einkaufsliste)
 # Add 250g butter and 1 loaf of bread to the shopping list
 # `my_shopping list`.
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 meine_einkaufsliste.add_item(Item("Butter", "250g"))
 meine_einkaufsliste.add_item(Item("Brot", "1 Laib"))
 meine_einkaufsliste
+
+# %% tags=["solution"] lang="en"
+my_shopping_list.add_item(Item("butter", "250g"))
+my_shopping_list.add_item(Item("bread", "1 loaf"))
 
 # %% [markdown] lang="de"
 # Drucken Sie die Einkaufsliste nochmal aus.
@@ -408,8 +493,12 @@ meine_einkaufsliste
 # %% [markdown] lang="en"
 # Print out the shopping list again.
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 meine_einkaufsliste.print()
+
+# %% tags=["solution"] lang="en"
+
+my_shopping_list.print()
 
 # %% [markdown] lang="de"
 # Was passiert, wenn Sie `Butter` und `Brot` nochmals zur Einkaufsliste
@@ -418,9 +507,14 @@ meine_einkaufsliste.print()
 # %% [markdown] lang="en"
 # What happens when you add `butter` and `bread` to `my_shopping list` again?
 
-# %% tags=["solution"]
+# %% tags=["solution"] lang="de"
 meine_einkaufsliste.add_item(Item("Butter", "250g"))
 meine_einkaufsliste.add_item(Item("Brot", "1 Laib"))
 meine_einkaufsliste.print()
+
+# %% tags=["solution"] lang="en"
+my_shopping_list.add_item(Item("butter", "250g"))
+my_shopping_list.add_item(Item("bread", "1 loaf"))
+my_shopping_list.print()
 
 # %% tags=["solution"]

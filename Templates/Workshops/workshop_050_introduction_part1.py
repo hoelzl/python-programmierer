@@ -134,10 +134,10 @@ type(14)
 type(14.0)
 
 # %% [markdown] lang="de"
-# Wie können Sieden Datentyp von `'14'` in Python feststellen?
+# Wie können Sie den Datentyp von `"14"` in Python feststellen?
 
 # %% [markdown] lang="en"
-# How can you determine the type of `'14'' in Python?
+# How can you determine the type of `"14"' in Python?
 
 # %% tags=["solution"]
 type("14")
@@ -173,7 +173,7 @@ type(1 + 2 * 3)
 # Was ist der Datentyp von `4 / 2` in Python?
 
 # %% [markdown] lang="en"
-# What is the type of `4/2` in Python?
+# What is the type of `4 / 2` in Python?
 
 # %% tags=["solution"]
 type(4 / 2)

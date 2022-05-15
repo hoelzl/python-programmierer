@@ -361,7 +361,7 @@ stringliste[:]
 # - Notebook `workshop_100_lists_part2`
 # - Section "Slicing"
 
-# %% [markdown] {"pycharm": {"name": "#%% md\n"}, "slideshow": {"slide_type": "slide"}, "lang": "de"}
+# %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
 # ## Zuweisung an Slices
 #
 # Man kann Werte an Slices zuweisen:

@@ -20,7 +20,7 @@ def process_cell(cell, tags_to_remove=None, language=None):
                 if cell.cell_type == "code":
                     cell.outputs = []
                 break
-    if language and cell.cell_type == "markdown" and "lang" in cell.metadata.keys():
+    if language and "lang" in cell.metadata.keys():
         if cell.metadata["lang"] != language:
             return REMOVE_CELL
     return KEEP_CELL
@@ -150,8 +150,11 @@ def convert_workshop_templates_to_exercises(language=None):
 
 # %%
 if __name__ == "__main__":
-    # convert_slide_templates()
-    # convert_slide_templates_to_codealongs()
+    file: Path
+    for file in (ROOT_PATH / "Workshops/").glob("*/*/*.ipynb"):
+        file.absolute().unlink()
+    for file in (ROOT_PATH / "Slides/").glob("*/*/*.ipynb"):
+        file.absolute().unlink()
     convert_slide_templates(language="en")
     convert_slide_templates_to_codealongs(language="en")
     convert_slide_templates(language="de")
