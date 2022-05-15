@@ -45,6 +45,7 @@ dependencies:
   - skorch
   - spacy[version='>=3']
   - statsmodels
-  - transformers
+  - streamlit
+  - transformers[version='>=3']
   - typer
   - uvicorn

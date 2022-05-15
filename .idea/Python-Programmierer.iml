@@ -20,7 +20,11 @@
       <sourceFolder url="file://$MODULE_DIR$/Examples/EchoServer" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/EchoServerStarterKit" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/CppVsPython/Python" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/CppBindingExample" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/CppVsPython" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/ExternalSampleApplication" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/LoggingExample" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/ShoppingCartStarterKit" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/NameGenerator/build" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/ShoppingCart/.pytest_cache" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/ShoppingCart/build" />

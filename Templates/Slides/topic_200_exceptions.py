@@ -18,7 +18,7 @@
 # <img src="img/python-logo-notext.svg"
 #      style="display:block;margin:auto;width:10%"/>
 # <br>
-# <div style="text-align:center; font-size:200%;"><b>Ausnahment und Fehlerbehandlung</b></div>
+# <div style="text-align:center; font-size:200%;"><b>Ausnahmen und Fehlerbehandlung</b></div>
 # <br/>
 # <div style="text-align:center;">Dr. Matthias Hölzl</div>
 

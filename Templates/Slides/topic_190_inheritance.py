@@ -417,14 +417,14 @@ isinstance(p3, HasName)
 #  ## Mini-Workshop
 #
 #  - Notebook `workshop_190_inheritance`
-#  - Abschnitt "Vererbung"
+#  - Abschnitt "Protokolle"
 #
 
 # %% [markdown] {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 # ## Mini workshop
 #
 #  - Notebook `workshop_190_inheritance`
-#  - Section "Inheritance"
+#  - Section "Protocols"
 
 # %% [markdown] {"lang": "de"}
 # ## Single Dispatch Funktionen
