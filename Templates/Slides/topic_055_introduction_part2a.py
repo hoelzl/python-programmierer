@@ -135,13 +135,13 @@ def is_lucky_number_2(number):
         print("We wish you all the best anyway.")
 
 
-# %% {"tags": ["code-along"], "lang": "de"}
+# %% {"lang": "de"}
 ist_glückszahl_2(1)
 
 # %% {"lang": "en"}
 is_lucky_number_2(1)
 
-# %% {"tags": ["code-along"], "lang": "de"}
+# %% {"lang": "de"}
 ist_glückszahl_2(7)
 
 # %% {"lang": "en"}
@@ -153,12 +153,18 @@ is_lucky_number_2(7)
 #
 # - Notebook `workshop_060_introduction_part2`
 # - Abschnitt "Volljährig"
+#
+# ## Bonus Workshop
+# - Abschnitt "Verkürzte Ausgabe"
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 # ## Workshop
 #
 # - Notebook `workshop_060_introduction_part2`
 # - Section "Of legal age"
+#
+# ## Bonus Workshop
+# - Section "Shortened output"
 
 # %% {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 def einseitiges_if(zahl):
@@ -182,16 +188,16 @@ def one_sided_if(number):
     print("After")
 
 
-# %% {"tags": ["code-along"], "lang": "de"}
+# %% {"lang": "de"}
 einseitiges_if(1)
 
-# %% {"tags": ["code-along"], "lang": "en"}
+# %% {"lang": "en"}
 one_sided_if(1)
 
-# %% {"tags": ["code-along"], "lang": "de"}
+# %% {"lang": "de"}
 einseitiges_if(7)
 
-# %% {"tags": ["code-along"], "lang": "en"}
+# %% {"lang": "en"}
 one_sided_if(7)
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}

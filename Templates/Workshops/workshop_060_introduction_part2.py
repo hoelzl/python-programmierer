@@ -150,6 +150,93 @@ drucke_volljährig(18)
 print_of_age(17)
 print_of_age(18)
 
+
+# %% [markdown] {"lang": "de"}
+# ## Verkürzte Ausgabe
+#
+# Schreiben Sie eine Funktion `fits_in_line(text: str, line_length: int = 72)`,
+# die `True` oder `False` zurückgibt, je nachdem ob `text` in einer Zeile der
+# Länge `line_length` ausgegeben werden kann oder nicht:
+# ```python
+# >>> fits_in_line("Hallo")
+# True
+# >>> fits_in_line("Hallo", 3)
+# False
+# >>>
+# ```
+
+# %% [markdown] {"lang": "en"}
+# ### Shortened output
+#
+# Write a function `fits_in_line(text: str, line_length: int = 72)`,
+# which returns `True` or `False` depending on whether `text` fits into a line of
+# length `line_length`:
+# ```python
+# >>> fits_in_line("Hello")
+# True
+# >>> fits_in_line("Hello", 3)
+# False
+# >>>
+# ```
+
+# %% {"tags": ["code-along"]}
+def fits_in_line(text: str, line_length: int = 72):
+    return len(text) <= line_length
+
+
+# %% {"tags": ["code-along"]}
+fits_in_line("Hello")
+
+# %% {"tags": ["code-along"]}
+fits_in_line("Hello", 3)
+
+
+# %% [markdown] {"lang": "de"}
+#
+# Schreiben Sie eine Funktion `print_line(text: str, line_length:int = 72)`,
+# die
+# * `text` auf dem Bildschirm ausgibt, falls das in einer Zeile der Länge
+#   `line_length` möglich ist
+# * `...` ausgibt, falls das nicht möglich ist.
+#
+# ```python
+# >>> print_line("Hallo")
+# Hallo
+# >>> print_line("Hallo", 3)
+# ...
+# >>>
+# ```
+
+# %% [markdown] {"lang": "en"}
+#
+# Write a function `print_line(text: str, line_length:int = 72)`,
+# that
+# * prints `text` to the screen if that is possible in a line of length
+#   `line_length`
+# * prints `...` if that is not possible.
+#
+# ```python
+# >>> print_line("Hello")
+# Hello
+# >>> print_line("Hello", 3)
+# ...
+# >>>
+# ```
+
+# %% {"tags": ["code-along"]}
+def print_line(text: str, line_length: int = 72):
+    if fits_in_line(text, line_length=line_length):
+        print(text)
+    else:
+        print("...")
+
+
+# %% {"tags": ["code-along"]}
+print_line("Hallo")
+
+# %% {"tags": ["code-along"]}
+print_line("Hallo", 3)
+
 # %% [markdown] lang="de"
 # # Einkaufsliste
 #

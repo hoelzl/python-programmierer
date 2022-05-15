@@ -161,7 +161,7 @@ class PointV1:
         self.y = 0.0
 
 
-# %%
+# %% tags=["code-along"]
 def print_point(name, p):
     print(f"{name}: x = {p.x}, y = {p.y}")
 
@@ -376,7 +376,7 @@ print(repr(p1))
 # %% {"tags": ["code-along"]}
 print(str(p1))
 
-# %%
+# %% tags=["code-along"]
 print(p1)
 
 

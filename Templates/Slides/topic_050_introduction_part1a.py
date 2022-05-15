@@ -107,17 +107,17 @@
 # - Numbers: `123`, `3.141592`
 # - Text (strings): `'This is a text'`, `"Hello, world!"`
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 123
 
 # %% {"tags": ["code-along"]}
 3.141592
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 "Das ist ein Text"
 
 # %% {"tags": ["code-along"]}
-'Hello, world!'
+"Hello, world!"
 
 # %% {"tags": ["code-along"]}
 """Auch ein Text. (Another text.)
@@ -280,7 +280,7 @@ print(1, 3, 7.5, 2, "who, me?", sep=",")
 #     - `1.0` is a floating point number (`float`)
 # - With `type(...)` you can get the type of the argument:
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 type(1)
 
 # %% {"tags": ["code-along"]}
@@ -351,7 +351,7 @@ type(10000000000000000000000000000000000000000000000000)
 # %% {"tags": ["code-along"]}
 20 / 7
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 # // und % können zur Division mit Rest verwendet werden:
 20 // 7  # Wie oft geht 7 in 20?
 
@@ -628,7 +628,7 @@ print(x)
 #     - `__class__`, `__name__`
 #     - Normal user-defined variables should not be dunders
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 print(__name__)
 print(type(__name__))
 
@@ -770,7 +770,7 @@ print(länge_gesamt)
 #
 # We can express this in Python using a *function*:
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 def pythagoras(a, b):
     c = (a**2 + b**2) ** 0.5
     return c
@@ -805,12 +805,6 @@ pythagoras(1, 1)
 #     - Exits the function
 #     - Determines which value is returned
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
-def pythagoras(a, b):
-    quadratsumme = a**2 + b**2
-    # We can compute (part of) the return value here
-    return quadratsumme**0.5
-
 
 # %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
 # ## Funktionsaufruf
@@ -829,6 +823,37 @@ def pythagoras(a, b):
 # %% {"tags": ["code-along"]}
 pythagoras(3, 4)
 
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+# ### Micro-Workshop
+#
+# Schreiben Sie eine Funktion `greeting(name)`, die eine Begrüßung in der Form
+# "Hallo *name*!" auf dem Bildschirm ausgibt, z.B.
+# ```python
+# >>> greeting("Max")
+# Hallo Max!
+# >>>
+# ```
+
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
+# ### Micro workshop
+#
+# Write a function `greeting(name)` that prints a greeting in the form
+# "Hello *name*!" to the screen, e.g.
+# ```python
+# >>> greeting("Max")
+# Hi Max!
+# >>>
+# ```
+
+# %% {"tags": ["code-along"]}
+def greeting(name):
+    print("Hallo ", name, "!", sep="")
+
+
+# %% {"tags": ["code-along"]}
+greeting("Max")
 
 # %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 # ## Zurück zur Zaunlänge
@@ -951,7 +976,7 @@ gesamtlänge(3, 4)
 # - Fixed size integers (e.g. with `numpy`)
 # - Floating point numbers with different sizes (`numpy`)
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 1.1 * 100
 
 # %% {"tags": ["code-along"]}
@@ -959,7 +984,7 @@ import decimal
 
 decimal.Decimal("1.1") * 100
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 (1 + 1j) * (1 + 1j)
 
 # %% {"tags": ["code-along"]}
@@ -979,7 +1004,7 @@ decimal.Decimal("1.1") * 100
 # - A function can also be defined without formal parameters.
 # - The parentheses must be used in the definition and in calls.
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 def null():
     return 0
 
@@ -1053,7 +1078,7 @@ print(print("Hans"))
 #     - Often this is the special value `None`
 #     - If a function returns `None` we don't need an explicit `return` statement
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 def say_hello():
     print("Hello, world!")
     print("Today is a great day!")
@@ -1092,7 +1117,7 @@ say_hello()
 # - If the corresponding argument is not passed, the default value is used
 # - If a parameter has a default value, all values ​​to the right of it must also have one
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 def add_weighted(a, b=0, c=0):
     return a + 2 * b + 3 * c
 
@@ -1160,7 +1185,7 @@ append_value(2)
 # - The appropriate value is then substituted for the named parameter
 # - If all parameters are named, the call becomes independent of the parameter order
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 def say_hi(person, greeting="Hi"):
     print(greeting, " ", person, "!", sep="")
 
@@ -1173,12 +1198,12 @@ say_hi("Jack", "Good morning")
 say_hi(greeting="Heya", person="Betty")
 
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 def add_weighted(a, b=0, c=0):
     return a + 2 * b + 3 * c
 
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 add_weighted(c=2, a=1)
 
 # %% {"tags": ["code-along"]}
@@ -1232,7 +1257,7 @@ def my_append(lhs: list[int], rhs: Optional[int]):
         lhs.append(rhs)
 
 
-# %% {"slideshow": {"slide_type": "subslide"}} tags=["code-along"]
+# %% {"slideshow": {"slide_type": "subslide"}, "tags": ["code-along"]}
 my_list = [1, 2, 3]
 my_append(my_list, None)
 my_list
