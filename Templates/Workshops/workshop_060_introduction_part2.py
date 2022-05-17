@@ -179,15 +179,15 @@ print_of_age(18)
 # >>>
 # ```
 
-# %% {"tags": ["code-along"]}
+# %% {"tags": ["solution"]}
 def fits_in_line(text: str, line_length: int = 72):
     return len(text) <= line_length
 
 
-# %% {"tags": ["code-along"]}
+# %% {"tags": ["solution"]}
 fits_in_line("Hello")
 
-# %% {"tags": ["code-along"]}
+# %% {"tags": ["solution"]}
 fits_in_line("Hello", 3)
 
 
@@ -223,7 +223,7 @@ fits_in_line("Hello", 3)
 # >>>
 # ```
 
-# %% {"tags": ["code-along"]}
+# %% {"tags": ["solution"]}
 def print_line(text: str, line_length: int = 72):
     if fits_in_line(text, line_length=line_length):
         print(text)
@@ -231,10 +231,10 @@ def print_line(text: str, line_length: int = 72):
         print("...")
 
 
-# %% {"tags": ["code-along"]}
+# %% {"tags": ["solution"]}
 print_line("Hallo")
 
-# %% {"tags": ["code-along"]}
+# %% {"tags": ["solution"]}
 print_line("Hallo", 3)
 
 # %% [markdown] lang="de"
