@@ -26,6 +26,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Examples/LoggingExample" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/ShoppingCartStarterKit" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Examples/MultipleChoice" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examples/MultipleChoiceBasic" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/NameGenerator/build" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/ShoppingCart/.pytest_cache" />
       <excludeFolder url="file://$MODULE_DIR$/Examples/ShoppingCart/build" />
