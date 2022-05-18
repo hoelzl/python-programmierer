@@ -6,7 +6,7 @@ import typer
 from .utils.main_utils import configure_middleware
 from .core import process_messages
 
-app = typer.Typer()
+app = typer.Typer(add_completion=False)
 
 
 @app.command()
@@ -20,7 +20,6 @@ def main(
 ):
     """
     Process messages in JSON format.\n
-    Now better and improved!!!
     """
     middleware = configure_middleware(
         {"auth_token": auth, "log": log, "timestamp": timestamp}
