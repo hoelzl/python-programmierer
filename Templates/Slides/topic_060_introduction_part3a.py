@@ -19,7 +19,7 @@
 # <img src="img/python-logo-notext.svg"
 #      style="display:block;margin:auto;width:10%"/>
 # <br>
-# <div style="text-align:center; font-size:200%;"><b>Einführung in Python: Grundlagen Teil 2</b></div>
+# <div style="text-align:center; font-size:200%;"><b>Einführung in Python: Grundlagen Teil 3</b></div>
 # <br/>
 # <div style="text-align:center;">Dr. Matthias Hölzl</div>
 
@@ -27,7 +27,7 @@
 # <img src="img/python-logo-notext.svg"
 #      style="display:block;margin:auto;width:10%"/>
 # <br>
-# <div style="text-align:center; font-size:200%;"><b>Introduction to Python: Part 2</b></div>
+# <div style="text-align:center; font-size:200%;"><b>Introduction to Python: Part 3</b></div>
 # <br/>
 # <div style="text-align:center;">Dr. Matthias Hölzl</div>
 

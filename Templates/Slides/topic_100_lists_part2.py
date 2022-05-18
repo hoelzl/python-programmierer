@@ -53,6 +53,33 @@
 # %% {"tags": ["code-along"]}
 list("abcde")
 
+# %% [markdown] {"lang": "de", "slideshow": {"slide_type": "slide"}}
+#
+# ## Ranges
+
+# %% [markdown] {"lang": "en", "slideshow": {"slide_type": "slide"}}
+#
+# ## Ranges
+
+# %%
+range(1, 4)
+
+# %%
+list(range(1, 4))
+
+# %%
+range(4)
+
+# %%
+list(range(4))
+
+# %%
+list(range(1, 9, 2))
+
+# %%
+for x in range(1, 4):
+    print(x)
+
 # %% [markdown] {"lang": "de", "slideshow": {"slide_type": "subslide"}}
 # ## Mini-Workshop
 #

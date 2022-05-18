@@ -781,6 +781,37 @@ def replace_words(text: str, replacements: dict):
 # %% {"tags": ["code-along"]}
 replace_words(advice, smilies)
 
+
+# %% {"tags": ["code-along"]}
+def replace_words_2(text: str, replacements: dict):
+    return " ".join(replacements.get(word, word) for word in text.split())
+
+
+# %% {"tags": ["code-along"]}
+replace_words_2(advice, smilies)
+
+
+# %% {"tags": ["code-along"]}
+def make_translator(replacements: dict):
+    def translate(word):
+        return replacements.get(word, word)
+    return translate
+
+
+# %% {"tags": ["code-along"]}
+def apply_function_to_words(text, fun):
+    return " ".join(fun(word) for word in text.split())
+
+
+# %% {"tags": ["code-along"]}
+def replace_words_3(text: str, replacements: dict):
+    return apply_function_to_words(text, make_translator(replacements))
+
+
+# %% {"tags": ["code-along"]}
+replace_words_3(advice, smilies)
+
+
 # %% [markdown] {"slideshow": {"slide_type": "slide"}, "lang": "de"}
 # ## Mengen
 
@@ -858,9 +889,11 @@ set()
 type(set())
 
 # %%
-philosophy = ("Half a bee , philosophically , must ipso facto half not be . "
-              "But can it be an entire bee , if half of it is not a bee , "
-              "due to some ancient injury .")
+philosophy = (
+    "Half a bee , philosophically , must ipso facto half not be . "
+    "But can it be an entire bee , if half of it is not a bee , "
+    "due to some ancient injury ."
+)
 philosophy
 
 # %% {"tags": ["code-along"]}

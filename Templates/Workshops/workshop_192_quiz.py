@@ -77,11 +77,12 @@ class Question:
 
 # %% [markdown] lang="de"
 #
-# Testen Sie die Klasse (interaktiv falls Sie die Aufgabe im Notebook
+# Testen Sie die Klasse (interaktiv, falls Sie die Aufgabe im Notebook
 # bearbeiten, sonst mit pytest)
 
 # %% [markdown] lang="en"
-# Test the class (interactively if you did the assignment in the notebook, else with pytest)
+# Test the class (interactively if you did the assignment in the notebook, else with
+# pytest)
 
 # %% tags=["solution"]
 questions = [
@@ -157,12 +158,14 @@ questions[0].correct_answer()
 #
 # - `percentage_questions_answered_correctly(self)` returns the percentage of
 #   correctly answered questions. (Pay attention to the case that the
-#   user did not answer a question). For this method, an implementation as property might be appropriate.
+#   user did not answer a question). For this method, an implementation as property
+#   might be appropriate.
 #
 # - `pick_random_question(self)` randomly selects one of the questions. The
 #   `random.choice()` function is very helpful for this
 #
-# - `query_user_for_answer(self, question: Question)` asks the user for an answer and returns it
+# - `query_user_for_answer(self, question: Question)` asks the user for an answer and
+#   returns it
 #
 # - `process_answer(self, question: Question, answer: str)` , evaluates the answer
 #   and returns a "status code" with one of the following meanings:
