@@ -1,4 +1,4 @@
-# Package MultipleChoiceBasic
+# Package MultipleChoiceBasicStarterKit
 
 A very basic example of managing multiple choice tests
 
@@ -14,7 +14,7 @@ in the root directory (i.e., the directory where `pyproject.toml` and `setup.cfg
 
 After building the package you can install it with pip:
 ```shell script
-pip install dist/mcbasic-0.0.1-py3-none-any.whl
+pip install dist/mcbasic_sk-0.0.1-py3-none-any.whl
 ```
 
 To install the package so that it can be used for development purposes
