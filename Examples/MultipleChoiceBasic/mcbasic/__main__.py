@@ -4,7 +4,7 @@ import typer
 
 from .questions import print_questions, get_answers_from_user
 
-app = typer.Typer()
+app = typer.Typer(add_completion=False)
 
 
 @app.command()

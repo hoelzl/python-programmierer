@@ -17,16 +17,17 @@ def print_questions(questions: list):
     for question in questions:
         print_question(question)
 
+
 def get_answers_from_user(questions: list):
-	answers = []
-	for question in questions:
-		print_question(question)
-		raw_answer = input("Please enter your answer: ")
-		# noinspection PyBroadException
-		try:
-			answer = int(raw_answer)
-			answer_text = question["answers"][answer - 1]
-			answers.append((answer, answer_text))
-		except Exception:
-			answers.append((-1, "Bad input."))
-	return answers
+    answers = []
+    for question in questions:
+        print_question(question)
+        raw_answer = input("Please enter your answer: ")
+        # noinspection PyBroadException
+        try:
+            answer = int(raw_answer)
+            answer_text = question["answers"][answer - 1]
+            answers.append((answer, answer_text))
+        except Exception:
+            answers.append((-1, "Bad input."))
+    return answers
