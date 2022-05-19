@@ -1,5 +1,2 @@
-Another line.
-Yet another line.
-Let's overwrite a part of the file, yes?
-Another line.
-And another.
+Let's try this again.
+Until we succeed.overwrite a part of the file, yes?
