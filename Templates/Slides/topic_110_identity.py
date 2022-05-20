@@ -60,7 +60,11 @@ c[1] = 30
 # %%
 print(f"a = {a}, b = {b}, c = {c}")
 
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+#
+#  <img src="img/identity.svg" style="display:block;width:70%;margin:auto;"/>
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "en"}
 #
 #  <img src="img/identity.svg" style="display:block;width:70%;margin:auto;"/>
 

@@ -282,7 +282,12 @@ html.entities.entitydefs["Psi"]
 #   - This is not quite true...
 # - The `__init__.py` file can be (and often is) empty
 
-# %% [markdown] {"slideshow": {"slide_type": "subslide"}}
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
+#
+#  <img src="img/package-structure.png" alt="Package structure"
+#       style="display:block;margin:auto;width:40%"></img>
+
+# %% [markdown] {"slideshow": {"slide_type": "subslide"}, "lang": "de"}
 #
 #  <img src="img/package-structure.png" alt="Package structure"
 #       style="display:block;margin:auto;width:40%"></img>

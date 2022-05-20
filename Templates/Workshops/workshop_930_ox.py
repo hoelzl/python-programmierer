@@ -7,15 +7,14 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.0
+#       jupytext_version: 1.13.8
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
-# j2 import 'macros.j2' as doc
-# %% [markdown]
+# %% [markdown] lang="de"
 # # Ox - Eine Variante von Bulls and Cows
 #
 # Implementieren Sie eine Variante des Spiels "Bulls and Cows"
@@ -104,8 +103,8 @@
 # - Speichern Sie das "Wörterbuch" als eine Liste von Wörtern.
 # - Mit `random.choice(list)` können Sie aus einer Liste ein zufälliges
 #   Element auswählen.
-# - Da wir noch keine benutzerdefinierten Datentypen kennengelernt haben
-#   bietet es sich an, eine Funktion zu implementieren, die die zeichenweise
+# - Eine Möglichkeit, das Spiel zu implementieren ohne Klassen zu verwenden,
+#   is als eine Funktion, die die zeichenweise
 #   Übereinstimmung zweier Zeichenketten testet. Ein möglicher Ergebnistyp für
 #   diese Funktion ist eine Liste der Form `['.', '+', '-', '.']`,
 #   um auszudrücken, dass das erste und vierte Zeichen nicht übereinstimmen,
@@ -115,6 +114,104 @@
 #   einen String erzeugen, der alle Elemente der Liste enthält.
 # - Was passiert bei Ihrer Lösung, wenn der Benutzer ein Wort eingibt, das
 #  länger oder kürzer ist als die Lösung?
+
+# %% [markdown] lang="en"
+# # Ox - A variant of Bulls and Cows
+#
+# Implement a variant of the game "Bulls and Cows"
+#
+# ## Gameplay
+#
+# - The computer chooses a word from a dictionary and tells the player
+#   how many letters it contains
+# - The player guesses a word and gets the following information for each letter:
+#     - `+` if the letter is in the right place
+#     - `–` if the letter occurs the solution, but in a different place
+#     - `.` if the letter does not appear in the solution
+# - If the player guesses the word in less than 10 tries he has
+#   won, otherwise lost.
+#
+# ## Examples
+#
+# Successful game:
+#
+# ```
+# Guess the word!
+# The word to guess has 6 characters.
+# Please enter your guess: something
+# something
+# .-..--
+# Please enter your guess: postoffice
+# postoffice
+# +-.-+.
+# Please enter your guess: python
+# python
+# ++++++
+# Congratulations, you have won!
+# ```
+#
+# Lost game:
+#
+# ```
+# Guess the word!
+# The word to guess has 4 characters.
+# Please enter your guess: foobar
+# foobar
+# ....
+# Please enter your guess: tango
+# tango
+# .+.-
+# Please enter your guess: ohno
+# ohno
+# ....
+# Please enter your guess: This game is stupid!
+# This game is stupid!
+# ....
+# Please enter your guess: Let me out!
+# Let me out!
+# .-..
+# Please enter your guess: exit
+# exit
+# -...
+# Please enter your guess: quit
+# quit
+# ....
+# Please enter your guess: QUIT
+# QUIT
+# ....
+# Please enter your guess:
+#
+#
+# Please enter your guess: HOW DO I QUIT THIS STUPID GAME!!!!!
+# HOW DO I QUIT THIS STUPID GAME!!!!!
+# ....
+# Better luck next time. The word was game.
+# ```
+#
+# ## Implementation:
+#
+# Implement a function `ox()` that implements this game.
+# You should define some auxiliary functions for this purpose,
+# that encapsulate parts of the game logic.
+#
+# ## Hints
+#
+# - You can get user input using the function `input(quey: str)`.
+#   `query` is the text to be displayed to the user;
+#   the result of the function is the string entered by the user.
+# - Save the "dictionary" as a list of words.
+# - With `random.choice(list)` you can select a random item from a list.
+# - One possibility to implement this game without using classes
+#   is by defining a function that matches two strings
+#   character-by-character. A possible result type for
+#   this function is a list of the form `['.', '+', '-', '.']`,
+#   to express that the first and fourth characters do not match,
+#   the second character is a perfect match and the third character
+#   appears in the solution, but in a different position.
+# - Given a list `strings` of strings you can use `''.join(strings)`
+#   to create a string containing all elements of the list.
+# - What happens in your solution when the user enters a word that
+#   is longer or shorter than the solution?
 
 # %% tags=["solution"]
 import random

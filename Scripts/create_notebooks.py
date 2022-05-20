@@ -11,6 +11,7 @@ MACRO_PATH = ROOT_PATH / "Templates/Macros"
 REMOVE_CELL = 0
 KEEP_CELL = 1
 
+
 # %%
 def process_cell(cell, tags_to_remove=None, language=None):
     if tags_to_remove is not None and "tags" in cell.metadata.keys():
@@ -28,11 +29,11 @@ def process_cell(cell, tags_to_remove=None, language=None):
 
 # %%
 def convert_template(
-    jinja_env: Environment,
-    template_name: str,
-    output_path: Path,
-    tags_to_remove=None,
-    language=None,
+        jinja_env: Environment,
+        template_name: str,
+        output_path: Path,
+        tags_to_remove=None,
+        language=None,
 ):
     template = jinja_env.get_template(template_name)
     result = template.render()
@@ -54,12 +55,12 @@ def convert_template(
 
 # %%
 def convert_all_python_templates(
-    jinja_env: Environment,
-    template_dir: Path,
-    output_dir: Path,
-    glob_pattern="*.py",
-    tags_to_remove=None,
-    language=None,
+        jinja_env: Environment,
+        template_dir: Path,
+        output_dir: Path,
+        glob_pattern="*.py",
+        tags_to_remove=None,
+        language=None,
 ):
     output_dir.mkdir(exist_ok=True, parents=True)
     for file in template_dir.glob(glob_pattern):

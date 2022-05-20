@@ -7,57 +7,83 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.0
+#       jupytext_version: 1.13.8
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
-# j2 import 'macros.j2' as doc
-# %% [markdown]
+# %% [markdown] lang="de"
 # # Erzeugen von NumPy Arrays
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# # Creating NumPy arrays
+
+# %% tags=["solution"]
 import numpy as np
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # Erzeugen Sie folgende NumPy Arrays:
 
-# %% [markdown]
+# %% [markdown] lang="en"
+# Create the following NumPy arrays:
+
+# %% [markdown] lang="de"
 # ```python
 # array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 # ```
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# ```pythons
+# array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+# ```
+
+# %% tags=["solution"]
 np.arange(10)
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # ```python
 # array([0.  , 1.25, 2.5 , 3.75, 5.  ])
 # ```
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# ```pythons
+# array([0. , 1.25, 2.5 , 3.75, 5. ])
+# ```
+
+# %% tags=["solution"]
 np.linspace(0, 5, 5)
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # ```python
 # array([ 1,  3, 12, 92])
 # ```
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# ```pythons
+# array([ 1, 3, 12, 92])
+# ```
+
+# %% tags=["solution"]
 np.array([1, 3, 12, 92])
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # ```python
 # array([[1, 2, 3, 4],
 #        [5, 6, 7, 8]])
 # ```
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# ```pythons
+# array([[1, 2, 3, 4],
+#        [5, 6, 7, 8]])
+# ```
+
+# %% tags=["solution"]
 np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # ```python
 # array([[[0, 2, 4, 6],
 #         [1, 3, 5, 7]],
@@ -69,7 +95,19 @@ np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
 #         [5, 4, 3, 2]]])
 # ```
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# ```pythons
+# array([[[0, 2, 4, 6],
+#         [1, 3, 5, 7]],
+#
+#        [[1, 2, 3, 4],
+#         [5, 6, 7, 8]],
+#
+#        [[9, 8, 7, 6],
+#         [5, 4, 3, 2]]])
+# ```
+
+# %% tags=["solution"]
 np.array(
     [
         [[0, 2, 4, 6], [1, 3, 5, 7]],
@@ -87,38 +125,65 @@ np.array(
     ]
 )
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # Ein $2\times 8$ Array, das gleichverteilte Zufallszahlen in $[0, 1)$ enthält.
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# A $2\times 8$ array containing uniformly distributed random numbers in $[0, 1)$.
+
+# %% tags=["solution"]
 np.random.rand(2, 8)
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # ```python
 # array([[1., 0., 0.],
 #        [0., 1., 0.],
 #        [0., 0., 1.]])
 # ```
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# ```pythons
+# array([[1st, 0th, 0th],
+#        [0th, 1st, 0th],
+#        [0th, 0th, 1st]])
+# ```
+
+# %% tags=["solution"]
 np.eye(3)
 
-# %% [markdown]
-# Einen Vektor der Länge 5, der standard-normalverteilte Zahlen enthält.
+# %% [markdown] lang="de"
+# Einen Vektor der Länge 5, der normalverteilte Zahlen enthält.
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# A vector of length 5 containing normally distributed numbers.
+
+# %% tags=["solution"]
 np.random.standard_normal(5)
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # Ein $3 \times 4$ Array, das normalverteilte Zahlen mit Mittelwert $5$ und Standardabweichung $0.5$ enthält.
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# A $3 \times 4$ array containing normally distributed numbers with mean $5$ and standard deviation $0.5$.
+
+# %% tags=["solution"]
 np.random.normal(5, 0.5, (3, 4))
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # ## Gleichungssysteme
 #
 # Lösen Sie folgendes Gleichungssystem:
+#
+# $x_1 - x_2 + 2x_3 = 6$
+#
+# $2x_1 + 3x_2 + 2x_3 = 8$
+#
+# $3x_1 + 2x_2 + x_3 = 8$
+
+# %% [markdown] lang="en"
+# ## Systems of equations
+#
+# Solve the following system of equations:
 #
 # $x_1 - x_2 + 2x_3 = 6$
 #
@@ -144,7 +209,7 @@ x
 # %% tags=["solution"]
 a.dot(x)
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # # Erzeugen von NumPy Arrays 2
 #
 # Erzeugen Sie das folgende NumPy Array:
@@ -157,10 +222,23 @@ a.dot(x)
 #        [32, 34, 36, 38]])
 # ```
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# # Create NumPy arrays 2
+#
+# Create the following NumPy array:
+#
+# ```pythons
+# array([[ 0, 2, 4, 6],
+#        [8, 10, 12, 14],
+#        [16, 18, 20, 22],
+#        [24, 26, 28, 30],
+#        [32, 34, 36, 38]])
+# ```
+
+# %% tags=["solution"]
 np.arange(0, 40, 2).reshape(5, 4)
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # Erzeugen Sie das folgende NumPy Array:
 #
 # ```python
@@ -169,10 +247,19 @@ np.arange(0, 40, 2).reshape(5, 4)
 #        [16, 25, 34, 43, 52, 61]])
 # ```
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# Create the following NumPy array:
+#
+# ```pythons
+# array([[10, 19, 28, 37, 46, 55],
+#        [13, 22, 31, 40, 49, 58],
+#        [16, 25, 34, 43, 52, 61]])
+# ```
+
+# %% tags=["solution"]
 np.arange(10, 64, 3).reshape(3, 6, order="F")
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # # Extrema
 #
 # Erzeugen Sie einen Vektor der Länge 100 mit Zufallswerten, die im Intervall
@@ -181,23 +268,32 @@ np.arange(10, 64, 3).reshape(3, 6, order="F")
 # Berechnen Sie Minimum und Maximum der im Vektor
 # enthaltenen Werte sowie die Positionen von Minimum und Maximum.
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# # Extreme values
+#
+# Generate a vector of length 100 containing random values equally
+# distributed in the interval $[10, 20)$.
+#
+# Calculate minimum and maximum of the values
+# contained in the vector as well as the indices of minimum and maximum.
+
+# %% tags=["solution"]
 vec = np.random.random(100) * 10 + 10
 vec[:10]
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 vec.min()
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 vec.argmin()
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 vec.max()
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 vec.argmax()
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # # Mittelwert
 #
 # Erzeugen Sie ein $6 \times 8$ Array, das standardverteilten Zahlen mit
@@ -205,44 +301,65 @@ vec.argmax()
 #
 #
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+#
+# # Average
+#
+# Create a $6 \times 8$ array with numbers normally distributed with
+# mean $2$ and standard deviation $1$.
+
+# %% tags=["solution"]
 my_array = np.random.normal(2.0, 1.0, (6, 8))
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # Berechnen Sie den Mittelwert aller darin vorkommenden Werte.
 #
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# Calculate the mean of all values in the array.
+
+# %% tags=["solution"]
 my_array.mean()
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # Berechnen Sie die zeilen- und spaltenweisen Mittelwerte.
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# Calculate the row and column means.
+
+# %% tags=["solution"]
 my_array.mean(axis=0)
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 my_array.mean(axis=1)
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # Berechnen Sie den Mittelwert aller vorkommenden Werte ohne Verwendung der
 # Methode `mean()`.
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# Calculate the mean of all  values in the array without using the
+# `mean()` method.
+
+# %% tags=["solution"]
 mean = my_array.sum() / my_array.size
 mean
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # Berechnen Sie die zeilen- und spaltenweisen Mittelwerte ohne Verwendung der
 # Methode `mean()`.
 
-# %%  tags=["solution"]
+# %% [markdown] lang="en"
+# Calculate the row and column means without using the
+# `mean()` method.
+
+# %% tags=["solution"]
 my_array.sum(axis=0) / my_array.shape[0]
 
-# %%  tags=["solution"]
+# %% tags=["solution"]
 my_array.sum(axis=1) / my_array.shape[1]
 
-# %% [markdown]
+# %% [markdown] lang="de"
 # # Roulette
 #
 # Analysieren Sie die Gewinnerwartung eines Spielers in folgender
@@ -270,12 +387,40 @@ my_array.sum(axis=1) / my_array.shape[1]
 #   `np.random.binomial(n, p, size=None)`, mit der Sie binomialverteilte
 #   Zufallszahlen erzeugen können.
 
+# %% [markdown] lang="en"
+# # Roulette
+#
+# Use Monte Carlo simulation to analyze a player's winning expectation in the following simplified form of a roulette game:
+#
+# - The croupier spins a wheel divided into 36 equal segments, numbered from 1 to 36.
+# - The player chooses one of the numbers 1 to 36 and bets 1 euro.
+# - If the ball lands on the selected number, the player receives his bet
+#   plus 35 euros back.
+# - Otherwise, the player loses his bet.
+#
+# Write a version of the simulation with a `for` loop in Python and
+# test the performance of this version before and after compilation with
+# Numba. Then write a vectorized version and test the
+# performance with and without compiling it with Numba.
+#
+# *Notes:*
+# - The NumPy library contains a function
+#   `np.random.randint(low, high, size=None)`, which you can use to
+#   create an array with Shape `size` containing uniformly distributed
+#   random numbers between `low` (inclusive) and `high` (exclusive).
+# - If `np.random.randint()` is called with only two arguments it returns
+#   a single number.
+# - The NumPy library contains a function
+#   `np.random.binomial(n, p, size=None)` with which you can generate
+#   binomially distributed random numbers.
+
 # %% tags=["solution"]
 import numpy as np
 
 
 # %% tags=["solution"]
 def roulette1(n):
+    # We can assume that the player always bets on the 1
     # Wir können davon ausgehen, dass der Spieler immer auf die 1 wettet
     money_spent = 0
     money_won = 0
@@ -291,7 +436,6 @@ def test_roulette(roulette):
     np.random.seed(123)
     for n in [1000, 100_000, 1_000_000]:
         # %time print(f"Gewinnerwartung ist {100 * roulette(n):.1f}% ({n} Versuche)")
-        print(f"Gewinnerwartung ist {100 * roulette(n):.1f}% ({n} Versuche)")
 
 
 # %% tags=["solution"]
@@ -338,8 +482,5 @@ roulette3_nb = numba.jit(roulette3)
 
 # %% tags=["solution"]
 test_roulette(roulette3_nb)
-
-# %% tags=["solution"]
-roulette3(100_000_000)
 
 # %%
