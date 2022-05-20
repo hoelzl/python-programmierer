@@ -37,12 +37,30 @@ def get_tags(cell):
 
 # %%
 def set_tags(cell, tags):
-    cell.metadata["tags"] = tags
+    if tags:
+        cell.metadata["tags"] = tags
+    elif cell.metadata.get("tags") is not None:
+        del cell.metadata["tags"]
 
 
 # %%
 def get_cell_lang(cell):
     return cell.metadata.get("lang")
+
+
+# %%
+def convert_slide_metadata_to_tag(cell):
+    slide_type = cell.metadata.get("slideshow", {}).get("slide_type")
+    if slide_type is not None:
+        if slide_type != "-":
+            tags = get_tags(cell)
+            tags.append(slide_type)
+            set_tags(cell, tags)
+        del cell.metadata["slideshow"]
+
+
+# %%
+_EXPECTED_CODE_TAGS = ["code-along", "solution", "slide", "subslide"]
 
 
 # %%
@@ -57,12 +75,16 @@ def process_code_cell_metadata(cell):
         tags.remove("solution")
         add_keep_tag = False
     for tag in tags:
-        if tag not in ["code-along", "solution", "lang"]:
+        if tag not in _EXPECTED_CODE_TAGS:
             print(f"Found unexpected code tag: {tag!r}.")
     if add_keep_tag:
         debug("Adding keep tag to cell.")
         tags.append("keep")
     set_tags(cell, tags)
+
+
+# %%
+_EXPECTED_MARKDOWN_TAGS = ["slide", "subslide"]
 
 
 # %%
@@ -72,13 +94,14 @@ def process_markdown_cell_metadata(cell):
     if get_cell_lang(cell) is None:
         warning(f"Markdown cell {cell.source[:40]!r} has no language tag.")
     for tag in tags:
-        if tag not in []:
+        if tag not in _EXPECTED_MARKDOWN_TAGS:
             warning(f"Found markdown tag: {tag!r}.")
     set_tags(cell, tags)
 
 
 # %%
 def process_cell_metadata(cell):
+    convert_slide_metadata_to_tag(cell)
     if cell.cell_type == "code":
         process_code_cell_metadata(cell)
     elif cell.cell_type == "markdown":
@@ -100,16 +123,7 @@ def print_cell_info(cell, prefix="Cell"):
 
 # %%
 def process_cell(cell):
-    cell_type = cell.cell_type
-    tags = get_tags(cell)
-    lang = get_cell_lang(cell)
-    # Check that we don't receive a subtype
-    result = deepcopy(cell)
-    assert type(result) == type(cell)
-    process_cell_metadata(result)
-    # print_cell_info(cell)
-    # print_cell_info(result)
-    return result
+    process_cell_metadata(cell)
 
 
 # %%
@@ -170,7 +184,5 @@ def load_and_process_notebooks(dir_path: Path, pattern="*.py"):
 # %%
 load_and_process_notebooks(OLD_SOURCE_PATH / "Slides")
 
-
 # %%
 load_and_process_notebooks(OLD_SOURCE_PATH / "Workshops")
-

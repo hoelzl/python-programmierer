@@ -53,7 +53,7 @@
       <excludeFolder url="file://$MODULE_DIR$/Workshops/Exercises/.ipynb_checkpoints" />
       <excludeFolder url="file://$MODULE_DIR$/Workshops/Solutions/.ipynb_checkpoints" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.9 (cam)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.10 (cam-basic)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">
