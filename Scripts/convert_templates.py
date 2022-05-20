@@ -15,7 +15,7 @@ OLD_SOURCE_PATH = Path(
     r"C:\Users\tc\Programming\Python\Courses\Own\python-programmierer\Templates"
 )
 NEW_SOURCE_PATH = Path(
-    r"C:\Users\tc\Programming\Python\Courses\Own\python-courses\Blueprints"
+    r"C:\Users\tc\Programming\Python\Courses\Own\PythonCourses\Private"
 )
 
 # %%
